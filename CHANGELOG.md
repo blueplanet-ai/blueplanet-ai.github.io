@@ -4,7 +4,8 @@
 
 ### October 2026 edition — first public release (data as of 1 October 2026)
 - Published as an independent public report: seven mega trends for 2026–2040 across society, economy, technology, climate and geopolitics, scored on impact, certainty, speed and breadth.
-- Includes near/mid/far horizon outlooks, a 25-link interaction map, a dated milestone roadmap, four scenarios, wildcards, methods and caveats, and 133 references.
+- Includes near/mid/far horizon outlooks, a 25-link interaction map, a dated milestone roadmap, four scenarios, wildcards, methods and caveats, and 130 references.
+- AI-regulation details (EU AI Act timing, US executive order, China labelling rules) omitted because no official source was retrieved; the public page carries a short Known limitations list instead of the working research flags.
 - Seventeen headline figures re-checked against official sources on 1 and 11 October 2026. McKinsey adoption figures re-attributed to its *State of AI* survey (25 Aug 2026); Swiss Re wording changed to its stated 49% insured share; IEA export-control exposure stated as per year and outside China.
 - Added author, research-assistance credit (Claude, Anthropic), licence (CC BY-NC 4.0), disclaimer and next scheduled refresh (October 2027). Sector implications are written for the industry as a whole, not for any company.
 
