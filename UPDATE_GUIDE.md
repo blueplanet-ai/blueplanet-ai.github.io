@@ -72,3 +72,29 @@ All data lives in `incar-ai-benchmark/index.html`, in the `<script>` block near 
 - **Honda:** "free, no dealer visit" comes from Kelley Blue Book; Honda's release doesn't state terms.
 - **Huawei:** the product page cited for MoLA 2.0 is undated.
 - **Chinese-market rows:** they rest mainly on trade press. Xiaomi has no official English source.
+
+## Mega Trends Outlook 2040 — refresh rules
+
+**Schedule.** Full refresh at least once a year, in October, after the IMF October World Economic Outlook is published. The page shows "Next scheduled refresh: October 2027"; update it on every run. Between editions, open a pull request only for a material shock (for example a major war, pandemic or financial crisis) that changes a trend score or the 2026 scenario marker.
+
+**Sources.** Official statistics and international institutions first (UN, IMF, World Bank, OECD, IEA, WMO, SIPRI, WTO), then peer-reviewed research, then recognized foresight and consulting reports, then reputable press. Prefer the newest edition and record its date.
+
+**What to re-check each edition.**
+- Every KPI tile, chart value and dated milestone against its source; replace with newer editions (UN WPP, IMF WEO and Fiscal Monitor, IEA WEO / EV / Critical Minerals outlooks, WEF Global Risks, SIPRI, UNEP Emissions Gap, Global Carbon Budget).
+- Re-score the seven trends (1–5 on impact, certainty, speed, breadth). Scores are the author's judgement: propose changes in the pull request with the evidence; do not change them silently.
+- Re-assess the 2026 scenario marker against the signposts listed on the page and propose a new position for the author to decide.
+- Re-run the headline-figure verification table and update its date.
+- Keep sector implications neutral: observations for the industry as a whole, never advice to a specific company.
+
+**Data map.** All data lives in `mega-trends-2040/index.html`, in the `<script>` block near the end of the file.
+
+| Object | Contents |
+|---|---|
+| `T` | The seven trends: id, short name, full name, colour token and scores `s` = [impact, certainty, speed, breadth]. |
+| `D` | One dossier per trend: `thesis`, `kpis` (value, label, source label, URL, re-checked flag, derived flag), `charts` (title, tag, source note), `h` (near/mid/far outlook), `unc`, `imp`, `mob` (sector note or null). |
+| Chart calls | Chart values sit in the calls after `/* --- T1 charts --- */` and onward (one block per trend). |
+| `E` | The 25 directed interaction links: from, to, sign, note, basis, loop id. |
+| `M` | Dated milestones for the roadmap: year, trend number, text. |
+| `WC` | Wildcard cards. |
+| `V` | Headline-figure verification table. |
+| HTML | Executive summary, scenarios, implications, known limitations, about, change log, research flags and the reference list are static HTML in the page body. |
