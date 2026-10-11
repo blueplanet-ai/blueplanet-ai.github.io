@@ -85,6 +85,7 @@ All data lives in `incar-ai-benchmark/index.html`, in the `<script>` block near 
 - Re-assess the 2026 scenario marker against the signposts listed on the page and propose a new position for the author to decide.
 - Re-run the headline-figure verification table and update its date.
 - Keep sector implications neutral: observations for the industry as a whole, never advice to a specific company.
+- Claims about laws, regulations, treaties and government policy must cite the official text (legislation, official journal, government or intergovernmental release). If no official source can be retrieved, leave the claim out and say so in the pull request.
 
 **Data map.** All data lives in `mega-trends-2040/index.html`, in the `<script>` block near the end of the file.
 
