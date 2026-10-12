@@ -1,21 +1,21 @@
 # Update guide
 
-These are the rules every scheduled research run follows when updating a report on this site. The author reviews every change before publication.
+These are the rules every scheduled research run follows when checking a report on this site. A scheduled run researches and reports its findings (change table, proposed edits, flags); it does not edit the repository. The author then has the findings applied as a pull request, and reviews and merges it before publication.
 
 ## Process
 
 1. Re-check every entry in the report against its sources, then search for newer official announcements since the report's "data as of" date.
-2. Edit the report's `index.html`:
+2. Propose (in the report) or, when applying a report, edit the report's `index.html`:
    - update data, scores and text;
    - update the "data as of" date in the byline and stamp;
    - add a dated entry to the on-page change log.
 3. Add the same entry to `CHANGELOG.md`.
-4. Open a pull request titled `<Report> refresh — <YYYY-MM-DD>`. The description must include:
+4. Report the findings; when they are applied, open a pull request titled `<Report> refresh — <YYYY-MM-DD>`. The report and the pull request description must include:
    - a change report table: entry, what changed, old → new, source;
    - new entries and removals;
    - corrections;
    - open flags and doubts for the author to decide.
-5. Never merge or push to `main` directly. The author merges after review, and the site then updates automatically.
+5. Scheduled runs never edit the repository, merge or push to `main`. Applied changes always go through a pull request. The author merges after review, and the site then updates automatically.
 
 ## Working rules
 
@@ -43,7 +43,7 @@ All data lives in `incar-ai-benchmark/index.html`, in the `<script>` block near 
   - mid-May (after Auto Shanghai in odd years, and Google I/O)
   - mid-July (after summer software updates)
   - mid-October (after IAA in odd years, and Q3 earnings)
-- **Monthly scan of the watch list** in between; open a pull request only if something material changed.
+- **Monthly scan of the watch list** in between; report (and have a pull request opened) only if something material changed.
 - **First scheduled run:** mid-January 2027. The page shows "Next scheduled refresh: mid-January 2027"; update it on every run.
 
 ## Watch list (as of 11 October 2026)
@@ -75,7 +75,7 @@ All data lives in `incar-ai-benchmark/index.html`, in the `<script>` block near 
 
 ## Mega Trends Outlook 2040 — refresh rules
 
-**Schedule.** Full refresh at least once a year, in October, after the IMF October World Economic Outlook is published. The page shows "Next scheduled refresh: October 2027"; update it on every run. Between editions, open a pull request only for a material shock (for example a major war, pandemic or financial crisis) that changes a trend score or the 2026 scenario marker.
+**Schedule.** Full refresh at least once a year, in October, after the IMF October World Economic Outlook is published. The page shows "Next scheduled refresh: October 2027"; update it on every run. Between editions, report and open a pull request only for a material shock (for example a major war, pandemic or financial crisis) that changes a trend score or the 2026 scenario marker.
 
 **Sources.** Official statistics and international institutions first (UN, IMF, World Bank, OECD, IEA, WMO, SIPRI, WTO), then peer-reviewed research, then recognized foresight and consulting reports, then reputable press. Prefer the newest edition and record its date.
 

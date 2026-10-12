@@ -8,12 +8,14 @@
 - AI-regulation details (EU AI Act timing, US executive order, China labelling rules) omitted because no official source was retrieved; the public page carries a short Known limitations list instead of the working research flags.
 - Seventeen headline figures re-checked against official sources on 1 and 11 October 2026. McKinsey adoption figures re-attributed to its *State of AI* survey (25 Aug 2026); Swiss Re wording changed to its stated 49% insured share; IEA export-control exposure stated as per year and outside China.
 - Added author, research-assistance credit (Claude, Anthropic), licence (CC BY-NC 4.0), disclaimer and next scheduled refresh (October 2027). Sector implications are written for the industry as a whole, not for any company.
+- Research-assistance credit names several AI models (Claude, Gemini, ChatGPT) on this page, the other reports and the home page.
 
 ## In-Car AI Assistant Benchmark
 
 ### October 2026 edition — first public release (data as of 11 October 2026)
 - Published as an independent public report. Added author, research-assistance credit (Claude, Anthropic), licence (CC BY-NC 4.0), disclaimer and next scheduled refresh (mid-January 2027).
 - Removed company-specific recommendations; findings are written for the industry as a whole.
+- Research-assistance credit updated to name several AI models (Claude, Gemini, ChatGPT).
 - The summary chart now ranks all 21 entries, and the routes table covers four architectures.
 - Refreshed to 11 October 2026:
   - BMW Launching → Shipping. The assistant has been live in iX3s in Germany since spring 2026, and US deliveries began in September.
