@@ -1,5 +1,12 @@
 # Change log
 
+## Agentic AI and the Consumer: 2027 Outlook
+
+### October 2026 edition — first release (data as of 11 October 2026)
+- New report on how agentic AI changes what consumers trust, delegate, buy and feel through 2027. General-consumer lens, with automotive and mobility as a dedicated section and a US, EU and China comparison.
+- Four enterprise-side figures carried over from earlier working research were not confirmed against primary sources and are not used; this is stated on the page.
+- Open flags are listed on the page for the author to decide, including the next refresh date.
+
 ## Mobility Product Outlook 2026–2036
 
 ### October 2026 edition — first public release (data as of 11 October 2026)
