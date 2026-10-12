@@ -19,7 +19,7 @@ Updates arrive as pull requests. A scheduled research run re-checks each report 
 - a dated entry in `CHANGELOG.md`, and
 - a change report in the pull request description, covering rescores, new entries, corrections and open flags.
 
-Nothing goes live until the author reviews and merges the pull request. The rules each run follows are in [`UPDATE_GUIDE.md`](UPDATE_GUIDE.md).
+Nothing goes live until the author reviews and merges the pull request.
 
 ## Licence
 
