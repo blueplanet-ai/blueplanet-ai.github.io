@@ -1,5 +1,15 @@
 # Change log
 
+## Mobility Product Outlook 2026–2036
+
+### October 2026 edition — first public release (data as of 11 October 2026)
+- Published as an independent public report on how consumer electronics and customer expectations are redefining the car, for a general audience.
+- Part 1: seven lessons from consumer electronics, customer expectations in six markets (US, Germany, China, Japan, South Korea, India; Deloitte 2026), and the wider context linked to the Mega Trends Outlook 2040.
+- Part 2: a twelve-dimension product-definition framework, eight real vehicles and platforms that preview it, three clearly labelled illustrative concepts, and a robotaxi and shared-cabin section.
+- Part 3: the ranking of fifteen technologies (data as of 3 October 2026), eight deep dives, a US/Europe/China comparison, charts and a schematic map.
+- No company-specific recommendations; observations are written for the industry as a whole. Research flags list source conflicts and unverified items.
+- Added author, research-assistance credit (several AI models, mainly Claude), licence (CC BY-NC 4.0), disclaimer and next scheduled refresh (October 2027).
+
 ## Mega Trends Outlook 2040
 
 ### October 2026 edition — first public release (data as of 1 October 2026)

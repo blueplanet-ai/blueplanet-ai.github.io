@@ -6,6 +6,7 @@ Source for **https://blueplanet-ai.github.io/**: benchmarks, comparisons and res
 
 | Report | Edition | Path |
 |---|---|---|
+| [Mobility Product Outlook 2026–2036](https://blueplanet-ai.github.io/mobility-product-outlook/) | October 2026 (data as of 11 Oct 2026; next refresh Oct 2027) | `mobility-product-outlook/` |
 | [Mega Trends Outlook 2040](https://blueplanet-ai.github.io/mega-trends-2040/) | October 2026 (data as of 1 Oct 2026; next refresh Oct 2027) | `mega-trends-2040/` |
 | [In-Car AI Assistant Benchmark](https://blueplanet-ai.github.io/incar-ai-benchmark/) | October 2026 (data as of 11 Oct 2026; next refresh mid-Jan 2027) | `incar-ai-benchmark/` |
 
