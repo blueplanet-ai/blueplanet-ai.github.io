@@ -5,10 +5,11 @@
 ### October 2026 — restructured around "Time and attention on the move"
 - New thesis headline: mobility, travel and what people do with their time on the way are treated as one connected space.
 - Eyebrow changed to "Independent research · Technology, Mobility, Travel".
-- Six lenses for finding topics: time, attention, state of mind, social context, space and transitions.
+- A "so what" line under the thesis for readers who want the point first.
 - New map (layers × domains) as primary navigation: Forces, Shifts, Signals and Opportunities against Shared, Mobility, Travel and Edutainment. Existing reports placed; empty cells marked "Coming".
 - Report cards tagged by layer and domain, with a domain filter.
-- Opportunities section shows the brief template; no briefs published yet.
+- Opportunities section shows the brief template, including a potential-versus-complexity score; no briefs published yet.
+- "How topics are found": six lenses (time, attention, state of mind, social context, space, transitions), placed after the reports and opportunities.
 - Short author bio added to About.
 
 ## Agentic AI and the Consumer: 2027 Outlook

@@ -63,6 +63,7 @@ a{color:var(--signal-deep);text-decoration-thickness:1px;text-underline-offset:2
 .mast h1{font-size:clamp(32px,5.6vw,56px);font-weight:600;letter-spacing:-.02em;max-width:20ch;}
 .mast h1 em{font-style:normal;color:var(--signal-deep);}
 .mast .sub{font-size:18px;color:var(--ink-2);max-width:62ch;}
+.mast .sowhat{font-family:var(--font-ui);font-size:15.5px;font-weight:500;color:var(--ink);border-left:2px solid var(--signal);padding-left:12px;max-width:62ch;line-height:1.45;}
 .byline{font-family:var(--font-ui);font-size:14px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:6px 18px;}
 .byline b{color:var(--ink);font-weight:600;}
 
@@ -157,22 +158,11 @@ a.pub:hover{border-color:var(--signal);}
   <div class="telltale"><span class="dot"></span><span class="eyebrow">Independent research · Technology, Mobility, Travel</span></div>
   <h1>Time and attention <em>on the move</em></h1>
   <p class="sub">Every day, people move: to work, to visit, to travel. Along the way they read, watch, learn, work or rest. Mobility, travel and what people do with that time are one connected space. This site traces the forces shaping it and the opportunities it opens.</p>
+  <p class="sowhat">For people building products in tech, mobility and travel: where the opportunities are, and the evidence behind them.</p>
   <p class="byline"><span>By <b>Chuhee Lee</b></span><a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">LinkedIn</a></p>
 </div></header>
 
 <main class="inner">
-
-  <section id="lenses">
-    <div class="sec-head"><h2>The person on the move</h2><span class="eyebrow">Six lenses for finding topics</span></div>
-    <div class="lenses">
-      <div class="lens person"><span class="k">The person</span><h3>Time</h3><p>How long, and how often. Any length of time gets spent on something.</p></div>
-      <div class="lens person"><span class="k">The person</span><h3>Attention</h3><p>What is free to give. A driver has little; a rider has a lot.</p></div>
-      <div class="lens person"><span class="k">The person</span><h3>State of mind</h3><p>Stress on the commute, rest on the way home, anticipation before a trip.</p></div>
-      <div class="lens"><span class="k">Surroundings</span><h3>Social context</h3><p>Alone, with family, or sharing a ride with strangers.</p></div>
-      <div class="lens"><span class="k">Surroundings</span><h3>Space</h3><p>The cabin, the seat, the window, the connection.</p></div>
-      <div class="lens"><span class="k">Surroundings</span><h3>Transitions</h3><p>Waits, transfers and the last mile between legs of a journey.</p></div>
-    </div>
-  </section>
 
   <section id="map">
     <div class="sec-head"><h2>The map</h2><span class="eyebrow">Layers × domains</span></div>
@@ -267,7 +257,21 @@ a.pub:hover{border-color:var(--signal);}
         <div class="field"><b>Business model</b><span>Who pays, how, and how often.</span></div>
         <div class="field"><b>Entry wedge</b><span>The first customer and the smallest product that proves it.</span></div>
         <div class="field"><b>Risks and open questions</b><span>What would make it fail, and what is still unknown.</span></div>
+        <div class="field"><b>Potential vs complexity</b><span>Market potential and execution complexity, each scored against defined criteria.</span></div>
       </div>
+    </div>
+    <p class="map-note">Once at least three briefs are published, they will be plotted on a potential-versus-complexity chart.</p>
+  </section>
+
+  <section id="lenses">
+    <div class="sec-head"><h2>How topics are found</h2><span class="eyebrow">Six lenses on the person on the move</span></div>
+    <div class="lenses">
+      <div class="lens person"><span class="k">The person</span><h3>Time</h3><p>How long, and how often. Any length of time gets spent on something.</p></div>
+      <div class="lens person"><span class="k">The person</span><h3>Attention</h3><p>What is free to give. A driver has little; a rider has a lot.</p></div>
+      <div class="lens person"><span class="k">The person</span><h3>State of mind</h3><p>Stress on the commute, rest on the way home, anticipation before a trip.</p></div>
+      <div class="lens"><span class="k">Surroundings</span><h3>Social context</h3><p>Alone, with family, or sharing a ride with strangers.</p></div>
+      <div class="lens"><span class="k">Surroundings</span><h3>Space</h3><p>The cabin, the seat, the window, the connection.</p></div>
+      <div class="lens"><span class="k">Surroundings</span><h3>Transitions</h3><p>Waits, transfers and the last mile between legs of a journey.</p></div>
     </div>
   </section>
 
