@@ -1,5 +1,13 @@
 # Change log
 
+## Site-wide
+
+### 13 October 2026 — print styles, feed, sitemap and social preview
+- Print styles on the home page and all four reports: the page prints as a clean light copy whatever the reader's colour theme, without navigation or filter controls, with wide tables fitted to the page and collapsed sections opened. Source URLs are printed after the links in each reference list. Use the browser's Print → Save as PDF.
+- Added an RSS feed (`feed.xml`), `sitemap.xml` and `robots.txt`, linked from the head of every page, with an RSS link in the home page About text.
+- Added a favicon (`favicon.svg`, `apple-touch-icon.png`) and a 1200×630 social preview image (`og-image.png`) with Open Graph and Twitter large-image tags on every page.
+- Feed items use each report's data-as-of date as the item date. Add an item to `feed.xml` and a URL to `sitemap.xml` whenever a report is added or refreshed.
+
 ## Home page
 
 ### October 2026 — restructured around "Time and attention on the move"
@@ -30,6 +38,9 @@
 - Added author, research-assistance credit (several AI models, mainly Claude), licence (CC BY-NC 4.0), disclaimer and next scheduled refresh (October 2027).
 
 ## Mega Trends Outlook 2040
+
+### 13 October 2026 — method clarification
+- Section 02 now defines what each of the four scoring criteria (impact, certainty, speed, breadth) measures. No scores, figures or conclusions changed.
 
 ### October 2026 edition — first public release (data as of 1 October 2026)
 - Published as an independent public report: seven mega trends for 2026–2040 across society, economy, technology, climate and geopolitics, scored on impact, certainty, speed and breadth.
