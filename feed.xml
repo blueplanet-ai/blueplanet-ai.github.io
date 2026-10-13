@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Chuhee Lee — Independent Research</title>
+  <link>https://blueplanet-ai.github.io/</link>
+  <description>Benchmarks, comparisons and research reports on time and attention on the move: technology, mobility and travel. New editions and refreshes.</description>
+  <language>en</language>
+  <atom:link href="https://blueplanet-ai.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+  <lastBuildDate>Tue, 13 Oct 2026 07:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Agentic AI and the Consumer: 2027 Outlook</title>
+    <link>https://blueplanet-ai.github.io/agentic-consumer-2027/</link>
+    <guid isPermaLink="true">https://blueplanet-ai.github.io/agentic-consumer-2027/</guid>
+    <pubDate>Sun, 11 Oct 2026 07:00:00 GMT</pubDate>
+    <description>Research report, October 2026 edition (data as of 11 Oct 2026). How agentic AI changes what consumers trust, delegate, buy and feel across retail, travel, finance and mobility, with a US, EU and China comparison.</description>
+  </item>
+  <item>
+    <title>Mobility Product Outlook 2026–2036</title>
+    <link>https://blueplanet-ai.github.io/mobility-product-outlook/</link>
+    <guid isPermaLink="true">https://blueplanet-ai.github.io/mobility-product-outlook/</guid>
+    <pubDate>Sun, 11 Oct 2026 07:00:00 GMT</pubDate>
+    <description>Research report, October 2026 edition (data as of 11 Oct 2026). How consumer electronics and rising customer expectations are redefining the car: a twelve-dimension product-definition framework, robotaxi cabins and a ranking of fifteen technologies.</description>
+  </item>
+  <item>
+    <title>In-Car AI Assistant Benchmark</title>
+    <link>https://blueplanet-ai.github.io/incar-ai-benchmark/</link>
+    <guid isPermaLink="true">https://blueplanet-ai.github.io/incar-ai-benchmark/</guid>
+    <pubDate>Sun, 11 Oct 2026 07:00:00 GMT</pubDate>
+    <description>Benchmark, October 2026 edition (data as of 11 Oct 2026). Twenty-one in-car assistants scored on seven capability dimensions and on who controls the stack, with use-case evidence and a dated watch list. Next refresh mid-January 2027.</description>
+  </item>
+  <item>
+    <title>Mega Trends Outlook 2040</title>
+    <link>https://blueplanet-ai.github.io/mega-trends-2040/</link>
+    <guid isPermaLink="true">https://blueplanet-ai.github.io/mega-trends-2040/</guid>
+    <pubDate>Thu, 01 Oct 2026 07:00:00 GMT</pubDate>
+    <description>Research report, October 2026 edition (data as of 1 Oct 2026). Seven forces reshaping 2026–2040, scored on impact, certainty, speed and breadth, with interaction map, scenarios and wildcards.</description>
+  </item>
+</channel>
+</rss>

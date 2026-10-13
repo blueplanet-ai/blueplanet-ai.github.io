@@ -13,6 +13,8 @@ Source for **https://blueplanet-ai.github.io/**: benchmarks, comparisons and res
 
 Each report is a single self-contained `index.html` in its own folder. To add a report, create a new folder, add a card on the home page (`index.html`) tagged with its layer and domain, and link it from the matching cell in the map.
 
+Also add the report to `feed.xml` (new `<item>`, and update `<lastBuildDate>`) and to `sitemap.xml`, and update `<lastmod>` there when a report is refreshed. Site-wide files at the repository root: `favicon.svg`, `apple-touch-icon.png`, `og-image.png` (1200×630 social preview), `feed.xml`, `sitemap.xml`, `robots.txt`.
+
 ## How reports are updated
 
 Updates arrive as pull requests. A scheduled research run re-checks each report against its sources and reports what changed. The author then has the findings applied as a pull request containing:
