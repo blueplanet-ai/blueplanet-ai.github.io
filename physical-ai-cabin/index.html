@@ -1,0 +1,1099 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Physical AI and the Rider’s Cabin</title>
+<meta name="description" content="Independent report on physical AI: what it means, the main players across the stack, the most-used products and services, and how it applies to the car, with the cabin and rider experience as the main lens. October 2026 edition by Chuhee Lee; data as of 13 October 2026.">
+<meta name="author" content="Chuhee Lee">
+<link rel="canonical" href="https://blueplanet-ai.github.io/physical-ai-cabin/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Chuhee Lee — Independent Research" href="/feed.xml">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Physical AI and the Rider’s Cabin">
+<meta property="og:description" content="Independent report on physical AI: what it means, the main players across the stack, the most-used products and services, and how it applies to the car, with the cabin and rider experience as the main lens. October 2026 edition by Chuhee Lee; data as of 13 October 2026.">
+<meta property="og:url" content="https://blueplanet-ai.github.io/physical-ai-cabin/">
+<meta property="og:site_name" content="Chuhee Lee — Independent Research">
+<meta property="og:image" content="https://blueplanet-ai.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Time and attention on the move: independent research by Chuhee Lee on technology, mobility and travel.">
+<meta name="twitter:image" content="https://blueplanet-ai.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#F1F4F4;
+  --surface:#FBFCFC;
+  --surface-2:#E9EEEF;
+  --line:#D3DBDC;
+  --line-strong:#B2BEC0;
+  --ink:#0F1719;
+  --ink-2:#3F4C50;
+  --ink-3:#6B787C;
+  --signal:#0892A5;
+  --signal-deep:#066A79;
+
+  --cat-1:#0892A5;
+  --cat-2:#C2622D;
+  --cat-3:#4B5BA8;
+  --cat-4:#8A8C36;
+
+  --s1:#E4EDEF; --s1-ink:#3F4C50;
+  --s2:#BEDCE2; --s2-ink:#1B3438;
+  --s3:#8AC4CF; --s3-ink:#12292D;
+  --s4:#3E9FB0; --s4-ink:#FBFCFC;
+  --s5:#0A6F80; --s5-ink:#FBFCFC;
+
+  --warn:#B0561E;
+  --good:#2F7A52;
+
+  --font-ui:"Saira","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Newsreader",Georgia,"Times New Roman",serif;
+  --font-mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1213;
+    --surface:#151D1F;
+    --surface-2:#1D2729;
+    --line:#283436;
+    --line-strong:#3C4B4E;
+    --ink:#E7EDEE;
+    --ink-2:#AFBDBF;
+    --ink-3:#7F8D90;
+    --signal:#2BB3C6;
+    --signal-deep:#5FCCDB;
+
+    --cat-1:#16A2B6;
+    --cat-2:#CB7439;
+    --cat-3:#7687D0;
+    --cat-4:#94993F;
+
+    --s1:#1B2527; --s1-ink:#8E9B9E;
+    --s2:#1F4249; --s2-ink:#BFD3D7;
+    --s3:#25616D; --s3-ink:#DCEAED;
+    --s4:#2B8C9D; --s4-ink:#F2F8F9;
+    --s5:#4FB8C8; --s5-ink:#0B1415;
+
+    --warn:#DB8A4F;
+    --good:#5FAE81;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1213;
+  --surface:#151D1F;
+  --surface-2:#1D2729;
+  --line:#283436;
+  --line-strong:#3C4B4E;
+  --ink:#E7EDEE;
+  --ink-2:#AFBDBF;
+  --ink-3:#7F8D90;
+  --signal:#2BB3C6;
+  --signal-deep:#5FCCDB;
+  --cat-1:#16A2B6;
+  --cat-2:#CB7439;
+  --cat-3:#7687D0;
+  --cat-4:#94993F;
+  --s1:#1B2527; --s1-ink:#8E9B9E;
+  --s2:#1F4249; --s2-ink:#BFD3D7;
+  --s3:#25616D; --s3-ink:#DCEAED;
+  --s4:#2B8C9D; --s4-ink:#F2F8F9;
+  --s5:#4FB8C8; --s5-ink:#0B1415;
+  --warn:#DB8A4F;
+  --good:#5FAE81;
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{
+  max-width:1180px;
+  margin:0 auto;
+  padding-inline:20px;
+  padding-block:0 72px;
+}
+h1,h2,h3,h4{font-family:var(--font-ui);text-wrap:balance;margin:0;line-height:1.12;}
+p{margin:0;}
+a{color:var(--signal-deep);text-decoration-thickness:1px;text-underline-offset:2px;}
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  font-weight:500;
+}
+
+/* ---------- masthead ---------- */
+.mast{
+  border-bottom:1px solid var(--line);
+  background:var(--surface);
+}
+.mast-inner{
+  max-width:1180px;margin:0 auto;padding-inline:20px;
+  padding-block:34px 28px;
+  display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end;justify-content:space-between;
+}
+.telltale{
+  display:flex;align-items:center;gap:9px;margin-bottom:14px;
+}
+.telltale span.dot{width:7px;height:7px;border-radius:50%;background:var(--signal);flex:none;}
+.mast h1{
+  font-size:clamp(30px,5.2vw,50px);
+  font-weight:600;
+  letter-spacing:-.018em;
+  max-width:16ch;
+}
+.mast .sub{
+  font-size:17px;color:var(--ink-2);max-width:54ch;margin-top:14px;
+}
+.stamp{
+  font-family:var(--font-mono);font-size:11.5px;line-height:2;color:var(--ink-3);
+  border-left:2px solid var(--signal);padding-left:14px;flex:none;
+}
+.stamp b{color:var(--ink-2);font-weight:500;}
+
+/* ---------- sections ---------- */
+section{padding-top:56px;}
+.sec-head{
+  display:flex;align-items:baseline;gap:16px;
+  border-bottom:1px solid var(--line-strong);
+  padding-bottom:9px;margin-bottom:26px;
+}
+.sec-head h2{font-size:22px;font-weight:600;letter-spacing:-.01em;}
+.sec-head .eyebrow{margin-left:auto;}
+
+/* ---------- findings ---------- */
+.findings{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
+.finding{
+  background:var(--surface);
+  display:grid;grid-template-columns:52px 1fr;gap:0 22px;
+  padding:22px 24px;
+}
+.finding .num{
+  font-family:var(--font-mono);font-size:13px;font-weight:600;
+  color:var(--signal);padding-top:3px;
+}
+.finding h3{font-size:18px;font-weight:600;letter-spacing:-.005em;margin-bottom:8px;}
+.finding p{color:var(--ink-2);font-size:15.5px;max-width:68ch;}
+.finding p + p{margin-top:9px;}
+.finding .sowhat{
+  font-family:var(--font-ui);font-size:13.5px;font-weight:500;
+  color:var(--ink);margin-top:12px;padding-top:11px;
+  border-top:1px dashed var(--line-strong);
+}
+.finding .sowhat i{
+  font-family:var(--font-mono);font-style:normal;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--signal);
+  display:inline-block;margin-right:13px;
+}
+
+/* ---------- map ---------- */
+.mapbox{
+  background:var(--surface);border:1px solid var(--line);padding:22px 20px 16px;
+}
+.map-legend{
+  display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;
+  margin-bottom:16px;font-family:var(--font-ui);font-size:13px;color:var(--ink-2);
+}
+.map-legend .k{display:flex;align-items:center;gap:7px;}
+.map-legend .sw{width:11px;height:11px;border-radius:50%;flex:none;}
+.map-scroll{overflow-x:auto;}
+.map-scroll svg{display:block;min-width:640px;max-width:100%;height:auto;}
+.map-note{font-size:14px;color:var(--ink-3);margin-top:12px;max-width:74ch;}
+
+/* ---------- controls ---------- */
+.controls{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px;
+}
+.controls .lbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-right:2px;}
+button.chip{
+  font-family:var(--font-ui);font-size:13px;font-weight:500;
+  padding:5px 13px;border:1px solid var(--line-strong);background:transparent;
+  color:var(--ink-2);cursor:pointer;border-radius:2px;
+}
+button.chip:hover{border-color:var(--signal);color:var(--ink);}
+button.chip[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink);}
+button.chip:focus-visible,th.sortable:focus-visible,tr.row:focus-visible{outline:2px solid var(--signal);outline-offset:2px;}
+
+/* ---------- matrix ---------- */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface);}
+table{border-collapse:separate;border-spacing:0;width:100%;min-width:940px;font-family:var(--font-ui);}
+thead th{
+  position:sticky;top:0;z-index:3;background:var(--surface-2);
+  font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-2);text-align:center;padding:11px 6px;
+  border-bottom:1px solid var(--line-strong);vertical-align:bottom;
+}
+thead th.name{text-align:left;left:0;z-index:4;padding-left:16px;min-width:216px;}
+th.sortable{cursor:pointer;user-select:none;}
+th.sortable:hover{color:var(--signal-deep);}
+th .arrow{display:block;font-family:var(--font-mono);font-size:9px;color:var(--signal);height:10px;line-height:10px;}
+tbody td{
+  border-bottom:1px solid var(--line);padding:0;text-align:center;
+  font-variant-numeric:tabular-nums;
+}
+tbody td.name{
+  text-align:left;padding:11px 12px 11px 16px;position:sticky;left:0;z-index:2;
+  background:var(--surface);border-right:1px solid var(--line);
+}
+tr.row{cursor:pointer;}
+tr.row:hover td{background:var(--surface-2);}
+tr.row:hover td.name{background:var(--surface-2);}
+.nm{display:flex;align-items:center;gap:9px;}
+.nm .bar{width:3px;align-self:stretch;min-height:30px;flex:none;border-radius:1px;}
+.nm .t{min-width:0;}
+.nm .brand{font-size:14.5px;font-weight:600;letter-spacing:-.005em;display:block;line-height:1.25;}
+.nm .prod{font-family:var(--font-mono);font-size:10.5px;color:var(--ink-3);display:block;line-height:1.5;margin-top:1px;}
+.cell{
+  display:block;margin:3px;padding:9px 0;
+  font-family:var(--font-mono);font-size:13px;font-weight:600;
+}
+.v1{background:var(--s1);color:var(--s1-ink);}
+.v2{background:var(--s2);color:var(--s2-ink);}
+.v3{background:var(--s3);color:var(--s3-ink);}
+.v4{background:var(--s4);color:var(--s4-ink);}
+.v5{background:var(--s5);color:var(--s5-ink);}
+td.idx .cell{background:transparent;color:var(--ink);font-size:14px;border:1px solid var(--line-strong);}
+td.status{padding:0 10px;}
+.pill{
+  display:inline-block;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;
+  text-transform:uppercase;padding:3px 8px;border:1px solid currentColor;white-space:nowrap;
+}
+.pill.ship{color:var(--good);}
+.pill.soon{color:var(--warn);}
+.pill.plan{color:var(--ink-3);}
+
+tr.detail td{padding:0;background:var(--surface-2);border-bottom:1px solid var(--line-strong);}
+.det{padding:20px 24px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px 30px;}
+.det .col h4{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:500;margin-bottom:7px;}
+.det .col p{font-size:14.5px;color:var(--ink-2);line-height:1.55;}
+.det .col.full{grid-column:1/-1;}
+.det .col.full p{color:var(--ink);font-family:var(--font-ui);font-size:14.5px;}
+
+.scale{
+  display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;
+  margin-top:14px;font-family:var(--font-ui);font-size:12.5px;color:var(--ink-3);
+}
+.scale .steps{display:flex;gap:2px;}
+.scale .steps span{
+  width:30px;padding:4px 0;text-align:center;font-family:var(--font-mono);font-size:11px;font-weight:600;
+}
+.dims{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:9px 26px;}
+.dims div{font-size:14px;color:var(--ink-2);}
+.dims b{font-family:var(--font-ui);font-weight:600;color:var(--ink);font-size:13.5px;}
+
+/* ---------- archetypes ---------- */
+.arch{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
+.arch > div{background:var(--surface);padding:20px 20px 22px;}
+.arch h3{font-size:16.5px;font-weight:600;margin-bottom:3px;}
+.arch .who{font-family:var(--font-mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.04em;margin-bottom:11px;}
+.arch p{font-size:14.5px;color:var(--ink-2);}
+.arch .ledger{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-family:var(--font-ui);font-size:13px;}
+.arch .ledger div{display:flex;gap:8px;margin-top:5px;}
+.arch .ledger em{font-style:normal;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;flex:none;width:34px;padding-top:2px;}
+.arch .ledger .up em{color:var(--good);} .arch .ledger .dn em{color:var(--warn);}
+.arch .topbar{height:3px;margin:-20px -20px 17px;}
+
+/* ---------- watch ---------- */
+.watch{border-top:1px solid var(--line-strong);}
+.watch .item{
+  display:grid;grid-template-columns:132px 1fr;gap:0 22px;
+  padding:17px 0;border-bottom:1px solid var(--line);align-items:start;
+}
+.watch .when{font-family:var(--font-mono);font-size:12px;color:var(--signal-deep);font-weight:500;padding-top:2px;}
+.watch h3{font-family:var(--font-ui);font-size:15.5px;font-weight:600;margin-bottom:4px;}
+.watch p{font-size:14.5px;color:var(--ink-2);max-width:76ch;}
+
+/* ---------- sources ---------- */
+.srcs{columns:2;column-gap:34px;font-size:14px;}
+.srcs li{break-inside:avoid;margin-bottom:8px;color:var(--ink-3);list-style:none;}
+.srcs{padding:0;margin:0;}
+.caveat{
+  margin-top:26px;padding:16px 18px;border:1px solid var(--line-strong);
+  background:var(--surface);font-size:14.5px;color:var(--ink-2);max-width:82ch;
+}
+.caveat b{font-family:var(--font-ui);color:var(--ink);font-weight:600;}
+
+.tip{
+  position:fixed;pointer-events:none;z-index:40;opacity:0;transition:opacity .12s;
+  background:var(--ink);color:var(--ground);font-family:var(--font-ui);font-size:12.5px;
+  padding:7px 10px;border-radius:2px;line-height:1.4;max-width:220px;
+}
+.tip b{display:block;font-weight:600;font-size:13px;margin-bottom:2px;}
+
+/* ---------- summary ---------- */
+.lead{font-size:18.5px;line-height:1.55;color:var(--ink);max-width:66ch;margin-bottom:26px;}
+.sum-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:22px;align-items:start;}
+.sum-points{display:grid;gap:18px;}
+.sum-points .pt{display:grid;grid-template-columns:24px 1fr;gap:0 12px;}
+.sum-points .tick{width:10px;height:10px;margin-top:6px;border:2px solid var(--signal);border-radius:50%;}
+.sum-points h3{font-size:16.5px;font-weight:600;margin-bottom:5px;}
+.sum-points p{font-size:15px;color:var(--ink-2);max-width:62ch;}
+.vwchart{margin:0;background:var(--surface);border:1px solid var(--line);padding:18px 18px 14px;}
+.vwchart figcaption h3{font-size:15px;font-weight:600;}
+.vwchart figcaption p{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-3);margin-top:3px;text-transform:uppercase;}
+.vb{margin-top:16px;display:grid;gap:9px;}
+.vb-row{display:grid;grid-template-columns:132px 1fr;gap:12px;align-items:center;}
+.vb-lab b{display:block;font-family:var(--font-ui);font-size:13px;font-weight:600;line-height:1.2;}
+.vb-lab span{display:block;font-family:var(--font-mono);font-size:9.5px;color:var(--ink-3);letter-spacing:.03em;line-height:1.4;}
+.vb-track{position:relative;height:22px;}
+.vb-bar{position:absolute;left:0;top:4px;height:14px;border-radius:0 4px 4px 0;}
+.vb-val{position:absolute;top:2px;font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;}
+.vb-med{position:absolute;top:-5px;bottom:-5px;width:0;border-left:1.5px dashed var(--ink-3);}
+.vb-hit{position:absolute;inset:0;cursor:default;}
+.vb-axis{position:relative;height:18px;border-top:1px solid var(--line-strong);}
+.vb-axis span{position:absolute;top:4px;transform:translateX(-50%);font-family:var(--font-mono);font-size:10px;color:var(--ink-3);}
+.vwchart .fignote{font-size:13px;color:var(--ink-3);margin-top:12px;line-height:1.45;}
+.sub-h{font-size:16.5px;font-weight:600;margin:34px 0 12px;}
+table.opts{min-width:780px;}
+table.opts th{position:static;text-align:left;padding:10px 14px;}
+table.opts td{text-align:left;vertical-align:top;padding:14px;font-family:var(--font-body);font-size:14.5px;line-height:1.5;color:var(--ink-2);}
+table.opts td.route{font-family:var(--font-ui);width:190px;}
+table.opts td.route b{display:block;font-size:14.5px;font-weight:600;color:var(--ink);}
+table.opts td.route span{display:flex;align-items:center;gap:6px;margin-top:4px;font-family:var(--font-mono);font-size:10.5px;color:var(--ink-3);}
+table.opts td.route i{width:8px;height:8px;border-radius:50%;flex:none;}
+table.opts tr:last-child td{border-bottom:0;}
+.sum-src{margin-top:16px;font-size:13px;color:var(--ink-3);line-height:1.7;}
+.sum-src b{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-right:6px;}
+@media (max-width:860px){ .sum-grid{grid-template-columns:1fr;} }
+
+@media (max-width:640px){
+  .vb-row{grid-template-columns:104px 1fr;}
+  .finding{grid-template-columns:1fr;gap:6px;}
+  .finding .num{padding-top:0;}
+  .watch .item{grid-template-columns:1fr;gap:4px;}
+  .srcs{columns:1;}
+  .mast-inner{padding-block:26px 22px;}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+
+/* ---------- refresh additions ---------- */
+:root{--cat-5:#7A8588;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--cat-5:#8C989B;}}
+:root[data-theme="dark"]{--cat-5:#8C989B;}
+.arch{grid-template-columns:repeat(auto-fit,minmax(205px,1fr));}
+.det{text-align:left;}
+.det .srcl{grid-column:1/-1;font-family:var(--font-mono);font-size:11px;line-height:1.8;color:var(--ink-3);border-top:1px dashed var(--line-strong);padding-top:10px;}
+.det .srcl b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:10px;margin-right:8px;color:var(--signal);}
+.det .srcl a{margin-right:4px;}
+.det .flag{grid-column:1/-1;font-family:var(--font-ui);font-size:13px;color:var(--warn);}
+.log{margin:0 0 26px;padding:0;list-style:none;display:grid;gap:9px;max-width:92ch;}
+.log li{display:grid;grid-template-columns:118px 1fr;gap:0 16px;font-size:14.5px;color:var(--ink-2);line-height:1.5;}
+.log li span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding-top:3px;}
+.log li span.chg{color:var(--signal-deep);} .log li span.fix{color:var(--warn);} .log li span.new{color:var(--good);}
+.srcs li .tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;margin-left:6px;color:var(--ink-3);}
+@media (max-width:640px){ .log li{grid-template-columns:1fr;gap:2px;} }
+
+/* ---------- use-case highlights ---------- */
+.q{font-family:var(--font-mono);font-size:12px;color:var(--ink);background:var(--surface);padding:1px 5px;border-radius:2px;}
+.conf{display:inline-block;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border:1px solid currentColor;white-space:nowrap;}
+.conf.off{color:var(--good);} .conf.mix{color:var(--signal-deep);} .conf.trd{color:var(--warn);} .conf.ann{color:var(--ink-3);}
+.ucx{grid-column:1/-1;border-top:1px solid var(--line-strong);padding-top:14px;}
+.ucx-h{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-bottom:10px;}
+.ucx-h h4{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:500;margin:0;}
+.ucx-note{font-family:var(--font-ui);font-size:12.5px;color:var(--ink-3);}
+.ucx-g{display:grid;grid-template-columns:1fr 1.25fr .9fr;gap:14px 26px;}
+.ucx-g h5{font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);margin:0 0 6px;}
+.ucx-g ul{margin:0;padding-left:16px;}
+.ucx-g li{font-size:14px;line-height:1.5;color:var(--ink-2);margin-bottom:5px;}
+.ucx-g li.lim{color:var(--warn);}
+@media (max-width:860px){.ucx-g{grid-template-columns:1fr;}}
+table.ucgrid{min-width:920px;font-family:var(--font-ui);}
+table.ucgrid th{font-size:10px;padding:10px 4px;vertical-align:bottom;text-align:center;line-height:1.25;}
+table.ucgrid th.co{text-align:left;padding-left:14px;left:0;z-index:4;}
+table.ucgrid td{text-align:center;padding:7px 4px;border-bottom:1px solid var(--line);}
+table.ucgrid td.co{text-align:left;padding:8px 12px 8px 14px;font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;position:sticky;left:0;z-index:2;background:var(--surface);border-right:1px solid var(--line);}
+table.ucgrid td.n{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);}
+.gdot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:middle;}
+.dot.y{background:var(--signal);}
+.dot.a{border:2px solid var(--signal);}
+.dot.e{width:4px;height:4px;background:var(--line-strong);}
+.evlegend{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;margin-bottom:14px;font-family:var(--font-ui);font-size:13px;color:var(--ink-2);}
+.evlegend span{display:inline-flex;align-items:center;gap:7px;}
+.gcard{margin-top:22px;background:var(--surface);border:1px solid var(--line);padding:18px 20px;}
+.gcard > h3{font-size:16px;font-weight:600;margin-bottom:4px;}
+.gcard .q{background:var(--surface-2);}
+.gsrc{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);margin-top:12px;}
+.gsrc b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:10px;margin-right:8px;color:var(--signal);}
+.gcard > p{font-size:14px;color:var(--ink-2);margin-bottom:14px;max-width:80ch;}
+
+/* ---------- use-case highlights table ---------- */
+table.uc{min-width:1100px;}
+table.uc th{text-align:left;padding:10px 12px;}
+table.uc td{text-align:left;vertical-align:top;padding:14px 12px;font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--ink-2);border-bottom:1px solid var(--line);}
+table.uc td.who{font-family:var(--font-ui);width:170px;position:sticky;left:0;z-index:2;background:var(--surface);border-right:1px solid var(--line);}
+table.uc td.who b{display:block;font-size:14.5px;color:var(--ink);font-weight:600;}
+table.uc td.who span.prod{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--ink-3);margin:2px 0 8px;}
+table.uc td ul{margin:0;padding-left:16px;}
+table.uc td li{margin-bottom:5px;}
+table.uc td li:last-child{margin-bottom:0;}
+table.uc td li.lim{color:var(--warn);}
+table.uc tr.grp td{background:var(--surface-2);font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);padding:8px 12px;}
+table.uc tr.grp td i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;}
+table.uc .q{background:var(--surface-2);}
+table.uc td.srcs2{font-family:var(--font-mono);font-size:10.5px;line-height:1.7;width:150px;}
+table.uc td.srcs2 a{display:block;}
+.hl-legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:14px;font-family:var(--font-ui);font-size:12.5px;color:var(--ink-2);align-items:center;}
+
+/* ---------- public edition ---------- */
+body{margin:0;}
+.crumb{background:var(--ink);color:var(--ground);}
+.crumb-inner{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:8px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 18px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;}
+.crumb a{color:var(--ground);text-decoration:none;}
+.crumb a:hover{text-decoration:underline;}
+.byline{font-family:var(--font-ui);font-size:14px;color:var(--ink-2);margin-top:14px;}
+.byline a{font-weight:600;}
+.vb-row.sm{grid-template-columns:150px 1fr;}
+.vb-row.sm .vb-lab b{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.vb-row.sm .vb-track{height:18px;}
+.vb-row.sm .vb-bar{top:3px;height:12px;}
+.vb-row.sm .vb-val{top:0;font-size:11.5px;}
+.vb .vb-row.sm{gap:10px;}
+.vb:has(.sm){gap:5px;}
+.prov{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:500;}
+table.opts td.route{width:230px;}
+table.opts td.route span{line-height:1.45;}
+.about{display:grid;gap:10px;max-width:86ch;margin-bottom:26px;}
+.about p{font-size:14.5px;color:var(--ink-2);line-height:1.6;}
+.about b{font-family:var(--font-ui);color:var(--ink);font-weight:600;}
+.vb-val{background:var(--surface);padding:0 3px;z-index:1;}
+.vb-med{z-index:0;}
+.foot{border-top:1px solid var(--line);background:var(--surface);}
+.foot-inner{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:20px 28px;display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-between;font-family:var(--font-mono);font-size:11px;color:var(--ink-3);}
+@media (max-width:640px){ .vb-row.sm{grid-template-columns:112px 1fr;} }
+.log li.loghead{display:block;font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--ink);margin-top:8px;padding-bottom:4px;border-bottom:1px solid var(--line);}
+.byline-2{font-family:var(--font-ui);font-size:13px;color:var(--ink-3);margin-top:4px;}
+
+/* ---------- shared report additions ---------- */
+.cite a{font-family:var(--font-mono);font-size:10px;text-decoration:none;color:var(--signal-deep);margin-left:1px;}
+.cite a:hover{text-decoration:underline;}
+.grp-l{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-deep);margin-top:12px;padding-bottom:3px;border-bottom:1px solid var(--line);}
+.grp-l:first-child{margin-top:0;}
+.vb-row.sm{grid-template-columns:230px 1fr;}
+.vb-val{white-space:nowrap;}
+.vb-row.sm .vb-lab b{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.25;font-size:12.5px;}
+@media (max-width:640px){.vb-row.sm{grid-template-columns:1fr;gap:3px;}}
+.figbox{margin:0 0 8px;background:var(--surface);border:1px solid var(--line);padding:18px 18px 14px;}
+.figbox h3{font-size:15px;font-weight:600;}
+.figbox .cap{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-3);margin-top:3px;text-transform:uppercase;}
+.figbox .fignote{font-size:13px;color:var(--ink-3);margin-top:12px;line-height:1.45;}
+.twocol{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:22px;margin-top:6px;}
+.kindpill{display:inline-block;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border:1px solid currentColor;white-space:nowrap;}
+.kp-obs{color:var(--good);} .kp-co{color:var(--signal-deep);} .kp-fc{color:var(--warn);} .kp-sv{color:var(--cat-3);}
+.verdict{margin-top:22px;padding:16px 20px;border-left:3px solid var(--signal);background:var(--surface);font-size:15.5px;color:var(--ink);max-width:84ch;}
+.verdict b{font-family:var(--font-ui);}
+.verdict .tag{display:block;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-deep);margin-bottom:6px;}
+.prose p{font-size:15.5px;color:var(--ink-2);max-width:80ch;margin-bottom:12px;}
+.prose p b{color:var(--ink);font-family:var(--font-ui);}
+.cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:10px;}
+.cards3 > div{background:var(--surface);padding:20px 20px 22px;}
+.cards3 h3{font-size:16.5px;font-weight:600;margin-bottom:8px;}
+.cards3 ul{margin:0;padding-left:17px;}
+.cards3 li{font-size:14.5px;color:var(--ink-2);margin-bottom:7px;line-height:1.5;}
+.cards3 .lean{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line-strong);font-family:var(--font-ui);font-size:13.5px;color:var(--ink);}
+.cards3 .lean i{font-family:var(--font-mono);font-style:normal;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);margin-right:8px;}
+table.cmp{min-width:860px;}
+table.cmp th{position:static;text-align:left;padding:10px 14px;}
+table.cmp td{text-align:left;vertical-align:top;padding:13px 14px;font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--ink-2);}
+table.cmp td.rh{font-family:var(--font-ui);font-weight:600;color:var(--ink);width:150px;font-size:14px;}
+table.cmp tr:last-child td{border-bottom:0;}
+table.cmp td b{font-family:var(--font-ui);color:var(--ink);}
+.flags{margin:0;padding-left:20px;max-width:92ch;}
+.flags li{font-size:14.5px;color:var(--ink-2);margin-bottom:8px;line-height:1.55;}
+.flags li b{font-family:var(--font-ui);color:var(--ink);}
+.srcs li .tag{display:block;margin:2px 0 0;}
+.srcs li a{word-break:break-word;}
+.srcs li{scroll-margin-top:12px;}
+.srcs li:target{background:var(--surface-2);}
+</style>
+
+<style media="print">
+/* Print: clean light copy. In the browser's print dialog choose Save as PDF. */
+@page{margin:14mm 12mm}
+:root,:root[data-theme="dark"]{color-scheme:light!important;--ground:#fff !important;--surface:#FBFCFC !important;--surface-2:#E9EEEF !important;--line:#D3DBDC !important;--line-strong:#B2BEC0 !important;--ink:#0F1719 !important;--ink-2:#3F4C50 !important;--ink-3:#6B787C !important;--signal:#0892A5 !important;--signal-deep:#066A79 !important;--cat-1:#0892A5 !important;--cat-2:#C2622D !important;--cat-3:#4B5BA8 !important;--cat-4:#8A8C36 !important;--s1:#E4EDEF !important;--s1-ink:#3F4C50 !important;--s2:#BEDCE2 !important;--s2-ink:#1B3438 !important;--s3:#8AC4CF !important;--s3-ink:#12292D !important;--s4:#3E9FB0 !important;--s4-ink:#FBFCFC !important;--s5:#0A6F80 !important;--s5-ink:#FBFCFC !important;--warn:#B0561E !important;--good:#2F7A52 !important;--cat-5:#7A8588 !important}
+html{background:#fff!important}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.crumb,.nav,.idx,.controls,.chips,.tabs,.tip,#tip,button,.noprint{display:none!important}
+.tablewrap,.tbl-wrap,.map-scroll,.mapwrap,.scroll{overflow:visible!important;max-height:none!important}
+.panel,.card,.caveat,figure,tr,.pub,.tile,.kpi{break-inside:avoid;page-break-inside:avoid}
+h2,h3,h4,.sec-head{break-after:avoid;page-break-after:avoid}
+table{font-size:9pt;min-width:0!important;width:100%!important}
+.fw table,.ex table,.rt table{min-width:0!important}
+#refs a[href^="http"]::after,.srcs a[href^="http"]::after,#srclist a[href^="http"]::after{content:" <" attr(href) ">";font-size:7.5pt;word-break:break-all;color:#555}
+</style>
+<style>
+/* ---------- physical AI report additions ---------- */
+.stack{display:grid;gap:4px;margin-top:6px}
+.stack .lyr{display:grid;grid-template-columns:44px 1fr minmax(0,1.3fr);gap:0 16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--signal);padding:12px 16px}
+.stack .lyr .n{font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--signal)}
+.stack .lyr b{font-family:var(--font-ui);font-size:14.5px;font-weight:600;color:var(--ink)}
+.stack .lyr span{font-size:14px;color:var(--ink-2);line-height:1.45}
+.stack .lyr.top{border-left-color:var(--cat-2)}
+.stack .lyr.mid{border-left-color:var(--cat-3)}
+.stack .rail{margin-top:4px;padding:9px 16px;border:1px dashed var(--warn);color:var(--warn);font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-align:center}
+@media (max-width:640px){.stack .lyr{grid-template-columns:30px 1fr;}.stack .lyr span{grid-column:2}}
+.hqmaps{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.hqmaps figure{margin:0;background:var(--surface);border:1px solid var(--line);padding:12px 12px 8px}
+.hqmaps figcaption{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.hqmaps svg{display:block;width:100%;height:auto}
+.hqmaps text{font-family:var(--font-ui)}
+.vb-tgt{position:absolute;top:4px;height:14px;border:1.5px dashed var(--ink-3);border-left:0;border-radius:0 4px 4px 0;box-sizing:border-box}
+table.cmp td .kindpill{margin-top:4px}
+</style>
+</head>
+<body>
+<nav class="crumb"><div class="crumb-inner"><a href="../">&larr; All publications</a><span>Chuhee Lee &middot; Independent research</span></div></nav>
+
+<div class="mast">
+  <div class="mast-inner">
+    <div>
+      <div class="telltale"><span class="dot"></span><span class="eyebrow">Independent research report &middot; physical AI</span></div>
+      <h1>Physical AI and the Rider&rsquo;s Cabin</h1>
+      <p class="sub">What &ldquo;physical AI&rdquo; means, who builds it across the stack, which products people actually use, and how it reaches the car, with the cabin and the rider&rsquo;s freed-up time as the main lens.</p>
+      <p class="byline">By <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">Chuhee Lee</a> &middot; October 2026 edition &middot; Data as of 13 October 2026 &middot; Next scheduled refresh: to be confirmed</p>
+      <p class="byline-2">With research assistance from Claude (Anthropic) &middot; The views are the author&rsquo;s own</p>
+    </div>
+    <div class="stamp">
+      <div>EDITION <b>OCT 2026</b></div>
+      <div>DATA AS OF <b>13 OCT 2026</b></div>
+      <div>HORIZON <b>2026&ndash;2027</b></div>
+      <div>SCOPE <b>GLOBAL &middot; WHOLE STACK</b></div>
+      <div>LENS <b>CABIN AND RIDER</b></div>
+      <div>BASIS <b>PRIMARY SOURCES FIRST</b></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<section id="summary">
+  <div class="sec-head"><h2>Summary</h2><span class="eyebrow">The short version</span></div>
+  <p class="lead">Physical AI is AI that senses the real world and acts in it through a machine. By measurable use, the most widely used physical AI today is driving, not humanoid robots: robotaxi rides and supervised self-driving count in the hundreds of thousands a week and the millions of subscribers, while humanoids are still counted in thousands of units. Inside the car, the frontier is moving from chatbots to cabin agents that perceive occupants and operate cabin hardware.</p>
+
+  <div class="sum-grid">
+    <div class="sum-points">
+      <div class="pt"><span class="tick"></span><div>
+        <h3>The term is new; the idea includes cars.</h3>
+        <p>NVIDIA and Gartner both describe physical AI as systems that perceive, decide and act in the physical world, and both explicitly include autonomous vehicles. Gartner named it a top strategic technology trend for 2026.<sup class="cite"><a href="#r-nvg" title="NVIDIA — Glossary: Generative physical AI">[1]</a></sup><sup class="cite"><a href="#r-gtt" title="Gartner — Top Strategic Technology Trends for 2026">[3]</a></sup><sup class="cite"><a href="#r-gorch" title="Gartner — Orchestration is the real physical AI advantage">[4]</a></sup></p>
+      </div></div>
+      <div class="pt"><span class="tick"></span><div>
+        <h3>Driving services lead adoption, but growth is not smooth.</h3>
+        <p>Tesla reports 1.48 million active FSD (Supervised) subscriptions. Waymo reached about 500,000 paid rides a week in March 2026 and has published no higher figure since. Baidu&rsquo;s Apollo Go passed 23 million cumulative rides, but its driverless rides fell to roughly 0.9 million in Q2 2026 after a mass-stall incident (author&rsquo;s arithmetic).<sup class="cite"><a href="#r-tsu" title="Tesla — Q2 2026 Update (8-K Ex. 99.1)">[8]</a></sup><sup class="cite"><a href="#r-tc" title="TechCrunch — Waymo’s skyrocketing ridership in one chart">[16]</a></sup><sup class="cite"><a href="#r-bdi" title="Baidu — 2026 Interim Report (6-K)">[22]</a></sup></p>
+      </div></div>
+      <div class="pt"><span class="tick"></span><div>
+        <h3>Humanoids are scaling from a low base, and trackers disagree.</h3>
+        <p>Global humanoid shipments were about 13,000 in 2025 by Omdia&rsquo;s count. Unitree&rsquo;s prospectus claims 5,511 units and first place; Omdia ranks AgiBot first with 5,168. Car factories, led by BMW&ndash;Figure, are the main proving ground.<sup class="cite"><a href="#r-scmp" title="SCMP — Chinese firms outpace US rivals in 2025 humanoid robot shipments">[36]</a></sup><sup class="cite"><a href="#r-tn" title="TechNode — AgiBot leads global humanoid robot shipments in 2025, Omdia says">[35]</a></sup><sup class="cite"><a href="#r-unit" title="Tech Market Briefs — Unitree pre-IPO profile">[33]</a></sup></p>
+      </div></div>
+      <div class="pt"><span class="tick"></span><div>
+        <h3>The cabin is where riders&rsquo; freed attention lands.</h3>
+        <p>Cabin AI is moving from voice assistants to agents that see occupants and act on seats, climate and stops. Two designs compete: keep cabin AI fenced off from driving (Waymo) or unify them in one vehicle-level agent (Geely).<sup class="cite"><a href="#r-wgem" title="Waymo — Gemini in Waymo">[17]</a></sup><sup class="cite"><a href="#r-geely" title="China Biz Insider — Geely unveils cabin–driving integration at NVIDIA GTC 2026">[42]</a></sup></p>
+      </div></div>
+      <div class="pt"><span class="tick"></span><div>
+        <h3>The phone keeps identity; the cabin owns the hardware.</h3>
+        <p>In-cabin physical AI can do what a phone cannot: seat-aware control of actuators, native vehicle state, and sensing that EU rules and Euro NCAP now require or reward. The phone stays the rider&rsquo;s identity, payment and content hub (author&rsquo;s analysis).<sup class="cite"><a href="#r-eu2590" title="EUR-Lex — Delegated Regulation (EU) 2023/2590 (ADDW)">[55]</a></sup><sup class="cite"><a href="#r-ncap" title="Euro NCAP — Safe Driving Occupant Monitoring protocol v1.2">[56]</a></sup></p>
+      </div></div>
+    </div>
+
+    <figure class="vwchart" aria-label="Waymo weekly paid rides over time">
+      <figcaption>
+        <h3>Robotaxi growth stalled at 500,000 a week</h3>
+        <p>Waymo weekly paid rides &middot; company-reported</p>
+      </figcaption>
+      <div class="vb">
+<div class="vb-row"><div class="vb-lab"><b>May 2024</b><span>TechCrunch</span></div><div class="vb-track"><div class="vb-bar" style="width:4.5%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(4.5% + 6px)">50k</div></div></div>
+<div class="vb-row"><div class="vb-lab"><b>Apr 2025</b><span>InsideEVs</span></div><div class="vb-track"><div class="vb-bar" style="width:22.7%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(22.7% + 6px)">250k</div></div></div>
+<div class="vb-row"><div class="vb-lab"><b>Feb 2026</b><span>co-CEO interview</span></div><div class="vb-track"><div class="vb-bar" style="width:36.4%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(36.4% + 6px)">~400k</div></div></div>
+<div class="vb-row"><div class="vb-lab"><b>Mar 2026</b><span>Waymo post</span></div><div class="vb-track"><div class="vb-bar" style="width:45.5%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(45.5% + 6px)">500k</div></div></div>
+<div class="vb-row"><div class="vb-lab"><b>Sep 2026</b><span>no newer figure</span></div><div class="vb-track"><div class="vb-bar" style="width:45.5%;background:var(--cat-5)"></div><div class="vb-val" style="left:calc(45.5% + 6px)">~500k</div></div></div>
+<div class="vb-row"><div class="vb-lab"><b>End-2026</b><span>target</span></div><div class="vb-track"><div class="vb-tgt" style="left:0;width:90.9%"></div><div class="vb-val" style="left:calc(90.9% + 6px)">&gt;1M</div></div></div>
+      </div>
+      <p class="fignote">Bars to scale (1.1 million = full width). The grey bar repeats the last published figure; the dashed outline is Waymo&rsquo;s stated target, not a forecast by the author. Sources: TechCrunch <a href="#r-tc">[16]</a>, InsideEVs <a href="#r-ievs">[18]</a>, Automotive World <a href="#r-aw">[19]</a>, Electric Vehicles <a href="#r-ev">[20]</a>.</p>
+    </figure>
+  </div>
+</section>
+
+<section id="definition">
+  <div class="sec-head"><h2>1. What physical AI is</h2><span class="eyebrow">Definitions</span></div>
+  <div class="prose">
+    <p>&ldquo;Physical AI&rdquo; became mainstream between January 2025, when NVIDIA positioned it as AI&rsquo;s next wave at CES, and October 2025, when Gartner added it to its trend list. The table shows how organisations that publish a definition use the term.</p>
+  </div>
+  <div class="tablewrap">
+    <table class="cmp">
+      <thead><tr><th>Source</th><th>Definition or framing</th><th>Includes vehicles?</th><th>Date</th></tr></thead>
+      <tbody>
+        <tr><td class="rh">NVIDIA glossary</td><td>Physical AI lets autonomous systems such as cameras, robots and self-driving cars perceive, understand, reason and act in the physical world. It extends generative AI with an understanding of space and of how the 3D world behaves.<sup class="cite"><a href="#r-nvg" title="NVIDIA — Glossary: Generative physical AI">[1]</a></sup></td><td>Yes</td><td>Undated page, read Oct 2026</td></tr>
+        <tr><td class="rh">NVIDIA glossary, &ldquo;embodied AI&rdquo;</td><td>AI integrated into physical systems, including buildings, robots and autonomous vehicles such as cars, trucks and robotaxis.<sup class="cite"><a href="#r-nve" title="NVIDIA — Glossary: Embodied AI">[2]</a></sup></td><td>Yes</td><td>Undated page, read Oct 2026</td></tr>
+        <tr><td class="rh">Gartner, Top Strategic Technology Trends 2026</td><td>Physical AI powers machines and devices that sense, decide and act, such as robots, drones and smart equipment.<sup class="cite"><a href="#r-gtt" title="Gartner — Top Strategic Technology Trends for 2026">[3]</a></sup></td><td>Not named in the trend summary</td><td>20 Oct 2025</td></tr>
+        <tr><td class="rh">Gartner, research article</td><td>Physical AI reaches beyond robots to autonomous vehicles, drones and smart infrastructure. Gartner predicts that by 2035 AI that cannot interact physically with the world will be obsolete.<sup class="cite"><a href="#r-gorch" title="Gartner — Orchestration is the real physical AI advantage">[4]</a></sup><br><span class="kindpill kp-fc">Forecast</span></td><td>Yes</td><td>1 Oct 2026</td></tr>
+        <tr><td class="rh">Gartner, supply-chain trends</td><td>Combines AI models with IoT sensors, robotics and automation for real-time sensing, analysis and execution.<sup class="cite"><a href="#r-gsc" title="Gartner — Top supply chain technology trends for 2026">[5]</a></sup></td><td>n/a</td><td>30 Jun 2026</td></tr>
+        <tr><td class="rh">Tesla (SEC filing)</td><td>Describes its focus as bringing AI into the real world through FSD (Supervised), Robotaxi and AI robots including Optimus.<sup class="cite"><a href="#r-tsq1" title="Tesla — Form 10-Q, Q1 2026">[61]</a></sup><sup class="cite"><a href="#r-tsq2" title="Tesla — Form 10-Q, Q2 2026">[7]</a></sup></td><td>Yes</td><td>Q1 and Q2 2026 10-Qs</td></tr>
+        <tr><td class="rh">BMW Group</td><td>Treats humanoid robots as part of a strategy to expand its automation portfolio with physical AI.<sup class="cite"><a href="#r-bmwl" title="BMW Group — Humanoid robot in Leipzig">[10]</a></sup></td><td>Factory use</td><td>Jun&ndash;Jul 2026</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-h">Related terms, and how they fit together</h3>
+  <div class="tablewrap">
+    <table class="cmp">
+      <thead><tr><th>Term</th><th>What it stresses</th><th>Relation to physical AI (author&rsquo;s synthesis)</th></tr></thead>
+      <tbody>
+        <tr><td class="rh">Embodied AI</td><td>AI with a body that learns by interacting</td><td>Near-synonym. NVIDIA uses both and includes vehicles in each; academic use stresses learning through embodiment.</td></tr>
+        <tr><td class="rh">World models</td><td>Models that predict how a physical scene will evolve (e.g. NVIDIA Cosmos)</td><td>The training and simulation layer: they generate synthetic data and test policies.</td></tr>
+        <tr><td class="rh">Vision-language-action (VLA) models</td><td>One model maps camera and language input to actions</td><td>The &ldquo;brain&rdquo; layer, e.g. NVIDIA Alpamayo for driving.<sup class="cite"><a href="#r-ces" title="NVIDIA — CES 2026 special presentation">[13]</a></sup></td></tr>
+        <tr><td class="rh">Robot foundation models</td><td>General policies across many robot bodies</td><td>A subset of VLA and policy models for robots (NVIDIA Isaac GR00T, Physical Intelligence, Skild AI).</td></tr>
+        <tr><td class="rh">Autonomous driving</td><td>Perception, planning and control for driving</td><td>The most commercially mature application. End-to-end and VLA approaches are bringing it closer to robotics methods.</td></tr>
+        <tr><td class="rh">Spatial intelligence</td><td>3D understanding and generation of space</td><td>Overlaps with world models; investors count some world-model companies as physical AI.<sup class="cite"><a href="#r-cb" title="Crunchbase News — Physical AI funding, H1 2026">[27]</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="verdict"><span class="tag">Working definition &middot; author&rsquo;s</span><b>Physical AI is AI that closes the loop between multimodal sensing of the real world and physical action, using learned models of space and physics, under real-world safety constraints.</b> By this test, a cabin assistant that only chats is generative AI in a car. A cabin agent that perceives occupants (cameras, radar, microphones) and acts on cabin hardware (climate, seats, lighting, doors, a pull-over request) is physical AI.</div>
+  <div class="caveat"><b>Where definitions differ.</b> Robot trackers (IFR, TrendForce, Omdia) count robots only. Crunchbase&rsquo;s physical-AI category also includes aerospace manufacturing and energy hardware, and PitchBook&rsquo;s includes defense and logistics automation. &ldquo;Physical AI market&rdquo; figures from different sources are therefore not comparable.</div>
+
+  <h3 class="sub-h">The stack, layer by layer</h3>
+  <div class="stack" role="list" aria-label="Physical AI stack from silicon to experience">
+    <div class="lyr top" role="listitem"><span class="n">06</span><b>Rider and worker experience</b><span>Cabin agents, apps and interfaces: where riders spend freed time and attention</span></div>
+    <div class="lyr top" role="listitem"><span class="n">05</span><b>Operations and distribution</b><span>Robotaxi fleets, ride-hail apps, factory integrators</span></div>
+    <div class="lyr mid" role="listitem"><span class="n">04</span><b>Embodiments</b><span>Cars and robotaxis, humanoids and other robots, the cabin itself</span></div>
+    <div class="lyr" role="listitem"><span class="n">03</span><b>Foundation, world and VLA models</b><span>Cosmos, GR00T, Alpamayo, end-to-end driving models, robot foundation models</span></div>
+    <div class="lyr" role="listitem"><span class="n">02</span><b>Simulation, digital twins and synthetic data</b><span>Omniverse and Isaac Sim, synthetic in-cabin datasets</span></div>
+    <div class="lyr" role="listitem"><span class="n">01</span><b>Silicon</b><span>Training GPUs; in-vehicle and robot chips</span></div>
+    <div class="rail">Safety, regulation and privacy cut across every layer</div>
+  </div>
+  <p class="map-note">Author&rsquo;s framing. NVIDIA spans layers 1&ndash;3; Tesla and Waymo are integrated across most of the stack; Chinese humanoid makers are strongest in layer 4.</p>
+
+  <h3 class="sub-h">Timeline, 2024&ndash;2026</h3>
+  <div class="watch">
+    <div class="item"><div class="when">Apr 2024</div><div><h3>NIO launches NOMI GPT</h3><p>10 million user interactions in 76 days, by NIO&rsquo;s count.<sup class="cite"><a href="#r-nio" title="CnEVPost — NIO NOMI GPT hits 10 million user interactions">[44]</a></sup></p></div></div>
+    <div class="item"><div class="when">Jan 2025</div><div><h3>NVIDIA launches Cosmos at CES</h3><p>Positions &ldquo;physical AI&rdquo; as AI&rsquo;s next wave. Widely reported; not re-read for this edition.</p></div></div>
+    <div class="item"><div class="when">20 Oct 2025</div><div><h3>Gartner names physical AI a top trend for 2026</h3><p>The term moves from vendor keynote to analyst canon.<sup class="cite"><a href="#r-gtt" title="Gartner — Top Strategic Technology Trends for 2026">[3]</a></sup></p></div></div>
+    <div class="item"><div class="when">Jan 2026</div><div><h3>CES: Alpamayo, Alexa+ at BMW, AI cockpits</h3><p>NVIDIA unveils its open reasoning VLA model for driving, with the Mercedes-Benz CLA named as the first passenger car to use it. BMW debuts its Alexa+-based assistant; Bosch shows an AI cockpit.<sup class="cite"><a href="#r-ces" title="NVIDIA — CES 2026 special presentation">[13]</a></sup><sup class="cite"><a href="#r-bmwa" title="BMW Group — Intelligent Personal Assistant with Amazon Alexa+">[11]</a></sup><sup class="cite"><a href="#r-bosch" title="Bosch — AI-powered cockpit at CES 2026">[51]</a></sup></p></div></div>
+    <div class="item"><div class="when">Mar 2026</div><div><h3>GTC; Waymo at 500k a week; Wuhan stall</h3><p>NVIDIA showcases Cosmos 3 and GR00T N1.7; Geely announces &ldquo;Super Eva&rdquo;; AgiBot&rsquo;s 10,000th robot; on 31 March a fleet-wide Apollo Go stall strands riders in Wuhan.<sup class="cite"><a href="#r-gtc" title="NVIDIA — GTC 2026: virtual worlds and physical AI">[14]</a></sup><sup class="cite"><a href="#r-trr" title="The Robot Report — AgiBot rolls out 10,000th humanoid robot">[32]</a></sup><sup class="cite"><a href="#r-cnwu" title="CnEVPost — Baidu Apollo Go robotaxis mass paralysis in Wuhan">[24]</a></sup></p></div></div>
+    <div class="item"><div class="when">Jun 2026</div><div><h3>Cosmos 3 launches; Figure 03 at BMW</h3><p>Cosmos 3 formally launched on 1 June with Alpamayo 2 Super (32B parameters). BMW moves Figure 03 into logistics at Spartanburg. AgiBot reaches its 15,000th robot.<sup class="cite"><a href="#r-cos3" title="NVIDIA — Launches Cosmos 3">[12]</a></sup><sup class="cite"><a href="#r-bmwf" title="BMWBLOG — Figure 03 at Spartanburg">[9]</a></sup><sup class="cite"><a href="#r-agi" title="AgiBot — company article">[31]</a></sup></p></div></div>
+    <div class="item"><div class="when">Jul 2026</div><div><h3>Gemini in Waymo; Cosmos at 10M downloads</h3><p>Waymo starts a beta of a Gemini-based rider assistant in its Ojai vehicle.<sup class="cite"><a href="#r-wgem" title="Waymo — Gemini in Waymo">[17]</a></sup><sup class="cite"><a href="#r-cos10" title="NVIDIA Developer Forums — 10M downloads and counting">[15]</a></sup></p></div></div>
+    <div class="item"><div class="when">Aug&ndash;Sep 2026</div><div><h3>Zoox paid rides; Apollo Go on Uber; Smart Eye cabin agent</h3><p>Zoox charges fares in Las Vegas from 10 August; Apollo Go goes live on Uber in Dubai; Smart Eye demos a multimodal cabin agent (23 Sep); IFR publishes World Robotics 2026 (24 Sep).<sup class="cite"><a href="#r-cnbc" title="CNBC — Amazon Zoox paid robotaxi rides in Las Vegas">[26]</a></sup><sup class="cite"><a href="#r-bdub" title="PR Newswire — Apollo Go goes live on Uber in Dubai">[25]</a></sup><sup class="cite"><a href="#r-se" title="Smart Eye — Multimodal automotive AI agent">[50]</a></sup><sup class="cite"><a href="#r-ifr" title="IFR — Five million robots now operate in factories">[37]</a></sup></p></div></div>
+  </div>
+</section>
+
+<section id="players">
+  <div class="sec-head"><h2>2. Main players across the stack</h2><span class="eyebrow">Global</span></div>
+  <div class="prose"><p>One table per layer. &ldquo;Not re-verified&rdquo; rows name important players whose current status was not checked against a source for this edition; they are listed so the gaps are visible, not to rank them.</p></div>
+
+  <h3 class="sub-h" style="margin-top:0">Foundation, world and robot models</h3>
+  <div class="tablewrap"><table class="cmp">
+    <thead><tr><th>Player</th><th>Flagship and status</th><th>Key metric</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">NVIDIA<br><span class="prov">Santa Clara, US</span></td><td>Cosmos 3 world model (launched 1 Jun 2026), Isaac GR00T N1.7 for humanoids, Alpamayo 1.5 and 2 Super for driving</td><td>Cosmos passed 10 million Hugging Face downloads (27 Jul 2026); downloads are not deployments</td><td>Company<sup class="cite"><a href="#r-cos3" title="NVIDIA — Launches Cosmos 3">[12]</a></sup><sup class="cite"><a href="#r-cos10" title="NVIDIA Developer Forums — 10M downloads">[15]</a></sup></td></tr>
+      <tr><td class="rh">Tesla<br><span class="prov">Austin, US</span></td><td>End-to-end FSD model (v14), trained on customer and Robotaxi data</td><td>Cumulative FSD miles approaching 12 billion</td><td>Company filing<sup class="cite"><a href="#r-tsu" title="Tesla — Q2 2026 Update">[8]</a></sup></td></tr>
+      <tr><td class="rh">Geely<br><span class="prov">Hangzhou, CN</span></td><td>&ldquo;WAM&rdquo; world action model behind Super Eva; debuted in the Zeekr 8X</td><td>Announced 17 Mar 2026</td><td>Trade press<sup class="cite"><a href="#r-geely" title="China Biz Insider — Geely at GTC 2026">[42]</a></sup></td></tr>
+      <tr><td class="rh">Physical Intelligence<br><span class="prov">San Francisco, US</span></td><td>&pi;-series robot foundation models</td><td>$600M at about $5.6B valuation (Nov 2025); talks reported at $11B (Mar 2026)</td><td>Secondary<sup class="cite"><a href="#r-pi" title="Wikipedia — Physical Intelligence">[34]</a></sup></td></tr>
+      <tr><td class="rh">Generalist AI, Odyssey, General Intuition<br><span class="prov">US</span></td><td>Embodied models; world models; models trained on gaming video</td><td>June 2026 rounds of $400M, $310M and $320M</td><td>Crunchbase News<sup class="cite"><a href="#r-cbj" title="Crunchbase News — June 2026 unicorn board">[28]</a></sup></td></tr>
+      <tr><td class="rh">Google DeepMind, Figure (Helix), Meta, World Labs, Wayve, AgiBot (GO-1), OpenAI</td><td colspan="2">Not re-verified for this edition</td><td><span class="kindpill kp-fc">Gap</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub-h">Chips</h3>
+  <div class="tablewrap"><table class="cmp">
+    <thead><tr><th>Player</th><th>Product</th><th>Evidence in this edition</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">NVIDIA<br><span class="prov">Santa Clara, US</span></td><td>DRIVE AGX Thor, Jetson Thor, DGX for training</td><td>DRIVE AGX paired with a MediaTek cockpit chip in a central-computer demo; Bosch&rsquo;s AI extension platform is built on NVIDIA CUDA (CES 2026).<sup class="cite"><a href="#r-cer" title="Cerence — Agentic in-cabin AI and the automotive AI box">[47]</a></sup><sup class="cite"><a href="#r-bosch" title="Bosch — CES 2026">[51]</a></sup></td></tr>
+      <tr><td class="rh">Qualcomm<br><span class="prov">San Diego, US</span></td><td>Snapdragon Cockpit Elite and Ride; combined Snapdragon Elite</td><td>Leapmotor D19 to use the combined platform.<sup class="cite"><a href="#r-jdp" title="J.D. Power — Carmakers accelerate AI applications at CES 2026">[52]</a></sup></td></tr>
+      <tr><td class="rh">MediaTek<br><span class="prov">Hsinchu, TW</span></td><td>Dimensity Auto C-X1 cockpit chip</td><td>CES 2026 demo with NVIDIA.<sup class="cite"><a href="#r-cer" title="Cerence — automotive AI box">[47]</a></sup></td></tr>
+      <tr><td class="rh">Renesas<br><span class="prov">Tokyo, JP</span></td><td>R-Car X5H</td><td>Shown at CES 2026 (vendor blog).<sup class="cite"><a href="#r-any" title="Anyverse — In-cabin monitoring at CES 2026">[53]</a></sup></td></tr>
+      <tr><td class="rh">Tesla<br><span class="prov">Austin, US</span></td><td>AI5 inference chip</td><td>Described as a step-function improvement (Q4 2025 Update).<sup class="cite"><a href="#r-ts4" title="Tesla — Q4 2025 Update">[6]</a></sup></td></tr>
+      <tr><td class="rh">Black Sesame, SiMa.ai, Horizon Robotics, Huawei, Mobileye, AMD</td><td colspan="2">Black Sesame (one chip for cabin and driver assistance) and SiMa.ai were seen only in trade press or demos; the rest were not re-verified for this edition. <span class="kindpill kp-fc">Gap</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub-h">Robots and humanoids</h3>
+  <div class="tablewrap"><table class="cmp">
+    <thead><tr><th>Player</th><th>Status and metric</th><th>Car-industry link</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">Unitree<br><span class="prov">Hangzhou, CN</span></td><td>5,511 humanoids shipped in 2025 (prospectus); listed on Shanghai&rsquo;s STAR Market in July 2026</td><td>&mdash;</td><td>Prospectus via secondary<sup class="cite"><a href="#r-unit" title="Tech Market Briefs — Unitree">[33]</a></sup></td></tr>
+      <tr><td class="rh">AgiBot<br><span class="prov">Shanghai, CN</span></td><td>10,000th unit (30 Mar 2026), 15,000th (28 Jun 2026); 5,168 shipped in 2025 per Omdia</td><td>Partnership with parts supplier Minth</td><td>Company; Omdia via TechNode<sup class="cite"><a href="#r-agi" title="AgiBot — company article">[31]</a></sup><sup class="cite"><a href="#r-tn" title="TechNode — Omdia shipments">[35]</a></sup></td></tr>
+      <tr><td class="rh">UBTech<br><span class="prov">Shenzhen, CN</span></td><td>About 1,000 humanoids in 2025 per Omdia</td><td>BYD and other plants (secondary)</td><td>Omdia via TechNode<sup class="cite"><a href="#r-tn" title="TechNode — Omdia shipments">[35]</a></sup></td></tr>
+      <tr><td class="rh">Figure AI<br><span class="prov">California, US</span></td><td>Figure 02 supported production of more than 30,000 BMW X3s over about 11 months; Figure 03 in logistics from June 2026</td><td>BMW Spartanburg</td><td>Trade press reporting BMW<sup class="cite"><a href="#r-bmwf" title="BMWBLOG — Figure 03">[9]</a></sup><sup class="cite"><a href="#r-rdn" title="Repairer Driven News — BMW advances physical AI with Figure 03">[59]</a></sup></td></tr>
+      <tr><td class="rh">AEON</td><td>First humanoid pilot in a German BMW plant</td><td>BMW Leipzig</td><td>Company<sup class="cite"><a href="#r-bmwl" title="BMW Group — Humanoid robot in Leipzig">[10]</a></sup></td></tr>
+      <tr><td class="rh">Tesla Optimus<br><span class="prov">Austin, US</span></td><td>First-generation production lines being installed for production in 2026</td><td>Tesla plants</td><td>Company filing<sup class="cite"><a href="#r-tsu" title="Tesla — Q2 2026 Update">[8]</a></sup></td></tr>
+      <tr><td class="rh">Boston Dynamics (Hyundai), Apptronik (Mercedes), Agility, 1X, Xpeng, Xiaomi</td><td colspan="2">Not re-verified for this edition</td><td><span class="kindpill kp-fc">Gap</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub-h">Autonomous driving and robotaxi</h3>
+  <div class="tablewrap"><table class="cmp">
+    <thead><tr><th>Operator</th><th>Status</th><th>Key metric</th><th>As of &middot; evidence</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">Waymo (Alphabet)<br><span class="prov">Mountain View, US</span></td><td>Public service in more US cities after adding Denver, San Diego and Tampa on 1 Sep 2026</td><td>About 500,000 paid rides a week; more than 4 million autonomous miles a week; target above 1 million rides a week by end-2026</td><td>Sep 2026 &middot; company via press<sup class="cite"><a href="#r-tc" title="TechCrunch — Waymo ridership">[16]</a></sup><sup class="cite"><a href="#r-ev" title="Electric Vehicles — Waymo 500,000 weekly rides">[20]</a></sup><sup class="cite"><a href="#r-deep" title="Deep Arrival — Waymo Denver, San Diego, Tampa">[21]</a></sup></td></tr>
+      <tr><td class="rh">Baidu Apollo Go<br><span class="prov">Beijing, CN</span></td><td>28 cities (Aug 2026)<sup class="cite"><a href="#r-bdq2" title="Baidu — Q2 2026 results">[23]</a></sup>; driverless service in Dubai on its own app and Uber</td><td>More than 23 million cumulative rides; over 4.1 million driverless rides in H1 2026</td><td>30 Jun 2026 &middot; company filing<sup class="cite"><a href="#r-bdi" title="Baidu — 2026 Interim Report">[22]</a></sup><sup class="cite"><a href="#r-bdub" title="PR Newswire — Apollo Go on Uber in Dubai">[25]</a></sup></td></tr>
+      <tr><td class="rh">Tesla FSD and Robotaxi<br><span class="prov">Austin, US</span></td><td>Unsupervised Robotaxi in several metros; Cybercab production started; FSD approved in five European countries</td><td>1.48 million active FSD subscriptions (excludes free trials)</td><td>Q2 2026 &middot; company filing<sup class="cite"><a href="#r-tsu" title="Tesla — Q2 2026 Update">[8]</a></sup></td></tr>
+      <tr><td class="rh">Pony.ai<br><span class="prov">Guangzhou, CN</span></td><td>Gen-7 robotaxi in daily service; Uber deal for Europe</td><td>Fleet of 1,975 (30 Jun 2026); robotaxi revenue US$12.1M in Q2</td><td>Q2 2026 &middot; company<sup class="cite"><a href="#r-pony" title="Pony.ai — investor press releases">[29]</a></sup></td></tr>
+      <tr><td class="rh">Zoox (Amazon)<br><span class="prov">Foster City, US</span></td><td>Paid rides in Las Vegas since 10 Aug 2026; free service in other cities</td><td>About 1 million riders during the free period</td><td>Aug 2026 &middot; press<sup class="cite"><a href="#r-cnbc" title="CNBC — Zoox paid rides">[26]</a></sup></td></tr>
+      <tr><td class="rh">WeRide, Wayve, Mobileye, May Mobility, Nuro, Momenta</td><td colspan="2">WeRide&rsquo;s reported fleet of about 3,400 rests on secondary sources only; the others were not re-verified</td><td><span class="kindpill kp-fc">Gap</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub-h">Where the players are based</h3>
+  <div class="hqmaps" id="hqmaps"></div>
+  <div class="map-legend" style="margin-top:12px" id="hqlegend"></div>
+  <p class="map-note">Schematic latitude&ndash;longitude plots without a basemap. Each black pin is a city; coloured dots show the companies based there and their main layer. Positions are approximate. Headquarters were taken from general knowledge where the sources did not state them; check against company sites before citing.</p>
+</section>
+
+<section id="adoption">
+  <div class="sec-head"><h2>3. What people actually use</h2><span class="eyebrow">Measurable adoption</span></div>
+  <div class="prose"><p>Ranked by the scale of real use, not by attention or funding. Metrics differ by product, so the order is a judgement, not a calculation.</p></div>
+  <div class="tablewrap"><table class="cmp">
+    <thead><tr><th>Rank</th><th>Product or service</th><th>Adoption metric</th><th>As of</th><th>Verification</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">1</td><td><b>Tesla FSD (Supervised)</b></td><td>1.48 million active subscriptions</td><td>Q2 2026</td><td><span class="kindpill kp-co">Company filing</span></td></tr>
+      <tr><td class="rh">2</td><td><b>Waymo</b></td><td>About 500,000 paid rides a week</td><td>Sep 2026</td><td><span class="kindpill kp-co">Company-reported</span></td></tr>
+      <tr><td class="rh">3</td><td><b>Baidu Apollo Go</b></td><td>More than 23 million cumulative rides; 28 cities</td><td>Jun&ndash;Aug 2026</td><td><span class="kindpill kp-co">Company filing</span></td></tr>
+      <tr><td class="rh">4</td><td><b>NVIDIA Cosmos</b></td><td>More than 10 million Hugging Face downloads</td><td>27 Jul 2026</td><td><span class="kindpill kp-co">Company-reported</span> downloads, not deployments</td></tr>
+      <tr><td class="rh">5</td><td><b>Unitree humanoids</b></td><td>5,511 shipped in 2025</td><td>FY2025</td><td><span class="kindpill kp-fc">Conflicts with Omdia</span></td></tr>
+      <tr><td class="rh">6</td><td><b>AgiBot robots</b></td><td>15,000 produced (cumulative)</td><td>28 Jun 2026</td><td><span class="kindpill kp-co">Company-reported</span> production, not deployments</td></tr>
+      <tr><td class="rh">7</td><td><b>Zoox</b></td><td>About 1 million riders (free period)</td><td>Aug 2026</td><td><span class="kindpill kp-co">Company-reported</span></td></tr>
+      <tr><td class="rh">8</td><td><b>Pony.ai</b></td><td>1,975 robotaxis</td><td>30 Jun 2026</td><td><span class="kindpill kp-co">Company-reported</span></td></tr>
+      <tr><td class="rh">Context</td><td><b>Industrial robots</b></td><td>About 603,000 installed in 2025; 5 million in operation; China 54%&ndash;59% of installs</td><td>2025</td><td><span class="kindpill kp-obs">Industry census</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="map-note">Rank is the author&rsquo;s judgement. Sources: Tesla <a href="#r-tsu">[8]</a>, TechCrunch <a href="#r-tc">[16]</a>, Baidu <a href="#r-bdi">[22]</a>, NVIDIA <a href="#r-cos10">[15]</a>, Unitree <a href="#r-unit">[33]</a>, AgiBot <a href="#r-agi">[31]</a>, CNBC <a href="#r-cnbc">[26]</a>, Pony.ai <a href="#r-pony">[29]</a>, IFR <a href="#r-ifr">[37]</a>.</p>
+
+  <div class="twocol" style="margin-top:22px">
+    <figure class="figbox">
+      <h3>Apollo Go driverless rides fell after the Wuhan stall</h3>
+      <p class="cap">Millions per quarter &middot; Q2 is author&rsquo;s arithmetic</p>
+      <div class="vb">
+<div class="vb-row"><div class="vb-lab"><b>Q4 2025</b><span>via CnEVPost</span></div><div class="vb-track"><div class="vb-bar" style="width:85%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(85% + 6px)">3.4M</div></div></div>
+<div class="vb-row"><div class="vb-lab"><b>Q1 2026</b><span>Baidu disclosure</span></div><div class="vb-track"><div class="vb-bar" style="width:80%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(80% + 6px)">3.2M</div></div></div>
+<div class="vb-row"><div class="vb-lab"><b>Q2 2026</b><span>&gt;4.1M H1 &minus; 3.2M Q1</span></div><div class="vb-track"><div class="vb-bar" style="width:22.5%;background:var(--cat-2)"></div><div class="vb-val" style="left:calc(22.5% + 6px)">~0.9M</div></div></div>
+      </div>
+      <p class="fignote">H1 2026 is reported as &ldquo;over&rdquo; 4.1 million, so Q2 is at least about 0.9 million. A reported pause in new permits followed the 31 March stall; that report rests on secondary sources. Sources: Baidu 2026 Interim Report <a href="#r-bdi">[22]</a>; CnEVPost <a href="#r-cnwu">[24]</a>.</p>
+    </figure>
+    <figure class="figbox">
+      <h3>Humanoid shipments, 2025: two counts</h3>
+      <p class="cap">Units &middot; company prospectus vs Omdia</p>
+      <div class="vb">
+<div class="grp-l">Unitree</div>
+<div class="vb-row sm"><div class="vb-lab"><b>Prospectus</b><span>company</span></div><div class="vb-track"><div class="vb-bar" style="width:84.8%;background:var(--cat-2)"></div><div class="vb-val" style="left:calc(84.8% + 6px)">5,511</div></div></div>
+<div class="vb-row sm"><div class="vb-lab"><b>Omdia</b><span>analyst</span></div><div class="vb-track"><div class="vb-bar" style="width:64.6%;background:var(--cat-3)"></div><div class="vb-val" style="left:calc(64.6% + 6px)">4,200</div></div></div>
+<div class="grp-l">AgiBot</div>
+<div class="vb-row sm"><div class="vb-lab"><b>Omdia</b><span>analyst</span></div><div class="vb-track"><div class="vb-bar" style="width:79.5%;background:var(--cat-3)"></div><div class="vb-val" style="left:calc(79.5% + 6px)">5,168</div></div></div>
+<div class="grp-l">UBTech</div>
+<div class="vb-row sm"><div class="vb-lab"><b>Omdia</b><span>analyst</span></div><div class="vb-track"><div class="vb-bar" style="width:15.4%;background:var(--cat-3)"></div><div class="vb-val" style="left:calc(15.4% + 6px)">1,000</div></div></div>
+      </div>
+      <p class="fignote">Scale: 6,500 units = full width. Omdia counts about 13,300 humanoids shipped worldwide in 2025. Sources: Unitree prospectus via secondary <a href="#r-unit">[33]</a>; Omdia via TechNode <a href="#r-tn">[35]</a> and SCMP <a href="#r-scmp">[36]</a>.</p>
+    </figure>
+  </div>
+
+  <figure class="figbox" style="margin-top:22px">
+    <h3>Venture money into physical AI, by half-year</h3>
+    <p class="cap">USD billions &middot; Crunchbase&rsquo;s broad definition</p>
+    <div class="vb">
+<div class="vb-row"><div class="vb-lab"><b>H1 2025</b><span>436 deals</span></div><div class="vb-track"><div class="vb-bar" style="width:48.9%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(48.9% + 6px)">$26.4B</div></div></div>
+<div class="vb-row"><div class="vb-lab"><b>H2 2025</b><span>470 deals</span></div><div class="vb-track"><div class="vb-bar" style="width:22.2%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(22.2% + 6px)">$12B</div></div></div>
+<div class="vb-row"><div class="vb-lab"><b>H1 2026</b><span>521 deals</span></div><div class="vb-track"><div class="vb-bar" style="width:87.8%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(87.8% + 6px)">$47.4B</div></div></div>
+    </div>
+    <p class="fignote">Swollen by mega-rounds; one secondary analysis estimates Waymo&rsquo;s $16B round alone is about a third of the H1 2026 total. PitchBook, with a different definition, records $16.3B (Q1 2026) and $18.6B (Q2 2026). Sources: Crunchbase News <a href="#r-cb">[27]</a>; PitchBook <a href="#r-pbq1">[62]</a> <a href="#r-pbq2">[30]</a>; Value Add VC <a href="#r-vav">[58]</a>.</p>
+  </figure>
+</section>
+
+<section id="cabin">
+  <div class="sec-head"><h2>4. In the car: the cabin and the rider</h2><span class="eyebrow">Main lens</span></div>
+  <div class="prose"><p>As people move from driving to riding, their time and attention are freed up, and the cabin is where something will compete for them. Cabin AI is moving through three stages. Most cars on the road are in the first; the third is where cabin AI becomes physical AI in the sense used here.</p></div>
+  <div class="cards3">
+    <div><h3>1 &middot; Voice assistants with LLMs</h3><ul><li>NIO NOMI GPT (2024), with an animated dashboard &ldquo;head&rdquo;.<sup class="cite"><a href="#r-nio" title="CnEVPost — NOMI GPT">[44]</a></sup></li><li>SoundHound Chat AI in Stellantis brands across Europe (2024).<sup class="cite"><a href="#r-sh" title="Automotive World — SoundHound brings generative AI voice assistant to Lancia">[49]</a></sup></li></ul><p class="lean"><i>Physical?</i>Mostly talk; acts on simple commands</p></div>
+    <div><h3>2 &middot; Assistants that also see</h3><ul><li>Li Auto Mind GPT added an RGB+IR cabin camera (Jan 2025).<sup class="cite"><a href="#r-li" title="iEVChina — Li Auto Mind GPT">[43]</a></sup></li><li>Bosch VLM-based scene understanding of the interior (CES 2026).<sup class="cite"><a href="#r-bosch" title="Bosch — CES 2026">[51]</a></sup></li></ul><p class="lean"><i>Physical?</i>Perceives the cabin; actions still limited</p></div>
+    <div><h3>3 &middot; Agentic cabins</h3><ul><li>Geely Eva and Super Eva: multi-step agents linked to driving.<sup class="cite"><a href="#r-geely" title="China Biz Insider — Geely GTC 2026">[42]</a></sup></li><li>Smart Eye multimodal cabin agent demo (Sep 2026).<sup class="cite"><a href="#r-se" title="Smart Eye">[50]</a></sup></li><li>Waymo Gemini with cabin controls and pull-over requests.<sup class="cite"><a href="#r-wgem" title="Waymo — Gemini in Waymo">[17]</a></sup></li></ul><p class="lean"><i>Physical?</i>Yes: perceives occupants and operates hardware</p></div>
+  </div>
+
+  <h3 class="sub-h">Who is already there</h3>
+  <div class="tablewrap"><table class="cmp">
+    <thead><tr><th>Player</th><th>Product</th><th>Perceives</th><th>Acts on</th><th>Status &middot; evidence</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">Waymo + Google<br><span class="prov">Mountain View, US</span></td><td>Gemini in Waymo (Ojai vehicle)</td><td>Voice and touch; no access to real-time driving data</td><td>Cabin controls (e.g. air conditioning), journey information, pull-over request</td><td>Beta, 29 Jul 2026 &middot; company<sup class="cite"><a href="#r-wgem" title="Waymo — Gemini in Waymo">[17]</a></sup><sup class="cite"><a href="#r-ele" title="Electrek — Waymo adds Gemini">[57]</a></sup></td></tr>
+      <tr><td class="rh">Zoox (Amazon)<br><span class="prov">Foster City, US</span></td><td>Purpose-built face-to-face cabin</td><td>Touch at each seat</td><td>Per-seat screens, four-zone climate, Bluetooth audio</td><td>Paid in Las Vegas since 10 Aug 2026 &middot; press<sup class="cite"><a href="#r-cnbc" title="CNBC — Zoox">[26]</a></sup><sup class="cite"><a href="#r-zoox" title="TechCrunch — Zoox brings its robotaxis to Austin and Miami">[67]</a></sup></td></tr>
+      <tr><td class="rh">Geely<br><span class="prov">Hangzhou, CN</span></td><td>Eva &rarr; Super Eva (&ldquo;1+2+N&rdquo; multi-agent)</td><td>Multimodal</td><td>Cabin, linked to the G-ASD 4.0 driving system</td><td>Eva in production Aug 2025; Super Eva announced Mar 2026 &middot; trade press<sup class="cite"><a href="#r-eva" title="YASN — Geely Eva mass-produced">[41]</a></sup><sup class="cite"><a href="#r-gas" title="Gasgoo — Unified agent: the next stop for automotive AI">[40]</a></sup></td></tr>
+      <tr><td class="rh">Li Auto<br><span class="prov">Beijing, CN</span></td><td>Mind GPT</td><td>Voice; RGB+IR camera</td><td>Vehicle functions, family scheduling, media</td><td>OTA Jan 2025 &middot; secondary<sup class="cite"><a href="#r-li" title="iEVChina — Li Auto">[43]</a></sup></td></tr>
+      <tr><td class="rh">BMW + Amazon<br><span class="prov">Munich, DE</span></td><td>Intelligent Personal Assistant on Alexa+ (iX3)</td><td>Voice</td><td>Vehicle functions</td><td>Germany and US from H2 2026 &middot; company<sup class="cite"><a href="#r-bmwa" title="BMW Group — Alexa+">[11]</a></sup></td></tr>
+      <tr><td class="rh">Mercedes-Benz<br><span class="prov">Stuttgart, DE</span></td><td>MBUX Virtual Assistant on MB.OS (CLA), with Google-based navigation search</td><td>Voice</td><td>Vehicle functions</td><td>2025 &middot; company<sup class="cite"><a href="#r-mb" title="Mercedes-Benz Group — AI-powered conversational search">[45]</a></sup></td></tr>
+      <tr><td class="rh">GM + Google<br><span class="prov">Detroit, US</span></td><td>Gemini, plus its own native assistant</td><td>Voice; vehicle data</td><td>Vehicle functions</td><td>Native assistant expected by end-2026 &middot; secondary<sup class="cite"><a href="#r-gm" title="Auto Connected Car — GM to build its own AI in-dash assistant">[46]</a></sup></td></tr>
+      <tr><td class="rh">Cerence<br><span class="prov">Burlington, US</span></td><td>xUI with CaLLM and on-device CaLLM Edge; add-on &ldquo;AI box&rdquo;</td><td>Voice</td><td>Via carmaker integration</td><td>BYD global assistant (Apr 2026) &middot; company<sup class="cite"><a href="#r-cerb" title="Cerence — to power LLM in-car experiences for BYD">[48]</a></sup><sup class="cite"><a href="#r-cer" title="Cerence — AI box">[47]</a></sup></td></tr>
+      <tr><td class="rh">Smart Eye<br><span class="prov">Gothenburg, SE</span></td><td>Multimodal in-cabin agent</td><td>Gaze, emotion, driver state, cabin and exterior sensors</td><td>Connected vehicle functions</td><td>Demo, 23 Sep 2026 &middot; company<sup class="cite"><a href="#r-se" title="Smart Eye">[50]</a></sup></td></tr>
+      <tr><td class="rh">Bosch<br><span class="prov">Gerlingen, DE</span></td><td>AI extension platform and AI cockpit</td><td>Vision-language understanding of interior and exterior</td><td>Assistant actions</td><td>CES 2026 &middot; company<sup class="cite"><a href="#r-bosch" title="Bosch">[51]</a></sup></td></tr>
+      <tr><td class="rh">Huawei, Xiaomi, Xpeng, Sony Honda Mobility</td><td colspan="3">Not verified from primary sources for this edition. The In-Car AI Assistant Benchmark covers several of them.<sup class="cite"><a href="#r-bench" title="Chuhee Lee — In-Car AI Assistant Benchmark">[66]</a></sup></td><td><span class="kindpill kp-fc">Gap</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub-h">One agent or two? The architecture choice that matters most</h3>
+  <div class="twocol">
+    <div class="figbox">
+      <h3>Separated: cabin AI fenced off from driving</h3>
+      <p class="cap">Example: Waymo</p>
+      <p style="font-size:14.5px;color:var(--ink-2);margin-top:10px">Waymo says Gemini works independently of the Waymo Driver, does not control the car&rsquo;s movement or routing, has no access to real-time driving data, and stays inactive unless the rider engages it. The rider can ask to pull over; the driving system decides how.<sup class="cite"><a href="#r-wgem" title="Waymo — Gemini in Waymo">[17]</a></sup></p>
+    </div>
+    <div class="figbox">
+      <h3>Unified: one vehicle-level agent</h3>
+      <p class="cap">Example: Geely &ldquo;1+2+N&rdquo;</p>
+      <p style="font-size:14.5px;color:var(--ink-2);margin-top:10px">Geely&rsquo;s framework places one vehicle-level agent over a driving agent and a cabin agent, with many task agents beneath them, so a request can span both domains.<sup class="cite"><a href="#r-geely" title="China Biz Insider — Geely">[42]</a></sup><sup class="cite"><a href="#r-gas" title="Gasgoo — Unified agent">[40]</a></sup></p>
+    </div>
+  </div>
+  <div class="verdict"><span class="tag">Author&rsquo;s read</span>Separation limits what a cabin agent can do but keeps safety cases and liability simple. Unification enables richer requests (&ldquo;find somewhere quiet to stop and recline my seat&rdquo;) but ties a conversational system to safety-critical behaviour. Which design wins is open, and it decides how much of the cabin a third party can ever control.</div>
+
+  <h3 class="sub-h">Sensing that regulation already puts in the cabin</h3>
+  <div class="tablewrap"><table class="cmp">
+    <thead><tr><th>Rule or programme</th><th>What it requires or rewards</th><th>Dates</th><th>Implication</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">EU drowsiness and attention warning (Delegated Reg. 2021/1341)</td><td>Must work without biometric information, including facial recognition, and may only record and keep data needed to function, within a closed-loop system.<sup class="cite"><a href="#r-eu1341" title="EUR-Lex — Delegated Regulation (EU) 2021/1341">[54]</a></sup></td><td>New types Jul 2022; all new cars Jul 2024</td><td rowspan="2">Cameras now fitted to every new EU car cannot simply be reused for comfort or entertainment features without separate legal grounds and architecture (author&rsquo;s reading).</td></tr>
+      <tr><td class="rh">EU advanced driver distraction warning (Delegated Reg. 2023/2590)</td><td>Distraction detection with similar closed-loop data wording.<sup class="cite"><a href="#r-eu2590" title="EUR-Lex — Delegated Regulation (EU) 2023/2590">[55]</a></sup></td><td>New types Jul 2024; all new cars 7 Jul 2026</td></tr>
+      <tr><td class="rh">Euro NCAP Safe Driving &ndash; Occupant Monitoring (v1.2)</td><td>30 points for occupant monitoring, including 10 for occupant presence, of which 5 for child presence detection (e.g. a child left behind).<sup class="cite"><a href="#r-ncap" title="Euro NCAP — Occupant Monitoring protocol v1.2">[56]</a></sup></td><td>From Jan 2026; v1.2 Jul 2026</td><td>Seat-level occupant sensing becomes standard equipment that cabin features can build on.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub-h">Why not just the phone?</h3>
+  <div class="tablewrap"><table class="cmp">
+    <thead><tr><th>Capability</th><th>Phone</th><th>In-cabin physical AI</th><th>Edge</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">Vehicle-only context (speed, route, seat occupancy, doors, cabin temperature)</td><td>Indirect or none</td><td>Native. GM&rsquo;s stated reason for its own assistant is that a general AI has no line into the vehicle&rsquo;s state.<sup class="cite"><a href="#r-gm" title="Auto Connected Car — GM">[46]</a></sup></td><td><span class="kindpill kp-obs">Cabin</span></td></tr>
+      <tr><td class="rh">Actuators (climate, seats, lighting, windows, stop requests)</td><td>Only through carmaker interfaces</td><td>Direct (Waymo cabin controls; Zoox per-seat climate)</td><td><span class="kindpill kp-obs">Cabin</span></td></tr>
+      <tr><td class="rh">Several occupants, seat by seat</td><td>One user</td><td>Seat-aware screens, audio and climate</td><td><span class="kindpill kp-obs">Cabin</span></td></tr>
+      <tr><td class="rh">Regulated safety sensing (driver monitoring, child presence)</td><td>Not applicable</td><td>Required or scored, so always fitted</td><td><span class="kindpill kp-obs">Cabin</span></td></tr>
+      <tr><td class="rh">Large fixed screens and spatial audio</td><td>Small screen</td><td>Built in</td><td><span class="kindpill kp-obs">Cabin</span></td></tr>
+      <tr><td class="rh">Identity, payment, personal content, portability across vehicles</td><td>Strong</td><td>Weak unless linked to the rider&rsquo;s account</td><td><span class="kindpill kp-fc">Phone</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="map-note">Author&rsquo;s analysis based on the evidence cited. Google sits on both sides (Android, Gemini in Waymo and in GM cars), which suggests phone-ecosystem players are entering the cabin rather than being displaced by it.</p>
+
+  <h3 class="sub-h">Opportunity angles in the cabin</h3>
+  <div class="tablewrap"><table class="cmp">
+    <thead><tr><th>Problem</th><th>Why now</th><th>Who is already there</th><th>Why not just the phone</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">A shared robotaxi cabin has to suit several strangers at once</td><td>Purpose-built robotaxis are scaling (Zoox, Waymo Ojai, Tesla Cybercab)</td><td>Zoox, Waymo</td><td>Seat-level actuators and occupancy sensing exist only in the vehicle</td></tr>
+      <tr><td class="rh">Motion sickness when riders read or watch</td><td>Riders no longer drive, so screen time rises</td><td>No commercial product verified in this edition</td><td>Needs vehicle-motion data and cabin control</td></tr>
+      <tr><td class="rh">Turning mandated sensing into rider value within privacy rules</td><td>Distraction warning in all new EU cars from Jul 2026; Euro NCAP scoring</td><td>Smart Eye, LG (sensing); Cerence, Bosch (agents)</td><td>The phone cannot see the cabin</td></tr>
+      <tr><td class="rh">A rider profile that travels across operators and cars</td><td>Ride-hail networks host several robotaxi operators (Uber with Baidu, Pony.ai and others)</td><td>Uber; Google</td><td>The phone is the natural carrier: here the phone may win</td></tr>
+      <tr><td class="rh">Explaining the car&rsquo;s behaviour (&ldquo;why did we stop?&rdquo;)</td><td>Stall incidents and first-time riders</td><td>Waymo (rider education in Gemini)</td><td>Needs authoritative vehicle state</td></tr>
+    </tbody>
+  </table></div>
+  <p class="map-note">Framed for the industry as a whole; not a recommendation to any company. Any of these could become an opportunity brief on this site after full research.</p>
+
+  <div class="caveat"><b>Risks and open questions.</b> Privacy of cabin cameras and microphones under closed-loop rules; liability if a cabin agent influences how the car drives; the cost of extra computing (add-on &ldquo;AI boxes&rdquo; versus single chips for cabin and driving); riders who prefer quiet (Waymo offers an opt-in assistant and a calm mode); and fleet-wide software reliability, shown when the Wuhan stall left riders waiting up to about two hours.<sup class="cite"><a href="#r-carnc" title="CarNewsChina — Apollo Go fleet mass paralysis">[60]</a></sup></div>
+</section>
+
+<section id="driving">
+  <div class="sec-head"><h2>5. In the car: driving, factory and service</h2><span class="eyebrow">Supporting lenses</span></div>
+  <h3 class="sub-h" style="margin-top:0">Driving models</h3>
+  <div class="tablewrap"><table class="cmp">
+    <thead><tr><th>Player</th><th>Approach</th><th>Status and evidence</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">Tesla</td><td>End-to-end foundation model (FSD v14)</td><td>1.48 million subscriptions; Cybercab production started in 2026.<sup class="cite"><a href="#r-tsu" title="Tesla — Q2 2026 Update">[8]</a></sup> A newer version on Robotaxi is reported only in an earnings-call summary.<sup class="cite"><a href="#r-tna" title="Not a Tesla App — Q2 2026 earnings call summary">[63]</a></sup></td></tr>
+      <tr><td class="rh">Waymo</td><td>Multi-sensor Waymo Driver; sixth-generation system in the Ojai</td><td>Company-published safety statistics were not re-read for this edition and are not used.</td></tr>
+      <tr><td class="rh">NVIDIA</td><td>Alpamayo open reasoning VLA (R1, 1.5, 2 Super)</td><td>Mercedes-Benz CLA named as the first passenger car to use it.<sup class="cite"><a href="#r-ces" title="NVIDIA — CES 2026">[13]</a></sup><sup class="cite"><a href="#r-cos3" title="NVIDIA — Cosmos 3">[12]</a></sup></td></tr>
+      <tr><td class="rh">Geely</td><td>WAM world action model; G-ASD 4.0</td><td>Rolling out from April 2026.<sup class="cite"><a href="#r-geely" title="China Biz Insider — Geely">[42]</a></sup></td></tr>
+      <tr><td class="rh">Li Auto, Xpeng, Wayve, Momenta, Mobileye</td><td colspan="2">Not re-verified for this edition <span class="kindpill kp-fc">Gap</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="map-note">World models are now pitched as a way to generate rare training and test scenarios. NVIDIA&rsquo;s claim that real-world data is no longer the moat is a vendor claim, not an independent finding.<sup class="cite"><a href="#r-gtc" title="NVIDIA — GTC 2026">[14]</a></sup></p>
+
+  <h3 class="sub-h">Factory, service and charging</h3>
+  <div class="tablewrap"><table class="cmp">
+    <thead><tr><th>Use</th><th>Who</th><th>Evidence</th><th>Maturity (author&rsquo;s)</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">Body-shop part loading</td><td>Figure 02 at BMW Spartanburg</td><td>More than 30,000 X3s over about 11 months<sup class="cite"><a href="#r-bmwf" title="BMWBLOG — Figure 03">[9]</a></sup></td><td>Pilot to production</td></tr>
+      <tr><td class="rh">Logistics sequencing</td><td>Figure 03 at BMW Spartanburg</td><td>Started June 2026; robot count not disclosed<sup class="cite"><a href="#r-rdn" title="Repairer Driven News — Figure 03">[59]</a></sup></td><td>Early deployment</td></tr>
+      <tr><td class="rh">Humanoid pilot in Europe</td><td>AEON at BMW Leipzig</td><td>First in a German BMW plant<sup class="cite"><a href="#r-bmwl" title="BMW Group — Leipzig">[10]</a></sup></td><td>Pilot</td></tr>
+      <tr><td class="rh">Screw-driving in a car plant</td><td>Xiaomi humanoid</td><td>98% task success, per a TrendForce bulletin<sup class="cite"><a href="#r-tf" title="TrendForce — China humanoid robots">[38]</a></sup></td><td>Validation</td></tr>
+      <tr><td class="rh">Robotic charging, automated valet parking</td><td colspan="3">Not researched for this edition <span class="kindpill kp-fc">Gap</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="watch">
+  <div class="sec-head"><h2>6. What to watch in 2027</h2><span class="eyebrow">Leading indicators</span></div>
+  <div class="watch">
+    <div class="item"><div class="when">Q4 2026&ndash;Q1 2027</div><div><h3>Waymo weekly paid rides</h3><p>Does it break out of about 500,000 toward the stated 1 million-plus target? First paid rides outside the US would also count.</p></div></div>
+    <div class="item"><div class="when">Mid-Nov 2026</div><div><h3>Apollo Go quarterly driverless rides</h3><p>Recovery from about 0.9 million in Q2 2026 toward the 3 million-plus of late 2025 and early 2026, after the permit pause.</p></div></div>
+    <div class="item"><div class="when">21 Oct 2026</div><div><h3>Tesla Q3 figures</h3><p>FSD subscriptions, paid Robotaxi miles and Cybercab deployments in the Q3 2026 update.</p></div></div>
+    <div class="item"><div class="when">2027</div><div><h3>Humanoid shipments</h3><p>Whether China&rsquo;s 2026 output lands nearer TrendForce&rsquo;s +94% (April) or its later &ldquo;more than 100,000 units&rdquo; (August), and whether Optimus reaches production.<sup class="cite"><a href="#r-tf" title="TrendForce — April 2026">[38]</a></sup><sup class="cite"><a href="#r-tf2" title="TrendForce — August 2026 report">[39]</a></sup></p></div></div>
+    <div class="item"><div class="when">2027</div><div><h3>Cabin agents with physical control</h3><p>Gemini in Waymo leaving beta; BMW&rsquo;s Alexa+ assistant in customer cars; GM&rsquo;s native assistant; and whether any operator lets a cabin agent control seats or windows, or links cabin and driving agents.</p></div></div>
+  </div>
+</section>
+
+<section id="method">
+  <div class="sec-head"><h2>Method, limits and flags</h2><span class="eyebrow">Read before citing</span></div>
+  <div class="about">
+    <p><b>Question.</b> What is physical AI, who are the main players across the stack, which products are used most, and how does it apply to the car, with the cabin and rider experience as the main lens?</p>
+    <p><b>Scope.</b> Global, whole stack. Placed under Shifts / Mobility on this site. Neutral and industry-wide: no recommendation is made to any company.</p>
+    <p><b>Sources.</b> Official and primary sources first (company filings and releases, regulators, standards bodies), then analyst research, then trade press. Each reference carries its type and date. Company-reported, analyst and forecast numbers are labelled. Two figures were re-checked against primary documents for this page: Baidu&rsquo;s H1 2026 rides (2026 Interim Report) and Euro NCAP&rsquo;s occupant-monitoring points (protocol v1.2).</p>
+    <p><b>What this report is not.</b> The ranking, the working definition, the stack diagram, maturity ratings and the &ldquo;why not just the phone&rdquo; and opportunity tables are the author&rsquo;s analysis, not sourced figures.</p>
+  </div>
+  <h3 class="sub-h" style="margin-top:0;">Flags and open questions</h3>
+  <ol class="flags">
+    <li><b>Humanoid counts conflict.</b> Unitree 2025: 5,511 (prospectus) vs 4,200 (Omdia). UBTech: about 1,079 (secondary) vs 1,000 (Omdia). Unitree&rsquo;s revenue is given as RMB 1,699.3M and RMB 1.708B in different summaries of the same prospectus, which was read via secondary sources.</li>
+    <li><b>TrendForce China 2026 outlook</b> appears as +94% output (April), +107% shipments (Q3 report) and more than 100,000 units (August).</li>
+    <li><b>IFR 2025 installations</b> are given as &ldquo;more than 600,000&rdquo; and 603,307; China&rsquo;s share as 54% and 59% in different summaries.</li>
+    <li><b>Waymo&rsquo;s Gemini.</b> Early leaked prompts (Dec 2025) and a 2026 trade article say it cannot control windows or seats; Waymo&rsquo;s July 2026 post says &ldquo;cabin controls&rdquo; with an air-conditioning example. Seat control is unverified.</li>
+    <li><b>Waymo fleet size</b> varies by source: about 3,000 (Mar 2026), 3,871 (a June filing, secondary) and about 4,000 (Sep 2026, secondary). Not used in the body.</li>
+    <li><b>Secondary only:</b> the China robotaxi permit pause and its reported resumption; WeRide&rsquo;s fleet; Li Auto&rsquo;s usage figures; Euro NCAP&rsquo;s wider 100-point Safe Driving category; Physical Intelligence funding.</li>
+    <li><b>Company claims not independently verified:</b> Waymo safety statistics, Baidu safety rates, Cerence&rsquo;s installed base, AgiBot production counts (production is not deployment), NVIDIA benchmark claims for Cosmos 3, Zeekr order counts.</li>
+    <li><b>Forecasts, not facts:</b> Gartner&rsquo;s 2035 prediction, IFR&rsquo;s 2029 outlook, TrendForce and bank humanoid forecasts, and Waymo&rsquo;s 1 million-a-week target.</li>
+    <li><b>Not covered:</b> Google DeepMind robotics, Figure Helix, World Labs, Meta, Wayve and OpenAI robotics; Horizon Robotics, Huawei, Mobileye and AMD chips; Applied Intuition and other simulation firms; Boston Dynamics at Hyundai and Apptronik at Mercedes; Huawei, Xiaomi and Xpeng cabins; robotic charging and valet parking; motion-sickness products.</li>
+    <li><b>Map.</b> Headquarters not stated in the sources come from general knowledge and should be checked before citing.</li>
+    <li><b>Refresh date.</b> Not yet set; the author to decide.</li>
+  </ol>
+  <h3 class="sub-h">Change log</h3>
+  <ul class="log">
+    <li class="loghead">October 2026 edition</li>
+    <li><span class="new">Added</span><div>First edition, data as of 13 October 2026.</div></li>
+  </ul>
+  <h3 class="sub-h">Related reports on this site</h3>
+  <div class="about">
+    <p><a href="../mega-trends-2040/">Mega Trends Outlook 2040</a> (Trend 1: AI becomes physical infrastructure)<sup class="cite"><a href="#r-mega" title="Mega Trends Outlook 2040">[64]</a></sup> &middot; <a href="../mobility-product-outlook/">Mobility Product Outlook 2026&ndash;2036</a> (robotaxi and shared-vehicle interiors)<sup class="cite"><a href="#r-mpo" title="Mobility Product Outlook">[65]</a></sup> &middot; <a href="../incar-ai-benchmark/">In-Car AI Assistant Benchmark</a> &middot; <a href="../agentic-consumer-2027/">Agentic AI and the Consumer</a></p>
+  </div>
+  <h3 class="sub-h">About this report</h3>
+  <div class="about">
+    <p>Personal research by <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">Chuhee Lee</a>. Research, source verification and drafting were carried out with Claude (Anthropic); topic selection, framing and conclusions are the author&rsquo;s. These are personal research projects; the views are the author&rsquo;s own and do not represent any employer or organization. No company named sponsors, reviews or endorses this report, and product names and trademarks belong to their owners. Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>.</p>
+  </div>
+  <h3 class="sub-h">References</h3>
+  <ul class="srcs">
+<li id="r-nvg"><b>[1]</b> <a href="https://www.nvidia.com/en-us/glossary/generative-physical-ai/" target="_blank" rel="noopener">NVIDIA — Glossary: What is generative physical AI?</a><span class="tag">primary (company) &middot; undated, read Oct 2026</span></li>
+<li id="r-nve"><b>[2]</b> <a href="https://www.nvidia.com/en-us/glossary/embodied-ai/" target="_blank" rel="noopener">NVIDIA — Glossary: What is embodied AI?</a><span class="tag">primary (company) &middot; undated, read Oct 2026</span></li>
+<li id="r-gtt"><b>[3]</b> <a href="https://www.businesswire.com/news/home/20251020453550/en/Gartner-Identifies-the-Top-Strategic-Technology-Trends-for-2026" target="_blank" rel="noopener">Gartner — Identifies the Top Strategic Technology Trends for 2026 (Business Wire release)</a><span class="tag">analyst &middot; 20 Oct 2025</span></li>
+<li id="r-gorch"><b>[4]</b> <a href="https://www.gartner.com/en/articles/orchestration-is-real-physical-ai-advantage" target="_blank" rel="noopener">Gartner — Orchestration is the real physical AI advantage</a><span class="tag">analyst &middot; 1 Oct 2026</span></li>
+<li id="r-gsc"><b>[5]</b> <a href="https://www.gartner.com/en/newsroom/press-releases/2026-06-30-gartner-identifies-top-supply-chain-technology-trends-for-2026" target="_blank" rel="noopener">Gartner — Identifies top supply chain technology trends for 2026</a><span class="tag">analyst &middot; 30 Jun 2026</span></li>
+<li id="r-ts4"><b>[6]</b> <a href="https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/exhibit991.htm" target="_blank" rel="noopener">Tesla — Q4 2025 Update (Form 8-K, Ex. 99.1)</a><span class="tag">primary (company filing) &middot; Jan 2026</span></li>
+<li id="r-tsq2"><b>[7]</b> <a href="https://www.sec.gov/Archives/edgar/data/0001318605/000162828026049270/tsla-20260630.htm" target="_blank" rel="noopener">Tesla — Form 10-Q for the quarter ended 30 June 2026</a><span class="tag">primary (company filing) &middot; Jul 2026</span></li>
+<li id="r-tsu"><b>[8]</b> <a href="https://www.sec.gov/Archives/edgar/data/0001318605/000162828026049213/exhibit991.htm" target="_blank" rel="noopener">Tesla — Q2 2026 Update (Form 8-K, Ex. 99.1)</a><span class="tag">primary (company filing) &middot; Jul 2026</span></li>
+<li id="r-bmwf"><b>[9]</b> <a href="https://www.bmwblog.com/2026/06/26/bmw-figure-03-humanoid-robot-spartanburg-plant/" target="_blank" rel="noopener">BMWBLOG — BMW brings Figure 03 humanoid robots to Spartanburg</a><span class="tag">trade press (company figures) &middot; 26 Jun 2026</span></li>
+<li id="r-bmwl"><b>[10]</b> <a href="https://www.bmwgroup.com/en/news/general/2026/humanoid-robot-in-leipzig.html" target="_blank" rel="noopener">BMW Group — Humanoid robot in Leipzig</a><span class="tag">primary (company) &middot; 2026</span></li>
+<li id="r-bmwa"><b>[11]</b> <a href="https://www.bmwgroup.com/en/news/general/2026/alexa.html" target="_blank" rel="noopener">BMW Group — Intelligent Personal Assistant with Amazon Alexa+ technology</a><span class="tag">primary (company) &middot; Jan 2026</span></li>
+<li id="r-cos3"><b>[12]</b> <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Launches-Cosmos-3-the-Open-Frontier-Foundation-Model-for-Physical-AI/default.aspx" target="_blank" rel="noopener">NVIDIA — Launches Cosmos 3, the open frontier foundation model for physical AI</a><span class="tag">primary (company) &middot; 1 Jun 2026</span></li>
+<li id="r-ces"><b>[13]</b> <a href="https://blogs.nvidia.com/blog/2026-ces-special-presentation/" target="_blank" rel="noopener">NVIDIA — CES 2026 special presentation</a><span class="tag">primary (company) &middot; Jan 2026</span></li>
+<li id="r-gtc"><b>[14]</b> <a href="https://blogs.nvidia.com/blog/gtc-2026-virtual-worlds-physical-ai/" target="_blank" rel="noopener">NVIDIA — GTC 2026: virtual worlds and physical AI</a><span class="tag">primary (company) &middot; Mar 2026</span></li>
+<li id="r-cos10"><b>[15]</b> <a href="https://forums.developer.nvidia.com/t/10m-downloads-and-counting-nvidia-cosmos-the-frontier-of-physical-ai/378342" target="_blank" rel="noopener">NVIDIA Developer Forums — 10M downloads and counting: NVIDIA Cosmos</a><span class="tag">primary (company) &middot; 27 Jul 2026</span></li>
+<li id="r-tc"><b>[16]</b> <a href="https://techcrunch.com/2026/03/27/waymo-skyrocketing-ridership-in-one-chart/" target="_blank" rel="noopener">TechCrunch — Waymo’s skyrocketing ridership in one chart</a><span class="tag">press (company figures) &middot; 27 Mar 2026</span></li>
+<li id="r-wgem"><b>[17]</b> <a href="https://waymo.com/blog/2026/07/gemini-in-waymo/" target="_blank" rel="noopener">Waymo — Gemini in Waymo</a><span class="tag">primary (company) &middot; 29 Jul 2026</span></li>
+<li id="r-ievs"><b>[18]</b> <a href="https://insideevs.com/news/791245/waymo-rides-per-week-2026-doubled/" target="_blank" rel="noopener">InsideEVs — Waymo rides per week</a><span class="tag">press &middot; 2026</span></li>
+<li id="r-aw"><b>[19]</b> <a href="https://www.automotiveworld.com/news/waymos-metric-for-2026-success-one-million-weekly-rides/" target="_blank" rel="noopener">Automotive World — Waymo’s metric for 2026 success: one million weekly rides</a><span class="tag">trade press &middot; 2026</span></li>
+<li id="r-ev"><b>[20]</b> <a href="https://eletric-vehicles.com/waymo/waymo-hits-500000-weekly-rides-and-over-4-million-miles-co-ceo-says/" target="_blank" rel="noopener">Electric Vehicles — Waymo hits 500,000 weekly rides and over 4 million miles, co-CEO says</a><span class="tag">trade press &middot; 2026</span></li>
+<li id="r-deep"><b>[21]</b> <a href="https://deeparrival.com/news/waymo-denver-san-diego-tampa-rides-september-2026/" target="_blank" rel="noopener">Deep Arrival — Waymo rides in Denver, San Diego and Tampa</a><span class="tag">secondary &middot; Sep 2026</span></li>
+<li id="r-bdi"><b>[22]</b> <a href="https://www.sec.gov/Archives/edgar/data/0001329099/000119312526394299/d152888dex991.pdf" target="_blank" rel="noopener">Baidu — 2026 Interim Report (Form 6-K, Ex. 99.1)</a><span class="tag">primary (company filing) &middot; 17 Sep 2026; re-checked 13 Oct 2026</span></li>
+<li id="r-bdq2"><b>[23]</b> <a href="https://ir.baidu.com/news-releases/news-release-details/baidu-announces-second-quarter-2026-results" target="_blank" rel="noopener">Baidu — Announces second quarter 2026 results</a><span class="tag">primary (company) &middot; Aug 2026</span></li>
+<li id="r-cnwu"><b>[24]</b> <a href="https://cnevpost.com/2026/04/01/baidu-apollo-go-robotaxis-mass-paralysis-wuhan/" target="_blank" rel="noopener">CnEVPost — Baidu Apollo Go robotaxis suffer mass paralysis in Wuhan</a><span class="tag">trade press &middot; 1 Apr 2026</span></li>
+<li id="r-bdub"><b>[25]</b> <a href="https://www.prnewswire.com/news-releases/baidus-apollo-go-goes-live-on-uber-in-dubai-offering-a-new-way-for-users-to-hail-fully-driverless-rides-302856106.html" target="_blank" rel="noopener">PR Newswire — Baidu’s Apollo Go goes live on Uber in Dubai</a><span class="tag">primary (company release) &middot; 20 Aug 2026</span></li>
+<li id="r-cnbc"><b>[26]</b> <a href="https://www.cnbc.com/2026/08/05/amazon-zoox-paid-robotaxi-rides-las-vegas.html" target="_blank" rel="noopener">CNBC — Amazon’s Zoox to start paid robotaxi rides in Las Vegas</a><span class="tag">press &middot; 5 Aug 2026</span></li>
+<li id="r-cb"><b>[27]</b> <a href="https://news.crunchbase.com/venture/physical-ai-funding-startups-robotics-aerospace-h1-2026/" target="_blank" rel="noopener">Crunchbase News — Physical AI funding, H1 2026</a><span class="tag">data provider &middot; 18 Aug 2026</span></li>
+<li id="r-cbj"><b>[28]</b> <a href="https://news.crunchbase.com/venture/new-unicorn-board-startups-exits-ai-semiconductors-june-2026/" target="_blank" rel="noopener">Crunchbase News — New unicorns, June 2026</a><span class="tag">data provider &middot; Jul 2026</span></li>
+<li id="r-pony"><b>[29]</b> <a href="https://ir.pony.ai/news-events/press-releases" target="_blank" rel="noopener">Pony.ai — Investor relations press releases (Q2 2026 results)</a><span class="tag">primary (company) &middot; Aug 2026</span></li>
+<li id="r-pbq2"><b>[30]</b> <a href="https://pitchbook.com/news/reports/q2-2026-robotics-physical-ai-report-the-money-is-in-the-motion" target="_blank" rel="noopener">PitchBook — Q2 2026 Robotics &amp; Physical AI Report</a><span class="tag">data provider &middot; 2026</span></li>
+<li id="r-agi"><b>[31]</b> <a href="https://www.agibot.com/article/231/detail/82.html" target="_blank" rel="noopener">AgiBot — company article (production milestone; Omdia ranking)</a><span class="tag">primary (company) &middot; 2026</span></li>
+<li id="r-trr"><b>[32]</b> <a href="https://www.therobotreport.com/agibot-rolls-out-10000th-humanoid-robot/" target="_blank" rel="noopener">The Robot Report — AgiBot rolls out 10,000th humanoid robot</a><span class="tag">trade press &middot; Mar 2026</span></li>
+<li id="r-unit"><b>[33]</b> <a href="https://techmarketbriefs.com/pre-ipo/unitree/" target="_blank" rel="noopener">Tech Market Briefs — Unitree pre-IPO profile (prospectus figures)</a><span class="tag">secondary &middot; 2026</span></li>
+<li id="r-pi"><b>[34]</b> <a href="https://en.wikipedia.org/wiki/Physical_Intelligence_Inc." target="_blank" rel="noopener">Wikipedia — Physical Intelligence (funding, citing Bloomberg)</a><span class="tag">secondary &middot; read Oct 2026</span></li>
+<li id="r-tn"><b>[35]</b> <a href="https://technode.com/2026/01/09/chinas-agibot-leads-global-humanoid-robot-shipments-in-2025-omdia-says/" target="_blank" rel="noopener">TechNode — China’s AgiBot leads global humanoid robot shipments in 2025, Omdia says</a><span class="tag">press (analyst figures) &middot; 9 Jan 2026</span></li>
+<li id="r-scmp"><b>[36]</b> <a href="https://www.scmp.com/tech/tech-trends/article/3339346/chinese-firms-outpace-us-rivals-2025-humanoid-robot-shipments-agibot-takes-lead" target="_blank" rel="noopener">SCMP — Chinese firms outpace US rivals in 2025 humanoid robot shipments</a><span class="tag">press (analyst figures) &middot; Jan 2026</span></li>
+<li id="r-ifr"><b>[37]</b> <a href="https://ifr.org/ifr-press-releases/news/five-million-robots-now-operate-in-factories-globally" target="_blank" rel="noopener">IFR — Five million robots now operate in factories globally (World Robotics 2026)</a><span class="tag">industry association &middot; 24 Sep 2026</span></li>
+<li id="r-tf"><b>[38]</b> <a href="https://www.trendforce.com/presscenter/news/20260409-13007.html" target="_blank" rel="noopener">TrendForce — China humanoid robot output outlook</a><span class="tag">analyst &middot; 9 Apr 2026</span></li>
+<li id="r-tf2"><b>[39]</b> <a href="https://www.trendforce.com/research/download/RP260827SJ" target="_blank" rel="noopener">TrendForce — humanoid robot research report</a><span class="tag">analyst &middot; Aug 2026</span></li>
+<li id="r-gas"><b>[40]</b> <a href="https://autonews.gasgoo.com/articles/news/unified-agent-the-next-stop-for-automotive-ai-2105232826416189440" target="_blank" rel="noopener">Gasgoo — Unified agent: the next stop for automotive AI</a><span class="tag">trade press &middot; 2026</span></li>
+<li id="r-eva"><b>[41]</b> <a href="https://www.yasnshow.com/industry-information/industry-first-geelys-hyper-human-emotional-ai-agent-eva-mass-produced-onboard-signaling-the-end-of-traditional-cockpit-era.html" target="_blank" rel="noopener">YASN — Geely’s Eva AI agent mass-produced on board</a><span class="tag">trade press &middot; 2025</span></li>
+<li id="r-geely"><b>[42]</b> <a href="https://chinabizinsider.com/geely-unveils-cabin-driving-integration-breakthrough-at-nvidia-gtc-2026-targets-mass-production-of-super-eva-g-asd-4-0/" target="_blank" rel="noopener">China Biz Insider — Geely unveils cabin–driving integration at NVIDIA GTC 2026</a><span class="tag">trade press &middot; Mar 2026</span></li>
+<li id="r-li"><b>[43]</b> <a href="https://ievchina.com/ai-mobility/li-auto-mind-gpt-i6-ai-cockpit-2026-h2-l8-l6-facelift-livis-adas/" target="_blank" rel="noopener">iEVChina — Li Auto Mind GPT AI cockpit</a><span class="tag">trade press &middot; 2026</span></li>
+<li id="r-nio"><b>[44]</b> <a href="https://cnevpost.com/2024/06/27/nio-nomi-gpt-hits-10-million-user-interactions/" target="_blank" rel="noopener">CnEVPost — NIO NOMI GPT hits 10 million user interactions</a><span class="tag">trade press (company figures) &middot; 27 Jun 2024</span></li>
+<li id="r-mb"><b>[45]</b> <a href="https://group.mercedes-benz.com/innovations/product-innovation/technology/ai-powered-conversational-search.html" target="_blank" rel="noopener">Mercedes-Benz Group — AI-powered conversational search</a><span class="tag">primary (company) &middot; 2025</span></li>
+<li id="r-gm"><b>[46]</b> <a href="https://www.autoconnectedcar.com/2026/08/gm-to-build-its-own-ai-in-dash-assistant/" target="_blank" rel="noopener">Auto Connected Car — GM to build its own AI in-dash assistant</a><span class="tag">trade press &middot; Aug 2026</span></li>
+<li id="r-cer"><b>[47]</b> <a href="https://www.cerence.com/newsroom/blog/agentic-in-cabin-ai-automotive-ai-box" target="_blank" rel="noopener">Cerence — Agentic in-cabin AI and the automotive AI box</a><span class="tag">vendor &middot; 2026</span></li>
+<li id="r-cerb"><b>[48]</b> <a href="https://investors.cerence.com/news-events/press-releases/detail/374/cerence-ai-to-power-intelligent-llm-powered-in-car-experiences-for-byd" target="_blank" rel="noopener">Cerence — To power intelligent LLM-powered in-car experiences for BYD</a><span class="tag">primary (company) &middot; Apr 2026</span></li>
+<li id="r-sh"><b>[49]</b> <a href="https://www.automotiveworld.com/news-releases/soundhound-ai-brings-voice-assistant-with-generative-ai-to-lancia-vehicles-across-europe/" target="_blank" rel="noopener">Automotive World — SoundHound AI brings generative AI voice assistant to Lancia vehicles across Europe</a><span class="tag">company release &middot; 2024</span></li>
+<li id="r-se"><b>[50]</b> <a href="https://smarteye.se/news/smart-eye-unveils-world-first-multimodal-automotive-ai-agent-combining-human-vehicle-and-environmental-context/" target="_blank" rel="noopener">Smart Eye — Unveils multimodal automotive AI agent</a><span class="tag">primary (company) &middot; 23 Sep 2026</span></li>
+<li id="r-bosch"><b>[51]</b> <a href="https://us.bosch-press.com/pressportal/us/en/press-release-29312.html" target="_blank" rel="noopener">Bosch — AI-powered cockpit and AI extension platform (CES 2026)</a><span class="tag">primary (company) &middot; Jan 2026</span></li>
+<li id="r-jdp"><b>[52]</b> <a href="https://www.jdpower.com/business/news/the-automotive-update-carmakers-accelerate-ai-applications-at-ces-2026/" target="_blank" rel="noopener">J.D. Power — Carmakers accelerate AI applications at CES 2026</a><span class="tag">benchmark firm commentary &middot; Jan 2026</span></li>
+<li id="r-any"><b>[53]</b> <a href="https://anyverse.ai/in-cabin-monitoring-ces-2026/" target="_blank" rel="noopener">Anyverse — In-cabin monitoring at CES 2026</a><span class="tag">vendor &middot; Jan 2026</span></li>
+<li id="r-eu1341"><b>[54]</b> <a href="https://eur-lex.europa.eu/eli/reg_del/2021/1341/oj" target="_blank" rel="noopener">EUR-Lex — Delegated Regulation (EU) 2021/1341 (driver drowsiness and attention warning)</a><span class="tag">primary (official journal) &middot; 2021</span></li>
+<li id="r-eu2590"><b>[55]</b> <a href="https://eur-lex.europa.eu/eli/reg_del/2023/2590/oj" target="_blank" rel="noopener">EUR-Lex — Delegated Regulation (EU) 2023/2590 (advanced driver distraction warning)</a><span class="tag">primary (official journal) &middot; 13 Jul 2023; re-checked 13 Oct 2026</span></li>
+<li id="r-ncap"><b>[56]</b> <a href="https://cdn.euroncap.com/cars/assets/Euro_NCAP_Protocol_Safe_Driving_Occupant_Monitoring_v1_2_aebbc7361f.pdf" target="_blank" rel="noopener">Euro NCAP — Safe Driving Occupant Monitoring protocol, v1.2</a><span class="tag">primary (rating body) &middot; Jul 2026; re-checked 13 Oct 2026</span></li>
+<li id="r-ele"><b>[57]</b> <a href="https://electrek.co/2026/07/29/waymo-gemini-ai-ojai-robotaxi-redesigned-interface/" target="_blank" rel="noopener">Electrek — Waymo adds Gemini AI to Ojai robotaxi with redesigned interface</a><span class="tag">trade press &middot; 29 Jul 2026</span></li>
+<li id="r-vav"><b>[58]</b> <a href="https://valueaddvc.com/pulse/physical-ai-defense-robotics-record-funding-2026" target="_blank" rel="noopener">Value Add VC — Physical AI and defense robotics record funding 2026</a><span class="tag">secondary analysis &middot; 2026</span></li>
+<li id="r-rdn"><b>[59]</b> <a href="https://www.repairerdrivennews.com/2026/07/13/bmw-group-advances-physical-ai-use-in-production-with-figure-03-humanoid-robots/" target="_blank" rel="noopener">Repairer Driven News — BMW Group advances physical AI use in production with Figure 03</a><span class="tag">trade press (company release) &middot; 13 Jul 2026</span></li>
+<li id="r-carnc"><b>[60]</b> <a href="https://carnewschina.com/2026/04/01/apollo-gos-robotaxi-fleet-suffers-mass-paralysis-stranding-passengers-on-elevated-highways/" target="_blank" rel="noopener">CarNewsChina — Apollo Go robotaxi fleet suffers mass paralysis</a><span class="tag">trade press &middot; 1 Apr 2026</span></li>
+<li id="r-tsq1"><b>[61]</b> <a href="https://www.sec.gov/Archives/edgar/data/0001318605/000162828026026673/tsla-20260331.htm" target="_blank" rel="noopener">Tesla — Form 10-Q for the quarter ended 31 March 2026</a><span class="tag">primary (company filing) &middot; Apr 2026</span></li>
+<li id="r-pbq1"><b>[62]</b> <a href="https://pitchbook.com/news/reports/q1-2026-robotics-physical-ai-vc-trends" target="_blank" rel="noopener">PitchBook — Q1 2026 Robotics &amp; Physical AI VC Trends</a><span class="tag">data provider &middot; 2026</span></li>
+<li id="r-tna"><b>[63]</b> <a href="https://www.notateslaapp.com/news/4481/summary-of-teslas-2026-q2-earnings-call-cybercab-fsd-ai4-and-more" target="_blank" rel="noopener">Not a Tesla App — Summary of Tesla’s Q2 2026 earnings call</a><span class="tag">secondary &middot; Jul 2026</span></li>
+<li id="r-mega"><b>[64]</b> <a href="https://blueplanet-ai.github.io/mega-trends-2040/" target="_blank" rel="noopener">Chuhee Lee — Mega Trends Outlook 2040 (this site)</a><span class="tag">own report &middot; Oct 2026</span></li>
+<li id="r-mpo"><b>[65]</b> <a href="https://blueplanet-ai.github.io/mobility-product-outlook/" target="_blank" rel="noopener">Chuhee Lee — Mobility Product Outlook 2026–2036 (this site)</a><span class="tag">own report &middot; Oct 2026</span></li>
+<li id="r-bench"><b>[66]</b> <a href="https://blueplanet-ai.github.io/incar-ai-benchmark/" target="_blank" rel="noopener">Chuhee Lee — In-Car AI Assistant Benchmark (this site)</a><span class="tag">own report &middot; 11 Oct 2026</span></li>
+<li id="r-zoox"><b>[67]</b> <a href="https://techcrunch.com/2026/03/24/zoox-brings-its-robotaxis-to-austin-and-miami" target="_blank" rel="noopener">TechCrunch — Zoox brings its robotaxis to Austin and Miami</a><span class="tag">press &middot; 24 Mar 2026</span></li>
+  </ul>
+</section>
+</div>
+
+<footer class="foot"><div class="foot-inner">
+  <span>&copy; 2026 Chuhee Lee &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+  <span>Independent research &middot; not affiliated with or endorsed by any company named</span>
+  <span><a href="../">All publications</a></span>
+</div></footer>
+
+<script>
+(function(){
+  /* Player headquarters grouped by city: [city, lat, lon, label side, [[name, layer], ...]]. Approximate locations. */
+  var C=[
+    ["Bay Area",37.5,-122.2,"r",[["NVIDIA","m"],["Physical Intelligence","m"],["Figure AI","r"],["Waymo","d"],["Zoox","d"]],-16],
+    ["San Diego",32.9,-117.2,"r",[["Qualcomm","c"]],26],
+    ["Austin",30.27,-97.74,"r",[["Tesla","d"]]],
+    ["Detroit",42.33,-83.05,"l",[["GM","x"]],-4],
+    ["Boston area",42.5,-71.2,"r",[["Cerence","x"]],-4],
+    ["Munich",48.14,11.58,"r",[["BMW","x"]]],
+    ["Stuttgart",48.8,9.15,"l",[["Mercedes-Benz","x"],["Bosch","x"]]],
+    ["Gothenburg",57.71,11.97,"r",[["Smart Eye","x"]]],
+    ["Beijing",39.9,116.4,"r",[["Baidu Apollo Go","d"],["Li Auto","x"]]],
+    ["Shanghai",31.23,121.47,"r",[["AgiBot","r"]]],
+    ["Hangzhou",30.27,120.15,"l",[["Unitree","r"],["Geely","x"]]],
+    ["Shenzhen",22.54,114.06,"r",[["UBTech","r"]]],
+    ["Guangzhou",23.13,113.26,"l",[["Pony.ai","d"]]],
+    ["Hsinchu",24.8,120.97,"r",[["MediaTek","c"]]],
+    ["Tokyo",35.68,139.69,"l",[["Renesas","c"]]]
+  ];
+  var L={m:["Models","var(--cat-1)"],c:["Chips","var(--cat-4)"],r:["Robots and humanoids","var(--cat-2)"],d:["Driving and robotaxi","var(--cat-3)"],x:["Cabin and carmakers","var(--cat-5)"]};
+  var P=[{t:"North America",lat:[26,47],lon:[-127,-58]},{t:"Europe",lat:[45,60],lon:[0,22]},{t:"East Asia",lat:[19,43],lon:[106,144]}];
+  var esc=function(s){return s.replace(/&/g,"&amp;");};
+  var out="";
+  P.forEach(function(b){
+    var W=420,H=300,pad=30,kx=Math.cos((b.lat[0]+b.lat[1])/2*Math.PI/180);
+    var sc=Math.min((W-pad*2)/((b.lon[1]-b.lon[0])*kx),(H-pad*2)/(b.lat[1]-b.lat[0]));
+    var ox=(W-(b.lon[1]-b.lon[0])*kx*sc)/2,oy=(H-(b.lat[1]-b.lat[0])*sc)/2;
+    var X=function(lo){return ox+(lo-b.lon[0])*kx*sc;},Y=function(la){return oy+(b.lat[1]-la)*sc;};
+    var pts=C.filter(function(c){return c[1]>=b.lat[0]&&c[1]<=b.lat[1]&&c[2]>=b.lon[0]&&c[2]<=b.lon[1];});
+    var g="<rect x='"+ox.toFixed(1)+"' y='"+oy.toFixed(1)+"' width='"+(W-ox*2).toFixed(1)+"' height='"+(H-oy*2).toFixed(1)+"' fill='none' stroke='var(--line)' stroke-dasharray='2 3'/>";
+    pts.forEach(function(c){
+      var x=X(c[2]),y=Y(c[1]),r=c[3]==="r",n=c[4].length,tx=r?x+10:x-10,ty=y-(n-1)*7+4+(c[5]||0);
+      g+="<circle cx='"+x.toFixed(1)+"' cy='"+y.toFixed(1)+"' r='3.5' fill='var(--ink)'><title>"+c[0]+"</title></circle>";if(c[5])g+="<line x1='"+x.toFixed(1)+"' y1='"+y.toFixed(1)+"' x2='"+(r?x+7:x-7).toFixed(1)+"' y2='"+(y+c[5]).toFixed(1)+"' stroke='var(--ink-3)' stroke-width='.8'/>";
+      c[4].forEach(function(p,i){
+        var yy=ty+i*14,w=p[0].length*6.3;
+        var dx=r?tx:tx-w-10;
+        g+="<circle cx='"+(dx+4).toFixed(1)+"' cy='"+(yy-4).toFixed(1)+"' r='4' fill='"+L[p[1]][1]+"'><title>"+esc(p[0])+" — "+L[p[1]][0]+" · "+c[0]+"</title></circle>";
+        g+="<text x='"+(dx+11).toFixed(1)+"' y='"+yy.toFixed(1)+"' font-size='11.5' style='fill:var(--ink)'>"+esc(p[0])+"</text>";
+      });
+      g+="<text x='"+(r?tx:tx).toFixed(1)+"' y='"+(ty+n*14).toFixed(1)+"' font-size='9.5' text-anchor='"+(r?"start":"end")+"' style='fill:var(--ink-3);font-family:var(--font-mono);letter-spacing:.04em'>"+c[0].toUpperCase()+"</text>";
+    });
+    out+="<figure><figcaption>"+b.t+"</figcaption><svg viewBox='0 0 "+W+" "+H+"' role='img' aria-label='"+b.t+": "+pts.map(function(c){return c[0]+" ("+c[4].map(function(p){return esc(p[0]);}).join(", ")+")";}).join("; ")+"'>"+g+"</svg></figure>";
+  });
+  document.getElementById("hqmaps").innerHTML=out;
+  document.getElementById("hqlegend").innerHTML=Object.keys(L).map(function(k){return "<span class='k'><span class='sw' style='background:"+L[k][1]+"'></span>"+L[k][0]+"</span>";}).join("");
+})();
+</script>
+</body>
+</html>

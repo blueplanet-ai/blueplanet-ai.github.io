@@ -20,6 +20,14 @@
 - "How topics are found": six lenses (time, attention, state of mind, social context, space, transitions), placed after the reports and opportunities.
 - Short author bio added to About.
 
+## Physical AI and the Rider’s Cabin
+
+### October 2026 edition — first release (data as of 13 October 2026)
+- New report under Shifts / Mobility: a definition of physical AI (published definitions plus the author's working definition and a stack diagram), the main players across the stack globally, a ranking of the most-used products by measurable adoption, and applications in the car with the cabin and rider experience as the main lens.
+- Cabin section covers who is already there, the separated-versus-unified agent choice, EU and Euro NCAP occupant-sensing rules, a "why not just the phone?" comparison and neutral opportunity angles. Driving and factory uses are covered more briefly.
+- Baidu's H1 2026 driverless rides (2026 Interim Report) and Euro NCAP's occupant-monitoring points (protocol v1.2) re-checked against primary documents on 13 October 2026.
+- Open flags are listed on the page, including conflicting humanoid shipment counts and an unset refresh date.
+
 ## Agentic AI and the Consumer: 2027 Outlook
 
 ### October 2026 edition — first release (data as of 11 October 2026)
