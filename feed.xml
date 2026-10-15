@@ -6,7 +6,14 @@
   <description>Benchmarks, comparisons and research reports on time and attention on the move: technology, mobility and travel. New editions and refreshes.</description>
   <language>en</language>
   <atom:link href="https://blueplanet-ai.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 13 Oct 2026 07:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 14 Oct 2026 07:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Physical AI and the Rider’s Cabin</title>
+    <link>https://blueplanet-ai.github.io/physical-ai-cabin/</link>
+    <guid isPermaLink="true">https://blueplanet-ai.github.io/physical-ai-cabin/</guid>
+    <pubDate>Tue, 13 Oct 2026 07:00:00 GMT</pubDate>
+    <description>Research report, October 2026 edition (data as of 13 Oct 2026). What physical AI means, the main players across the stack, the most-used products and services, and how it reaches the car, with the cabin and rider experience as the main lens.</description>
+  </item>
   <item>
     <title>Agentic AI and the Consumer: 2027 Outlook</title>
     <link>https://blueplanet-ai.github.io/agentic-consumer-2027/</link>
