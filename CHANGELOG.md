@@ -27,6 +27,7 @@
 - Added a "traditional automation" row to the related-terms table and a table on ISO 26262 and ISO 21448 (SOTIF) for cabin agents.
 - Claims from an AI-generated draft that could not be confirmed (a 2,000 TOPS Snapdragon Ride Flex figure, a BCG definition, "GAIA-4", Winverse as DeepSeek's robotics arm) are not used; this is stated in the page's flags.
 - London added to the player map. No existing figures changed.
+- Research-assistance credit updated to name Gemini (Google) alongside Claude (Anthropic), consistent with the home page.
 
 ### October 2026 edition — first release (data as of 13 October 2026)
 - New report under Shifts / Mobility: a definition of physical AI (published definitions plus the author's working definition and a stack diagram), the main players across the stack globally, a ranking of the most-used products by measurable adoption, and applications in the car with the cabin and rider experience as the main lens.
