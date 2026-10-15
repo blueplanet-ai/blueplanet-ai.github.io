@@ -22,6 +22,12 @@
 
 ## Physical AI and the Rider’s Cabin
 
+### 14 October 2026 — additions after cross-checking a second draft
+- Added Google DeepMind Gemini 4 Argon (13 Oct 2026), Wayve GAIA-3, Winverse AI, ITU-T Recommendation F.748.66, BMW Virtual Factory figures and Qualcomm automotive figures, each with a dated source.
+- Added a "traditional automation" row to the related-terms table and a table on ISO 26262 and ISO 21448 (SOTIF) for cabin agents.
+- Claims from an AI-generated draft that could not be confirmed (a 2,000 TOPS Snapdragon Ride Flex figure, a BCG definition, "GAIA-4", Winverse as DeepSeek's robotics arm) are not used; this is stated in the page's flags.
+- London added to the player map. No existing figures changed.
+
 ### October 2026 edition — first release (data as of 13 October 2026)
 - New report under Shifts / Mobility: a definition of physical AI (published definitions plus the author's working definition and a stack diagram), the main players across the stack globally, a ranking of the most-used products by measurable adoption, and applications in the car with the cabin and rider experience as the main lens.
 - Cabin section covers who is already there, the separated-versus-unified agent choice, EU and Euro NCAP occupant-sensing rules, a "why not just the phone?" comparison and neutral opportunity angles. Driving and factory uses are covered more briefly.
