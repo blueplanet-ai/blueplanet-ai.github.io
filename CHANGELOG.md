@@ -22,6 +22,13 @@
 
 ## Physical AI and the Rider’s Cabin
 
+### 14 October 2026 — additions after cross-checking a second draft
+- Added Google DeepMind Gemini 4 Argon (13 Oct 2026), Wayve GAIA-3, Winverse AI, ITU-T Recommendation F.748.66, BMW Virtual Factory figures and Qualcomm automotive figures, each with a dated source.
+- Added a "traditional automation" row to the related-terms table and a table on ISO 26262 and ISO 21448 (SOTIF) for cabin agents.
+- Claims from an AI-generated draft that could not be confirmed (a 2,000 TOPS Snapdragon Ride Flex figure, a BCG definition, "GAIA-4", Winverse as DeepSeek's robotics arm) are not used; this is stated in the page's flags.
+- London added to the player map. No existing figures changed.
+- Research-assistance credit updated to name Gemini (Google) alongside Claude (Anthropic), consistent with the home page.
+
 ### October 2026 edition — first release (data as of 13 October 2026)
 - New report under Shifts / Mobility: a definition of physical AI (published definitions plus the author's working definition and a stack diagram), the main players across the stack globally, a ranking of the most-used products by measurable adoption, and applications in the car with the cabin and rider experience as the main lens.
 - Cabin section covers who is already there, the separated-versus-unified agent choice, EU and Euro NCAP occupant-sensing rules, a "why not just the phone?" comparison and neutral opportunity angles. Driving and factory uses are covered more briefly.
@@ -29,6 +36,9 @@
 - Open flags are listed on the page, including conflicting humanoid shipment counts and an unset refresh date.
 
 ## Agentic AI and the Consumer: 2027 Outlook
+
+### 14 October 2026 — research credit
+- Research-assistance credit updated to name Gemini (Google) alongside Claude (Anthropic), in the byline, the About text and the credit flag. No figures or conclusions changed.
 
 ### October 2026 edition — first release (data as of 11 October 2026)
 - New report on how agentic AI changes what consumers trust, delegate, buy and feel through 2027. General-consumer lens, with automotive and mobility as a dedicated section and a US, EU and China comparison.

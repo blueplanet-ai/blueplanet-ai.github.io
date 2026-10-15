@@ -566,8 +566,8 @@ table.cmp td .kindpill{margin-top:4px}
       <div class="telltale"><span class="dot"></span><span class="eyebrow">Independent research report &middot; physical AI</span></div>
       <h1>Physical AI and the Rider&rsquo;s Cabin</h1>
       <p class="sub">What &ldquo;physical AI&rdquo; means, who builds it across the stack, which products people actually use, and how it reaches the car, with the cabin and the rider&rsquo;s freed-up time as the main lens.</p>
-      <p class="byline">By <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">Chuhee Lee</a> &middot; October 2026 edition &middot; Data as of 13 October 2026 &middot; Next scheduled refresh: to be confirmed</p>
-      <p class="byline-2">With research assistance from Claude (Anthropic) &middot; The views are the author&rsquo;s own</p>
+      <p class="byline">By <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">Chuhee Lee</a> &middot; October 2026 edition &middot; Data as of 13 October 2026, updated 14 October 2026 &middot; Next scheduled refresh: to be confirmed</p>
+      <p class="byline-2">With research assistance from several AI models (mainly Claude; Gemini for a cross-check draft) &middot; Views are the author&rsquo;s own</p>
     </div>
     <div class="stamp">
       <div>EDITION <b>OCT 2026</b></div>
@@ -644,6 +644,7 @@ table.cmp td .kindpill{margin-top:4px}
         <tr><td class="rh">Gartner, supply-chain trends</td><td>Combines AI models with IoT sensors, robotics and automation for real-time sensing, analysis and execution.<sup class="cite"><a href="#r-gsc" title="Gartner — Top supply chain technology trends for 2026">[5]</a></sup></td><td>n/a</td><td>30 Jun 2026</td></tr>
         <tr><td class="rh">Tesla (SEC filing)</td><td>Describes its focus as bringing AI into the real world through FSD (Supervised), Robotaxi and AI robots including Optimus.<sup class="cite"><a href="#r-tsq1" title="Tesla — Form 10-Q, Q1 2026">[61]</a></sup><sup class="cite"><a href="#r-tsq2" title="Tesla — Form 10-Q, Q2 2026">[7]</a></sup></td><td>Yes</td><td>Q1 and Q2 2026 10-Qs</td></tr>
         <tr><td class="rh">BMW Group</td><td>Treats humanoid robots as part of a strategy to expand its automation portfolio with physical AI.<sup class="cite"><a href="#r-bmwl" title="BMW Group — Humanoid robot in Leipzig">[10]</a></sup></td><td>Factory use</td><td>Jun&ndash;Jul 2026</td></tr>
+        <tr><td class="rh">ITU-T Recommendation F.748.66 (standard)</td><td>International standard titled &ldquo;Requirements and framework for embodied artificial intelligence systems&rdquo;. Its definition text was not read for this report.<sup class="cite"><a href="#r-itu" title="ITU-T — Recommendation F.748.66">[70]</a></sup></td><td>Not checked</td><td>Approved 14 Dec 2025</td></tr>
       </tbody>
     </table>
   </div>
@@ -653,6 +654,7 @@ table.cmp td .kindpill{margin-top:4px}
     <table class="cmp">
       <thead><tr><th>Term</th><th>What it stresses</th><th>Relation to physical AI (author&rsquo;s synthesis)</th></tr></thead>
       <tbody>
+        <tr><td class="rh">Traditional automation</td><td>Fixed, pre-programmed rules (when this sensor fires, do that)</td><td>The boundary. Physical AI starts where fixed rules give way to learned behaviour that adapts to what the machine senses. A robot vacuum that turns a set angle at every bump is automation; one that plans around what it sees is physical AI.</td></tr>
         <tr><td class="rh">Embodied AI</td><td>AI with a body that learns by interacting</td><td>Near-synonym. NVIDIA uses both and includes vehicles in each; academic use stresses learning through embodiment.</td></tr>
         <tr><td class="rh">World models</td><td>Models that predict how a physical scene will evolve (e.g. NVIDIA Cosmos)</td><td>The training and simulation layer: they generate synthetic data and test policies.</td></tr>
         <tr><td class="rh">Vision-language-action (VLA) models</td><td>One model maps camera and language input to actions</td><td>The &ldquo;brain&rdquo; layer, e.g. NVIDIA Alpamayo for driving.<sup class="cite"><a href="#r-ces" title="NVIDIA — CES 2026 special presentation">[13]</a></sup></td></tr>
@@ -704,7 +706,10 @@ table.cmp td .kindpill{margin-top:4px}
       <tr><td class="rh">Geely<br><span class="prov">Hangzhou, CN</span></td><td>&ldquo;WAM&rdquo; world action model behind Super Eva; debuted in the Zeekr 8X</td><td>Announced 17 Mar 2026</td><td>Trade press<sup class="cite"><a href="#r-geely" title="China Biz Insider — Geely at GTC 2026">[42]</a></sup></td></tr>
       <tr><td class="rh">Physical Intelligence<br><span class="prov">San Francisco, US</span></td><td>&pi;-series robot foundation models</td><td>$600M at about $5.6B valuation (Nov 2025); talks reported at $11B (Mar 2026)</td><td>Secondary<sup class="cite"><a href="#r-pi" title="Wikipedia — Physical Intelligence">[34]</a></sup></td></tr>
       <tr><td class="rh">Generalist AI, Odyssey, General Intuition<br><span class="prov">US</span></td><td>Embodied models; world models; models trained on gaming video</td><td>June 2026 rounds of $400M, $310M and $320M</td><td>Crunchbase News<sup class="cite"><a href="#r-cbj" title="Crunchbase News — June 2026 unicorn board">[28]</a></sup></td></tr>
-      <tr><td class="rh">Google DeepMind, Figure (Helix), Meta, World Labs, Wayve, AgiBot (GO-1), OpenAI</td><td colspan="2">Not re-verified for this edition</td><td><span class="kindpill kp-fc">Gap</span></td></tr>
+      <tr><td class="rh">Google DeepMind<br><span class="prov">London, UK</span></td><td>Gemini 4 Argon, a physical-reasoning model for robotics, released 13 Oct 2026 through the Gemini API and AI Studio</td><td>Google reports 87% on the ERQA embodied-reasoning benchmark, ahead of other frontier models; its own benchmark claim</td><td>Company<sup class="cite"><a href="#r-argon" title="Google — Gemini 4 Argon for robotics">[68]</a></sup></td></tr>
+      <tr><td class="rh">Wayve<br><span class="prov">London, UK</span></td><td>GAIA-3 generative world model (15 billion parameters) for testing driving AI on rare and unsafe scenarios</td><td>Trained on ten times more data than GAIA-2; announced 2 Dec 2025</td><td>Trade press<sup class="cite"><a href="#r-gaia3" title="Automotive World — Wayve unveils GAIA-3">[69]</a></sup></td></tr>
+      <tr><td class="rh">Winverse AI<br><span class="prov">China</span></td><td>Robot AI start-up founded in 2026 by a former Tencent robotics scientist; a separate company, not part of DeepSeek</td><td>DeepSeek reportedly leading a seed round at about $400M valuation (12 Oct 2026); not final</td><td>Press, citing Bloomberg<sup class="cite"><a href="#r-winv" title="TNW — DeepSeek to lead seed round in Winverse">[75]</a></sup></td></tr>
+      <tr><td class="rh">Figure (Helix), Meta, World Labs, AgiBot (GO-1), OpenAI</td><td colspan="2">Not re-verified for this edition</td><td><span class="kindpill kp-fc">Gap</span></td></tr>
     </tbody>
   </table></div>
 
@@ -713,7 +718,7 @@ table.cmp td .kindpill{margin-top:4px}
     <thead><tr><th>Player</th><th>Product</th><th>Evidence in this edition</th></tr></thead>
     <tbody>
       <tr><td class="rh">NVIDIA<br><span class="prov">Santa Clara, US</span></td><td>DRIVE AGX Thor, Jetson Thor, DGX for training</td><td>DRIVE AGX paired with a MediaTek cockpit chip in a central-computer demo; Bosch&rsquo;s AI extension platform is built on NVIDIA CUDA (CES 2026).<sup class="cite"><a href="#r-cer" title="Cerence — Agentic in-cabin AI and the automotive AI box">[47]</a></sup><sup class="cite"><a href="#r-bosch" title="Bosch — CES 2026">[51]</a></sup></td></tr>
-      <tr><td class="rh">Qualcomm<br><span class="prov">San Diego, US</span></td><td>Snapdragon Cockpit Elite and Ride; combined Snapdragon Elite</td><td>Leapmotor D19 to use the combined platform.<sup class="cite"><a href="#r-jdp" title="J.D. Power — Carmakers accelerate AI applications at CES 2026">[52]</a></sup></td></tr>
+      <tr><td class="rh">Qualcomm<br><span class="prov">San Diego, US</span></td><td>Snapdragon Cockpit Elite and Ride; combined Snapdragon Elite</td><td>Leapmotor D19 to use the combined platform.<sup class="cite"><a href="#r-jdp" title="J.D. Power — Carmakers accelerate AI applications at CES 2026">[52]</a></sup> Automotive revenue of $1,326M in fiscal Q2 2026, up 38% year on year.<sup class="cite"><a href="#r-qsec" title="Qualcomm — Q2 FY2026 earnings release (8-K)">[72]</a></sup> At its June 2026 Investor Day Qualcomm reportedly put its automotive design-win pipeline at $65B and raised its fiscal 2029 automotive revenue target to $10B (analyst reports; the release itself was not read).<sup class="cite"><a href="#r-qap" title="AutoPacific — Qualcomm Investor Day 2026">[73]</a></sup><sup class="cite"><a href="#r-qfut" title="Futurum — Qualcomm Investor Day 2026">[74]</a></sup></td></tr>
       <tr><td class="rh">MediaTek<br><span class="prov">Hsinchu, TW</span></td><td>Dimensity Auto C-X1 cockpit chip</td><td>CES 2026 demo with NVIDIA.<sup class="cite"><a href="#r-cer" title="Cerence — automotive AI box">[47]</a></sup></td></tr>
       <tr><td class="rh">Renesas<br><span class="prov">Tokyo, JP</span></td><td>R-Car X5H</td><td>Shown at CES 2026 (vendor blog).<sup class="cite"><a href="#r-any" title="Anyverse — In-cabin monitoring at CES 2026">[53]</a></sup></td></tr>
       <tr><td class="rh">Tesla<br><span class="prov">Austin, US</span></td><td>AI5 inference chip</td><td>Described as a step-function improvement (Q4 2025 Update).<sup class="cite"><a href="#r-ts4" title="Tesla — Q4 2025 Update">[6]</a></sup></td></tr>
@@ -853,6 +858,14 @@ table.cmp td .kindpill{margin-top:4px}
     </div>
   </div>
   <div class="verdict"><span class="tag">Author&rsquo;s read</span>Separation limits what a cabin agent can do but keeps safety cases and liability simple. Unification enables richer requests (&ldquo;find somewhere quiet to stop and recline my seat&rdquo;) but ties a conversational system to safety-critical behaviour. Which design wins is open, and it decides how much of the cabin a third party can ever control.</div>
+  <h3 class="sub-h">Which safety standard applies</h3>
+  <div class="tablewrap"><table class="cmp">
+    <thead><tr><th>Standard</th><th>What it covers</th><th>What it means for cabin agents (author&rsquo;s reading)</th></tr></thead>
+    <tbody>
+      <tr><td class="rh">ISO 26262 (functional safety)</td><td>Hazards caused by faults in electrical and electronic systems: hardware failures and software errors.<sup class="cite"><a href="#r-iso26" title="ISO 26262-1:2018 — Functional safety">[77]</a></sup></td><td rowspan="2">A cabin agent fenced off from driving, as at Waymo, stays outside the driving safety case. A unified agent that can influence driving brings a conversational model into SOTIF analysis, where its ways of misunderstanding a request become a safety question.</td></tr>
+      <tr><td class="rh">ISO 21448 (SOTIF)</td><td>Hazards when the system works as designed but its performance falls short, for example misreading a situation, including reasonably foreseeable misuse.<sup class="cite"><a href="#r-iso21" title="ISO 21448:2022 — SOTIF">[76]</a></sup></td></tr>
+    </tbody>
+  </table></div>
 
   <h3 class="sub-h">Sensing that regulation already puts in the cabin</h3>
   <div class="tablewrap"><table class="cmp">
@@ -904,7 +917,8 @@ table.cmp td .kindpill{margin-top:4px}
       <tr><td class="rh">Waymo</td><td>Multi-sensor Waymo Driver; sixth-generation system in the Ojai</td><td>Company-published safety statistics were not re-read for this edition and are not used.</td></tr>
       <tr><td class="rh">NVIDIA</td><td>Alpamayo open reasoning VLA (R1, 1.5, 2 Super)</td><td>Mercedes-Benz CLA named as the first passenger car to use it.<sup class="cite"><a href="#r-ces" title="NVIDIA — CES 2026">[13]</a></sup><sup class="cite"><a href="#r-cos3" title="NVIDIA — Cosmos 3">[12]</a></sup></td></tr>
       <tr><td class="rh">Geely</td><td>WAM world action model; G-ASD 4.0</td><td>Rolling out from April 2026.<sup class="cite"><a href="#r-geely" title="China Biz Insider — Geely">[42]</a></sup></td></tr>
-      <tr><td class="rh">Li Auto, Xpeng, Wayve, Momenta, Mobileye</td><td colspan="2">Not re-verified for this edition <span class="kindpill kp-fc">Gap</span></td></tr>
+      <tr><td class="rh">Wayve</td><td>End-to-end driving model, tested in the GAIA-3 world model</td><td>GAIA-3 generates safety-critical scenarios for offline testing; Wayve reports that simulated results mirror real-world driving in early studies.<sup class="cite"><a href="#r-gaia3" title="Automotive World — Wayve unveils GAIA-3">[69]</a></sup></td></tr>
+      <tr><td class="rh">Li Auto, Xpeng, Momenta, Mobileye</td><td colspan="2">Not re-verified for this edition <span class="kindpill kp-fc">Gap</span></td></tr>
     </tbody>
   </table></div>
   <p class="map-note">World models are now pitched as a way to generate rare training and test scenarios. NVIDIA&rsquo;s claim that real-world data is no longer the moat is a vendor claim, not an independent finding.<sup class="cite"><a href="#r-gtc" title="NVIDIA — GTC 2026">[14]</a></sup></p>
@@ -917,6 +931,7 @@ table.cmp td .kindpill{margin-top:4px}
       <tr><td class="rh">Logistics sequencing</td><td>Figure 03 at BMW Spartanburg</td><td>Started June 2026; robot count not disclosed<sup class="cite"><a href="#r-rdn" title="Repairer Driven News — Figure 03">[59]</a></sup></td><td>Early deployment</td></tr>
       <tr><td class="rh">Humanoid pilot in Europe</td><td>AEON at BMW Leipzig</td><td>First in a German BMW plant<sup class="cite"><a href="#r-bmwl" title="BMW Group — Leipzig">[10]</a></sup></td><td>Pilot</td></tr>
       <tr><td class="rh">Screw-driving in a car plant</td><td>Xiaomi humanoid</td><td>98% task success, per a TrendForce bulletin<sup class="cite"><a href="#r-tf" title="TrendForce — China humanoid robots">[38]</a></sup></td><td>Validation</td></tr>
+      <tr><td class="rh">Virtual factory planning</td><td>BMW, on NVIDIA Omniverse</td><td>Planning across more than 30 sites; more than 40 new or updated models to be prepared virtually by 2027; planning costs projected to fall by up to 30% (Jun 2025)<sup class="cite"><a href="#r-bmwvf" title="Assembly Magazine — BMW scales Virtual Factory">[71]</a></sup></td><td>In production use</td></tr>
       <tr><td class="rh">Robotic charging, automated valet parking</td><td colspan="3">Not researched for this edition <span class="kindpill kp-fc">Gap</span></td></tr>
     </tbody>
   </table></div>
@@ -951,12 +966,16 @@ table.cmp td .kindpill{margin-top:4px}
     <li><b>Secondary only:</b> the China robotaxi permit pause and its reported resumption; WeRide&rsquo;s fleet; Li Auto&rsquo;s usage figures; Euro NCAP&rsquo;s wider 100-point Safe Driving category; Physical Intelligence funding.</li>
     <li><b>Company claims not independently verified:</b> Waymo safety statistics, Baidu safety rates, Cerence&rsquo;s installed base, AgiBot production counts (production is not deployment), NVIDIA benchmark claims for Cosmos 3, Zeekr order counts.</li>
     <li><b>Forecasts, not facts:</b> Gartner&rsquo;s 2035 prediction, IFR&rsquo;s 2029 outlook, TrendForce and bank humanoid forecasts, and Waymo&rsquo;s 1 million-a-week target.</li>
-    <li><b>Not covered:</b> Google DeepMind robotics, Figure Helix, World Labs, Meta, Wayve and OpenAI robotics; Horizon Robotics, Huawei, Mobileye and AMD chips; Applied Intuition and other simulation firms; Boston Dynamics at Hyundai and Apptronik at Mercedes; Huawei, Xiaomi and Xpeng cabins; robotic charging and valet parking; motion-sickness products.</li>
+    <li><b>Not covered:</b> Figure Helix, World Labs, Meta and OpenAI robotics; Horizon Robotics, Huawei, Mobileye and AMD chips; Applied Intuition and other simulation firms; Boston Dynamics at Hyundai and Apptronik at Mercedes; Huawei, Xiaomi and Xpeng cabins; robotic charging and valet parking; motion-sickness products.</li>
+    <li><b>Added 14 October 2026.</b> The Gemini 4 Argon ERQA score is Google&rsquo;s own claim. Qualcomm&rsquo;s $65B pipeline and $10B target come from analyst reports of its Investor Day; its quarterly revenue is from its SEC filing. The Winverse round was reported as not final. Several claims in a second draft produced with Gemini (Google) were checked and not used: Winverse is not DeepSeek&rsquo;s robotics arm, and a reported 2,000 TOPS figure for Snapdragon Ride Flex, a BCG definition and a &ldquo;GAIA-4&rdquo; model could not be confirmed.</li>
     <li><b>Map.</b> Headquarters not stated in the sources come from general knowledge and should be checked before citing.</li>
     <li><b>Refresh date.</b> Not yet set; the author to decide.</li>
   </ol>
   <h3 class="sub-h">Change log</h3>
   <ul class="log">
+    <li class="loghead">14 October 2026 update</li>
+    <li><span class="new">Added</span><div>Google DeepMind Gemini 4 Argon, Wayve GAIA-3, Winverse AI, ITU-T F.748.66, BMW Virtual Factory, Qualcomm automotive figures, a &ldquo;traditional automation&rdquo; row in the related-terms table, and a table on ISO 26262 and ISO 21448 (SOTIF) for cabin agents.</div></li>
+    <li><span class="chg">Changed</span><div>Research credit now names Gemini (Google) alongside Claude (Anthropic). Google DeepMind and Wayve removed from the &ldquo;not covered&rdquo; list; London added to the player map.</div></li>
     <li class="loghead">October 2026 edition</li>
     <li><span class="new">Added</span><div>First edition, data as of 13 October 2026.</div></li>
   </ul>
@@ -966,7 +985,7 @@ table.cmp td .kindpill{margin-top:4px}
   </div>
   <h3 class="sub-h">About this report</h3>
   <div class="about">
-    <p>Personal research by <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">Chuhee Lee</a>. Research, source verification and drafting were carried out with Claude (Anthropic); topic selection, framing and conclusions are the author&rsquo;s. These are personal research projects; the views are the author&rsquo;s own and do not represent any employer or organization. No company named sponsors, reviews or endorses this report, and product names and trademarks belong to their owners. Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>.</p>
+    <p>Personal research by <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">Chuhee Lee</a>. Research, source verification and drafting were carried out with several AI models: mainly Claude (Anthropic), with Gemini (Google) used for a second draft that was cross-checked against sources before anything from it was added. Every factual claim is sourced to the references listed below. Topic selection, framing and conclusions are the author&rsquo;s. These are personal research projects; the views are the author&rsquo;s own and do not represent any employer or organization. No company named sponsors, reviews or endorses this report, and product names and trademarks belong to their owners. Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>.</p>
   </div>
   <h3 class="sub-h">References</h3>
   <ul class="srcs">
@@ -1037,6 +1056,16 @@ table.cmp td .kindpill{margin-top:4px}
 <li id="r-mpo"><b>[65]</b> <a href="https://blueplanet-ai.github.io/mobility-product-outlook/" target="_blank" rel="noopener">Chuhee Lee — Mobility Product Outlook 2026–2036 (this site)</a><span class="tag">own report &middot; Oct 2026</span></li>
 <li id="r-bench"><b>[66]</b> <a href="https://blueplanet-ai.github.io/incar-ai-benchmark/" target="_blank" rel="noopener">Chuhee Lee — In-Car AI Assistant Benchmark (this site)</a><span class="tag">own report &middot; 11 Oct 2026</span></li>
 <li id="r-zoox"><b>[67]</b> <a href="https://techcrunch.com/2026/03/24/zoox-brings-its-robotaxis-to-austin-and-miami" target="_blank" rel="noopener">TechCrunch — Zoox brings its robotaxis to Austin and Miami</a><span class="tag">press &middot; 24 Mar 2026</span></li>
+<li id="r-argon"><b>[68]</b> <a href="https://developers.googleblog.com/gemini-4-argon-for-robotics/" target="_blank" rel="noopener">Google Developers Blog — Gemini 4 Argon for robotics</a><span class="tag">primary (company) &middot; 13 Oct 2026</span></li>
+<li id="r-gaia3"><b>[69]</b> <a href="https://www.automotiveworld.com/news/wayve-unveils-gaia-3-for-autonomous-driving-tests/" target="_blank" rel="noopener">Automotive World — Wayve unveils GAIA-3 for autonomous driving tests</a><span class="tag">trade press &middot; 2 Dec 2025</span></li>
+<li id="r-itu"><b>[70]</b> <a href="https://www.itu.int/rec/T-REC-F.748.66-202512-I/en" target="_blank" rel="noopener">ITU-T — Recommendation F.748.66: Requirements and framework for embodied artificial intelligence systems</a><span class="tag">primary (standards body) &middot; approved 14 Dec 2025</span></li>
+<li id="r-bmwvf"><b>[71]</b> <a href="https://www.assemblymag.com/articles/99322-bmw-scales-virtual-factory-with-accelerated-computing-digital-twins-and-ai" target="_blank" rel="noopener">Assembly Magazine — BMW scales Virtual Factory with accelerated computing, digital twins and AI</a><span class="tag">trade press (company figures) &middot; 11 Jun 2025</span></li>
+<li id="r-qsec"><b>[72]</b> <a href="https://www.sec.gov/Archives/edgar/data/0000804328/000080432826000060/qcom032926erex991.htm" target="_blank" rel="noopener">Qualcomm — Second quarter fiscal 2026 results (Form 8-K, Ex. 99.1)</a><span class="tag">primary (company filing) &middot; 29 Apr 2026</span></li>
+<li id="r-qap"><b>[73]</b> <a href="https://www.autopacific.com/autopacificinsights/automotive-wasnt-the-headline-at-qualcomms-investor-day-2026-but-the-growth-signals-were-hard-to-ignore" target="_blank" rel="noopener">AutoPacific — Automotive wasn’t the headline at Qualcomm’s Investor Day 2026</a><span class="tag">analyst commentary &middot; Jul 2026</span></li>
+<li id="r-qfut"><b>[74]</b> <a href="https://futurumgroup.com/insights/qualcomms-investor-day-2026-agentic-and-ai-inference-to-drive-2x-revenue-growth-by-2030/" target="_blank" rel="noopener">Futurum — Qualcomm’s Investor Day 2026</a><span class="tag">analyst commentary &middot; 29 Jun 2026</span></li>
+<li id="r-winv"><b>[75]</b> <a href="https://thenextweb.com/news/deepseek-winverse-ai-robot-seed-round" target="_blank" rel="noopener">TNW — DeepSeek to lead seed round in $400mn robot AI start-up, Bloomberg reports</a><span class="tag">press (citing Bloomberg) &middot; 12 Oct 2026</span></li>
+<li id="r-iso21"><b>[76]</b> <a href="https://www.iso.org/standard/77490.html" target="_blank" rel="noopener">ISO 21448:2022 — Road vehicles: Safety of the intended functionality</a><span class="tag">primary (standards body) &middot; 2022</span></li>
+<li id="r-iso26"><b>[77]</b> <a href="https://www.iso.org/standard/68383.html" target="_blank" rel="noopener">ISO 26262-1:2018 — Road vehicles: Functional safety, Part 1</a><span class="tag">primary (standards body) &middot; 2018</span></li>
   </ul>
 </section>
 </div>
@@ -1056,6 +1085,7 @@ table.cmp td .kindpill{margin-top:4px}
     ["Austin",30.27,-97.74,"r",[["Tesla","d"]]],
     ["Detroit",42.33,-83.05,"l",[["GM","x"]],-4],
     ["Boston area",42.5,-71.2,"r",[["Cerence","x"]],-4],
+    ["London",51.51,-0.13,"r",[["Google DeepMind","m"],["Wayve","d"]]],
     ["Munich",48.14,11.58,"r",[["BMW","x"]]],
     ["Stuttgart",48.8,9.15,"l",[["Mercedes-Benz","x"],["Bosch","x"]]],
     ["Gothenburg",57.71,11.97,"r",[["Smart Eye","x"]]],
@@ -1068,7 +1098,7 @@ table.cmp td .kindpill{margin-top:4px}
     ["Tokyo",35.68,139.69,"l",[["Renesas","c"]]]
   ];
   var L={m:["Models","var(--cat-1)"],c:["Chips","var(--cat-4)"],r:["Robots and humanoids","var(--cat-2)"],d:["Driving and robotaxi","var(--cat-3)"],x:["Cabin and carmakers","var(--cat-5)"]};
-  var P=[{t:"North America",lat:[26,47],lon:[-127,-58]},{t:"Europe",lat:[45,60],lon:[0,22]},{t:"East Asia",lat:[19,43],lon:[106,144]}];
+  var P=[{t:"North America",lat:[26,47],lon:[-127,-58]},{t:"Europe",lat:[45,60],lon:[-4,22]},{t:"East Asia",lat:[19,43],lon:[106,144]}];
   var esc=function(s){return s.replace(/&/g,"&amp;");};
   var out="";
   P.forEach(function(b){
