@@ -37,6 +37,9 @@
 
 ## Agentic AI and the Consumer: 2027 Outlook
 
+### 14 October 2026 — research credit
+- Research-assistance credit updated to name Gemini (Google) alongside Claude (Anthropic), in the byline, the About text and the credit flag. No figures or conclusions changed.
+
 ### October 2026 edition — first release (data as of 11 October 2026)
 - New report on how agentic AI changes what consumers trust, delegate, buy and feel through 2027. General-consumer lens, with automotive and mobility as a dedicated section and a US, EU and China comparison.
 - Four enterprise-side figures carried over from earlier working research were not confirmed against primary sources and are not used; this is stated on the page.
