@@ -2,6 +2,12 @@
 
 ## Site-wide
 
+### 15 October 2026 — at-a-glance infographics, report previews and home page visuals
+- Every report now opens with an **At a glance** section: a one-page infographic built in the page from the report's own data, so it follows light and dark themes and fits a phone. Each has a downloadable PNG (`<report>/<report>-at-a-glance.png`). No figures were added or changed; every number is read from data or text already in the report and links back to its source or reference.
+- Every report has its own 1200×630 social preview (`<report>/og-image.png`) with matching Open Graph and Twitter tags. The site-wide `og-image.png` stays for the home page.
+- Home page: a "route" pictogram in the masthead showing how many reports sit in each layer (counted from the map), domain icons in the map header, lens icons, and a preview image on each report card.
+- The infographic PNGs and preview images are static renders. Re-export them whenever a report's data changes: `python3 tools/export-infographics.py [report-folder ...]` (needs Python with Playwright and Chromium). Card figures for the previews live in `tools/og-cards.json`.
+
 ### 13 October 2026 — print styles, feed, sitemap and social preview
 - Print styles on the home page and all four reports: the page prints as a clean light copy whatever the reader's colour theme, without navigation or filter controls, with wide tables fitted to the page and collapsed sections opened. Source URLs are printed after the links in each reference list. Use the browser's Print → Save as PDF.
 - Added an RSS feed (`feed.xml`), `sitemap.xml` and `robots.txt`, linked from the head of every page, with an RSS link in the home page About text.
@@ -22,6 +28,9 @@
 
 ## Physical AI and the Rider’s Cabin
 
+### 15 October 2026 — at-a-glance infographic
+- New At a glance section at the top (Tesla, Waymo, Baidu and humanoid anchors, the Waymo growth bars, the adoption ranking, Apollo Go, humanoid and venture charts and the three cabin stages, all read from the sections below), with a PNG download and a per-report social preview. No figures changed.
+
 ### 14 October 2026 — additions after cross-checking a second draft
 - Added Google DeepMind Gemini 4 Argon (13 Oct 2026), Wayve GAIA-3, Winverse AI, ITU-T Recommendation F.748.66, BMW Virtual Factory figures and Qualcomm automotive figures, each with a dated source.
 - Added a "traditional automation" row to the related-terms table and a table on ISO 26262 and ISO 21448 (SOTIF) for cabin agents.
@@ -37,6 +46,9 @@
 
 ## Agentic AI and the Consumer: 2027 Outlook
 
+### 15 October 2026 — at-a-glance infographic
+- New At a glance section at the top (the autonomy cliff, AI-referred traffic by sector, car-buyer intent versus action, the 2027 read and the watch list, all read from the sections below), with a PNG download and a per-report social preview. No figures changed.
+
 ### 14 October 2026 — research credit
 - Research-assistance credit updated to name Gemini (Google) alongside Claude (Anthropic), in the byline, the About text and the credit flag. No figures or conclusions changed.
 
@@ -47,6 +59,9 @@
 
 ## Mobility Product Outlook 2026–2036
 
+### 15 October 2026 — at-a-glance infographic
+- New At a glance section at the top (headline tiles, the product-definition shift, the top eight of the fifteen-technology ranking, who leads by region, OTA and data-concern by market, and the milestone timeline, all computed from the page's own data), with a PNG download and a per-report social preview. No figures changed.
+
 ### October 2026 edition — first public release (data as of 11 October 2026)
 - Published as an independent public report on how consumer electronics and customer expectations are redefining the car, for a general audience.
 - Part 1: seven lessons from consumer electronics, customer expectations in six markets (US, Germany, China, Japan, South Korea, India; Deloitte 2026), and the wider context linked to the Mega Trends Outlook 2040.
@@ -56,6 +71,9 @@
 - Added author, research-assistance credit (several AI models, mainly Claude), licence (CC BY-NC 4.0), disclaimer and next scheduled refresh (October 2027).
 
 ## Mega Trends Outlook 2040
+
+### 15 October 2026 — at-a-glance infographic
+- New At a glance section at the top: seven trend cards (sourced anchor figure plus the four 1–5 scores), links per trend from the 25 mapped interactions, the four scenarios with the 2026 marker, and near, mid and far milestones, all computed from the page's own data. PNG download and a per-report social preview added. No figures changed.
 
 ### 13 October 2026 — method clarification
 - Section 02 now defines what each of the four scoring criteria (impact, certainty, speed, breadth) measures. No scores, figures or conclusions changed.
@@ -69,6 +87,9 @@
 - Research-assistance credit names several AI models (Claude, Gemini, ChatGPT) on this page, the other reports and the home page.
 
 ## In-Car AI Assistant Benchmark
+
+### 15 October 2026 — at-a-glance infographic
+- New At a glance section at the top: headline tiles, the capability index for all entries with the median, average capability by architecture and mean score per dimension, all computed from the benchmark data. PNG download and a per-report social preview added. No scores changed.
 
 ### October 2026 edition — first public release (data as of 11 October 2026)
 - Published as an independent public report. Added author, research-assistance credit (Claude, Anthropic), licence (CC BY-NC 4.0), disclaimer and next scheduled refresh (mid-January 2027).

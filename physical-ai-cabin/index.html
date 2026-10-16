@@ -16,11 +16,11 @@
 <meta property="og:description" content="Independent report on physical AI: what it means, the main players across the stack, the most-used products and services, and how it applies to the car, with the cabin and rider experience as the main lens. October 2026 edition by Chuhee Lee; data as of 13 October 2026.">
 <meta property="og:url" content="https://blueplanet-ai.github.io/physical-ai-cabin/">
 <meta property="og:site_name" content="Chuhee Lee — Independent Research">
-<meta property="og:image" content="https://blueplanet-ai.github.io/og-image.png">
+<meta property="og:image" content="https://blueplanet-ai.github.io/physical-ai-cabin/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Time and attention on the move: independent research by Chuhee Lee on technology, mobility and travel.">
-<meta name="twitter:image" content="https://blueplanet-ai.github.io/og-image.png">
+<meta property="og:image:alt" content="Physical AI and the Rider’s Cabin. Independent research by Chuhee Lee.">
+<meta name="twitter:image" content="https://blueplanet-ai.github.io/physical-ai-cabin/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <style>img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -556,6 +556,106 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
 .vb-tgt{position:absolute;top:4px;height:14px;border:1.5px dashed var(--ink-3);border-left:0;border-radius:0 4px 4px 0;box-sizing:border-box}
 table.cmp td .kindpill{margin-top:4px}
 </style>
+<style>
+/* At a glance: one-page infographic. Shared by all reports; each page sets the --g-* aliases below from its own tokens. */
+.glance{--g-s:var(--surface);--g-s2:var(--surface-2);--g-rule:var(--rule);--g-ink:var(--ink);--g-ink2:var(--ink-2);--g-muted:var(--muted);--g-accent:var(--accent);--g-soft:var(--accent-soft);--g-ui:var(--f-ui,var(--f-display));--g-mono:var(--f-mono);
+  padding:0;overflow:hidden;border-radius:2px;border:1px solid var(--g-rule);background:var(--g-s);color:var(--g-ink);font-family:var(--g-ui);line-height:1.4;box-shadow:none}
+.glance *{box-sizing:border-box}
+.glance a{color:inherit}
+.gl-mast{display:flex;justify-content:space-between;align-items:baseline;gap:6px 24px;flex-wrap:wrap;padding:18px 24px;background:var(--g-s2);border-bottom:1px solid var(--g-rule)}
+.gl-mast b{font-size:1.05rem;font-weight:600;letter-spacing:-.005em}
+.gl-mast span{font-family:var(--g-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--g-muted)}
+.gl-lede{padding:16px 24px;font-size:.95rem;color:var(--g-ink2);border-bottom:1px solid var(--g-rule);max-width:none}
+.gl-lede b{color:var(--g-ink)}
+.gl-grid,.gl-tiles,.gl-two,.gl-three,.gl-hz{display:grid;gap:1px;background:var(--g-rule)}
+.gl-grid>*,.gl-tiles>*,.gl-two>*,.gl-three>*,.gl-hz>*{background:var(--g-s);min-width:0}
+.gl-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.gl-grid>*{padding:16px 18px}
+.gl-tiles{grid-template-columns:repeat(4,minmax(0,1fr))}
+.gl-tiles>*{padding:16px 18px;border-top:4px solid var(--c,var(--g-accent))}
+.gl-two{grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--g-rule)}
+.gl-two>*{padding:18px 20px}
+.gl-three{grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--g-rule)}
+.gl-three>*{padding:18px 20px}
+.gl-hz{grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--g-rule)}
+.gl-hz.n2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gl-hz>*{padding:16px 20px}
+@media (max-width:1000px){.gl-grid,.gl-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.gl-two,.gl-three,.gl-hz,.gl-hz.n2{grid-template-columns:1fr}}
+@media (max-width:560px){.gl-grid,.gl-tiles{grid-template-columns:1fr}}
+.gl-card{border-top:4px solid var(--c);display:flex;flex-direction:column}
+.gl-top{display:flex;align-items:center;gap:8px}
+.gl-badge{background:var(--c);font-weight:600;font-size:.8rem;padding:2px 7px;border-radius:3px}
+.gl-name{font-weight:600;font-size:.95rem;color:var(--g-ink);text-decoration:none;line-height:1.2;flex:1;min-width:0}
+a.gl-name:hover{color:var(--g-accent)}
+.gl-tot{font-family:var(--g-mono);font-weight:500;font-size:1rem}
+.gl-tot small{font-size:.65rem;color:var(--g-muted)}
+.gl-big,.gl-tiles .gl-n{font-weight:600;font-size:2.15rem;letter-spacing:-.02em;line-height:1.05;margin-top:14px;color:var(--g-ink)}
+.gl-tiles .gl-n{margin-top:0;font-size:2rem}
+.gl-cap,.gl-tiles .gl-l{font-size:.82rem;line-height:1.4;color:var(--g-ink2);margin-top:6px;flex:1}
+.gl-tiles .gl-s{font-family:var(--g-mono);font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;color:var(--g-muted);margin-top:8px}
+.gl-tiles .gl-s a{color:var(--g-muted)}
+.gl-meter{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.gl-meter span{display:grid;gap:4px}
+.gl-meter i{display:block;height:6px;border-radius:2px;background:linear-gradient(to right,var(--c) calc(var(--v)*20%),var(--g-s2) 0)}
+.gl-meter b{display:flex;justify-content:space-between;font-family:var(--g-mono);font-weight:500;font-size:.62rem;letter-spacing:.04em;text-transform:uppercase;color:var(--g-muted)}
+.gl-meter em{font-style:normal;color:var(--g-ink)}
+.gl-src{font-size:.72rem;color:var(--g-muted);margin-top:10px}
+.gl-src a{color:var(--g-muted)}
+.gl-guide{display:flex;flex-direction:column;justify-content:center;gap:8px;background:var(--g-soft)!important}
+.gl-guide h4{font-weight:600;margin:0;font-size:.95rem}
+.gl-guide p{font-size:.8rem;line-height:1.45;color:var(--g-ink2);margin:0}
+.gl-h{font-weight:600;font-size:.95rem;margin:0}
+.gl-sub{font-size:.78rem;color:var(--g-ink2);margin:2px 0 12px;line-height:1.4}
+.gl-note{font-size:.72rem;color:var(--g-muted);margin-top:10px;line-height:1.4}
+.gl-choke{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.gl-choke span{font-size:.8rem;font-weight:600;padding:4px 10px;border:1px solid var(--g-rule);border-radius:2px;background:var(--g-s2)}
+.gl-where{display:flex;align-items:center;gap:6px;margin-bottom:14px;font-size:.78rem;color:var(--g-ink2)}
+.glance .gl-dot{display:inline-block;padding:1px 6px;border-radius:3px;font-weight:600;font-size:.72rem;margin:0 2px;line-height:1.4}
+.glance .gl-chip{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px;vertical-align:baseline}
+.gl-bar{display:grid;grid-template-columns:minmax(0,var(--lw,150px)) minmax(0,1fr) var(--vw,40px);align-items:center;gap:10px;padding:3px 0;font-size:.8rem}
+.gl-bar .gl-nm{line-height:1.25}
+.gl-bar .gl-nm small{display:block;font-family:var(--g-mono);font-size:.62rem;color:var(--g-muted);letter-spacing:.02em}
+.gl-bar .gl-tr{height:10px;background:var(--g-s2);border-radius:2px;overflow:hidden;position:relative}
+.gl-bar .gl-tr i{display:block;height:100%;border-radius:2px}
+.gl-bar .gl-tr u{position:absolute;top:-2px;bottom:-2px;width:0;border-left:2px dashed var(--g-ink);opacity:.55}
+.gl-bar .gl-v{text-align:right;font-family:var(--g-mono);font-size:.75rem;font-weight:500}
+.gl-bar .gl-v{text-align:right;font-family:var(--g-mono);font-size:.75rem;font-weight:500}
+.gl-bar.tall .gl-tr{height:12px}
+.gl-bar.sm{padding:2px 0;font-size:.74rem}
+.gl-bar.sm .gl-tr{height:8px}
+.gl-grp{font-family:var(--g-mono);font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;color:var(--g-muted);margin:8px 0 2px}
+.gl-legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.72rem;color:var(--g-ink2);margin-top:8px}
+.gl-legend span{display:inline-flex;align-items:center;gap:6px}
+.gl-legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.gl-scen{display:grid;grid-template-columns:22px repeat(2,minmax(0,1fr));gap:6px;position:relative}
+.gl-scen .ax{font-family:var(--g-mono);font-size:.6rem;letter-spacing:.05em;text-transform:uppercase;color:var(--g-muted);text-align:center;align-self:end;line-height:1.3}
+.gl-scen .ay{writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;align-self:center;justify-self:center}
+.gl-q{border:1px solid var(--g-rule);border-radius:2px;padding:10px 12px;background:var(--g-s2);position:relative}
+.gl-q b{display:block;font-family:var(--g-mono);font-size:.7rem;color:var(--g-accent);margin-bottom:2px}
+.gl-q span{font-size:.82rem;font-weight:600;line-height:1.25;display:block}
+.gl-q.now{border-color:var(--g-accent);box-shadow:inset 0 0 0 1px var(--g-accent)}
+.gl-now{grid-column:2/-1;font-size:.74rem;color:var(--g-accent);font-weight:600;text-align:right}
+.gl-hz h4{font-family:var(--g-mono);font-weight:500;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--g-muted);display:flex;justify-content:space-between;gap:8px;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--g-ink)}
+.gl-hz h4 span{color:var(--g-ink)}
+.gl-hz ul,.gl-ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.gl-hz li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:8px;font-size:.8rem;line-height:1.4;color:var(--g-ink2)}
+.gl-hz li b{font-family:var(--g-mono);font-size:.7rem;font-weight:500;color:var(--g-ink);padding-top:1px}
+.gl-ft{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1.15fr);gap:8px;align-items:center;font-size:.8rem;line-height:1.3;padding:7px 0;border-bottom:1px solid var(--g-rule)}
+.gl-ft:last-child{border-bottom:0}
+.gl-ft .gl-f{color:var(--g-muted);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--g-muted) 50%,transparent)}
+.gl-ft .gl-a{color:var(--g-accent);font-weight:600;text-align:center}
+.gl-ft .gl-t{font-weight:600}
+.gl-pill{display:inline-block;font-family:var(--g-mono);font-size:.62rem;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border:1px solid var(--g-rule);border-radius:2px;color:var(--g-ink2);white-space:nowrap}
+.gl-pill.k1{background:var(--g-soft);border-color:transparent;color:var(--g-accent)}
+.gl-foot{padding:12px 24px;background:var(--g-s2);border-top:1px solid var(--g-rule);font-family:var(--g-mono);font-size:10.5px;letter-spacing:.03em;color:var(--g-muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;line-height:1.5}
+.gl-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;font-family:var(--g-ui);font-size:.85rem}
+.gl-actions a{border:1px solid var(--g-rule);padding:6px 12px;border-radius:2px;text-decoration:none;background:var(--g-s);color:var(--g-ink)}
+.gl-actions a:hover{border-color:var(--g-accent);color:var(--g-accent)}
+@media print{.gl-actions{display:none!important}.glance{break-inside:avoid;page-break-inside:avoid}}
+
+.glance{--g-s:var(--surface);--g-s2:var(--surface-2);--g-rule:var(--line);--g-ink:var(--ink);--g-ink2:var(--ink-2);--g-muted:var(--ink-3);--g-accent:var(--signal-deep);--g-soft:color-mix(in srgb,var(--signal) 12%,var(--surface));--g-ui:var(--font-ui);--g-mono:var(--font-mono)}
+</style>
 </head>
 <body>
 <nav class="crumb"><div class="crumb-inner"><a href="../">&larr; All publications</a><span>Chuhee Lee &middot; Independent research</span></div></nav>
@@ -581,6 +681,12 @@ table.cmp td .kindpill{margin-top:4px}
 </div>
 
 <div class="wrap">
+
+<section id="glance">
+  <div class="sec-head"><h2>At a glance</h2><span class="eyebrow">One-page summary</span></div>
+  <div class="glance" id="glanceBody" role="group" aria-label="Infographic: Physical AI and the Rider’s Cabin at a glance"></div>
+  <div class="gl-actions"><a href="physical-ai-cabin-at-a-glance.png" download>Download PNG</a></div>
+</section>
 
 <section id="summary">
   <div class="sec-head"><h2>Summary</h2><span class="eyebrow">The short version</span></div>
@@ -1123,6 +1229,54 @@ table.cmp td .kindpill{margin-top:4px}
   });
   document.getElementById("hqmaps").innerHTML=out;
   document.getElementById("hqlegend").innerHTML=Object.keys(L).map(function(k){return "<span class='k'><span class='sw' style='background:"+L[k][1]+"'></span>"+L[k][0]+"</span>";}).join("");
+})();
+</script>
+<script>
+/* ---------- AT A GLANCE (infographic): shared helpers ---------- */
+var GL={
+ esc:function(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");},
+ bar:function(o){return '<div class="gl-bar '+(o.cls||'')+'"'+(o.lw?' style="--lw:'+o.lw+'px"':'')+'><span class="gl-nm">'+o.nm+(o.sub?'<small>'+o.sub+'</small>':'')+'</span><span class="gl-tr"><i style="width:'+Math.max(1.5,o.v/o.max*100).toFixed(1)+'%;background:'+(o.c||'var(--g-accent)')+(o.o?';opacity:'+o.o:'')+(o.dash?';outline:1.5px dashed var(--g-ink);outline-offset:-1.5px':'')+'"></i>'+(o.mark!=null?'<u style="left:'+(o.mark/o.max*100).toFixed(1)+'%"></u>':'')+'</span><span class="gl-v">'+o.txt+'</span></div>';},
+ tile:function(n,l,s,c){return '<div'+(c?' style="--c:'+c+'"':'')+'><div class="gl-n">'+n+'</div><div class="gl-l">'+l+'</div><div class="gl-s">'+s+'</div></div>';},
+ mast:function(title,meta){return '<div class="gl-mast"><b>'+title+'</b><span>'+meta+'</span></div>';},
+ foot:function(url,txt){return '<div class="gl-foot"><span>'+url+'</span><span>'+txt+'</span></div>';},
+ /* read a bar figure already on the page: returns [{nm,sub,txt,w,color,tgt}] */
+ scrape:function(fig,grp){var g='';return Array.prototype.slice.call(fig.querySelectorAll('.grp-l,.vb-row')).map(function(r){
+   if(r.classList.contains('grp-l')){g=r.textContent.trim();return null;}
+   var b=r.querySelector('.vb-bar'),t=r.querySelector('.vb-tgt'),l=r.querySelector('.vb-lab b'),s=r.querySelector('.vb-lab span'),v=r.querySelector('.vb-val');
+   var el=b||t;if(!el||!l||!v)return null;
+   return {nm:GL.esc((grp&&g?g+' · ':'')+l.textContent),sub:s?GL.esc(s.textContent):'',txt:GL.esc(v.textContent),w:parseFloat(el.style.width)||0,color:b?b.style.background:'var(--g-accent)',tgt:!b};}).filter(Boolean);},
+ /* text of a node without citation superscripts */
+ plain:function(n){var c=n.cloneNode(true);Array.prototype.forEach.call(c.querySelectorAll('sup'),function(x){x.remove();});return GL.esc(c.textContent.replace(/\s+/g,' ').trim());}
+};
+/* ---------- AT A GLANCE: Physical AI and the Rider's Cabin ---------- */
+(function(){
+ var root=document.getElementById("glanceBody");if(!root)return;
+ var ref=function(id,t){return '<a href="#'+id+'">'+t+'</a>';};
+ var colr=function(r){return r.tgt?'var(--g-soft)':(r.color||'var(--g-accent)');};
+ var bars=function(rows,max,lw,cls){return rows.map(function(r){return GL.bar({nm:r.nm,sub:r.sub,v:r.w,max:max,txt:r.txt,c:colr(r),lw:lw,cls:cls,dash:r.tgt});}).join("");};
+ var figs=Array.prototype.slice.call(document.querySelectorAll("#adoption figure.figbox"));
+ var fh=function(t){return figs.filter(function(f){return f.querySelector("h3").textContent.indexOf(t)>-1;})[0];};
+ var get=function(f){return f?GL.scrape(f,true):[];};
+ var tiles=
+  GL.tile('1.48M','active Tesla FSD (Supervised) subscriptions, Q2 2026',ref('r-tsu','Tesla filing'))+
+  GL.tile('~500k','Waymo paid rides a week, reached in March 2026; no higher figure published since',ref('r-tc','TechCrunch')+' · company-reported')+
+  GL.tile('&gt;23M','cumulative Baidu Apollo Go rides, across 28 cities',ref('r-bdi','Baidu')+' · company filing')+
+  GL.tile('~13,000','humanoid robots shipped worldwide in 2025, by Omdia&rsquo;s count; trackers disagree on who leads',ref('r-tn','Omdia via TechNode'));
+ var way=document.querySelector("#summary .vwchart");
+ var rows=Array.prototype.slice.call(document.querySelectorAll("#adoption table.cmp tbody tr")).filter(function(r){return /^\d$/.test(r.cells[0].textContent.trim());}).slice(0,8)
+  .map(function(r){return '<div class="gl-ft" style="grid-template-columns:20px minmax(0,1fr) minmax(0,1.3fr)"><span class="gl-f" style="text-decoration:none;font-family:var(--g-mono)">'+GL.esc(r.cells[0].textContent)+'</span><span class="gl-t">'+GL.plain(r.cells[1])+'</span><span>'+GL.plain(r.cells[2])+' <span class="gl-pill">'+GL.esc(r.cells[3].textContent)+'</span></span></div>';}).join("");
+ var stages=Array.prototype.slice.call(document.querySelectorAll("#cabin .cards3 > div")).map(function(d,i){var li=d.querySelector("li");return '<div><div class="gl-h">'+GL.plain(d.querySelector("h3"))+'</div><div class="gl-sub" style="margin-top:6px">'+(li?'e.g. '+GL.plain(li):'')+'</div></div>';}).join("");
+ root.innerHTML=GL.mast('Physical AI and the Rider&rsquo;s Cabin','October 2026 edition · Data as of 13 Oct 2026, updated 14 Oct')+
+  '<div class="gl-lede"><b>By measurable use, the most widely used physical AI today is driving, not humanoid robots.</b> Inside the car, the frontier is moving from chatbots to cabin agents that perceive occupants and operate cabin hardware.</div>'+
+  '<div class="gl-tiles">'+tiles+'</div>'+
+  '<div class="gl-two"><div><div class="gl-h">Robotaxi growth stalled at 500,000 a week</div><div class="gl-sub">Waymo weekly paid rides, company-reported. Grey bar repeats the last published figure; dashed is Waymo&rsquo;s stated target, not a forecast.</div>'+bars(way?GL.scrape(way):[],100,'110')+'</div>'+
+  '<div><div class="gl-h">What people actually use</div><div class="gl-sub">Ranked by scale of real use. Metrics differ by product, so the order is the author&rsquo;s judgement.</div>'+rows+'</div></div>'+
+  '<div class="gl-three"><div><div class="gl-h">Apollo Go driverless rides</div><div class="gl-sub">Millions per quarter; Q2 is the author&rsquo;s arithmetic.</div>'+bars(get(fh("Apollo Go")),100,'80','sm')+'</div>'+
+  '<div><div class="gl-h">Humanoid shipments, 2025</div><div class="gl-sub">Units: company prospectus vs Omdia.</div>'+bars(get(fh("Humanoid")),100,'110','sm')+'</div>'+
+  '<div><div class="gl-h">Venture money into physical AI</div><div class="gl-sub">USD billions by half-year, Crunchbase&rsquo;s broad definition.</div>'+bars(get(fh("Venture")),100,'80','sm')+'</div></div>'+
+  '<div class="gl-three"><div style="grid-column:1/-1;padding-bottom:0"><div class="gl-h">In the car: three stages of cabin AI</div><div class="gl-sub" style="margin-bottom:0">As people move from driving to riding, freed time and attention land in the cabin.</div></div></div>'+
+  '<div class="gl-three" style="border-top:0">'+stages+'</div>'+
+  GL.foot('blueplanet-ai.github.io/physical-ai-cabin','&copy; 2026 Chuhee Lee · CC BY-NC 4.0 · Figures from the cited sources; rankings are the author&rsquo;s judgement');
 })();
 </script>
 </body>
