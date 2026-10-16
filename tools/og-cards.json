@@ -1,0 +1,97 @@
+{
+  "mega-trends-2040": {
+    "eyebrow": "INDEPENDENT RESEARCH · MEGA TRENDS · 2026–2040",
+    "line1": "Mega Trends",
+    "line2": "Outlook 2040",
+    "stats": [
+      [
+        "945 TWh",
+        "data-centre electricity by 2030"
+      ],
+      [
+        "+590m",
+        "working-age people added by 2040"
+      ],
+      [
+        "91%",
+        "chance of a year above 1.5°C, 2026–30"
+      ]
+    ]
+  },
+  "incar-ai-benchmark": {
+    "eyebrow": "INDEPENDENT RESEARCH · COCKPIT AI",
+    "line1": "In-Car AI Assistant",
+    "line2": "Benchmark",
+    "stats": [
+      [
+        "21",
+        "assistants benchmarked"
+      ],
+      [
+        "5",
+        "architectures"
+      ],
+      [
+        "7",
+        "capability dimensions"
+      ]
+    ]
+  },
+  "mobility-product-outlook": {
+    "eyebrow": "INDEPENDENT RESEARCH · MOBILITY PRODUCT STRATEGY",
+    "line1": "Mobility Product",
+    "line2": "Outlook 2026–2036",
+    "stats": [
+      [
+        "7 years",
+        "phone software updates promised"
+      ],
+      [
+        "52% / 72%",
+        "US / China buyers would keep a car longer"
+      ],
+      [
+        "15",
+        "technologies ranked"
+      ]
+    ]
+  },
+  "agentic-consumer-2027": {
+    "eyebrow": "INDEPENDENT RESEARCH · CONSUMER BEHAVIOR · 2027 OUTLOOK",
+    "line1": "Agentic AI and",
+    "line2": "the Consumer",
+    "stats": [
+      [
+        "+693%",
+        "AI-referred US retail traffic, holiday 2025"
+      ],
+      [
+        "5–39%",
+        "would let an agent complete a purchase"
+      ],
+      [
+        "9%",
+        "open to fully autonomous purchasing"
+      ]
+    ]
+  },
+  "physical-ai-cabin": {
+    "eyebrow": "INDEPENDENT RESEARCH · PHYSICAL AI",
+    "line1": "Physical AI and",
+    "line2": "the Rider’s Cabin",
+    "stats": [
+      [
+        "1.48M",
+        "Tesla FSD (Supervised) subscriptions"
+      ],
+      [
+        "~500k",
+        "Waymo paid rides a week"
+      ],
+      [
+        "~13,000",
+        "humanoids shipped worldwide in 2025"
+      ]
+    ]
+  }
+}

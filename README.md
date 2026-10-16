@@ -12,9 +12,20 @@ Source for **https://blueplanet-ai.github.io/**: benchmarks, comparisons and res
 | [Mega Trends Outlook 2040](https://blueplanet-ai.github.io/mega-trends-2040/) | October 2026 (data as of 1 Oct 2026; next refresh Oct 2027) | `mega-trends-2040/` |
 | [In-Car AI Assistant Benchmark](https://blueplanet-ai.github.io/incar-ai-benchmark/) | October 2026 (data as of 11 Oct 2026; next refresh mid-Jan 2027) | `incar-ai-benchmark/` |
 
-Each report is a single self-contained `index.html` in its own folder. To add a report, create a new folder, add a card on the home page (`index.html`) tagged with its layer and domain, and link it from the matching cell in the map.
+Each report is a single self-contained `index.html` in its own folder, with an **At a glance** infographic at the top (built in the page from the report's own data), a downloadable `<report>-at-a-glance.png` and a 1200×630 `og-image.png` used as its social preview and as its card image on the home page. To add a report, create a new folder, add a card on the home page (`index.html`) tagged with its layer and domain, and link it from the matching cell in the map.
 
 Also add the report to `feed.xml` (new `<item>`, and update `<lastBuildDate>`) and to `sitemap.xml`, and update `<lastmod>` there when a report is refreshed. Site-wide files at the repository root: `favicon.svg`, `apple-touch-icon.png`, `og-image.png` (1200×630 social preview), `feed.xml`, `sitemap.xml`, `robots.txt`.
+
+## Infographic and preview images
+
+The infographic in each page updates itself from the page's data. The PNG downloads and social previews are static renders, so after a refresh re-export them:
+
+```
+python3 tools/export-infographics.py                    # all reports
+python3 tools/export-infographics.py mega-trends-2040   # one report
+```
+
+This needs Python with Playwright and Chromium (`pip install playwright && playwright install chromium`). The three figures printed on each social preview are set in `tools/og-cards.json`; update them if the headline figures change.
 
 ## How reports are updated
 

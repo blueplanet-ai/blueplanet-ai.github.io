@@ -15,11 +15,11 @@
 <meta property="og:description" content="Seven mega trends that will shape 2026–2040 across society, economy, technology, climate and geopolitics — scored, mapped across three horizons, linked in an interaction map and stress-tested with scenarios and wildcards. October 2026 edition by Chuhee Lee; data as of 1 October 2026.">
 <meta property="og:url" content="https://blueplanet-ai.github.io/mega-trends-2040/">
 <meta property="og:site_name" content="Chuhee Lee — Independent Research">
-<meta property="og:image" content="https://blueplanet-ai.github.io/og-image.png">
+<meta property="og:image" content="https://blueplanet-ai.github.io/mega-trends-2040/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Time and attention on the move: independent research by Chuhee Lee on technology, mobility and travel.">
-<meta name="twitter:image" content="https://blueplanet-ai.github.io/og-image.png">
+<meta property="og:image:alt" content="Mega Trends Outlook 2040: seven forces to 2040, scored and mapped. Independent research by Chuhee Lee.">
+<meta name="twitter:image" content="https://blueplanet-ai.github.io/mega-trends-2040/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <style>img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Mega Trends Outlook 2040</title>
@@ -329,6 +329,104 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
 /* Print: open collapsed sections so the printed copy shows their content, then restore. */
 (function(){var c=[];window.addEventListener("beforeprint",function(){c=[].slice.call(document.querySelectorAll("details:not([open])"));c.forEach(function(d){d.open=true;});});window.addEventListener("afterprint",function(){c.forEach(function(d){d.open=false;});c=[];});})();
 </script>
+<style>
+/* At a glance: one-page infographic. Shared by all reports; each page sets the --g-* aliases below from its own tokens. */
+.glance{--g-s:var(--surface);--g-s2:var(--surface-2);--g-rule:var(--rule);--g-ink:var(--ink);--g-ink2:var(--ink-2);--g-muted:var(--muted);--g-accent:var(--accent);--g-soft:var(--accent-soft);--g-ui:var(--f-ui,var(--f-display));--g-mono:var(--f-mono);
+  padding:0;overflow:hidden;border-radius:2px;border:1px solid var(--g-rule);background:var(--g-s);color:var(--g-ink);font-family:var(--g-ui);line-height:1.4;box-shadow:none}
+.glance *{box-sizing:border-box}
+.glance a{color:inherit}
+.gl-mast{display:flex;justify-content:space-between;align-items:baseline;gap:6px 24px;flex-wrap:wrap;padding:18px 24px;background:var(--g-s2);border-bottom:1px solid var(--g-rule)}
+.gl-mast b{font-size:1.05rem;font-weight:600;letter-spacing:-.005em}
+.gl-mast span{font-family:var(--g-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--g-muted)}
+.gl-lede{padding:16px 24px;font-size:.95rem;color:var(--g-ink2);border-bottom:1px solid var(--g-rule);max-width:none}
+.gl-lede b{color:var(--g-ink)}
+.gl-grid,.gl-tiles,.gl-two,.gl-three,.gl-hz{display:grid;gap:1px;background:var(--g-rule)}
+.gl-grid>*,.gl-tiles>*,.gl-two>*,.gl-three>*,.gl-hz>*{background:var(--g-s);min-width:0}
+.gl-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.gl-grid>*{padding:16px 18px}
+.gl-tiles{grid-template-columns:repeat(4,minmax(0,1fr))}
+.gl-tiles>*{padding:16px 18px;border-top:4px solid var(--c,var(--g-accent))}
+.gl-two{grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--g-rule)}
+.gl-two>*{padding:18px 20px}
+.gl-three{grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--g-rule)}
+.gl-three>*{padding:18px 20px}
+.gl-hz{grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--g-rule)}
+.gl-hz.n2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gl-hz>*{padding:16px 20px}
+@media (max-width:1000px){.gl-grid,.gl-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.gl-two,.gl-three,.gl-hz,.gl-hz.n2{grid-template-columns:1fr}}
+@media (max-width:560px){.gl-grid,.gl-tiles{grid-template-columns:1fr}}
+.gl-card{border-top:4px solid var(--c);display:flex;flex-direction:column}
+.gl-top{display:flex;align-items:center;gap:8px}
+.gl-badge{background:var(--c);font-weight:600;font-size:.8rem;padding:2px 7px;border-radius:3px}
+.gl-name{font-weight:600;font-size:.95rem;color:var(--g-ink);text-decoration:none;line-height:1.2;flex:1;min-width:0}
+a.gl-name:hover{color:var(--g-accent)}
+.gl-tot{font-family:var(--g-mono);font-weight:500;font-size:1rem}
+.gl-tot small{font-size:.65rem;color:var(--g-muted)}
+.gl-big,.gl-tiles .gl-n{font-weight:600;font-size:2.15rem;letter-spacing:-.02em;line-height:1.05;margin-top:14px;color:var(--g-ink)}
+.gl-tiles .gl-n{margin-top:0;font-size:2rem}
+.gl-cap,.gl-tiles .gl-l{font-size:.82rem;line-height:1.4;color:var(--g-ink2);margin-top:6px;flex:1}
+.gl-tiles .gl-s{font-family:var(--g-mono);font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;color:var(--g-muted);margin-top:8px}
+.gl-tiles .gl-s a{color:var(--g-muted)}
+.gl-meter{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.gl-meter span{display:grid;gap:4px}
+.gl-meter i{display:block;height:6px;border-radius:2px;background:linear-gradient(to right,var(--c) calc(var(--v)*20%),var(--g-s2) 0)}
+.gl-meter b{display:flex;justify-content:space-between;font-family:var(--g-mono);font-weight:500;font-size:.62rem;letter-spacing:.04em;text-transform:uppercase;color:var(--g-muted)}
+.gl-meter em{font-style:normal;color:var(--g-ink)}
+.gl-src{font-size:.72rem;color:var(--g-muted);margin-top:10px}
+.gl-src a{color:var(--g-muted)}
+.gl-guide{display:flex;flex-direction:column;justify-content:center;gap:8px;background:var(--g-soft)!important}
+.gl-guide h4{font-weight:600;margin:0;font-size:.95rem}
+.gl-guide p{font-size:.8rem;line-height:1.45;color:var(--g-ink2);margin:0}
+.gl-h{font-weight:600;font-size:.95rem;margin:0}
+.gl-sub{font-size:.78rem;color:var(--g-ink2);margin:2px 0 12px;line-height:1.4}
+.gl-note{font-size:.72rem;color:var(--g-muted);margin-top:10px;line-height:1.4}
+.gl-choke{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.gl-choke span{font-size:.8rem;font-weight:600;padding:4px 10px;border:1px solid var(--g-rule);border-radius:2px;background:var(--g-s2)}
+.gl-where{display:flex;align-items:center;gap:6px;margin-bottom:14px;font-size:.78rem;color:var(--g-ink2)}
+.glance .gl-dot{display:inline-block;padding:1px 6px;border-radius:3px;font-weight:600;font-size:.72rem;margin:0 2px;line-height:1.4}
+.glance .gl-chip{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px;vertical-align:baseline}
+.gl-bar{display:grid;grid-template-columns:minmax(0,var(--lw,150px)) minmax(0,1fr) var(--vw,40px);align-items:center;gap:10px;padding:3px 0;font-size:.8rem}
+.gl-bar .gl-nm{line-height:1.25}
+.gl-bar .gl-nm small{display:block;font-family:var(--g-mono);font-size:.62rem;color:var(--g-muted);letter-spacing:.02em}
+.gl-bar .gl-tr{height:10px;background:var(--g-s2);border-radius:2px;overflow:hidden;position:relative}
+.gl-bar .gl-tr i{display:block;height:100%;border-radius:2px}
+.gl-bar .gl-tr u{position:absolute;top:-2px;bottom:-2px;width:0;border-left:2px dashed var(--g-ink);opacity:.55}
+.gl-bar .gl-v{text-align:right;font-family:var(--g-mono);font-size:.75rem;font-weight:500}
+.gl-bar .gl-v{text-align:right;font-family:var(--g-mono);font-size:.75rem;font-weight:500}
+.gl-bar.tall .gl-tr{height:12px}
+.gl-bar.sm{padding:2px 0;font-size:.74rem}
+.gl-bar.sm .gl-tr{height:8px}
+.gl-grp{font-family:var(--g-mono);font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;color:var(--g-muted);margin:8px 0 2px}
+.gl-legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.72rem;color:var(--g-ink2);margin-top:8px}
+.gl-legend span{display:inline-flex;align-items:center;gap:6px}
+.gl-legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.gl-scen{display:grid;grid-template-columns:22px repeat(2,minmax(0,1fr));gap:6px;position:relative}
+.gl-scen .ax{font-family:var(--g-mono);font-size:.6rem;letter-spacing:.05em;text-transform:uppercase;color:var(--g-muted);text-align:center;align-self:end;line-height:1.3}
+.gl-scen .ay{writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;align-self:center;justify-self:center}
+.gl-q{border:1px solid var(--g-rule);border-radius:2px;padding:10px 12px;background:var(--g-s2);position:relative}
+.gl-q b{display:block;font-family:var(--g-mono);font-size:.7rem;color:var(--g-accent);margin-bottom:2px}
+.gl-q span{font-size:.82rem;font-weight:600;line-height:1.25;display:block}
+.gl-q.now{border-color:var(--g-accent);box-shadow:inset 0 0 0 1px var(--g-accent)}
+.gl-now{grid-column:2/-1;font-size:.74rem;color:var(--g-accent);font-weight:600;text-align:right}
+.gl-hz h4{font-family:var(--g-mono);font-weight:500;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--g-muted);display:flex;justify-content:space-between;gap:8px;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--g-ink)}
+.gl-hz h4 span{color:var(--g-ink)}
+.gl-hz ul,.gl-ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.gl-hz li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:8px;font-size:.8rem;line-height:1.4;color:var(--g-ink2)}
+.gl-hz li b{font-family:var(--g-mono);font-size:.7rem;font-weight:500;color:var(--g-ink);padding-top:1px}
+.gl-ft{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1.15fr);gap:8px;align-items:center;font-size:.8rem;line-height:1.3;padding:7px 0;border-bottom:1px solid var(--g-rule)}
+.gl-ft:last-child{border-bottom:0}
+.gl-ft .gl-f{color:var(--g-muted);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--g-muted) 50%,transparent)}
+.gl-ft .gl-a{color:var(--g-accent);font-weight:600;text-align:center}
+.gl-ft .gl-t{font-weight:600}
+.gl-pill{display:inline-block;font-family:var(--g-mono);font-size:.62rem;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border:1px solid var(--g-rule);border-radius:2px;color:var(--g-ink2);white-space:nowrap}
+.gl-pill.k1{background:var(--g-soft);border-color:transparent;color:var(--g-accent)}
+.gl-foot{padding:12px 24px;background:var(--g-s2);border-top:1px solid var(--g-rule);font-family:var(--g-mono);font-size:10.5px;letter-spacing:.03em;color:var(--g-muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;line-height:1.5}
+.gl-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;font-family:var(--g-ui);font-size:.85rem}
+.gl-actions a{border:1px solid var(--g-rule);padding:6px 12px;border-radius:2px;text-decoration:none;background:var(--g-s);color:var(--g-ink)}
+.gl-actions a:hover{border-color:var(--g-accent);color:var(--g-accent)}
+@media print{.gl-actions{display:none!important}.glance{break-inside:avoid;page-break-inside:avoid}}
+</style>
 </head>
 <body>
 <div id="tip" role="tooltip"></div>
@@ -336,7 +434,7 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
 <nav class="crumb" aria-label="Site"><div class="crumb-inner"><a href="../">&larr; All publications</a><span>Chuhee Lee &middot; Independent research</span></div></nav>
 
 <nav class="nav" aria-label="Sections"><div class="wrap">
-  <a href="#summary">Summary</a><a href="#method">Selection</a>
+  <a href="#glance">At a glance</a><a href="#summary">Summary</a><a href="#method">Selection</a>
   <a href="#t1">T1 AI</a><a href="#t2">T2 Climate</a><a href="#t3">T3 Geopolitics</a><a href="#t4">T4 Electrification</a><a href="#t5">T5 Demographics</a><a href="#t6">T6 Growth &amp; debt</a><a href="#t7">T7 Social contract</a>
   <a href="#interactions">Interactions</a><a href="#roadmap">Roadmap</a><a href="#scenarios">Scenarios</a><a href="#wildcards">Wildcards</a><a href="#moves">Implications</a><a href="#caveats">Caveats</a><a href="#flags">Verification</a><a href="#about">About</a><a href="#refs">Sources</a>
 </div></nav>
@@ -369,6 +467,14 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
 </div></header>
 
 <main>
+<!-- AT A GLANCE -->
+<section class="block" id="glance"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">At a glance</div><h2>Seven forces, one picture</h2>
+    <p class="prose small">Scores, anchor figures, collisions, scenario space and dated milestones on one page. Everything here is drawn from the data in the sections below; follow the links for sources and method.</p></div>
+  <div class="glance" id="glanceBody" role="group" aria-label="Infographic: Mega Trends Outlook 2040 at a glance"></div>
+  <div class="gl-actions"><a href="mega-trends-2040-at-a-glance.png" download>Download PNG</a></div>
+</div></section>
+
 <!-- SUMMARY -->
 <section class="block" id="summary"><div class="wrap">
   <div class="sec-head"><div class="eyebrow">01 · Executive summary</div><h2>The trends are agreed. Their certainty is not.</h2></div>
@@ -1129,6 +1235,62 @@ hbar("fri",[{l:"Domain experts",v:24.6,txt:"24.6%",tip:"Domain experts: average 
 /* ---------- VERIFY TABLE ---------- */
 (function(){const V=[["WEF Global Risks 2026 top-5 rankings","Confirmed","2-yr #4 consistent with the chapter text"],["SIPRI military spending 2025","Confirmed",""],["IEA data-centre electricity 2024/2030/2035; +17% in 2025","Confirmed",""],["Ember: renewables 33.8% vs coal 33.0%","Confirmed","10,730 vs 10,476 TWh"],["IEA EV shares 2025/2026","Confirmed",""],["IMF public debt 94% → 100% by 2029","Confirmed",""],["IMF growth 3.1% (2026), 3.1% avg 2028–31, 3.7% (2000–19)","Confirmed","July 2026 update: 3.0% (2026), 3.4% (2027)"],["Copernicus 1.47°C; WMO 91%","Confirmed",""],["Global Carbon Budget 38.1 Gt; ~170 Gt budget","Confirmed","38.1 Gt is GCB's 2025 projection"],["WSTS $1.51tn (2026), $1.9tn (2027)","Confirmed","2027 growth +27%"],["Swiss Re 2025 losses $220bn / $107bn","Confirmed","Swiss Re states a 49% insured share; ~51% uninsured is derived"],["World Inequality Report 75% / 2%","Confirmed","Released 10 Dec 2025"],["METR doubling ~7 months; ~131 days post-2023","Confirmed",""],["McKinsey ~9 in 10 use AI; 37% EBIT","Confirmed","Source corrected to State of AI (25 Aug 2026)"],["UNEP 2.3–2.5°C; 2.8°C","Confirmed","UNEP states 2.8°C for current policies"],["Edelman 70% / 32% / 78%","Confirmed","78% is trust among employees"],["IEA critical-mineral multiples; copper gap","Confirmed","Published 16 Jul 2026"]];
  const cls={Confirmed:"ok",Partly:"flag","Not reached":""};let h='<thead><tr><th>#</th><th>Headline figure</th><th>Verdict</th><th>Note</th></tr></thead><tbody>';V.forEach((v,i)=>h+=`<tr><td class="mono">${i+1}</td><td>${v[0]}</td><td><span class="tag ${cls[v[1]]}">${v[1]}</span></td><td class="small">${v[2]}</td></tr>`);document.getElementById("verifyTable").innerHTML=h+"</tbody>";})();
+
+
+/* ---------- AT A GLANCE (infographic) ---------- */
+(function(){
+ const root=document.getElementById("glanceBody");if(!root)return;
+ const A=[
+  [heroK[1],"data-centre electricity by 2030, up from 415 TWh in 2024"],
+  [D.t2.kpis[1],"chance that at least one year in 2026–2030 exceeds 1.5°C"],
+  [heroK[3],"world military spending in 2025, the 11th straight rise"],
+  [D.t4.kpis[0],"share of 2025 global electricity from renewables, overtaking coal (33.0%)"],
+  [heroK[0],"working-age people added worldwide by 2040, mostly in India and Sub-Saharan Africa"],
+  [heroK[4],"global public debt-to-GDP by 2029, a year earlier than expected"],
+  [heroK[5],"of global wealth owned by the top 10%; the bottom half owns 2%"]
+ ];
+ const tc=t=>DARKTXT.includes(t.n)?"#121722":"#fff";
+ const cards=T.map((t,i)=>{const a=A[i];
+  return `<div class="gl-card" style="--c:${cv(t)}"><div class="gl-top"><span class="gl-badge" style="color:${tc(t)}">T${t.n}</span><a class="gl-name" href="#${t.id}">${t.short}</a><span class="gl-tot">${tot(t)}<small>/20</small></span></div>
+   <div class="gl-big">${a[0][0]}</div><div class="gl-cap">${a[1]}</div>
+   <div class="gl-meter">${t.s.map((v,j)=>`<span><i style="--v:${v}"></i><b>${["Imp","Cert","Spd","Brd"][j]}<em>${v}</em></b></span>`).join("")}</div>
+   <div class="gl-src"><a href="${a[0][3]}" target="_blank" rel="noopener">${a[0][2]}</a></div></div>`;}).join("");
+ const guide=`<div class="gl-guide"><h4>How to read the cards</h4><p>The four bars score each trend from 1 to 5 on <b>impact</b>, <b>certainty</b>, <b>speed</b> and cross-industry <b>breadth</b>; the total is out of 20. Scores are the author&rsquo;s judgement. The large figure is a sourced anchor number for the trend.</p></div>`;
+
+ /* links per trend, from the interaction list E (each link counted at both ends) */
+ const deg={};T.forEach(t=>deg[t.n]=0);E.forEach(e=>{deg[e[0]]++;deg[e[1]]++;});
+ const mx=Math.max(...Object.values(deg));const neg=E.filter(e=>e[2]==="−").length;
+ const bars=T.slice().sort((a,b)=>deg[b.n]-deg[a.n]||a.n-b.n).map(t=>`<div class="gl-bar"><span><span class="gl-chip" style="background:${cv(t)}"></span>T${t.n} ${NODE[t.n]}</span><span class="gl-tr"><i style="width:${deg[t.n]/mx*100}%;background:${cv(t)}"></i></span><span class="gl-v">${deg[t.n]}</span></div>`).join("");
+ const dot=n=>{const t=T[n-1];return `<span class="gl-dot" style="background:${cv(t)};color:${tc(t)}">T${n}</span>`;};
+ const coll=`<div><div class="gl-h">Where the forces collide</div>
+  <div class="gl-sub">One chokepoint, three trends: an investment here hedges several at once.</div>
+  <div class="gl-choke"><span>Firm electricity</span><span>Leading-edge compute</span><span>Refined minerals</span></div>
+  <div class="gl-where">Where ${dot(1)} ${dot(3)} ${dot(4)} meet</div>
+  <div class="gl-sub" style="margin-top:0">Links per trend, from the ${E.length} mapped interactions</div>${bars}
+  <div class="gl-note">${E.length-neg} links reinforce or accelerate (+), ${neg} constrain or create tension (−). Each link is counted at both ends, so the bars sum to ${2*E.length}.</div></div>`;
+
+ const scen=`<div><div class="gl-h">Four scenarios to 2040</div>
+  <div class="gl-sub">Axes from ESPAS: geopolitical outcome and pace of transition and technology governance.</div>
+  <div class="gl-scen"><span></span><span class="ax">Broad AI &amp; transition delivery</span><span class="ax">Muted or concentrated delivery</span>
+   <span class="ax ay">Coexistence</span><div class="gl-q"><b>A</b><span>Competitive coexistence, productive 2030s</span></div><div class="gl-q"><b>C</b><span>Adrift</span></div>
+   <span class="ax ay">Confrontation</span><div class="gl-q"><b>B</b><span>Tech blocs</span></div><div class="gl-q now"><b>D</b><span>Fragmented polycrisis</span></div>
+   <span></span><span class="gl-now" style="grid-column:2/-1">&#9650; 2026 sits closest to the B&ndash;D boundary (author&rsquo;s reading, not a probability)</span></div>
+  <div class="gl-note">Constant in all four: ${dot(2)} climate overshoot and ${dot(5)} ageing, both near-certain to 2040.</div></div>`;
+
+ /* milestones, looked up from M by year and trend so they stay in step with the roadmap */
+ const pick=(y,n)=>M.find(m=>m[0]===y&&m[1]===n);
+ const H3=[["Near","2026–2030",[[2026,3],[2029,6],[2030,1],[2030,2],[2030,4],[2030,5]]],
+           ["Mid","2031–2035",[[2032,2],[2035,1],[2035,3],[2035,4]]],
+           ["Far","2036–2040",[[2040,2],[2040,4],[2040,5],[2040,6]]]];
+ const hz=H3.map(h=>`<div><h4>${h[0]}<span>${h[1]}</span></h4><ul>${h[2].map(k=>{const m=pick(k[0],k[1]);return m?`<li><b>${m[0]}</b><span><span class="gl-chip" style="background:${cv(T[m[1]-1])}"></span>${m[2]}</span></li>`:"";}).join("")}</ul></div>`).join("");
+
+ root.innerHTML=`<div class="gl-mast"><b>Mega Trends Outlook 2040</b><span>October 2026 edition · Data as of 1 Oct 2026 (headline figures re-checked 11 Oct 2026)</span></div>
+  <div class="gl-grid">${cards}${guide}</div>
+  <div class="gl-two">${coll}${scen}</div>
+  <div class="gl-hz">${hz}</div>
+  <div class="gl-foot"><span>blueplanet-ai.github.io/mega-trends-2040</span><span>&copy; 2026 Chuhee Lee · CC BY-NC 4.0 · Scores and scenario placement are the author&rsquo;s judgement</span></div>`;
+})();
+
 })();
 </script>
 </body>
