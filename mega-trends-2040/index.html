@@ -427,44 +427,92 @@ a.gl-name:hover{color:var(--g-accent)}
 .gl-actions a:hover{border-color:var(--g-accent);color:var(--g-accent)}
 @media print{.gl-actions{display:none!important}.glance{break-inside:avoid;page-break-inside:avoid}}
 </style>
+<link rel="stylesheet" href="/assets/report-opener.css">
 </head>
 <body>
 <div id="tip" role="tooltip"></div>
 
-<nav class="crumb" aria-label="Site"><div class="crumb-inner"><a href="../">&larr; All publications</a><span>Chuhee Lee &middot; Independent research</span></div></nav>
+<div class="ro-top"><div class="ro-inner">
+  <a class="ro-brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">Chuhee Lee<span>Independent research</span></a>
+  <nav class="ro-nav" aria-label="Site">
+    <a href="/#map">The map</a>
+    <a href="/#publications">Publications</a>
+    <a href="/#opportunities">Opportunities</a>
+    <a href="/#about">About</a>
+    <a class="ro-follow" href="/#follow"><svg class="ro-ico" data-ro-ico="rss" viewBox="0 0 24 24" aria-hidden="true"></svg>Follow</a>
+  </nav>
+</div></div>
 
-<nav class="nav" aria-label="Sections"><div class="wrap">
-  <a href="#glance">At a glance</a><a href="#summary">Summary</a><a href="#method">Selection</a>
-  <a href="#t1">T1 AI</a><a href="#t2">T2 Climate</a><a href="#t3">T3 Geopolitics</a><a href="#t4">T4 Electrification</a><a href="#t5">T5 Demographics</a><a href="#t6">T6 Growth &amp; debt</a><a href="#t7">T7 Social contract</a>
-  <a href="#interactions">Interactions</a><a href="#roadmap">Roadmap</a><a href="#scenarios">Scenarios</a><a href="#wildcards">Wildcards</a><a href="#moves">Implications</a><a href="#caveats">Caveats</a><a href="#flags">Verification</a><a href="#about">About</a><a href="#refs">Sources</a>
-</div></nav>
-
-<header class="hero"><div class="wrap hero-grid">
-  <div>
-    <div class="eyebrow">Independent research report · Mega trends · Horizon 2026–2040</div>
-    <h1 style="margin-top:14px">Seven forces will reshape strategy to 2040</h1>
-    <p class="lede">A synthesis of official statistics, academic research and foresight publications across society, economy, technology, climate and geopolitics. The seven trends are ranked on four criteria, mapped across three time horizons, and stress-tested against scenarios and wildcards.</p>
-    <p class="byline">By <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">Chuhee Lee</a> &middot; October 2026 edition &middot; Data as of 1 October 2026 (headline figures re-checked 11 October 2026) &middot; Next scheduled refresh: October 2027</p>
-    <p class="byline-2">With research assistance from several AI models (Claude, Gemini, ChatGPT) &middot; Views are the author&rsquo;s own</p>
-    <div class="meta-row">
-      <span class="tag">Data as of 1 Oct 2026</span>
-      <span class="tag">130 sources</span>
-      <span class="tag ok">Headline figures re-checked 11 Oct</span>
-      <span class="tag flag">Limitations disclosed</span>
-    </div>
-    <div class="horizon-key" aria-label="Time horizons">
-      <div><b>Near</b><span>2026–2030</span></div>
-      <div><b>Mid</b><span>2031–2035</span></div>
-      <div><b>Far</b><span>2036–2040</span></div>
-    </div>
+<header class="ro"><div class="ro-inner">
+  <div class="ro-side">
+    <figure class="ro-cover"><img src="cover.svg" width="600" height="800" alt="Cover art: seven arcs, one per force; each arc's length is the trend's score out of 20."></figure>
+    <dl class="ro-scope" aria-label="Scope"><div><dt>Horizon</dt><dd>2026–2040</dd></div><div><dt>Trends</dt><dd>7</dd></div><div><dt>References</dt><dd>130</dd></div><div><dt>Figures re-checked</dt><dd>11 Oct 2026</dd></div></dl>
   </div>
+  <div class="ro-main">
+    <div class="ro-tags"><span class="ro-tag layer"><svg class="ro-ico" data-ro-ico="forces" viewBox="0 0 24 24" aria-hidden="true"></svg>Forces</span><span class="ro-tag">Shared</span><span class="ro-ed">Mega Trends Outlook 2040 · October 2026 edition</span></div>
+    <h1 class="ro-title">Seven forces will reshape strategy <em>to 2040</em></h1>
+    <p class="ro-dek">A synthesis of official statistics, academic research and foresight publications across society, economy, technology, climate and geopolitics. The seven trends are ranked on four criteria, mapped across three time horizons, and stress-tested against scenarios and wildcards.</p>
+    <p class="ro-q"><b>Research question</b><span>Which long-range forces will reshape strategy between 2026 and 2040, how certain is each, and where do they collide?</span></p>
+    <div class="ro-meta"><span class="ro-by"><svg class="ro-ico" data-ro-ico="person" viewBox="0 0 24 24" aria-hidden="true"></svg>By&nbsp;<a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener"><b>Chuhee Lee</b></a></span><span><svg class="ro-ico" data-ro-ico="time" viewBox="0 0 24 24" aria-hidden="true"></svg>≈25 min read</span><span><svg class="ro-ico" data-ro-ico="doc" viewBox="0 0 24 24" aria-hidden="true"></svg>Data as of 1 Oct 2026</span><span><svg class="ro-ico" data-ro-ico="calendar" viewBox="0 0 24 24" aria-hidden="true"></svg>Next refresh: October 2027</span><a href="#changelog"><svg class="ro-ico" data-ro-ico="history" viewBox="0 0 24 24" aria-hidden="true"></svg>Change log</a></div>
+    <p class="ro-credit">With research assistance from several AI models (Claude, Gemini, ChatGPT) · Views are the author’s own</p>
+    <div class="ro-acts">
+      <button type="button" class="ro-primary" id="roCite"><svg class="ro-ico" data-ro-ico="quote" viewBox="0 0 24 24" aria-hidden="true"></svg>Cite</button>
+      <button type="button" id="roShare"><svg class="ro-ico" data-ro-ico="share" viewBox="0 0 24 24" aria-hidden="true"></svg>Share</button>
+      <a href="mega-trends-2040-at-a-glance.png" download><svg class="ro-ico" data-ro-ico="download" viewBox="0 0 24 24" aria-hidden="true"></svg>Infographic (PNG)</a>
+      <a href="#refs"><svg class="ro-ico" data-ro-ico="doc" viewBox="0 0 24 24" aria-hidden="true"></svg>References</a>
+      <span class="ro-status" id="roStatus" role="status" aria-live="polite"></span>
+    </div>
+    <p class="ro-cite"><b>Cite as</b><span id="roCiteText">Chuhee Lee, <i>Mega Trends Outlook 2040</i>, October 2026 edition (data as of 1 October 2026), https://blueplanet-ai.github.io/mega-trends-2040/, CC BY-NC 4.0.</span></p>
+  </div>
+</div></header>
+
+<section class="ro-60" aria-labelledby="ro60H"><div class="ro-inner">
+  <div class="ro-60-head"><h2 id="ro60H">The report in <em>60 seconds</em></h2><span>Three takeaways · each with its source</span></div>
+  <ol>
+    <li class="fact">
+      <span class="ro-fig">+590m</span>
+      <span class="ro-kind">Fact</span>
+      <h3>Demographics are the anchor</h3>
+      <p>The world adds about 590 million working-age people by 2040, and India plus Sub-Saharan Africa supply about 84% of them. Everyone of working age in 2040 is already born.</p>
+      <span class="ro-src">Source: UN World Population Prospects 2024, author’s calculation <a href="#ref-22">[22]</a></span>
+    </li>
+    <li class="fact">
+      <span class="ro-fig">945 TWh</span>
+      <span class="ro-kind">Fact</span>
+      <h3>AI is physical, and power-bound</h3>
+      <p>Data-centre electricity more than doubles, from 415 TWh in 2024 to about 945 TWh by 2030. Published GDP-impact estimates range from about +1% to +7% over a decade.</p>
+      <span class="ro-src">Source: IEA, Energy and AI <a href="#ref-86">[86]</a>; Acemoglu, PWBM, IMF, Goldman Sachs <a href="#ref-110">[110–113]</a></span>
+    </li>
+    <li class="interp">
+      <span class="ro-fig">1 chokepoint</span>
+      <span class="ro-kind">Interpretation</span>
+      <h3>One chokepoint, three trends</h3>
+      <p>Firm electricity, leading-edge compute and refined minerals sit where AI, geopolitics and electrification collide. An investment there hedges several trends at once.</p>
+      <span class="ro-src">Source: author’s analysis of the <a href="#interactions">cross-trend interactions</a></span>
+    </li>
+  </ol>
+  <p class="ro-legend"><b>Fact</b>: stated by the cited source. <b>Interpretation</b>: the author&rsquo;s reading of the cited evidence. <b>Hypothesis</b>: expected from the evidence but not yet observed. Figures inside every takeaway are sourced.</p>
+</div></section>
+
+<div class="wrap ro-rank">
   <div class="panel" aria-label="Ranking of seven mega trends">
     <div class="panel-title"><h4>Ranking by combined score</h4><span class="tag derived">Analytical judgement</span></div>
     <div class="meter-legend"><span></span><span>Trend</span><span class="ml"><span>Imp</span><span>Cert</span><span>Spd</span><span>Brd</span></span><span style="text-align:right">/20</span></div>
     <div id="rankList"></div>
     <p class="src">Each bar shows a 1–5 score for impact, certainty, speed and cross-industry breadth. Scores are the author&rsquo;s judgement from the cited evidence, not a sourced figure.</p>
   </div>
-</div></header>
+  <div class="horizon-key" aria-label="Time horizons">
+      <div><b>Near</b><span>2026–2030</span></div>
+      <div><b>Mid</b><span>2031–2035</span></div>
+      <div><b>Far</b><span>2036–2040</span></div>
+    </div>
+</div>
+<nav class="nav" aria-label="Sections"><div class="wrap">
+  <a href="#glance">At a glance</a><a href="#summary">Summary</a><a href="#method">Selection</a>
+  <a href="#t1">T1 AI</a><a href="#t2">T2 Climate</a><a href="#t3">T3 Geopolitics</a><a href="#t4">T4 Electrification</a><a href="#t5">T5 Demographics</a><a href="#t6">T6 Growth &amp; debt</a><a href="#t7">T7 Social contract</a>
+  <a href="#interactions">Interactions</a><a href="#roadmap">Roadmap</a><a href="#scenarios">Scenarios</a><a href="#wildcards">Wildcards</a><a href="#moves">Implications</a><a href="#caveats">Caveats</a><a href="#flags">Verification</a><a href="#about">About</a><a href="#refs">Sources</a>
+</div></nav>
+
 
 <main>
 <!-- AT A GLANCE -->
@@ -683,7 +731,7 @@ a.gl-name:hover{color:var(--g-accent)}
     <p><b>Suggested citation.</b> Chuhee Lee, <i>Mega Trends Outlook 2040</i>, October 2026 edition (data as of 1 October 2026), https://blueplanet-ai.github.io/mega-trends-2040/, CC BY-NC 4.0.</p>
     <p><b>Corrections.</b> Spotted an error or a newer source? Please get in touch via <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">LinkedIn</a>.</p>
   </div>
-  <h3 style="margin-top:32px;margin-bottom:12px">Change log</h3>
+  <h3 id="changelog" style="margin-top:32px;margin-bottom:12px">Change log</h3>
   <ul class="log">
     <li class="loghead">13 October 2026</li>
     <li><span>Clarified</span><div>Section 02 now defines what each of the four scoring criteria (impact, certainty, speed, breadth) measures. No scores, figures or conclusions changed.</div></li>
@@ -700,151 +748,151 @@ a.gl-name:hover{color:var(--g-accent)}
   <details open><summary>130 numbered references</summary><div>
 <h4 class="ref-grp">Foresight lists, risk reports and methods</h4>
 <ol class="ref-list">
-<li value="1">PwC, "Megatrends: Five global shifts reshaping the world we live in," Nov 2025. <a href="https://www.pwc.com/gx/en/issues/megatrends/assets/pwc-megatrends-november-2025.pdf" target="_blank" rel="noopener">pwc.com</a></li>
-<li value="2">McKinsey, "The state of AI in 2026: On the road to ROI," 25 Aug 2026 (source of the AI adoption and EBIT figures): <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener">mckinsey.com</a> ; and "Technology Trends Outlook 2026," 15 Sep 2026. Landing page: <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-top-trends-in-tech" target="_blank" rel="noopener">mckinsey.com</a> ; PDF: <a href="https://www.mckinsey.com/~/media/mckinsey/business%20functions/mckinsey%20digital/our%20insights/the%20top%20trends%20in%20tech%202026/mckinsey%20technology%20trends%20outlook%202026.pdf" target="_blank" rel="noopener">mckinsey.com</a></li>
-<li value="3">Gartner, "Top Strategic Technology Trends for 2026," 20 Oct 2025. <a href="https://www.gartner.com/en/newsroom/press-releases/2025-10-20-gartner-identifies-the-top-strategic-technology-trends-for-2026" target="_blank" rel="noopener">gartner.com</a></li>
-<li value="4">EY, "Megatrends 2026 and beyond," 2026 (date unconfirmed). <a href="https://www.ey.com/en_gl/megatrends" target="_blank" rel="noopener">ey.com</a></li>
-<li value="5">EU JRC, Megatrends Hub, updated 10 Nov 2025. <a href="https://knowledge4policy.ec.europa.eu/foresight/tool/megatrends-hub_en" target="_blank" rel="noopener">knowledge4policy.ec.europa.eu</a></li>
-<li value="6">ESPAS, "Global Trends to 2040: Choosing Europe's Future," Apr 2024. <a href="https://espas.eu/files/espas_files/about/ESPAS-Global-Trends-to-2040-Choosing-Europes-Future-EN.pdf" target="_blank" rel="noopener">espas.eu</a></li>
-<li value="7">Roland Berger, Trend Compendium 2050, 2023 edition. <a href="https://www.rolandberger.com/en/Insights/Global-Topics/Trend-Compendium/" target="_blank" rel="noopener">rolandberger.com</a></li>
-<li value="8">Zukunftsinstitut, Megatrend-Map, 12 Mar 2024. <a href="https://www.zukunftsinstitut.de/zukunftsthemen/die-megatrend-map" target="_blank" rel="noopener">zukunftsinstitut.de</a></li>
-<li value="9">WEF, Global Risks Report 2026, 14 Jan 2026 (updated 12 May 2026). <a href="https://www.weforum.org/stories/global-risks/global-risks-2026-top-10-two-and-ten-year-horizon/" target="_blank" rel="noopener">weforum.org</a> ; key findings: <a href="https://www.weforum.org/publications/global-risks-report-2026/in-full/global-risks-report-2026-key-findings/" target="_blank" rel="noopener">weforum.org</a> ; PDF: <a href="https://reports.weforum.org/docs/WEF_Global_Risks_Report_2026.pdf" target="_blank" rel="noopener">reports.weforum.org</a></li>
-<li value="10">US NIC, "Global Trends 2040: Scenarios," Mar 2021. <a href="https://archive.dni.gov/index.php/gt2040-home/scenarios-for-2040" target="_blank" rel="noopener">archive.dni.gov</a></li>
-<li value="11">Hawaii Tribune-Herald (NYT wire), "Gabbard ends intelligence report on future threats," 27 Sep 2025. <a href="https://www.hawaiitribune-herald.com/2025/09/27/nation-world-news/gabbard-ends-intelligence-report-on-future-threats-to-us/amp/" target="_blank" rel="noopener">hawaiitribune-herald.com</a></li>
-<li value="12">UK MoD DCDC, "Global Strategic Trends 7: Out to 2055," Oct 2024. <a href="https://assets.publishing.service.gov.uk/media/673602412469c5b71dbc7b6f/Global_Strategic_Trends_Out_to_2055.pdf" target="_blank" rel="noopener">assets.publishing.service.gov.uk</a> ; bite-size: <a href="https://assets.publishing.service.gov.uk/media/669923bda3c2a28abb50d236/GST_7_Bite_size_web.pdf" target="_blank" rel="noopener">assets.publishing.service.gov.uk</a></li>
-<li value="13">Naughtin et al., "Forty years in the making: A systematic review of the megatrends literature," Futures 157, Mar 2024. <a href="https://www.sciencedirect.com/science/article/pii/S0016328724000120" target="_blank" rel="noopener">sciencedirect.com</a></li>
-<li value="14">Lawrence, Homer-Dixon et al., "Global polycrisis: the causal mechanisms of crisis entanglement," Global Sustainability 7, Jan 2024. <a href="https://www.cambridge.org/core/journals/global-sustainability/article/global-polycrisis-the-causal-mechanisms-of-crisis-entanglement/06F0F8F3B993A221971151E3CB054B5E" target="_blank" rel="noopener">cambridge.org</a></li>
-<li value="15">Forecasting Research Institute, near-term XPT accuracy, 2 Sep 2025. <a href="https://forecastingresearch.org/research/near-term-xpt-accuracy" target="_blank" rel="noopener">forecastingresearch.org</a> ; Substack commentary: <a href="https://forecastingresearch.substack.com/p/what-did-forecasters-get-right-and" target="_blank" rel="noopener">forecastingresearch.substack.com</a></li>
-<li value="16">Karger et al., Existential-Risk Persuasion Tournament, FRI, Jul-Aug 2023. <a href="https://forecastingresearch.org/xpt" target="_blank" rel="noopener">forecastingresearch.org</a></li>
-<li value="17">L. Muehlhauser, "How Feasible Is Long-range Forecasting?", 10 Oct 2019. <a href="https://coefficientgiving.org/research/how-feasible-is-long-range-forecasting/" target="_blank" rel="noopener">coefficientgiving.org</a></li>
-<li value="18">H. Karnofsky, "The Track Record of Futurists Seems ... Fine," Cold Takes, 30 Jun 2022. <a href="https://www.cold-takes.com/the-track-record-of-futurists-seems-fine/" target="_blank" rel="noopener">cold-takes.com</a></li>
-<li value="19">Apreda et al., "Expert forecast and realized outcomes in technology foresight," TFSC 141, 2019. <a href="https://ideas.repec.org/a/eee/tefoso/v141y2019icp277-288.html" target="_blank" rel="noopener">ideas.repec.org</a></li>
-<li value="20">Eurasia Group, Top Risks 2026, 5 Jan 2026. <a href="https://www.eurasiagroup.net/media/eurasia-group-publishes-top-risks-predictions-for-2026-us-political-revolution" target="_blank" rel="noopener">eurasiagroup.net</a></li>
-<li value="21">Chatham House, "The world in 2026," 15 Dec 2025 (updated 5 Jan 2026). <a href="https://www.chathamhouse.org/publications/the-world-today/2025-12/world-2026" target="_blank" rel="noopener">chathamhouse.org</a></li>
+<li value="1" id="ref-1">PwC, "Megatrends: Five global shifts reshaping the world we live in," Nov 2025. <a href="https://www.pwc.com/gx/en/issues/megatrends/assets/pwc-megatrends-november-2025.pdf" target="_blank" rel="noopener">pwc.com</a></li>
+<li value="2" id="ref-2">McKinsey, "The state of AI in 2026: On the road to ROI," 25 Aug 2026 (source of the AI adoption and EBIT figures): <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener">mckinsey.com</a> ; and "Technology Trends Outlook 2026," 15 Sep 2026. Landing page: <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-top-trends-in-tech" target="_blank" rel="noopener">mckinsey.com</a> ; PDF: <a href="https://www.mckinsey.com/~/media/mckinsey/business%20functions/mckinsey%20digital/our%20insights/the%20top%20trends%20in%20tech%202026/mckinsey%20technology%20trends%20outlook%202026.pdf" target="_blank" rel="noopener">mckinsey.com</a></li>
+<li value="3" id="ref-3">Gartner, "Top Strategic Technology Trends for 2026," 20 Oct 2025. <a href="https://www.gartner.com/en/newsroom/press-releases/2025-10-20-gartner-identifies-the-top-strategic-technology-trends-for-2026" target="_blank" rel="noopener">gartner.com</a></li>
+<li value="4" id="ref-4">EY, "Megatrends 2026 and beyond," 2026 (date unconfirmed). <a href="https://www.ey.com/en_gl/megatrends" target="_blank" rel="noopener">ey.com</a></li>
+<li value="5" id="ref-5">EU JRC, Megatrends Hub, updated 10 Nov 2025. <a href="https://knowledge4policy.ec.europa.eu/foresight/tool/megatrends-hub_en" target="_blank" rel="noopener">knowledge4policy.ec.europa.eu</a></li>
+<li value="6" id="ref-6">ESPAS, "Global Trends to 2040: Choosing Europe's Future," Apr 2024. <a href="https://espas.eu/files/espas_files/about/ESPAS-Global-Trends-to-2040-Choosing-Europes-Future-EN.pdf" target="_blank" rel="noopener">espas.eu</a></li>
+<li value="7" id="ref-7">Roland Berger, Trend Compendium 2050, 2023 edition. <a href="https://www.rolandberger.com/en/Insights/Global-Topics/Trend-Compendium/" target="_blank" rel="noopener">rolandberger.com</a></li>
+<li value="8" id="ref-8">Zukunftsinstitut, Megatrend-Map, 12 Mar 2024. <a href="https://www.zukunftsinstitut.de/zukunftsthemen/die-megatrend-map" target="_blank" rel="noopener">zukunftsinstitut.de</a></li>
+<li value="9" id="ref-9">WEF, Global Risks Report 2026, 14 Jan 2026 (updated 12 May 2026). <a href="https://www.weforum.org/stories/global-risks/global-risks-2026-top-10-two-and-ten-year-horizon/" target="_blank" rel="noopener">weforum.org</a> ; key findings: <a href="https://www.weforum.org/publications/global-risks-report-2026/in-full/global-risks-report-2026-key-findings/" target="_blank" rel="noopener">weforum.org</a> ; PDF: <a href="https://reports.weforum.org/docs/WEF_Global_Risks_Report_2026.pdf" target="_blank" rel="noopener">reports.weforum.org</a></li>
+<li value="10" id="ref-10">US NIC, "Global Trends 2040: Scenarios," Mar 2021. <a href="https://archive.dni.gov/index.php/gt2040-home/scenarios-for-2040" target="_blank" rel="noopener">archive.dni.gov</a></li>
+<li value="11" id="ref-11">Hawaii Tribune-Herald (NYT wire), "Gabbard ends intelligence report on future threats," 27 Sep 2025. <a href="https://www.hawaiitribune-herald.com/2025/09/27/nation-world-news/gabbard-ends-intelligence-report-on-future-threats-to-us/amp/" target="_blank" rel="noopener">hawaiitribune-herald.com</a></li>
+<li value="12" id="ref-12">UK MoD DCDC, "Global Strategic Trends 7: Out to 2055," Oct 2024. <a href="https://assets.publishing.service.gov.uk/media/673602412469c5b71dbc7b6f/Global_Strategic_Trends_Out_to_2055.pdf" target="_blank" rel="noopener">assets.publishing.service.gov.uk</a> ; bite-size: <a href="https://assets.publishing.service.gov.uk/media/669923bda3c2a28abb50d236/GST_7_Bite_size_web.pdf" target="_blank" rel="noopener">assets.publishing.service.gov.uk</a></li>
+<li value="13" id="ref-13">Naughtin et al., "Forty years in the making: A systematic review of the megatrends literature," Futures 157, Mar 2024. <a href="https://www.sciencedirect.com/science/article/pii/S0016328724000120" target="_blank" rel="noopener">sciencedirect.com</a></li>
+<li value="14" id="ref-14">Lawrence, Homer-Dixon et al., "Global polycrisis: the causal mechanisms of crisis entanglement," Global Sustainability 7, Jan 2024. <a href="https://www.cambridge.org/core/journals/global-sustainability/article/global-polycrisis-the-causal-mechanisms-of-crisis-entanglement/06F0F8F3B993A221971151E3CB054B5E" target="_blank" rel="noopener">cambridge.org</a></li>
+<li value="15" id="ref-15">Forecasting Research Institute, near-term XPT accuracy, 2 Sep 2025. <a href="https://forecastingresearch.org/research/near-term-xpt-accuracy" target="_blank" rel="noopener">forecastingresearch.org</a> ; Substack commentary: <a href="https://forecastingresearch.substack.com/p/what-did-forecasters-get-right-and" target="_blank" rel="noopener">forecastingresearch.substack.com</a></li>
+<li value="16" id="ref-16">Karger et al., Existential-Risk Persuasion Tournament, FRI, Jul-Aug 2023. <a href="https://forecastingresearch.org/xpt" target="_blank" rel="noopener">forecastingresearch.org</a></li>
+<li value="17" id="ref-17">L. Muehlhauser, "How Feasible Is Long-range Forecasting?", 10 Oct 2019. <a href="https://coefficientgiving.org/research/how-feasible-is-long-range-forecasting/" target="_blank" rel="noopener">coefficientgiving.org</a></li>
+<li value="18" id="ref-18">H. Karnofsky, "The Track Record of Futurists Seems ... Fine," Cold Takes, 30 Jun 2022. <a href="https://www.cold-takes.com/the-track-record-of-futurists-seems-fine/" target="_blank" rel="noopener">cold-takes.com</a></li>
+<li value="19" id="ref-19">Apreda et al., "Expert forecast and realized outcomes in technology foresight," TFSC 141, 2019. <a href="https://ideas.repec.org/a/eee/tefoso/v141y2019icp277-288.html" target="_blank" rel="noopener">ideas.repec.org</a></li>
+<li value="20" id="ref-20">Eurasia Group, Top Risks 2026, 5 Jan 2026. <a href="https://www.eurasiagroup.net/media/eurasia-group-publishes-top-risks-predictions-for-2026-us-political-revolution" target="_blank" rel="noopener">eurasiagroup.net</a></li>
+<li value="21" id="ref-21">Chatham House, "The world in 2026," 15 Dec 2025 (updated 5 Jan 2026). <a href="https://www.chathamhouse.org/publications/the-world-today/2025-12/world-2026" target="_blank" rel="noopener">chathamhouse.org</a></li>
 </ol>
 <h4 class="ref-grp">Demographics, health and society</h4>
 <ol class="ref-list">
-<li value="22">UN DESA, World Population Prospects 2024: Summary of Results, 11 Jul 2024. <a href="https://population.un.org/wpp/assets/Files/WPP2024_Summary-of-Results.pdf" target="_blank" rel="noopener">population.un.org</a></li>
-<li value="23">UN Population Division, wpp2024 R data package v1.1-3, 26 Nov 2024 (source for computed tables). <a href="https://github.com/PPgp/wpp2024" target="_blank" rel="noopener">github.com</a></li>
-<li value="24">UN DESA, E/CN.9/2026/CRP.1 (WPP 2026 postponed), 26 Mar 2026. <a href="https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2026_cpd59_e_cn.9_2026_crp.1.pdf" target="_blank" rel="noopener">un.org</a></li>
-<li value="25">UN DESA, World Population Highlights 2026: Youth, 27 Feb 2026. <a href="https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2026_world_population_highlights-youth.pdf" target="_blank" rel="noopener">un.org</a></li>
-<li value="26">US Census Bureau, "An Aging World," Sep 2026. <a href="https://www.census.gov/library/stories/2026/09/an-aging-world.html" target="_blank" rel="noopener">census.gov</a></li>
-<li value="27">IHME/GBD fertility forecast, The Lancet, 20 Mar 2024. <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(24)00550-6/fulltext" target="_blank" rel="noopener">thelancet.com</a></li>
-<li value="28">ABC News (reporting NBS), China population decline, 20 Jan 2026 (secondary). <a href="https://www.abc.net.au/news/2026-01-20/china-population-decline-fourth-straight-year/106245406" target="_blank" rel="noopener">abc.net.au</a></li>
-<li value="29">Al Jazeera (reporting SRS), India fertility below replacement, 9 Jun 2026 (secondary). <a href="https://www.aljazeera.com/news/2026/6/9/indias-fertility-rate-falls-below-replacement-level-why-it-matters" target="_blank" rel="noopener">aljazeera.com</a></li>
-<li value="30">Eurostat, Population projections in the EU (EUROPOP2025), Apr 2026. <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Population_projections_in_the_EU" target="_blank" rel="noopener">ec.europa.eu</a></li>
-<li value="31">CBO, Demographic Outlook 2026-2056, Jan 2026. <a href="https://www.cbo.gov/publication/61994" target="_blank" rel="noopener">cbo.gov</a></li>
-<li value="32">Pension Policy International (reporting MHLW), Japan births 2025, 2026 (secondary). <a href="https://www.pensionpolicyinternational.com/japans-births-hit-record-low-for-10th-year-as-demographic-crisis-outpaces-government-forecasts/" target="_blank" rel="noopener">pensionpolicyinternational.com</a></li>
-<li value="33">ISVD, Japan birthrate 2025, 2026 (secondary). <a href="https://isvd.or.jp/en/columns/birthrate-2025-671k-acceleration" target="_blank" rel="noopener">isvd.or.jp</a></li>
-<li value="34">Korea Times (reporting Statistics Korea), 26 Aug 2026 (secondary). <a href="https://www.koreatimes.co.kr/southkorea/society/20260826/koreas-births-rise-67-to-254300-in-2025" target="_blank" rel="noopener">koreatimes.co.kr</a> ; Korea.net: <a href="https://www.korea.net/NewsFocus/Society/view?articleId=288047" target="_blank" rel="noopener">korea.net</a></li>
-<li value="35">UN DESA, World Urbanization Prospects 2025, 18 Nov 2025. <a href="https://www.un.org/en/desa/WUP-2025" target="_blank" rel="noopener">un.org</a></li>
-<li value="36">ILO, Employment and Social Trends, May 2026 update. <a href="https://www.ilo.org/sites/default/files/2026-06/Brief_Employment%20and%20Social%20Trends.pdf" target="_blank" rel="noopener">ilo.org</a></li>
-<li value="37">WHO, Noncommunicable diseases fact sheet, 25 Sep 2025. <a href="https://www.who.int/news-room/fact-sheets/detail/noncommunicable-diseases" target="_blank" rel="noopener">who.int</a></li>
-<li value="38">WHO, GLP-1 obesity guideline, 1 Dec 2025. <a href="https://www.who.int/news/item/01-12-2025-who-issues-global-guideline-on-the-use-of-glp-1-medicines-in-treating-obesity" target="_blank" rel="noopener">who.int</a></li>
-<li value="39">WHO, mental health conditions, 2 Sep 2025. <a href="https://www.who.int/news/item/02-09-2025-over-a-billion-people-living-with-mental-health-conditions-services-require-urgent-scale-up" target="_blank" rel="noopener">who.int</a></li>
-<li value="40">GBD AMR collaborators, The Lancet, 16 Sep 2024. <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(24)01867-1/fulltext" target="_blank" rel="noopener">thelancet.com</a></li>
-<li value="41">WEF, Future of Jobs Report 2025, Jan 2025. <a href="https://www.weforum.org/press/2025/01/future-of-jobs-report-2025-78-million-new-job-opportunities-by-2030-but-urgent-upskilling-needed-to-prepare-workforces/" target="_blank" rel="noopener">weforum.org</a></li>
-<li value="42">IMF, SDN/2026/001 "New Jobs Creation in the AI Age," 2026. <a href="https://www.imf.org/-/media/files/publications/sdn/2026/english/sdnea2026001.pdf" target="_blank" rel="noopener">imf.org</a></li>
-<li value="43">Edelman, 2026 Trust Barometer (fieldwork Oct-Nov 2025). <a href="https://www.edelman.com/news-awards/2026-edelman-trust-barometer-society-slides-into-insularity" target="_blank" rel="noopener">edelman.com</a></li>
-<li value="44">World Inequality Lab, World Inequality Report 2026, ~Dec 2025. <a href="https://wir2026.wid.world/insight/executive-summary/" target="_blank" rel="noopener">wir2026.wid.world</a></li>
-<li value="45">World Bank, Poverty, Prosperity, and Planet Report 2024, Oct 2024. <a href="https://www.worldbank.org/en/publication/poverty-prosperity-and-planet" target="_blank" rel="noopener">worldbank.org</a></li>
-<li value="46">V-Dem Institute, Democracy Report 2026, 17 Mar 2026. <a href="https://www.v-dem.net/news/press-release-democratic-backsliding-reaches-western-democracies-with-us-decline-unprecedented/" target="_blank" rel="noopener">v-dem.net</a></li>
-<li value="47">Freedom House, Freedom in the World 2026, Mar 2026. <a href="https://freedomhouse.org/report/freedom-world/2026/growing-shadow-autocracy" target="_blank" rel="noopener">freedomhouse.org</a></li>
+<li value="22" id="ref-22">UN DESA, World Population Prospects 2024: Summary of Results, 11 Jul 2024. <a href="https://population.un.org/wpp/assets/Files/WPP2024_Summary-of-Results.pdf" target="_blank" rel="noopener">population.un.org</a></li>
+<li value="23" id="ref-23">UN Population Division, wpp2024 R data package v1.1-3, 26 Nov 2024 (source for computed tables). <a href="https://github.com/PPgp/wpp2024" target="_blank" rel="noopener">github.com</a></li>
+<li value="24" id="ref-24">UN DESA, E/CN.9/2026/CRP.1 (WPP 2026 postponed), 26 Mar 2026. <a href="https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2026_cpd59_e_cn.9_2026_crp.1.pdf" target="_blank" rel="noopener">un.org</a></li>
+<li value="25" id="ref-25">UN DESA, World Population Highlights 2026: Youth, 27 Feb 2026. <a href="https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2026_world_population_highlights-youth.pdf" target="_blank" rel="noopener">un.org</a></li>
+<li value="26" id="ref-26">US Census Bureau, "An Aging World," Sep 2026. <a href="https://www.census.gov/library/stories/2026/09/an-aging-world.html" target="_blank" rel="noopener">census.gov</a></li>
+<li value="27" id="ref-27">IHME/GBD fertility forecast, The Lancet, 20 Mar 2024. <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(24)00550-6/fulltext" target="_blank" rel="noopener">thelancet.com</a></li>
+<li value="28" id="ref-28">ABC News (reporting NBS), China population decline, 20 Jan 2026 (secondary). <a href="https://www.abc.net.au/news/2026-01-20/china-population-decline-fourth-straight-year/106245406" target="_blank" rel="noopener">abc.net.au</a></li>
+<li value="29" id="ref-29">Al Jazeera (reporting SRS), India fertility below replacement, 9 Jun 2026 (secondary). <a href="https://www.aljazeera.com/news/2026/6/9/indias-fertility-rate-falls-below-replacement-level-why-it-matters" target="_blank" rel="noopener">aljazeera.com</a></li>
+<li value="30" id="ref-30">Eurostat, Population projections in the EU (EUROPOP2025), Apr 2026. <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Population_projections_in_the_EU" target="_blank" rel="noopener">ec.europa.eu</a></li>
+<li value="31" id="ref-31">CBO, Demographic Outlook 2026-2056, Jan 2026. <a href="https://www.cbo.gov/publication/61994" target="_blank" rel="noopener">cbo.gov</a></li>
+<li value="32" id="ref-32">Pension Policy International (reporting MHLW), Japan births 2025, 2026 (secondary). <a href="https://www.pensionpolicyinternational.com/japans-births-hit-record-low-for-10th-year-as-demographic-crisis-outpaces-government-forecasts/" target="_blank" rel="noopener">pensionpolicyinternational.com</a></li>
+<li value="33" id="ref-33">ISVD, Japan birthrate 2025, 2026 (secondary). <a href="https://isvd.or.jp/en/columns/birthrate-2025-671k-acceleration" target="_blank" rel="noopener">isvd.or.jp</a></li>
+<li value="34" id="ref-34">Korea Times (reporting Statistics Korea), 26 Aug 2026 (secondary). <a href="https://www.koreatimes.co.kr/southkorea/society/20260826/koreas-births-rise-67-to-254300-in-2025" target="_blank" rel="noopener">koreatimes.co.kr</a> ; Korea.net: <a href="https://www.korea.net/NewsFocus/Society/view?articleId=288047" target="_blank" rel="noopener">korea.net</a></li>
+<li value="35" id="ref-35">UN DESA, World Urbanization Prospects 2025, 18 Nov 2025. <a href="https://www.un.org/en/desa/WUP-2025" target="_blank" rel="noopener">un.org</a></li>
+<li value="36" id="ref-36">ILO, Employment and Social Trends, May 2026 update. <a href="https://www.ilo.org/sites/default/files/2026-06/Brief_Employment%20and%20Social%20Trends.pdf" target="_blank" rel="noopener">ilo.org</a></li>
+<li value="37" id="ref-37">WHO, Noncommunicable diseases fact sheet, 25 Sep 2025. <a href="https://www.who.int/news-room/fact-sheets/detail/noncommunicable-diseases" target="_blank" rel="noopener">who.int</a></li>
+<li value="38" id="ref-38">WHO, GLP-1 obesity guideline, 1 Dec 2025. <a href="https://www.who.int/news/item/01-12-2025-who-issues-global-guideline-on-the-use-of-glp-1-medicines-in-treating-obesity" target="_blank" rel="noopener">who.int</a></li>
+<li value="39" id="ref-39">WHO, mental health conditions, 2 Sep 2025. <a href="https://www.who.int/news/item/02-09-2025-over-a-billion-people-living-with-mental-health-conditions-services-require-urgent-scale-up" target="_blank" rel="noopener">who.int</a></li>
+<li value="40" id="ref-40">GBD AMR collaborators, The Lancet, 16 Sep 2024. <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(24)01867-1/fulltext" target="_blank" rel="noopener">thelancet.com</a></li>
+<li value="41" id="ref-41">WEF, Future of Jobs Report 2025, Jan 2025. <a href="https://www.weforum.org/press/2025/01/future-of-jobs-report-2025-78-million-new-job-opportunities-by-2030-but-urgent-upskilling-needed-to-prepare-workforces/" target="_blank" rel="noopener">weforum.org</a></li>
+<li value="42" id="ref-42">IMF, SDN/2026/001 "New Jobs Creation in the AI Age," 2026. <a href="https://www.imf.org/-/media/files/publications/sdn/2026/english/sdnea2026001.pdf" target="_blank" rel="noopener">imf.org</a></li>
+<li value="43" id="ref-43">Edelman, 2026 Trust Barometer (fieldwork Oct-Nov 2025). <a href="https://www.edelman.com/news-awards/2026-edelman-trust-barometer-society-slides-into-insularity" target="_blank" rel="noopener">edelman.com</a></li>
+<li value="44" id="ref-44">World Inequality Lab, World Inequality Report 2026, ~Dec 2025. <a href="https://wir2026.wid.world/insight/executive-summary/" target="_blank" rel="noopener">wir2026.wid.world</a></li>
+<li value="45" id="ref-45">World Bank, Poverty, Prosperity, and Planet Report 2024, Oct 2024. <a href="https://www.worldbank.org/en/publication/poverty-prosperity-and-planet" target="_blank" rel="noopener">worldbank.org</a></li>
+<li value="46" id="ref-46">V-Dem Institute, Democracy Report 2026, 17 Mar 2026. <a href="https://www.v-dem.net/news/press-release-democratic-backsliding-reaches-western-democracies-with-us-decline-unprecedented/" target="_blank" rel="noopener">v-dem.net</a></li>
+<li value="47" id="ref-47">Freedom House, Freedom in the World 2026, Mar 2026. <a href="https://freedomhouse.org/report/freedom-world/2026/growing-shadow-autocracy" target="_blank" rel="noopener">freedomhouse.org</a></li>
 </ol>
 <h4 class="ref-grp">Economy and finance</h4>
 <ol class="ref-list">
-<li value="48">IMF, World Economic Outlook Apr 2026, Ch. 1. <a href="https://www.imf.org/-/media/files/publications/weo/2026/april/english/ch1.pdf" target="_blank" rel="noopener">imf.org</a></li>
-<li value="49">IMF blog, "War darkens global economic outlook," 14 Apr 2026. <a href="https://www.imf.org/en/blogs/articles/2026/04/14/war-darkens-global-economic-outlook-and-reshapes-policy-priorities" target="_blank" rel="noopener">imf.org</a></li>
-<li value="50">IMF, Fiscal Monitor, 15 Apr 2026. <a href="https://www.imf.org/en/publications/fm/issues/2026/04/15/fiscal-monitor-april-2026" target="_blank" rel="noopener">imf.org</a></li>
-<li value="51">World Bank, Global Economic Prospects, Jun 2026. <a href="https://thedocs.worldbank.org/en/doc/2b672b3b0415d6b66c45b66579db4ef5-0050012026/original/GEP-Jun-2026.pdf" target="_blank" rel="noopener">thedocs.worldbank.org</a></li>
-<li value="52">OECD, Economic Outlook Interim Report, Sep 2026. <a href="https://www.oecd.org/en/publications/2026/09/oecd-economic-outlook-interim-report-september-2026_8312492f/full-report.html" target="_blank" rel="noopener">oecd.org</a></li>
-<li value="53">OECD Ecoscope, long-run scenarios 2025 update, 8 Sep 2025. <a href="https://oecdecoscope.blog/2025/09/08/new-oecd-long-run-scenarios-focus-on-the-trade-off-between-carbon-mitigation-and-climate-damage/" target="_blank" rel="noopener">oecdecoscope.blog</a></li>
-<li value="54">OECD Ecoscope, fiscal impact of population ageing, 7 Nov 2025. <a href="https://oecdecoscope.blog/2025/11/07/the-fiscal-impact-of-population-ageing-how-can-we-afford-getting-older/" target="_blank" rel="noopener">oecdecoscope.blog</a></li>
-<li value="55">ECB Economic Bulletin 5/2024 box on the 2024 Ageing Report. <a href="https://www.ecb.europa.eu/press/economic-bulletin/focus/2024/html/ecb.ebbox202405_08~5f9531042f.en.html" target="_blank" rel="noopener">ecb.europa.eu</a></li>
-<li value="56">Goldman Sachs, "The Path to 2075," 8 Dec 2022. <a href="https://www.goldmansachs.com/insights/articles/the-global-economy-in-2075-growth-slows-as-asia-rises" target="_blank" rel="noopener">goldmansachs.com</a></li>
-<li value="57">NBER WP 34836 (firm AI survey), Feb 2026. <a href="https://www.nber.org/system/files/working_papers/w34836/w34836.pdf" target="_blank" rel="noopener">nber.org</a></li>
-<li value="58">IMF COFER Data Brief, Q1 2026. <a href="https://data.imf.org/en/news/imf%20data%20brief%20july%201" target="_blank" rel="noopener">data.imf.org</a></li>
-<li value="59">FRBSF Economic Letter 2026-26, stablecoins and Treasuries, 28 Sep 2026. <a href="https://www.frbsf.org/research-and-insights/publications/economic-letter/2026/09/stablecoin-issuers-growing-appetite-for-treasury-securities/" target="_blank" rel="noopener">frbsf.org</a></li>
-<li value="60">BIS, Annual Economic Report press release, 23 Jun 2026. <a href="https://www.bis.org/press/p260623.htm" target="_blank" rel="noopener">bis.org</a></li>
-<li value="61">UNCTAD, Global Trade Update, Jan 2026. <a href="https://unctad.org/publication/global-trade-update-january-2026-top-trends-redefining-global-trade-2026" target="_blank" rel="noopener">unctad.org</a></li>
-<li value="62">Global Trade Magazine (reporting WTO forecast), 23 Mar 2026 (secondary). <a href="https://www.globaltrademag.com/wto-forecast-global-trade-growth-to-slow-to-1-9-in-2026-amid-conflict-risks/" target="_blank" rel="noopener">globaltrademag.com</a></li>
-<li value="63">Goldman Sachs, global AI investment, 7 Aug 2026. <a href="https://www.goldmansachs.com/insights/articles/global-investment-is-forecast-to-exceed-1-trillion-in-2026" target="_blank" rel="noopener">goldmansachs.com</a></li>
-<li value="64">Brookings (Fengler, Kharas et al.), consumer class 4bn to 5bn, 25 Jul 2023. <a href="https://www.brookings.edu/articles/how-the-world-consumer-class-will-grow-from-4-billion-to-5-billion-people-by-2031/" target="_blank" rel="noopener">brookings.edu</a></li>
-<li value="65">CNBC (reporting IMF SDN on fragmentation), 16 Jan 2023 (secondary). <a href="https://www.cnbc.com/2023/01/16/imf-says-fragmentation-could-cost-global-economy-up-to-7percent-of-gdp.html" target="_blank" rel="noopener">cnbc.com</a></li>
-<li value="66">Market Business News (reporting WTO World Trade Report 2026), Sep 2026 (secondary). <a href="https://marketbusinessnews.com/wto-puts-the-cost-of-trade-fragmentation-at-up-to-10-of-global-gdp/451360/" target="_blank" rel="noopener">marketbusinessnews.com</a></li>
+<li value="48" id="ref-48">IMF, World Economic Outlook Apr 2026, Ch. 1. <a href="https://www.imf.org/-/media/files/publications/weo/2026/april/english/ch1.pdf" target="_blank" rel="noopener">imf.org</a></li>
+<li value="49" id="ref-49">IMF blog, "War darkens global economic outlook," 14 Apr 2026. <a href="https://www.imf.org/en/blogs/articles/2026/04/14/war-darkens-global-economic-outlook-and-reshapes-policy-priorities" target="_blank" rel="noopener">imf.org</a></li>
+<li value="50" id="ref-50">IMF, Fiscal Monitor, 15 Apr 2026. <a href="https://www.imf.org/en/publications/fm/issues/2026/04/15/fiscal-monitor-april-2026" target="_blank" rel="noopener">imf.org</a></li>
+<li value="51" id="ref-51">World Bank, Global Economic Prospects, Jun 2026. <a href="https://thedocs.worldbank.org/en/doc/2b672b3b0415d6b66c45b66579db4ef5-0050012026/original/GEP-Jun-2026.pdf" target="_blank" rel="noopener">thedocs.worldbank.org</a></li>
+<li value="52" id="ref-52">OECD, Economic Outlook Interim Report, Sep 2026. <a href="https://www.oecd.org/en/publications/2026/09/oecd-economic-outlook-interim-report-september-2026_8312492f/full-report.html" target="_blank" rel="noopener">oecd.org</a></li>
+<li value="53" id="ref-53">OECD Ecoscope, long-run scenarios 2025 update, 8 Sep 2025. <a href="https://oecdecoscope.blog/2025/09/08/new-oecd-long-run-scenarios-focus-on-the-trade-off-between-carbon-mitigation-and-climate-damage/" target="_blank" rel="noopener">oecdecoscope.blog</a></li>
+<li value="54" id="ref-54">OECD Ecoscope, fiscal impact of population ageing, 7 Nov 2025. <a href="https://oecdecoscope.blog/2025/11/07/the-fiscal-impact-of-population-ageing-how-can-we-afford-getting-older/" target="_blank" rel="noopener">oecdecoscope.blog</a></li>
+<li value="55" id="ref-55">ECB Economic Bulletin 5/2024 box on the 2024 Ageing Report. <a href="https://www.ecb.europa.eu/press/economic-bulletin/focus/2024/html/ecb.ebbox202405_08~5f9531042f.en.html" target="_blank" rel="noopener">ecb.europa.eu</a></li>
+<li value="56" id="ref-56">Goldman Sachs, "The Path to 2075," 8 Dec 2022. <a href="https://www.goldmansachs.com/insights/articles/the-global-economy-in-2075-growth-slows-as-asia-rises" target="_blank" rel="noopener">goldmansachs.com</a></li>
+<li value="57" id="ref-57">NBER WP 34836 (firm AI survey), Feb 2026. <a href="https://www.nber.org/system/files/working_papers/w34836/w34836.pdf" target="_blank" rel="noopener">nber.org</a></li>
+<li value="58" id="ref-58">IMF COFER Data Brief, Q1 2026. <a href="https://data.imf.org/en/news/imf%20data%20brief%20july%201" target="_blank" rel="noopener">data.imf.org</a></li>
+<li value="59" id="ref-59">FRBSF Economic Letter 2026-26, stablecoins and Treasuries, 28 Sep 2026. <a href="https://www.frbsf.org/research-and-insights/publications/economic-letter/2026/09/stablecoin-issuers-growing-appetite-for-treasury-securities/" target="_blank" rel="noopener">frbsf.org</a></li>
+<li value="60" id="ref-60">BIS, Annual Economic Report press release, 23 Jun 2026. <a href="https://www.bis.org/press/p260623.htm" target="_blank" rel="noopener">bis.org</a></li>
+<li value="61" id="ref-61">UNCTAD, Global Trade Update, Jan 2026. <a href="https://unctad.org/publication/global-trade-update-january-2026-top-trends-redefining-global-trade-2026" target="_blank" rel="noopener">unctad.org</a></li>
+<li value="62" id="ref-62">Global Trade Magazine (reporting WTO forecast), 23 Mar 2026 (secondary). <a href="https://www.globaltrademag.com/wto-forecast-global-trade-growth-to-slow-to-1-9-in-2026-amid-conflict-risks/" target="_blank" rel="noopener">globaltrademag.com</a></li>
+<li value="63" id="ref-63">Goldman Sachs, global AI investment, 7 Aug 2026. <a href="https://www.goldmansachs.com/insights/articles/global-investment-is-forecast-to-exceed-1-trillion-in-2026" target="_blank" rel="noopener">goldmansachs.com</a></li>
+<li value="64" id="ref-64">Brookings (Fengler, Kharas et al.), consumer class 4bn to 5bn, 25 Jul 2023. <a href="https://www.brookings.edu/articles/how-the-world-consumer-class-will-grow-from-4-billion-to-5-billion-people-by-2031/" target="_blank" rel="noopener">brookings.edu</a></li>
+<li value="65" id="ref-65">CNBC (reporting IMF SDN on fragmentation), 16 Jan 2023 (secondary). <a href="https://www.cnbc.com/2023/01/16/imf-says-fragmentation-could-cost-global-economy-up-to-7percent-of-gdp.html" target="_blank" rel="noopener">cnbc.com</a></li>
+<li value="66" id="ref-66">Market Business News (reporting WTO World Trade Report 2026), Sep 2026 (secondary). <a href="https://marketbusinessnews.com/wto-puts-the-cost-of-trade-fragmentation-at-up-to-10-of-global-gdp/451360/" target="_blank" rel="noopener">marketbusinessnews.com</a></li>
 </ol>
 <h4 class="ref-grp">Climate, energy and minerals</h4>
 <ol class="ref-list">
-<li value="67">Copernicus C3S, 2025 third-hottest year, 14 Jan 2026. <a href="https://climate.copernicus.eu/copernicus-2025-was-third-hottest-year-record" target="_blank" rel="noopener">climate.copernicus.eu</a></li>
-<li value="68">WMO, State of the climate release, 23 Mar 2026. <a href="https://wmo.int/news/media-centre/earths-climate-swings-increasingly-out-of-balance" target="_blank" rel="noopener">wmo.int</a></li>
-<li value="69">WMO, Global Annual to Decadal Climate Update 2026-2035, 28 May 2026. <a href="https://wmo.int/resources/publication-series/wmo-global-annual-decadal-climate-update/global-annual-decadal-climate-update-2026-2035" target="_blank" rel="noopener">wmo.int</a></li>
-<li value="70">Global Carbon Budget 2025, 13 Nov 2025. <a href="https://globalcarbonbudget.org/fossil-fuel-co2-emissions-hit-record-high-in-2025/" target="_blank" rel="noopener">globalcarbonbudget.org</a></li>
-<li value="71">UNEP, Emissions Gap Report 2025 press release, 4 Nov 2025. <a href="https://www.unep.org/news-and-stories/press-release/new-climate-pledges-only-slightly-lower-dangerous-global-warming" target="_blank" rel="noopener">unep.org</a></li>
-<li value="72">Swiss Re Institute, sigma 1/2026, 18 Mar 2026. <a href="https://www.swissre.com/institute/research/sigma-research/sigma-2026-01-natcat-2025-wildfire-storm-risk/global-natcat-losses-2025.html" target="_blank" rel="noopener">swissre.com</a></li>
-<li value="73">Artemis (reporting Swiss Re), 92% secondary perils, 2026 (secondary). <a href="https://www.artemis.bm/news/secondary-perils-drive-record-92-of-2025s-107bn-global-insured-losses-swiss-re/" target="_blank" rel="noopener">artemis.bm</a></li>
-<li value="74">University of Frankfurt (summary of Global Tipping Points Report 2025), Oct 2025 (secondary). <a href="https://aktuelles.uni-frankfurt.de/en/english/world-surpasses-its-first-climate-tipping-point/" target="_blank" rel="noopener">aktuelles.uni-frankfurt.de</a></li>
-<li value="75">Global Challenges Foundation (summary of Global Tipping Points Report 2025), Oct 2025 (secondary). <a href="https://globalchallenges.org/updates/global-tipping-points-report-2025/" target="_blank" rel="noopener">globalchallenges.org</a></li>
-<li value="76">PIK, seven of nine planetary boundaries breached, 24 Sep 2025. <a href="https://www.pik-potsdam.de/en/news/latest-news/seven-of-nine-planetary-boundaries-now-breached-2013-ocean-acidification-joins-the-danger-zone" target="_blank" rel="noopener">pik-potsdam.de</a></li>
-<li value="77">UNFCCC, Decision 1/CMA.7 "Global Mutirão" (FCCC/PA/CMA/2025/19/Add.1), COP30, Nov 2025 (document dated 30 Mar 2026). <a href="https://unfccc.int/sites/default/files/resource/cma2025_19a01E.pdf" target="_blank" rel="noopener">unfccc.int</a> ; UNEP, Adaptation Gap Report 2025 "Running on Empty", Oct 2025: <a href="https://www.unep.org/resources/adaptation-gap-report-2025-running-empty" target="_blank" rel="noopener">unep.org</a></li>
-<li value="78">Ministry of Foreign Affairs of the PRC, Xi Jinping remarks to the UN Climate Summit (2035 NDC targets), 24 Sep 2025. <a href="https://www.mfa.gov.cn/eng/xw/zyxw/202509/t20250925_11716513.html" target="_blank" rel="noopener">mfa.gov.cn</a> ; UNFCCC NDC registry, China's 2035 NDC, submitted 3 Nov 2025: <a href="https://unfccc.int/documents/497393" target="_blank" rel="noopener">unfccc.int</a></li>
-<li value="79">US EPA, press release on the endangerment-finding rescission, 12 Feb 2026. <a href="https://www.epa.gov/newsreleases/president-trump-and-administrator-zeldin-deliver-single-largest-deregulatory-action-us" target="_blank" rel="noopener">epa.gov</a> ; Federal Register final rule 91 FR 7686, 18 Feb 2026: <a href="https://www.federalregister.gov/documents/2026/02/18/2026-03157/rescission-of-the-greenhouse-gas-endangerment-finding-and-motor-vehicle-greenhouse-gas-emission" target="_blank" rel="noopener">federalregister.gov</a></li>
-<li value="80">Regulation (EU) 2026/667 amending the European Climate Law (2040 target), signed 11 Mar 2026, in force 7 Apr 2026. <a href="https://eur-lex.europa.eu/eli/reg/2026/667/oj/eng" target="_blank" rel="noopener">eur-lex.europa.eu</a> ; adopted text PE-CONS 5/1/26 REV 1: <a href="https://data.consilium.europa.eu/doc/document/PE-5-2026-REV-1/en/pdf" target="_blank" rel="noopener">data.consilium.europa.eu</a></li>
-<li value="81">FAO, SOFI 2026, 21 Jul 2026. <a href="https://www.fao.org/newsroom/detail/sofi-2026--hunger-not-inevitable--fao-says-as-global-hunger-report-shows-progress/en" target="_blank" rel="noopener">fao.org</a></li>
-<li value="82">Ember, Global Electricity Review 2026, 21 Apr 2026. <a href="https://ember-energy.org/latest-insights/global-electricity-review-2026/" target="_blank" rel="noopener">ember-energy.org</a></li>
-<li value="83">IEA, World Energy Outlook 2025 (executive summary, overview), Nov 2025. <a href="https://www.iea.org/reports/world-energy-outlook-2025/executive-summary" target="_blank" rel="noopener">iea.org</a> ; <a href="https://www.iea.org/reports/world-energy-outlook-2025/overview-and-key-findings" target="_blank" rel="noopener">iea.org</a></li>
-<li value="84">IEA, Global EV Outlook 2026, 2026. <a href="https://www.iea.org/reports/global-ev-outlook-2026/executive-summary" target="_blank" rel="noopener">iea.org</a> ; news: <a href="https://www.iea.org/news/close-to-30-of-cars-sold-this-year-are-set-to-be-electric-as-countries-and-consumers-respond-to-energy-crisis" target="_blank" rel="noopener">iea.org</a></li>
-<li value="85">IEA, Electricity 2026, 2026. <a href="https://www.iea.org/reports/electricity-2026/executive-summary" target="_blank" rel="noopener">iea.org</a></li>
-<li value="86">IEA, Energy and AI, 2025. <a href="https://www.iea.org/reports/energy-and-ai/executive-summary" target="_blank" rel="noopener">iea.org</a></li>
-<li value="87">IEA, data-centre electricity news, 16 Apr 2026. <a href="https://www.iea.org/news/data-centre-electricity-use-surged-in-2025-even-with-tightening-bottlenecks-driving-a-scramble-for-solutions" target="_blank" rel="noopener">iea.org</a></li>
-<li value="88">IEA, World Energy Investment 2026, 28 May 2026. <a href="https://www.iea.org/topics/investment" target="_blank" rel="noopener">iea.org</a></li>
-<li value="89">IEA, Oil Market Report, Sep 2026. <a href="https://www.iea.org/reports/oil-market-report-september-2026" target="_blank" rel="noopener">iea.org</a></li>
-<li value="90">OPEC, World Oil Outlook 2026 press release, 18 Jun 2026. <a href="https://www.opec.org/pr-detail/1854607-18-june-2026.html" target="_blank" rel="noopener">opec.org</a></li>
-<li value="91">World Nuclear Association, World Nuclear Outlook 2026, 6 Sep 2026. <a href="https://world-nuclear.org/our-association/publications/world-nuclear-outlook-report/world-nuclear-outlook-report-2026-full-document" target="_blank" rel="noopener">world-nuclear.org</a></li>
-<li value="92">IEA, Global Critical Minerals Outlook 2026. <a href="https://www.iea.org/reports/global-critical-minerals-outlook-2026/outlook" target="_blank" rel="noopener">iea.org</a> ; news release: <a href="https://www.iea.org/news/supply-concentration-export-restrictions-and-declining-investment-put-critical-mineral-security-at-risk" target="_blank" rel="noopener">iea.org</a></li>
-<li value="93">USGS, Mineral Commodity Summaries 2026: Lithium. <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf" target="_blank" rel="noopener">pubs.usgs.gov</a></li>
-<li value="94">Energy-Storage.News (reporting BNEF Battery Price Survey), Dec 2025 (secondary). <a href="https://www.energy-storage.news/li-ion-battery-pack-prices-fell-8-since-last-year-despite-metals-prices-rising-bloombergnef-says/" target="_blank" rel="noopener">energy-storage.news</a></li>
+<li value="67" id="ref-67">Copernicus C3S, 2025 third-hottest year, 14 Jan 2026. <a href="https://climate.copernicus.eu/copernicus-2025-was-third-hottest-year-record" target="_blank" rel="noopener">climate.copernicus.eu</a></li>
+<li value="68" id="ref-68">WMO, State of the climate release, 23 Mar 2026. <a href="https://wmo.int/news/media-centre/earths-climate-swings-increasingly-out-of-balance" target="_blank" rel="noopener">wmo.int</a></li>
+<li value="69" id="ref-69">WMO, Global Annual to Decadal Climate Update 2026-2035, 28 May 2026. <a href="https://wmo.int/resources/publication-series/wmo-global-annual-decadal-climate-update/global-annual-decadal-climate-update-2026-2035" target="_blank" rel="noopener">wmo.int</a></li>
+<li value="70" id="ref-70">Global Carbon Budget 2025, 13 Nov 2025. <a href="https://globalcarbonbudget.org/fossil-fuel-co2-emissions-hit-record-high-in-2025/" target="_blank" rel="noopener">globalcarbonbudget.org</a></li>
+<li value="71" id="ref-71">UNEP, Emissions Gap Report 2025 press release, 4 Nov 2025. <a href="https://www.unep.org/news-and-stories/press-release/new-climate-pledges-only-slightly-lower-dangerous-global-warming" target="_blank" rel="noopener">unep.org</a></li>
+<li value="72" id="ref-72">Swiss Re Institute, sigma 1/2026, 18 Mar 2026. <a href="https://www.swissre.com/institute/research/sigma-research/sigma-2026-01-natcat-2025-wildfire-storm-risk/global-natcat-losses-2025.html" target="_blank" rel="noopener">swissre.com</a></li>
+<li value="73" id="ref-73">Artemis (reporting Swiss Re), 92% secondary perils, 2026 (secondary). <a href="https://www.artemis.bm/news/secondary-perils-drive-record-92-of-2025s-107bn-global-insured-losses-swiss-re/" target="_blank" rel="noopener">artemis.bm</a></li>
+<li value="74" id="ref-74">University of Frankfurt (summary of Global Tipping Points Report 2025), Oct 2025 (secondary). <a href="https://aktuelles.uni-frankfurt.de/en/english/world-surpasses-its-first-climate-tipping-point/" target="_blank" rel="noopener">aktuelles.uni-frankfurt.de</a></li>
+<li value="75" id="ref-75">Global Challenges Foundation (summary of Global Tipping Points Report 2025), Oct 2025 (secondary). <a href="https://globalchallenges.org/updates/global-tipping-points-report-2025/" target="_blank" rel="noopener">globalchallenges.org</a></li>
+<li value="76" id="ref-76">PIK, seven of nine planetary boundaries breached, 24 Sep 2025. <a href="https://www.pik-potsdam.de/en/news/latest-news/seven-of-nine-planetary-boundaries-now-breached-2013-ocean-acidification-joins-the-danger-zone" target="_blank" rel="noopener">pik-potsdam.de</a></li>
+<li value="77" id="ref-77">UNFCCC, Decision 1/CMA.7 "Global Mutirão" (FCCC/PA/CMA/2025/19/Add.1), COP30, Nov 2025 (document dated 30 Mar 2026). <a href="https://unfccc.int/sites/default/files/resource/cma2025_19a01E.pdf" target="_blank" rel="noopener">unfccc.int</a> ; UNEP, Adaptation Gap Report 2025 "Running on Empty", Oct 2025: <a href="https://www.unep.org/resources/adaptation-gap-report-2025-running-empty" target="_blank" rel="noopener">unep.org</a></li>
+<li value="78" id="ref-78">Ministry of Foreign Affairs of the PRC, Xi Jinping remarks to the UN Climate Summit (2035 NDC targets), 24 Sep 2025. <a href="https://www.mfa.gov.cn/eng/xw/zyxw/202509/t20250925_11716513.html" target="_blank" rel="noopener">mfa.gov.cn</a> ; UNFCCC NDC registry, China's 2035 NDC, submitted 3 Nov 2025: <a href="https://unfccc.int/documents/497393" target="_blank" rel="noopener">unfccc.int</a></li>
+<li value="79" id="ref-79">US EPA, press release on the endangerment-finding rescission, 12 Feb 2026. <a href="https://www.epa.gov/newsreleases/president-trump-and-administrator-zeldin-deliver-single-largest-deregulatory-action-us" target="_blank" rel="noopener">epa.gov</a> ; Federal Register final rule 91 FR 7686, 18 Feb 2026: <a href="https://www.federalregister.gov/documents/2026/02/18/2026-03157/rescission-of-the-greenhouse-gas-endangerment-finding-and-motor-vehicle-greenhouse-gas-emission" target="_blank" rel="noopener">federalregister.gov</a></li>
+<li value="80" id="ref-80">Regulation (EU) 2026/667 amending the European Climate Law (2040 target), signed 11 Mar 2026, in force 7 Apr 2026. <a href="https://eur-lex.europa.eu/eli/reg/2026/667/oj/eng" target="_blank" rel="noopener">eur-lex.europa.eu</a> ; adopted text PE-CONS 5/1/26 REV 1: <a href="https://data.consilium.europa.eu/doc/document/PE-5-2026-REV-1/en/pdf" target="_blank" rel="noopener">data.consilium.europa.eu</a></li>
+<li value="81" id="ref-81">FAO, SOFI 2026, 21 Jul 2026. <a href="https://www.fao.org/newsroom/detail/sofi-2026--hunger-not-inevitable--fao-says-as-global-hunger-report-shows-progress/en" target="_blank" rel="noopener">fao.org</a></li>
+<li value="82" id="ref-82">Ember, Global Electricity Review 2026, 21 Apr 2026. <a href="https://ember-energy.org/latest-insights/global-electricity-review-2026/" target="_blank" rel="noopener">ember-energy.org</a></li>
+<li value="83" id="ref-83">IEA, World Energy Outlook 2025 (executive summary, overview), Nov 2025. <a href="https://www.iea.org/reports/world-energy-outlook-2025/executive-summary" target="_blank" rel="noopener">iea.org</a> ; <a href="https://www.iea.org/reports/world-energy-outlook-2025/overview-and-key-findings" target="_blank" rel="noopener">iea.org</a></li>
+<li value="84" id="ref-84">IEA, Global EV Outlook 2026, 2026. <a href="https://www.iea.org/reports/global-ev-outlook-2026/executive-summary" target="_blank" rel="noopener">iea.org</a> ; news: <a href="https://www.iea.org/news/close-to-30-of-cars-sold-this-year-are-set-to-be-electric-as-countries-and-consumers-respond-to-energy-crisis" target="_blank" rel="noopener">iea.org</a></li>
+<li value="85" id="ref-85">IEA, Electricity 2026, 2026. <a href="https://www.iea.org/reports/electricity-2026/executive-summary" target="_blank" rel="noopener">iea.org</a></li>
+<li value="86" id="ref-86">IEA, Energy and AI, 2025. <a href="https://www.iea.org/reports/energy-and-ai/executive-summary" target="_blank" rel="noopener">iea.org</a></li>
+<li value="87" id="ref-87">IEA, data-centre electricity news, 16 Apr 2026. <a href="https://www.iea.org/news/data-centre-electricity-use-surged-in-2025-even-with-tightening-bottlenecks-driving-a-scramble-for-solutions" target="_blank" rel="noopener">iea.org</a></li>
+<li value="88" id="ref-88">IEA, World Energy Investment 2026, 28 May 2026. <a href="https://www.iea.org/topics/investment" target="_blank" rel="noopener">iea.org</a></li>
+<li value="89" id="ref-89">IEA, Oil Market Report, Sep 2026. <a href="https://www.iea.org/reports/oil-market-report-september-2026" target="_blank" rel="noopener">iea.org</a></li>
+<li value="90" id="ref-90">OPEC, World Oil Outlook 2026 press release, 18 Jun 2026. <a href="https://www.opec.org/pr-detail/1854607-18-june-2026.html" target="_blank" rel="noopener">opec.org</a></li>
+<li value="91" id="ref-91">World Nuclear Association, World Nuclear Outlook 2026, 6 Sep 2026. <a href="https://world-nuclear.org/our-association/publications/world-nuclear-outlook-report/world-nuclear-outlook-report-2026-full-document" target="_blank" rel="noopener">world-nuclear.org</a></li>
+<li value="92" id="ref-92">IEA, Global Critical Minerals Outlook 2026. <a href="https://www.iea.org/reports/global-critical-minerals-outlook-2026/outlook" target="_blank" rel="noopener">iea.org</a> ; news release: <a href="https://www.iea.org/news/supply-concentration-export-restrictions-and-declining-investment-put-critical-mineral-security-at-risk" target="_blank" rel="noopener">iea.org</a></li>
+<li value="93" id="ref-93">USGS, Mineral Commodity Summaries 2026: Lithium. <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf" target="_blank" rel="noopener">pubs.usgs.gov</a></li>
+<li value="94" id="ref-94">Energy-Storage.News (reporting BNEF Battery Price Survey), Dec 2025 (secondary). <a href="https://www.energy-storage.news/li-ion-battery-pack-prices-fell-8-since-last-year-despite-metals-prices-rising-bloombergnef-says/" target="_blank" rel="noopener">energy-storage.news</a></li>
 </ol>
 <h4 class="ref-grp">Technology</h4>
 <ol class="ref-list">
-<li value="95">METR, Time Horizon 1.1, 29 Jan 2026. <a href="https://metr.org/blog/2026-1-29-time-horizon-1-1/" target="_blank" rel="noopener">metr.org</a></li>
-<li value="96">UNU-CCC summary of Stanford AI Index 2026, Apr 2026 (secondary). <a href="https://c3.unu.edu/blog/2026-stanford-ai-index-report-takeaways" target="_blank" rel="noopener">c3.unu.edu</a></li>
-<li value="97">Yield Theory, hyperscaler AI capex tracker, Jul 2026 (secondary). <a href="https://www.yieldtheory.app/research/hyperscaler-ai-capex-tracker-2026" target="_blank" rel="noopener">yieldtheory.app</a></li>
-<li value="98">Forbes, central banks and the AI bubble debate, 8 Jul 2026 (secondary). <a href="https://www.forbes.com/sites/ronschmelzer/2026/07/08/central-banks-are-joining-the-ai-bubble-debate/" target="_blank" rel="noopener">forbes.com</a></li>
-<li value="99">SIA, 2025 semiconductor sales, 6 Feb 2026. <a href="https://www.semiconductors.org/global-annual-semiconductor-sales-increase-25-6-to-791-7-billion-in-2025/" target="_blank" rel="noopener">semiconductors.org</a></li>
-<li value="100">WSTS, Spring 2026 forecast, May 2026. <a href="https://www.wsts.org/76/Recent-News-Release" target="_blank" rel="noopener">wsts.org</a></li>
-<li value="101">Taipei Times (reporting TrendForce foundry shares), 10 Sep 2026 (secondary). <a href="https://www.taipeitimes.com/News/biz/archives/2026/09/10/2003863979" target="_blank" rel="noopener">taipeitimes.com</a></li>
-<li value="102">Taipei Times, TSMC 2nm capacity, 29 Apr 2026. <a href="https://www.taipeitimes.com/News/front/archives/2026/04/29/2003856422" target="_blank" rel="noopener">taipeitimes.com</a></li>
-<li value="103">US Bureau of Industry and Security, "Revision to License Review Policy for Advanced Computing Commodities," 91 FR 1684, 15 Jan 2026. <a href="https://www.govinfo.gov/content/pkg/FR-2026-01-15/pdf/2026-00789.pdf" target="_blank" rel="noopener">govinfo.gov</a> ; White House fact sheet on the 25% tariff on certain advanced computing chips, 14 Jan 2026: <a href="https://www.whitehouse.gov/fact-sheets/2026/01/fact-sheet-president-donald-j.-trump-takes-action-on-certain-advanced-computing-chips-to-protect-americas-economic-and-national-security/" target="_blank" rel="noopener">whitehouse.gov</a></li>
-<li value="104">Epoch AI, "Can AI scaling continue through 2030?", Aug 2024. <a href="https://epoch.ai/publications/can-ai-scaling-continue-through-2030" target="_blank" rel="noopener">epoch.ai</a></li>
-<li value="105">IFR, World Robotics 2025 press release, Sep 2025. <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years" target="_blank" rel="noopener">ifr.org</a></li>
-<li value="106">Baidu, Q1 2026 results. <a href="https://ir.baidu.com/news-releases/news-release-details/baidu-announces-first-quarter-2026-results" target="_blank" rel="noopener">ir.baidu.com</a></li>
-<li value="107">Automotive World, Waymo 1M weekly rides target, 2026 (secondary). <a href="https://www.automotiveworld.com/news/waymos-metric-for-2026-success-one-million-weekly-rides/" target="_blank" rel="noopener">automotiveworld.com</a></li>
-<li value="108">TrendForce, China humanoid robots, 9 Apr 2026. <a href="https://www.trendforce.com/presscenter/news/20260409-13007.html" target="_blank" rel="noopener">trendforce.com</a></li>
-<li value="109">NIST IR 8547 (initial public draft), 12 Nov 2024. <a href="https://nvlpubs.nist.gov/nistpubs/ir/2024/NIST.IR.8547.ipd.pdf" target="_blank" rel="noopener">nvlpubs.nist.gov</a></li>
-<li value="110">Acemoglu, "The Simple Macroeconomics of AI," NBER WP 32487, May 2024. <a href="https://www.nber.org/system/files/working_papers/w32487/w32487.pdf" target="_blank" rel="noopener">nber.org</a></li>
-<li value="111">Penn Wharton Budget Model, projected impact of gen AI, 8 Sep 2025. <a href="https://budgetmodel.wharton.upenn.edu/p/2025-09-08-the-projected-impact-of-generative-ai-on-future-productivity-growth/" target="_blank" rel="noopener">budgetmodel.wharton.upenn.edu</a></li>
-<li value="112">IMF WP/25/76, "The Global Impact of AI: Mind the Gap," Apr 2025. <a href="https://www.imf.org/-/media/files/publications/wp/2025/english/wpiea2025076-print-pdf.pdf" target="_blank" rel="noopener">imf.org</a></li>
-<li value="113">Goldman Sachs, gen AI could raise global GDP by 7%, 5 Apr 2023. <a href="https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent" target="_blank" rel="noopener">goldmansachs.com</a></li>
-<li value="114">McKinsey Global Institute, economic potential of generative AI, 14 Jun 2023. <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" target="_blank" rel="noopener">mckinsey.com</a></li>
-<li value="115">Space Foundation, Global Space Economy report, Jul 2026. <a href="https://www.spacefoundation.org/wp-content/uploads/2026/07/SF-GSE-REPORT-2026July-FOR-RELEASE.pdf" target="_blank" rel="noopener">spacefoundation.org</a></li>
-<li value="116">WEF/McKinsey, "Space: The $1.8 Trillion Opportunity," 8 Apr 2024. <a href="https://www.weforum.org/publications/space-the-1-8-trillion-opportunity-for-global-economic-growth/" target="_blank" rel="noopener">weforum.org</a></li>
-<li value="117">FBI IC3, 2025 Internet Crime Report, 2026. <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf" target="_blank" rel="noopener">ic3.gov</a></li>
+<li value="95" id="ref-95">METR, Time Horizon 1.1, 29 Jan 2026. <a href="https://metr.org/blog/2026-1-29-time-horizon-1-1/" target="_blank" rel="noopener">metr.org</a></li>
+<li value="96" id="ref-96">UNU-CCC summary of Stanford AI Index 2026, Apr 2026 (secondary). <a href="https://c3.unu.edu/blog/2026-stanford-ai-index-report-takeaways" target="_blank" rel="noopener">c3.unu.edu</a></li>
+<li value="97" id="ref-97">Yield Theory, hyperscaler AI capex tracker, Jul 2026 (secondary). <a href="https://www.yieldtheory.app/research/hyperscaler-ai-capex-tracker-2026" target="_blank" rel="noopener">yieldtheory.app</a></li>
+<li value="98" id="ref-98">Forbes, central banks and the AI bubble debate, 8 Jul 2026 (secondary). <a href="https://www.forbes.com/sites/ronschmelzer/2026/07/08/central-banks-are-joining-the-ai-bubble-debate/" target="_blank" rel="noopener">forbes.com</a></li>
+<li value="99" id="ref-99">SIA, 2025 semiconductor sales, 6 Feb 2026. <a href="https://www.semiconductors.org/global-annual-semiconductor-sales-increase-25-6-to-791-7-billion-in-2025/" target="_blank" rel="noopener">semiconductors.org</a></li>
+<li value="100" id="ref-100">WSTS, Spring 2026 forecast, May 2026. <a href="https://www.wsts.org/76/Recent-News-Release" target="_blank" rel="noopener">wsts.org</a></li>
+<li value="101" id="ref-101">Taipei Times (reporting TrendForce foundry shares), 10 Sep 2026 (secondary). <a href="https://www.taipeitimes.com/News/biz/archives/2026/09/10/2003863979" target="_blank" rel="noopener">taipeitimes.com</a></li>
+<li value="102" id="ref-102">Taipei Times, TSMC 2nm capacity, 29 Apr 2026. <a href="https://www.taipeitimes.com/News/front/archives/2026/04/29/2003856422" target="_blank" rel="noopener">taipeitimes.com</a></li>
+<li value="103" id="ref-103">US Bureau of Industry and Security, "Revision to License Review Policy for Advanced Computing Commodities," 91 FR 1684, 15 Jan 2026. <a href="https://www.govinfo.gov/content/pkg/FR-2026-01-15/pdf/2026-00789.pdf" target="_blank" rel="noopener">govinfo.gov</a> ; White House fact sheet on the 25% tariff on certain advanced computing chips, 14 Jan 2026: <a href="https://www.whitehouse.gov/fact-sheets/2026/01/fact-sheet-president-donald-j.-trump-takes-action-on-certain-advanced-computing-chips-to-protect-americas-economic-and-national-security/" target="_blank" rel="noopener">whitehouse.gov</a></li>
+<li value="104" id="ref-104">Epoch AI, "Can AI scaling continue through 2030?", Aug 2024. <a href="https://epoch.ai/publications/can-ai-scaling-continue-through-2030" target="_blank" rel="noopener">epoch.ai</a></li>
+<li value="105" id="ref-105">IFR, World Robotics 2025 press release, Sep 2025. <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years" target="_blank" rel="noopener">ifr.org</a></li>
+<li value="106" id="ref-106">Baidu, Q1 2026 results. <a href="https://ir.baidu.com/news-releases/news-release-details/baidu-announces-first-quarter-2026-results" target="_blank" rel="noopener">ir.baidu.com</a></li>
+<li value="107" id="ref-107">Automotive World, Waymo 1M weekly rides target, 2026 (secondary). <a href="https://www.automotiveworld.com/news/waymos-metric-for-2026-success-one-million-weekly-rides/" target="_blank" rel="noopener">automotiveworld.com</a></li>
+<li value="108" id="ref-108">TrendForce, China humanoid robots, 9 Apr 2026. <a href="https://www.trendforce.com/presscenter/news/20260409-13007.html" target="_blank" rel="noopener">trendforce.com</a></li>
+<li value="109" id="ref-109">NIST IR 8547 (initial public draft), 12 Nov 2024. <a href="https://nvlpubs.nist.gov/nistpubs/ir/2024/NIST.IR.8547.ipd.pdf" target="_blank" rel="noopener">nvlpubs.nist.gov</a></li>
+<li value="110" id="ref-110">Acemoglu, "The Simple Macroeconomics of AI," NBER WP 32487, May 2024. <a href="https://www.nber.org/system/files/working_papers/w32487/w32487.pdf" target="_blank" rel="noopener">nber.org</a></li>
+<li value="111" id="ref-111">Penn Wharton Budget Model, projected impact of gen AI, 8 Sep 2025. <a href="https://budgetmodel.wharton.upenn.edu/p/2025-09-08-the-projected-impact-of-generative-ai-on-future-productivity-growth/" target="_blank" rel="noopener">budgetmodel.wharton.upenn.edu</a></li>
+<li value="112" id="ref-112">IMF WP/25/76, "The Global Impact of AI: Mind the Gap," Apr 2025. <a href="https://www.imf.org/-/media/files/publications/wp/2025/english/wpiea2025076-print-pdf.pdf" target="_blank" rel="noopener">imf.org</a></li>
+<li value="113" id="ref-113">Goldman Sachs, gen AI could raise global GDP by 7%, 5 Apr 2023. <a href="https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent" target="_blank" rel="noopener">goldmansachs.com</a></li>
+<li value="114" id="ref-114">McKinsey Global Institute, economic potential of generative AI, 14 Jun 2023. <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" target="_blank" rel="noopener">mckinsey.com</a></li>
+<li value="115" id="ref-115">Space Foundation, Global Space Economy report, Jul 2026. <a href="https://www.spacefoundation.org/wp-content/uploads/2026/07/SF-GSE-REPORT-2026July-FOR-RELEASE.pdf" target="_blank" rel="noopener">spacefoundation.org</a></li>
+<li value="116" id="ref-116">WEF/McKinsey, "Space: The $1.8 Trillion Opportunity," 8 Apr 2024. <a href="https://www.weforum.org/publications/space-the-1-8-trillion-opportunity-for-global-economic-growth/" target="_blank" rel="noopener">weforum.org</a></li>
+<li value="117" id="ref-117">FBI IC3, 2025 Internet Crime Report, 2026. <a href="https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf" target="_blank" rel="noopener">ic3.gov</a></li>
 </ol>
 <h4 class="ref-grp">Geopolitics and security</h4>
 <ol class="ref-list">
-<li value="118">SIPRI, military expenditure 2025 press release, 27 Apr 2026. <a href="https://www.sipri.org/media/press-release/2026/global-military-spending-rise-continues-european-and-asian-expenditures-surge" target="_blank" rel="noopener">sipri.org</a> ; Yearbook 2026 ch.5: <a href="https://www.sipri.org/yearbook/2026/05" target="_blank" rel="noopener">sipri.org</a> ; NATO Hague Summit Declaration, 25 Jun 2025: <a href="https://www.ncia.nato.int/newsroom/news/the-hague-summit-declaration" target="_blank" rel="noopener">ncia.nato.int</a></li>
-<li value="119">Defence-Industry.eu (reporting SIPRI Yearbook 2026 nuclear data), Jun 2026 (secondary). <a href="https://defence-industry.eu/sipri-says-nuclear-armed-states-are-expanding-and-modernising-arsenals-as-escalation-risks-and-arms-control-pressures-grow/" target="_blank" rel="noopener">defence-industry.eu</a> ; Russian MFA statement on New START expiry, UN document CD/2500, 4 Feb 2026: <a href="https://docs-library.unoda.org/Conference_on_Disarmament_-_(2026)/CD2500_0.pdf" target="_blank" rel="noopener">docs-library.unoda.org</a> ; UN, NPT Review Conference closing, 22 May 2026: <a href="https://media.un.org/unifeed/en/asset/d357/d3577877" target="_blank" rel="noopener">media.un.org</a></li>
-<li value="120">UK House of Commons Library, CBP-10636 (Iran conflict and Hormuz), as of 4 Sep 2026. <a href="https://commonslibrary.parliament.uk/research-briefings/cbp-10636/" target="_blank" rel="noopener">commonslibrary.parliament.uk</a></li>
-<li value="121">Ministry of Foreign Affairs of the PRC, readout of the Xi-Trump talks in Washington (Spanish), 25 Sep 2026. <a href="https://www.mfa.gov.cn/esp/wjdt/wshd/202609/t20260925_12031248.html" target="_blank" rel="noopener">mfa.gov.cn</a></li>
-<li value="122">Christian Science Monitor, Russia-Ukraine talks, 26 Sep 2026. <a href="https://www.csmonitor.com/World/Europe/2026/0926/russia-ukraine-peace-talks-donbas-europe-trump" target="_blank" rel="noopener">csmonitor.com</a></li>
-<li value="123">UN Global Dialogue on AI Governance, co-chairs' summary, Sep 2026. <a href="https://www.un.org/global-dialogue-ai-governance/sites/default/files/2026-09/ai_dialogue_co-chairs_summary.pdf" target="_blank" rel="noopener">un.org</a></li>
-<li value="124">USNI News, Justice Mission 2025, 31 Dec 2025. <a href="https://news.usni.org/2025/12/31/china-wraps-justice-mission-taiwan-blockade-drills" target="_blank" rel="noopener">news.usni.org</a></li>
-<li value="125">Rhodium Group, "Taiwan economic disruptions," 14 Dec 2022. <a href="https://rhg.com/research/taiwan-economic-disruptions/" target="_blank" rel="noopener">rhg.com</a></li>
-<li value="126">Edward Conard summary of Bloomberg Economics Taiwan-war estimate, Jan 2024 (secondary). <a href="https://www.edwardconard.com/macro-roundup/bloomberg-estimates-that-a-sino-american-war-over-taiwan-would-reduce-global-gdp-by-10-2-or-10t-almost-2x-the-impact-of-the-covid-19-pandemic-us-gdp-would-drop-6-7-and-the-prc-would-face-a-16-7-loss/?view=detail" target="_blank" rel="noopener">edwardconard.com</a></li>
-<li value="127">Taipei Times (reporting GMF), 7 Jan 2026 (secondary). <a href="https://www.taipeitimes.com/News/front/archives/2026/01/07/2003850174" target="_blank" rel="noopener">taipeitimes.com</a></li>
-<li value="128">CSIS, "The First Battle of the Next War," 9 Jan 2023. <a href="https://www.csis.org/analysis/first-battle-next-war-wargaming-chinese-invasion-taiwan" target="_blank" rel="noopener">csis.org</a></li>
-<li value="129">NewSpace Economy (reporting ESA Space Environment Report 2026), 14 Sep 2026 (secondary). <a href="https://newspaceeconomy.ca/2026/09/14/what-does-the-2026-space-environment-report-reveal-about-the-future-of-space-debris/" target="_blank" rel="noopener">newspaceeconomy.ca</a></li>
-<li value="130">Marani et al., "Intensity and frequency of extreme novel epidemics," PNAS, Aug 2021. <a href="https://www.pnas.org/doi/10.1073/pnas.2105482118" target="_blank" rel="noopener">pnas.org</a></li>
+<li value="118" id="ref-118">SIPRI, military expenditure 2025 press release, 27 Apr 2026. <a href="https://www.sipri.org/media/press-release/2026/global-military-spending-rise-continues-european-and-asian-expenditures-surge" target="_blank" rel="noopener">sipri.org</a> ; Yearbook 2026 ch.5: <a href="https://www.sipri.org/yearbook/2026/05" target="_blank" rel="noopener">sipri.org</a> ; NATO Hague Summit Declaration, 25 Jun 2025: <a href="https://www.ncia.nato.int/newsroom/news/the-hague-summit-declaration" target="_blank" rel="noopener">ncia.nato.int</a></li>
+<li value="119" id="ref-119">Defence-Industry.eu (reporting SIPRI Yearbook 2026 nuclear data), Jun 2026 (secondary). <a href="https://defence-industry.eu/sipri-says-nuclear-armed-states-are-expanding-and-modernising-arsenals-as-escalation-risks-and-arms-control-pressures-grow/" target="_blank" rel="noopener">defence-industry.eu</a> ; Russian MFA statement on New START expiry, UN document CD/2500, 4 Feb 2026: <a href="https://docs-library.unoda.org/Conference_on_Disarmament_-_(2026)/CD2500_0.pdf" target="_blank" rel="noopener">docs-library.unoda.org</a> ; UN, NPT Review Conference closing, 22 May 2026: <a href="https://media.un.org/unifeed/en/asset/d357/d3577877" target="_blank" rel="noopener">media.un.org</a></li>
+<li value="120" id="ref-120">UK House of Commons Library, CBP-10636 (Iran conflict and Hormuz), as of 4 Sep 2026. <a href="https://commonslibrary.parliament.uk/research-briefings/cbp-10636/" target="_blank" rel="noopener">commonslibrary.parliament.uk</a></li>
+<li value="121" id="ref-121">Ministry of Foreign Affairs of the PRC, readout of the Xi-Trump talks in Washington (Spanish), 25 Sep 2026. <a href="https://www.mfa.gov.cn/esp/wjdt/wshd/202609/t20260925_12031248.html" target="_blank" rel="noopener">mfa.gov.cn</a></li>
+<li value="122" id="ref-122">Christian Science Monitor, Russia-Ukraine talks, 26 Sep 2026. <a href="https://www.csmonitor.com/World/Europe/2026/0926/russia-ukraine-peace-talks-donbas-europe-trump" target="_blank" rel="noopener">csmonitor.com</a></li>
+<li value="123" id="ref-123">UN Global Dialogue on AI Governance, co-chairs' summary, Sep 2026. <a href="https://www.un.org/global-dialogue-ai-governance/sites/default/files/2026-09/ai_dialogue_co-chairs_summary.pdf" target="_blank" rel="noopener">un.org</a></li>
+<li value="124" id="ref-124">USNI News, Justice Mission 2025, 31 Dec 2025. <a href="https://news.usni.org/2025/12/31/china-wraps-justice-mission-taiwan-blockade-drills" target="_blank" rel="noopener">news.usni.org</a></li>
+<li value="125" id="ref-125">Rhodium Group, "Taiwan economic disruptions," 14 Dec 2022. <a href="https://rhg.com/research/taiwan-economic-disruptions/" target="_blank" rel="noopener">rhg.com</a></li>
+<li value="126" id="ref-126">Edward Conard summary of Bloomberg Economics Taiwan-war estimate, Jan 2024 (secondary). <a href="https://www.edwardconard.com/macro-roundup/bloomberg-estimates-that-a-sino-american-war-over-taiwan-would-reduce-global-gdp-by-10-2-or-10t-almost-2x-the-impact-of-the-covid-19-pandemic-us-gdp-would-drop-6-7-and-the-prc-would-face-a-16-7-loss/?view=detail" target="_blank" rel="noopener">edwardconard.com</a></li>
+<li value="127" id="ref-127">Taipei Times (reporting GMF), 7 Jan 2026 (secondary). <a href="https://www.taipeitimes.com/News/front/archives/2026/01/07/2003850174" target="_blank" rel="noopener">taipeitimes.com</a></li>
+<li value="128" id="ref-128">CSIS, "The First Battle of the Next War," 9 Jan 2023. <a href="https://www.csis.org/analysis/first-battle-next-war-wargaming-chinese-invasion-taiwan" target="_blank" rel="noopener">csis.org</a></li>
+<li value="129" id="ref-129">NewSpace Economy (reporting ESA Space Environment Report 2026), 14 Sep 2026 (secondary). <a href="https://newspaceeconomy.ca/2026/09/14/what-does-the-2026-space-environment-report-reveal-about-the-future-of-space-debris/" target="_blank" rel="noopener">newspaceeconomy.ca</a></li>
+<li value="130" id="ref-130">Marani et al., "Intensity and frequency of extreme novel epidemics," PNAS, Aug 2021. <a href="https://www.pnas.org/doi/10.1073/pnas.2105482118" target="_blank" rel="noopener">pnas.org</a></li>
 </ol>
   </div></details>
 </div></section>
@@ -1293,5 +1341,6 @@ hbar("fri",[{l:"Domain experts",v:24.6,txt:"24.6%",tip:"Domain experts: average 
 
 })();
 </script>
+<script src="/assets/report-opener.js" defer></script>
 </body>
 </html>

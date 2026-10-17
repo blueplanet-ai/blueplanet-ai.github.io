@@ -2,6 +2,15 @@
 
 ## Site-wide
 
+### 17 October 2026 — report openers and 60-second summaries (visual refresh, part 2 of 3)
+- Every report now opens with the same block: the site's top bar (replacing the "All publications" strip), the report's cover, layer and domain tags, the title in Newsreader, the existing standfirst, a one-line research question, a scope list (taken from each report's former "stamp" box), byline, reading time (not shown for the benchmark), data-as-of date, next refresh and a link to the change log, plus **Cite** (copies the citation), **Share**, **Infographic (PNG)** and **References** buttons and a "Cite as" line.
+- New **The report in 60 seconds** band on every report: three takeaways, each restating text already in the report's summary with its source linked, and labelled **Fact**, **Interpretation** or **Hypothesis**. No figures were added or changed.
+- An "In this report" contents list on the Agentic AI, Physical AI and benchmark pages. Mega Trends and the Mobility Product Outlook keep their sticky section bars; on Mega Trends the ranking panel moves from the hero to just below the 60-second band.
+- Report titles and section headings now use Newsreader, matching the home page; small headings, labels and data stay in Saira and Plex Mono.
+- Anchors added for linking: each report's change log (`#changelog`) and references (`#refs`); Mega Trends and Mobility Product Outlook references are numbered anchors (`#ref-N`); five benchmark sections now have ids.
+- The Agentic AI and Physical AI pages had no suggested citation; their "Cite as" lines follow the format used on the other three reports.
+- Shared styles and script: `assets/report-opener.css`, `assets/report-opener.js`. Printing hides the top bar and buttons and prints the 60-second band in light colours.
+
 ### 17 October 2026 — editorial home page, icon set and report covers (visual refresh, part 1 of 3)
 - Home page redesigned as an editorial front page. Titles and section headings now use Newsreader; Saira stays for labels, navigation and data. No copy was rewritten except the map's empty cells ("Coming" is now "Planned"; the Mobility opportunity cell reads "First brief in progress").
 - New top bar with section links and a Follow link.

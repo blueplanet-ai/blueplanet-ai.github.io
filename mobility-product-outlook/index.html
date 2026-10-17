@@ -497,29 +497,70 @@ a.gl-name:hover{color:var(--g-accent)}
 
 .glance{--g-s:var(--surface);--g-s2:var(--surface-2);--g-rule:var(--line);--g-ink:var(--ink);--g-ink2:var(--ink-2);--g-muted:var(--ink-3);--g-accent:var(--signal-deep);--g-soft:color-mix(in srgb,var(--signal) 12%,var(--surface));--g-ui:var(--font-ui);--g-mono:var(--font-mono)}
 </style>
+<link rel="stylesheet" href="/assets/report-opener.css">
 </head>
 <body>
-<nav class="crumb"><div class="crumb-inner"><a href="../">&larr; All publications</a><span>Chuhee Lee &middot; Independent research</span></div></nav>
+<div class="ro-top"><div class="ro-inner">
+  <a class="ro-brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">Chuhee Lee<span>Independent research</span></a>
+  <nav class="ro-nav" aria-label="Site">
+    <a href="/#map">The map</a>
+    <a href="/#publications">Publications</a>
+    <a href="/#opportunities">Opportunities</a>
+    <a href="/#about">About</a>
+    <a class="ro-follow" href="/#follow"><svg class="ro-ico" data-ro-ico="rss" viewBox="0 0 24 24" aria-hidden="true"></svg>Follow</a>
+  </nav>
+</div></div>
 
-<div class="mast">
-  <div class="mast-inner">
-    <div>
-      <div class="telltale"><span class="dot"></span><span class="eyebrow">Independent research report &middot; mobility product strategy</span></div>
-      <h1>Mobility Product Outlook 2026&ndash;2036</h1>
-      <p class="sub">How consumer electronics and rising customer expectations are redefining what a car is, from a finished machine to a device that keeps improving, with concrete examples of the cars, cabins and robotaxis taking shape.</p>
-      <p class="byline">By <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">Chuhee Lee</a> &middot; October 2026 edition &middot; Data as of 11 October 2026 &middot; Next scheduled refresh: October 2027</p>
-      <p class="byline-2">With research assistance from several AI models (mainly Claude; Gemini and ChatGPT for supporting references) &middot; Views are the author&rsquo;s own</p>
-    </div>
-    <div class="stamp">
-      <div>EDITION <b>OCT 2026</b></div>
-      <div>DATA AS OF <b>11 OCT 2026</b></div>
-      <div>NEXT REFRESH <b>OCT 2027</b></div>
-      <div>FRAMEWORK <b>12 DIMENSIONS</b></div>
-      <div>MARKETS <b>US &middot; EU &middot; CN &middot; JP &middot; KR &middot; IN</b></div>
-      <div>BASIS <b>OFFICIAL SOURCES FIRST</b></div>
-    </div>
+<header class="ro"><div class="ro-inner">
+  <div class="ro-side">
+    <figure class="ro-cover"><img src="cover.svg" width="600" height="800" alt="Cover art: twelve spokes, one per dimension of the product-definition framework."></figure>
+    <dl class="ro-scope" aria-label="Scope"><div><dt>Horizon</dt><dd>2026–2036</dd></div><div><dt>Framework</dt><dd>12 dimensions</dd></div><div><dt>Markets</dt><dd>US · EU · CN · JP · KR · IN</dd></div><div><dt>Basis</dt><dd>Official sources first</dd></div></dl>
   </div>
-</div>
+  <div class="ro-main">
+    <div class="ro-tags"><span class="ro-tag layer"><svg class="ro-ico" data-ro-ico="shifts" viewBox="0 0 24 24" aria-hidden="true"></svg>Shifts</span><span class="ro-tag">Mobility</span><span class="ro-ed">October 2026 edition · Research report</span></div>
+    <h1 class="ro-title">Mobility Product Outlook <em>2026–2036</em></h1>
+    <p class="ro-dek">How consumer electronics and rising customer expectations are redefining what a car is, from a finished machine to a device that keeps improving, with concrete examples of the cars, cabins and robotaxis taking shape.</p>
+    <p class="ro-q"><b>Research question</b><span>How are consumer electronics and rising customer expectations redefining what a car is, and what defines the next-generation mobility product?</span></p>
+    <div class="ro-meta"><span class="ro-by"><svg class="ro-ico" data-ro-ico="person" viewBox="0 0 24 24" aria-hidden="true"></svg>By&nbsp;<a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener"><b>Chuhee Lee</b></a></span><span><svg class="ro-ico" data-ro-ico="time" viewBox="0 0 24 24" aria-hidden="true"></svg>≈26 min read</span><span><svg class="ro-ico" data-ro-ico="doc" viewBox="0 0 24 24" aria-hidden="true"></svg>Data as of 11 Oct 2026</span><span><svg class="ro-ico" data-ro-ico="calendar" viewBox="0 0 24 24" aria-hidden="true"></svg>Next refresh: October 2027</span><a href="#changelog"><svg class="ro-ico" data-ro-ico="history" viewBox="0 0 24 24" aria-hidden="true"></svg>Change log</a></div>
+    <p class="ro-credit">With research assistance from several AI models (mainly Claude; Gemini and ChatGPT for supporting references) · Views are the author’s own</p>
+    <div class="ro-acts">
+      <button type="button" class="ro-primary" id="roCite"><svg class="ro-ico" data-ro-ico="quote" viewBox="0 0 24 24" aria-hidden="true"></svg>Cite</button>
+      <button type="button" id="roShare"><svg class="ro-ico" data-ro-ico="share" viewBox="0 0 24 24" aria-hidden="true"></svg>Share</button>
+      <a href="mobility-product-outlook-at-a-glance.png" download><svg class="ro-ico" data-ro-ico="download" viewBox="0 0 24 24" aria-hidden="true"></svg>Infographic (PNG)</a>
+      <a href="#refs"><svg class="ro-ico" data-ro-ico="doc" viewBox="0 0 24 24" aria-hidden="true"></svg>References</a>
+      <span class="ro-status" id="roStatus" role="status" aria-live="polite"></span>
+    </div>
+    <p class="ro-cite"><b>Cite as</b><span id="roCiteText">Chuhee Lee, <i>Mobility Product Outlook 2026–2036</i>, October 2026 edition (data as of 11 October 2026), https://blueplanet-ai.github.io/mobility-product-outlook/, CC BY-NC 4.0.</span></p>
+  </div>
+</div></header>
+
+<section class="ro-60" aria-labelledby="ro60H"><div class="ro-inner">
+  <div class="ro-60-head"><h2 id="ro60H">The report in <em>60 seconds</em></h2><span>Three takeaways · each with its source</span></div>
+  <ol>
+    <li class="fact">
+      <span class="ro-fig">52% / 72%</span>
+      <span class="ro-kind">Fact</span>
+      <h3>Phones reset the clock: years of updates are now normal</h3>
+      <p>Google and Samsung promise seven years of software updates for their flagship phones. 52% of US car buyers say regular over-the-air updates would make them keep a car longer; in China it is 72%.</p>
+      <span class="ro-src">Source: Deloitte 2026 Global Automotive Consumer Study <a href="#ref-1">[1]</a>; Google <a href="#ref-9">[9]</a>; Samsung <a href="#ref-10">[10]</a></span>
+    </li>
+    <li class="fact">
+      <span class="ro-fig">600,000+</span>
+      <span class="ro-kind">Fact</span>
+      <h3>Consumer electronics companies already build cars, and fast</h3>
+      <p>Xiaomi delivered more than 600,000 cars in its first 22 months. Huawei’s alliance brands delivered 589,107 cars in 2025 and shipped 141 over-the-air updates that year.</p>
+      <span class="ro-src">Source: CarNewsChina, reporting Xiaomi <a href="#ref-16">[16]</a>; Gasgoo, reporting HIMA <a href="#ref-19">[19]</a></span>
+    </li>
+    <li class="interp">
+      <span class="ro-fig">35%</span>
+      <span class="ro-kind">Interpretation</span>
+      <h3>More technology is not the same as a better product</h3>
+      <p>J.D. Power’s 2026 study finds passenger screens among the most problematic technologies, and 35% of owners who have one have never tried it. The winners make life simpler and charge for services that are actually new.</p>
+      <span class="ro-src">Source: J.D. Power 2026 U.S. Tech Experience Index <a href="#ref-3">[3]</a>; conclusion is the author’s</span>
+    </li>
+  </ol>
+  <p class="ro-legend"><b>Fact</b>: stated by the cited source. <b>Interpretation</b>: the author&rsquo;s reading of the cited evidence. <b>Hypothesis</b>: expected from the evidence but not yet observed. Figures inside every takeaway are sourced.</p>
+</div></section>
 
 <div class="idx">
   <div class="idx-inner">
@@ -859,7 +900,7 @@ a.gl-name:hover{color:var(--g-accent)}
 
 <section id="method">
   <div class="sec-head"><h2>Method and sources</h2><span class="eyebrow">Read before citing</span></div>
-  <h3 class="sub-h" style="margin-top:0">Change log</h3>
+  <h3 class="sub-h" id="changelog" style="margin-top:0">Change log</h3>
   <ul class="log">
     <li class="loghead">October 2026 edition</li>
     <li><span>New</span><div>First public edition. Consumer electronics, customer expectation and case-study data checked to 11 October 2026; technology ranking data checked to 3 October 2026. The wider-context section builds on the author&rsquo;s <a href="../mega-trends-2040/">Mega Trends Outlook 2040</a> (October 2026 edition).</div></li>
@@ -1688,7 +1729,7 @@ a.gl-name:hover{color:var(--g-accent)}
 
   $("#gloss").innerHTML = GLOSS.map(function (g) { return "<div><dt>" + g[0] + "</dt><dd>" + g[1] + "</dd></div>"; }).join("");
   $("#refs").innerHTML = REFS.map(function (r, i) {
-    return "<li><span class=\"n\">" + (i + 1) + ".</span><a href=\"" + esc(r[3]) + "\" target=\"_blank\" rel=\"noopener\">" + r[0] + "</a> &middot; " + esc(r[1]) + "<span class=\"tag\">" + esc(r[2]) + "</span></li>";
+    return "<li id=\"ref-" + (i + 1) + "\"><span class=\"n\">" + (i + 1) + ".</span><a href=\"" + esc(r[3]) + "\" target=\"_blank\" rel=\"noopener\">" + r[0] + "</a> &middot; " + esc(r[1]) + "<span class=\"tag\">" + esc(r[2]) + "</span></li>";
   }).join("");
 
   renderRank(); renderTabs(); renderDive(); renderMaps();
@@ -1746,5 +1787,6 @@ var GL={
 })();
 </script>
 
+<script src="/assets/report-opener.js" defer></script>
 </body>
 </html>
