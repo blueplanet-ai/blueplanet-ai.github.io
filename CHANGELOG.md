@@ -9,6 +9,7 @@
 - **Type scale.** Page text and labels set in CSS no longer go below 12 px, and sizes snap to 12, 13, 14, 15, 16, 18, 20, 22 and 24 px. Chart labels drawn by script, SVG text and `em` sizes are unchanged.
 - **Skip link and browser theme colour** on every page (`theme-color` follows light and dark).
 - **Polish.** A very faint paper grain behind the light-mode ground; a quiet fade between pages in browsers that support cross-page view transitions; a thin reading-progress bar on the five reports; the "How topics are found" figure draws once when it scrolls into view. Grain is off in dark mode and in print, and the figure animation and page fade are off with reduced motion.
+- Physical AI cabin: the "Where the players are based" panels now sit on a simplified inline basemap (land and country borders, Natural Earth public domain, about 60 KB, no external requests) projected with the same function as the pins; follows light and dark tokens.
 - Static PNG infographics and social previews were not re-exported and still show the previous ground colour. Re-run `tools/export-infographics.py` to update them.
 
 ### 17 October 2026 — home page eyebrow
