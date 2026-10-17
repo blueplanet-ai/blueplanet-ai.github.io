@@ -2,6 +2,15 @@
 
 ## Site-wide
 
+### 17 October 2026 — sage paper tone, readability and polish
+- **Paper tone (light mode).** The page ground changes from the near-white grey-green to a soft sage paper: ground #EBF0E6, cards and bars #F4F7F0, second surface #E0E7DA, rules #CDD6C6 and #B3BFAB. Colour tokens only, on all seven pages and in `assets/report-opener.css`. Dark mode and the print stylesheet are unchanged.
+- **Small grey text** (`--ink-3`, `--muted`, `--ro-ink-3`) darkens from #6B787C to #5A676B so it keeps at least 4.5:1 on the new surfaces. In a local scan the home page went from 59 to 5 text nodes under 4.5:1, and the report pages from 166–441 to 8–81. The remaining ones are mostly small teal and orange accent labels and numerals, left as designed.
+- **Home page map** no longer makes the page scroll sideways at tablet widths (it overflowed at 712 and 768 px). The map now scrolls inside its own frame.
+- **Type scale.** Page text and labels set in CSS no longer go below 12 px, and sizes snap to 12, 13, 14, 15, 16, 18, 20, 22 and 24 px. Chart labels drawn by script, SVG text and `em` sizes are unchanged.
+- **Skip link and browser theme colour** on every page (`theme-color` follows light and dark).
+- **Polish.** A very faint paper grain behind the light-mode ground; a quiet fade between pages in browsers that support cross-page view transitions; a thin reading-progress bar on the five reports; the "How topics are found" figure draws once when it scrolls into view. Grain is off in dark mode and in print, and the figure animation and page fade are off with reduced motion.
+- Static PNG infographics and social previews were not re-exported and still show the previous ground colour. Re-run `tools/export-infographics.py` to update them.
+
 ### 17 October 2026 — home page eyebrow
 - The line above the headline now reads "Independent research · AI, Mobility, Experience" (was "Technology, Mobility, Travel").
 - Matching wording in the home page's search description and social-card description, the audience line under the intro ("For people building products in AI, mobility and experience") and the RSS feed description. The headline, intro paragraph, map domains and method-page thesis are unchanged.

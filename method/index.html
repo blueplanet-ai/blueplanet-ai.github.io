@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F4F7F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151D1F" media="(prefers-color-scheme: dark)">
 <title>How this research is made — Chuhee Lee</title>
 <meta name="description" content="How Chuhee Lee’s independent research is made: how topics are chosen, where facts come from, how AI is used, how claims are labelled and scored, and how reports are refreshed and corrected.">
 <meta name="author" content="Chuhee Lee">
@@ -27,8 +29,8 @@
 <style>
 /* Method page: one reading column, numbered sections. Tokens match the rest of the site. */
 :root{
-  --ground:#F1F4F4; --surface:#FBFCFC; --line:#D3DBDC; --line-strong:#B2BEC0;
-  --ink:#0F1719; --ink-2:#3F4C50; --ink-3:#6B787C;
+  --ground:#EBF0E6; --surface:#F4F7F0; --line:#CDD6C6; --line-strong:#B3BFAB;
+  --ink:#0F1719; --ink-2:#3F4C50; --ink-3:#5A676B;
   --signal:#0892A5; --signal-deep:#066A79;
   --opp:#C2622D; --opp-soft:#F5E6DC; --opp-ink:#9A4A1F;
   --serif:"Newsreader",Georgia,"Times New Roman",serif;
@@ -50,7 +52,7 @@ body{background:var(--ground);color:var(--ink);font-family:var(--serif);font-siz
 a{color:var(--signal-deep);text-underline-offset:2px;text-decoration-thickness:1px}
 header.band{background:var(--surface);border-bottom:1px solid var(--line);}
 header .col{padding-block:44px 32px;display:grid;gap:14px}
-.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
 h1{margin:0;font-weight:400;font-size:clamp(38px,6vw,60px);line-height:1.04;letter-spacing:-.02em;text-wrap:balance}
 h1 em{font-style:italic;color:var(--signal-deep)}
 .dek{margin:0;font-size:20px;color:var(--ink-2);max-width:62ch}
@@ -62,14 +64,14 @@ p{margin:0;max-width:66ch}
 ul,ol{margin:0;padding-left:22px;display:grid;gap:6px;max-width:66ch}
 .labels{display:grid;gap:0;border-top:1px solid var(--line-strong);padding:0;list-style:none}
 .labels li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
-.kind{align-self:start;justify-self:start;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line-strong);padding:4px 8px;color:var(--ink-2)}
+.kind{align-self:start;justify-self:start;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line-strong);padding:4px 8px;color:var(--ink-2)}
 .kind.fact{color:var(--signal-deep);border-color:var(--signal-deep)}
 .kind.hyp{color:var(--opp-ink);border-color:var(--opp)}
 .tbl{overflow-x:auto;border-top:1px solid var(--line-strong)}
-table{border-collapse:collapse;width:100%;min-width:560px;font-size:15.5px;line-height:1.45}
-th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:left;font-weight:500;padding:10px 12px 10px 0}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:16px;line-height:1.45}
+th{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:left;font-weight:500;padding:10px 12px 10px 0}
 td{padding:11px 12px 11px 0;border-top:1px solid var(--line);vertical-align:top}
-td:first-child{font-family:var(--ui);font-weight:600;font-size:14.5px;white-space:nowrap}
+td:first-child{font-family:var(--ui);font-weight:600;font-size:15px;white-space:nowrap}
 .order{list-style:none;padding:0;counter-reset:o;gap:0;border-top:1px solid var(--line-strong)}
 .order li{counter-increment:o;display:grid;grid-template-columns:34px minmax(0,1fr);padding:10px 0;border-bottom:1px solid var(--line)}
 .order li::before{content:counter(o);font-family:var(--mono);font-size:13px;color:var(--signal-deep)}
@@ -84,6 +86,7 @@ footer a{color:var(--signal-deep)}
 <link rel="stylesheet" href="/assets/report-opener.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="ro-top"><div class="ro-inner">
   <a class="ro-brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">Chuhee Lee<span>Independent research</span></a>
   <nav class="ro-nav" aria-label="Site">
@@ -96,7 +99,7 @@ footer a{color:var(--signal-deep)}
   </nav>
 </div></div>
 
-<header class="band"><div class="col">
+<header class="band" id="main" tabindex="-1"><div class="col">
   <span class="eyebrow">Chuhee Lee · Independent research · Method</span>
   <h1>How this research <em>is made</em></h1>
   <p class="dek">How topics are chosen, where facts come from, how AI is used, how claims are labelled and scored, and how reports are refreshed and corrected.</p>
