@@ -2,6 +2,10 @@
 
 ## Site-wide
 
+### 17 October 2026 — home page eyebrow
+- The line above the headline now reads "Independent research · AI, Mobility, Experience" (was "Technology, Mobility, Travel").
+- Matching wording in the home page's search description and social-card description, the audience line under the intro ("For people building products in AI, mobility and experience") and the RSS feed description. The headline, intro paragraph, map domains and method-page thesis are unchanged.
+
 ### 17 October 2026 — Mobility Product Outlook: Zoox diagram legend
 - The "seat touchscreen" legend overlapped the vehicle outline in the Zoox cabin diagram. It now sits in its own row below the diagram. No data changed.
 
