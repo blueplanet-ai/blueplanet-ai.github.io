@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://blueplanet-ai.github.io/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Time and attention on the move: independent research by Chuhee Lee on technology, mobility and travel.">
+<meta property="og:image:alt" content="Time and attention on the move: independent research by Chuhee Lee. AI-generated illustration of a rider reading on a train while travel modes flow past the window.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://blueplanet-ai.github.io/og-image.png">
 <style>img{max-width:100%}[hidden]{display:none!important}</style>
@@ -96,6 +96,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-off
 .byline{font-family:var(--font-ui);font-size:14px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:6px 18px;}
 .byline b{color:var(--ink);font-weight:600;}
 @media (max-width:860px){.mast-top{grid-template-columns:1fr;}}
+
+/* hero image */
+.hero-img{margin:0;display:grid;gap:8px;}
+.hero-img img{display:block;width:100%;height:auto;aspect-ratio:1600/893;object-fit:cover;background:var(--plate);}
+@media (max-width:640px){.hero-img img{aspect-ratio:4/3;object-position:22% 50%;}}
+.hero-img figcaption{border-top:1px solid var(--line);padding-top:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3);}
+.lens-figure{margin-bottom:22px;}
 
 /* journey illustration */
 .journey{margin:0;display:grid;gap:8px;}
@@ -264,7 +271,7 @@ a.pub:hover .pub-title{color:var(--signal-deep);}
 @media (prefers-reduced-motion:no-preference){
   .map [data-col],.pub{transition:opacity .2s;}
 }
-@media print{.pub-cover,.preview,.journey,.topbar,.follow-band{display:none}}
+@media print{.pub-cover,.preview,.journey,.hero-img,.topbar,.follow-band{display:none}}
 </style>
 
 <style media="print">
@@ -311,38 +318,9 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
     </div>
   </div>
 
-  <figure class="journey">
-    <svg class="wide" viewBox="0 0 1200 330" role="img" aria-label="Illustration: one journey line through car, rail, robotaxi and plane. As people move from driving to riding, free attention grows and is spent on reading, watching, working, learning and rest.">
-      <path class="j-band" d="M40 250 C 260 250 260 238 360 238 C 520 238 520 140 760 140 C 920 140 950 100 1160 100 L1160 250 Z"/>
-      <path class="j-edge" d="M40 250 C 260 250 260 238 360 238 C 520 238 520 140 760 140 C 920 140 950 100 1160 100"/>
-      <line class="j-line" x1="40" y1="250" x2="1160" y2="250"/>
-      <circle class="j-stop" cx="170" cy="250" r="11"/><circle class="j-stop" cx="470" cy="250" r="11"/><circle class="j-stop" cx="780" cy="250" r="11"/><circle class="j-stop" cx="1080" cy="250" r="11"/>
-      <g class="j-label" font-size="17" text-anchor="middle"><text x="170" y="290">Car</text><text x="470" y="290">Rail</text><text x="780" y="290">Robotaxi</text><text x="1080" y="290">Plane</text></g>
-      <g class="j-sub" font-size="12" text-anchor="middle"><text x="170" y="312">DRIVING</text><text x="470" y="312">RIDING</text><text x="780" y="312">RIDING</text><text x="1080" y="312">THE JOURNEY</text></g>
-      <g class="j-ico">
-        <g transform="translate(156,196)"><circle cx="14" cy="14" r="12"/><circle cx="14" cy="14" r="3"/><path d="M2 14h9M17 14h9M14 17v9"/></g>
-        <g transform="translate(420,178)"><rect x="6" y="2" width="16" height="26" rx="3"/><path d="M11 24h6"/></g>
-        <g transform="translate(492,166)"><path d="M3 6h9a4 4 0 0 1 4 4v16a3 3 0 0 0-3-3H3zM29 6h-9a4 4 0 0 0-4 4v16a3 3 0 0 1 3-3h10z"/></g>
-        <g transform="translate(704,108)"><rect x="2" y="4" width="26" height="18" rx="2"/><path d="M12 9l7 4-7 4z"/><path d="M9 27h12"/></g>
-        <g transform="translate(760,92)"><rect x="5" y="5" width="20" height="14" rx="1.5"/><path d="M1 24h28"/></g>
-        <g transform="translate(818,106)"><circle cx="9" cy="16" r="6"/><circle cx="23" cy="16" r="6"/><path d="M3 16V12a12 12 0 0 1 24 0v4"/></g>
-        <g transform="translate(1012,70)"><path d="M3 8l12-5 12 5-12 5z"/><path d="M8 11v7c3 3 11 3 14 0v-7"/></g>
-        <g transform="translate(1066,52)"><path d="M22 18a10 10 0 1 1-9-14 8 8 0 0 0 9 14z"/></g>
-        <g transform="translate(1116,74)"><path d="M3 6h9a4 4 0 0 1 4 4v16a3 3 0 0 0-3-3H3zM29 6h-9a4 4 0 0 0-4 4v16a3 3 0 0 1 3-3h10z"/></g>
-      </g>
-      <g class="j-note" font-size="19"><text x="210" y="226">a driver has little attention to give</text><text x="560" y="126">a rider has a lot</text></g>
-      <path class="j-pointer" d="M560 132 C 600 150 610 168 640 184"/>
-    </svg>
-    <svg class="narrow" viewBox="0 0 350 170" role="img" aria-label="Illustration: free attention grows from car to rail to robotaxi to plane, as people move from driving to riding.">
-      <path class="j-band" d="M10 112 C 70 112 80 106 110 106 C 160 106 170 62 240 62 C 290 62 300 44 340 44 L340 112 Z"/>
-      <path class="j-edge" d="M10 112 C 70 112 80 106 110 106 C 160 106 170 62 240 62 C 290 62 300 44 340 44"/>
-      <line class="j-line" x1="10" y1="112" x2="340" y2="112"/>
-      <circle class="j-stop" cx="45" cy="112" r="7"/><circle class="j-stop" cx="135" cy="112" r="7"/><circle class="j-stop" cx="230" cy="112" r="7"/><circle class="j-stop" cx="315" cy="112" r="7"/>
-      <g class="j-label" font-size="13" text-anchor="middle"><text x="45" y="138">Car</text><text x="135" y="138">Rail</text><text x="230" y="138">Robotaxi</text><text x="315" y="138">Plane</text></g>
-      <g class="j-sub" font-size="9" text-anchor="middle"><text x="45" y="156">DRIVING</text><text x="135" y="156">RIDING</text><text x="230" y="156">RIDING</text><text x="315" y="156">JOURNEY</text></g>
-      <g class="j-note" font-size="13"><text x="60" y="92">little attention free</text><text x="170" y="40">a lot free</text></g>
-    </svg>
-    <figcaption><span>Shaded band: attention that is free to spend. Illustrative, not to scale.</span><span>Drawn for this site</span></figcaption>
+  <figure class="hero-img">
+    <img src="media/home-hero-1600.webp" srcset="media/home-hero-800.webp 800w, media/home-hero-1600.webp 1600w" sizes="(max-width:1180px) 100vw, 1140px" width="1600" height="893" fetchpriority="high" alt="Illustration: a woman reads a tablet in a train seat by the window; beyond the window, layers of landscape, map grids, a train, a bus and a plane flow past.">
+    <figcaption>AI-generated illustration (Gemini).</figcaption>
   </figure>
 
   <a class="latest" id="latest" href="physical-ai-cabin/" hidden><span class="k">Latest</span><span class="t"></span><span class="m"></span><span class="go">Read the report →</span></a>
@@ -476,6 +454,39 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
 
   <section id="lenses">
     <div class="sec-head"><h2>How topics are found</h2><span class="eyebrow">Six lenses on the person on the move</span></div>
+    <figure class="journey lens-figure">
+    <svg class="wide" viewBox="0 0 1200 330" role="img" aria-label="Illustration: one journey line through car, rail, robotaxi and plane. As people move from driving to riding, free attention grows and is spent on reading, watching, working, learning and rest.">
+      <path class="j-band" d="M40 250 C 260 250 260 238 360 238 C 520 238 520 140 760 140 C 920 140 950 100 1160 100 L1160 250 Z"/>
+      <path class="j-edge" d="M40 250 C 260 250 260 238 360 238 C 520 238 520 140 760 140 C 920 140 950 100 1160 100"/>
+      <line class="j-line" x1="40" y1="250" x2="1160" y2="250"/>
+      <circle class="j-stop" cx="170" cy="250" r="11"/><circle class="j-stop" cx="470" cy="250" r="11"/><circle class="j-stop" cx="780" cy="250" r="11"/><circle class="j-stop" cx="1080" cy="250" r="11"/>
+      <g class="j-label" font-size="17" text-anchor="middle"><text x="170" y="290">Car</text><text x="470" y="290">Rail</text><text x="780" y="290">Robotaxi</text><text x="1080" y="290">Plane</text></g>
+      <g class="j-sub" font-size="12" text-anchor="middle"><text x="170" y="312">DRIVING</text><text x="470" y="312">RIDING</text><text x="780" y="312">RIDING</text><text x="1080" y="312">THE JOURNEY</text></g>
+      <g class="j-ico">
+        <g transform="translate(156,196)"><circle cx="14" cy="14" r="12"/><circle cx="14" cy="14" r="3"/><path d="M2 14h9M17 14h9M14 17v9"/></g>
+        <g transform="translate(420,178)"><rect x="6" y="2" width="16" height="26" rx="3"/><path d="M11 24h6"/></g>
+        <g transform="translate(492,166)"><path d="M3 6h9a4 4 0 0 1 4 4v16a3 3 0 0 0-3-3H3zM29 6h-9a4 4 0 0 0-4 4v16a3 3 0 0 1 3-3h10z"/></g>
+        <g transform="translate(704,108)"><rect x="2" y="4" width="26" height="18" rx="2"/><path d="M12 9l7 4-7 4z"/><path d="M9 27h12"/></g>
+        <g transform="translate(760,92)"><rect x="5" y="5" width="20" height="14" rx="1.5"/><path d="M1 24h28"/></g>
+        <g transform="translate(818,106)"><circle cx="9" cy="16" r="6"/><circle cx="23" cy="16" r="6"/><path d="M3 16V12a12 12 0 0 1 24 0v4"/></g>
+        <g transform="translate(1012,70)"><path d="M3 8l12-5 12 5-12 5z"/><path d="M8 11v7c3 3 11 3 14 0v-7"/></g>
+        <g transform="translate(1066,52)"><path d="M22 18a10 10 0 1 1-9-14 8 8 0 0 0 9 14z"/></g>
+        <g transform="translate(1116,74)"><path d="M3 6h9a4 4 0 0 1 4 4v16a3 3 0 0 0-3-3H3zM29 6h-9a4 4 0 0 0-4 4v16a3 3 0 0 1 3-3h10z"/></g>
+      </g>
+      <g class="j-note" font-size="19"><text x="210" y="226">a driver has little attention to give</text><text x="560" y="126">a rider has a lot</text></g>
+      <path class="j-pointer" d="M560 132 C 600 150 610 168 640 184"/>
+    </svg>
+    <svg class="narrow" viewBox="0 0 350 170" role="img" aria-label="Illustration: free attention grows from car to rail to robotaxi to plane, as people move from driving to riding.">
+      <path class="j-band" d="M10 112 C 70 112 80 106 110 106 C 160 106 170 62 240 62 C 290 62 300 44 340 44 L340 112 Z"/>
+      <path class="j-edge" d="M10 112 C 70 112 80 106 110 106 C 160 106 170 62 240 62 C 290 62 300 44 340 44"/>
+      <line class="j-line" x1="10" y1="112" x2="340" y2="112"/>
+      <circle class="j-stop" cx="45" cy="112" r="7"/><circle class="j-stop" cx="135" cy="112" r="7"/><circle class="j-stop" cx="230" cy="112" r="7"/><circle class="j-stop" cx="315" cy="112" r="7"/>
+      <g class="j-label" font-size="13" text-anchor="middle"><text x="45" y="138">Car</text><text x="135" y="138">Rail</text><text x="230" y="138">Robotaxi</text><text x="315" y="138">Plane</text></g>
+      <g class="j-sub" font-size="9" text-anchor="middle"><text x="45" y="156">DRIVING</text><text x="135" y="156">RIDING</text><text x="230" y="156">RIDING</text><text x="315" y="156">JOURNEY</text></g>
+      <g class="j-note" font-size="13"><text x="60" y="92">little attention free</text><text x="170" y="40">a lot free</text></g>
+    </svg>
+    <figcaption><span>Shaded band: attention that is free to spend. Illustrative, not to scale.</span><span>Drawn for this site</span></figcaption>
+  </figure>
     <div class="lenses">
       <div class="lens person"><svg class="ico" data-ico="time" viewBox="0 0 24 24" aria-hidden="true"></svg><span class="k">The person</span><h3>Time</h3><p>How long, and how often. Any length of time gets spent on something.</p></div>
       <div class="lens person"><svg class="ico" data-ico="attention" viewBox="0 0 24 24" aria-hidden="true"></svg><span class="k">The person</span><h3>Attention</h3><p>What is free to give. A driver has little; a rider has a lot.</p></div>

@@ -5,7 +5,9 @@
 ### 17 October 2026 — editorial home page, icon set and report covers (visual refresh, part 1 of 3)
 - Home page redesigned as an editorial front page. Titles and section headings now use Newsreader; Saira stays for labels, navigation and data. No copy was rewritten except the map's empty cells ("Coming" is now "Planned"; the Mobility opportunity cell reads "First brief in progress").
 - New top bar with section links and a Follow link.
-- New hero illustration, the "journey line": car, rail, robotaxi and plane, with a shaded band for attention that is free to spend as people move from driving to riding. It is labelled as illustrative, not to scale. It replaces the "route" pictogram.
+- New hero image: an editorial illustration of a rider on a train, generated with Gemini and labelled "AI-generated illustration (Gemini)". It replaces the "route" pictogram. Its request and settings are recorded in `media/prompts.md`, which will list every AI-generated item on the site.
+- The home page social preview (`og-image.png`) now uses the same image, with the title and the same label.
+- New drawn figure, the "journey line": car, rail, robotaxi and plane, with a shaded band for attention that is free to spend as people move from driving to riding, labelled as illustrative, not to scale. It opens "How topics are found".
 - A "Latest" strip under the hero, built from the first publication card.
 - One icon set (24 × 24 grid, 1.6 stroke) for domains, layers, lenses and reader actions, used in the map, filters, tags and lenses.
 - Map: layer icons on each row; pointing to a report shows a preview (cover, description, data-as-of date) beside the map on wide screens; on phones the map becomes a stacked list by layer, with the same domain filter.
