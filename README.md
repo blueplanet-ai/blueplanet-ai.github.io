@@ -47,6 +47,7 @@ Rules for the 60-second takeaways:
 
 - Each takeaway restates text already in the report's summary; no new figures. Its source line links to the report's own reference entry (or, for the benchmark, the source page).
 - Each carries one label for the status of its main claim: **Fact** (stated by the cited source), **Interpretation** (the author's reading of the cited evidence) or **Hypothesis** (expected from the evidence but not yet observed). Figures inside a takeaway are always sourced facts.
+- The labels are defined on `/method/`. Keep that page in step if a scoring scale or the source order changes.
 - At each refresh, check the takeaways, the data-as-of date, the next-refresh date and the citation line against the updated report.
 
 ## Reading time

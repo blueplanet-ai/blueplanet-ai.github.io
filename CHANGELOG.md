@@ -2,6 +2,10 @@
 
 ## Site-wide
 
+### 17 October 2026 — "How this research is made" page
+- New page at `/method/`: independence, how topics are chosen, source order, how AI is used, the Fact / Interpretation / Hypothesis labels used in each report's 60-second summary, scoring scales, refreshes and corrections, licence and citation. Written only from practice already stated on the site.
+- Linked from the home page About section and footer, and from every report's footer. Added to `sitemap.xml`.
+
 ### 17 October 2026 — home page: Start here, research questions, compact Opportunities
 - New **Start here** section under the hero: the five reports in reading order (forces, then shifts, then signals), each with its layer and its scope as stated in the report. Also linked from the top bar and footer.
 - Each publication card now shows the report's one-line research question, the same wording as in the report opener.

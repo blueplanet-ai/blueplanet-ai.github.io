@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How this research is made — Chuhee Lee</title>
+<meta name="description" content="How Chuhee Lee’s independent research is made: how topics are chosen, where facts come from, how AI is used, how claims are labelled and scored, and how reports are refreshed and corrected.">
+<meta name="author" content="Chuhee Lee">
+<link rel="canonical" href="https://blueplanet-ai.github.io/method/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Chuhee Lee — Independent Research" href="/feed.xml">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How this research is made">
+<meta property="og:description" content="How Chuhee Lee’s independent research is made: how topics are chosen, where facts come from, how AI is used, how claims are labelled and scored, and how reports are refreshed and corrected.">
+<meta property="og:url" content="https://blueplanet-ai.github.io/method/">
+<meta property="og:site_name" content="Chuhee Lee — Independent Research">
+<meta property="og:image" content="https://blueplanet-ai.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blueplanet-ai.github.io/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Method page: one reading column, numbered sections. Tokens match the rest of the site. */
+:root{
+  --ground:#F1F4F4; --surface:#FBFCFC; --line:#D3DBDC; --line-strong:#B2BEC0;
+  --ink:#0F1719; --ink-2:#3F4C50; --ink-3:#6B787C;
+  --signal:#0892A5; --signal-deep:#066A79;
+  --opp:#C2622D; --opp-soft:#F5E6DC; --opp-ink:#9A4A1F;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --ui:"Saira","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0D1213; --surface:#151D1F; --line:#283436; --line-strong:#3C4B4E;
+  --ink:#E7EDEE; --ink-2:#AFBDBF; --ink-3:#8C9A9D; --signal:#2BB3C6; --signal-deep:#5FCCDB;
+  --opp:#DB8A4F; --opp-soft:#2A1E16; --opp-ink:#DB8A4F; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --ground:#0D1213; --surface:#151D1F; --line:#283436; --line-strong:#3C4B4E;
+  --ink:#E7EDEE; --ink-2:#AFBDBF; --ink-3:#8C9A9D; --signal:#2BB3C6; --signal-deep:#5FCCDB;
+  --opp:#DB8A4F; --opp-soft:#2A1E16; --opp-ink:#DB8A4F; color-scheme:dark;}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.6;margin:0;}
+.band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));}
+.col{max-width:760px;margin:0 auto;}
+a{color:var(--signal-deep);text-underline-offset:2px;text-decoration-thickness:1px}
+header.band{background:var(--surface);border-bottom:1px solid var(--line);}
+header .col{padding-block:44px 32px;display:grid;gap:14px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+h1{margin:0;font-weight:400;font-size:clamp(38px,6vw,60px);line-height:1.04;letter-spacing:-.02em;text-wrap:balance}
+h1 em{font-style:italic;color:var(--signal-deep)}
+.dek{margin:0;font-size:20px;color:var(--ink-2);max-width:62ch}
+main .col{padding-block:12px 64px;display:grid;gap:0}
+section{padding-top:40px;display:grid;gap:14px}
+h2{margin:0;font-weight:400;font-size:clamp(26px,3.4vw,32px);line-height:1.15;display:flex;gap:14px;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:8px;text-wrap:balance}
+h2 span{font-family:var(--mono);font-size:13px;color:var(--ink-3);flex:none}
+p{margin:0;max-width:66ch}
+ul,ol{margin:0;padding-left:22px;display:grid;gap:6px;max-width:66ch}
+.labels{display:grid;gap:0;border-top:1px solid var(--line-strong);padding:0;list-style:none}
+.labels li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.kind{align-self:start;justify-self:start;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line-strong);padding:4px 8px;color:var(--ink-2)}
+.kind.fact{color:var(--signal-deep);border-color:var(--signal-deep)}
+.kind.hyp{color:var(--opp-ink);border-color:var(--opp)}
+.tbl{overflow-x:auto;border-top:1px solid var(--line-strong)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15.5px;line-height:1.45}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:left;font-weight:500;padding:10px 12px 10px 0}
+td{padding:11px 12px 11px 0;border-top:1px solid var(--line);vertical-align:top}
+td:first-child{font-family:var(--ui);font-weight:600;font-size:14.5px;white-space:nowrap}
+.order{list-style:none;padding:0;counter-reset:o;gap:0;border-top:1px solid var(--line-strong)}
+.order li{counter-increment:o;display:grid;grid-template-columns:34px minmax(0,1fr);padding:10px 0;border-bottom:1px solid var(--line)}
+.order li::before{content:counter(o);font-family:var(--mono);font-size:13px;color:var(--signal-deep)}
+footer.band{border-top:1px solid var(--line);background:var(--surface)}
+footer .col{padding-block:22px;font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+@media (max-width:560px){.labels li{grid-template-columns:1fr;gap:6px}}
+
+footer.band .col{display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-between}
+footer a{color:var(--signal-deep)}
+@media print{.ro-top{display:none!important}body{background:#fff}}
+</style>
+<link rel="stylesheet" href="/assets/report-opener.css">
+</head>
+<body>
+<div class="ro-top"><div class="ro-inner">
+  <a class="ro-brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">Chuhee Lee<span>Independent research</span></a>
+  <nav class="ro-nav" aria-label="Site">
+    <a href="/#start">Start here</a>
+    <a href="/#map">The map</a>
+    <a href="/#publications">Publications</a>
+    <a href="/#opportunities">Opportunities</a>
+    <a href="/#about">About</a>
+    <a class="ro-follow" href="/#follow"><svg class="ro-ico" data-ro-ico="rss" viewBox="0 0 24 24" aria-hidden="true"></svg>Follow</a>
+  </nav>
+</div></div>
+
+<header class="band"><div class="col">
+  <span class="eyebrow">Chuhee Lee · Independent research · Method</span>
+  <h1>How this research <em>is made</em></h1>
+  <p class="dek">How topics are chosen, where facts come from, how AI is used, how claims are labelled and scored, and how reports are refreshed and corrected.</p>
+</div></header>
+
+<main class="band"><div class="col">
+
+<section id="independence">
+  <h2><span>01</span>Independent and personal</h2>
+  <p>These are personal research projects. The views are the author’s own and do not represent those of any employer or organization. No company covered sponsors, reviews or endorses this work, and product names and trademarks belong to their owners. Reports make observations, not company-specific recommendations.</p>
+</section>
+
+<section id="topics">
+  <h2><span>02</span>How topics are chosen</h2>
+  <p>The site follows one thesis: time and attention on the move. People move every day, to work, to visit, to travel, and spend that time reading, watching, learning, working or resting. Mobility, travel and what people do on the way are treated as one connected space.</p>
+  <p>Topics sit on a map of four layers across four domains (Shared, Mobility, Travel, Entertainment):</p>
+  <ul>
+    <li><b>Forces</b>: macro trends over 10–15 years, shared by all domains.</li>
+    <li><b>Shifts</b>: technology and consumer changes over 1–5 years.</li>
+    <li><b>Signals</b>: benchmarks of what is actually shipping.</li>
+    <li><b>Opportunities</b>: a product lens on what the evidence opens up.</li>
+  </ul>
+  <p>Six lenses on the person on the move help find topics: time, attention, state of mind, social context, space and transitions. Topic selection is the author’s.</p>
+</section>
+
+<section id="sources">
+  <h2><span>03</span>Where facts come from</h2>
+  <p>Every factual claim is sourced, and every report lists its references. Sources are used in this order of preference:</p>
+  <ol class="order">
+    <li>Official and primary sources: company releases and filings, government and statistical agencies, regulators.</li>
+    <li>Recognized studies: research firms, academic work and established surveys.</li>
+    <li>Specialist trade press.</li>
+  </ol>
+  <p>A source that reports another organization’s figures is marked as secondary. Each reference carries its publication or as-of date, and dated anchors are flagged as dated. Where sources disagree, the report says so rather than picking one silently. Figures that could not be confirmed against a primary source are dropped and the drop is recorded in the report’s flags.</p>
+</section>
+
+<section id="ai">
+  <h2><span>04</span>How AI is used</h2>
+  <p>Research, source verification and drafting are carried out with several AI models. Claude (Anthropic) is the main research tool; Gemini (Google) and ChatGPT (OpenAI) are used for smaller supporting references and cross-checks. Each report names the models used for it. Topic selection, scores and conclusions are the author’s.</p>
+  <p>AI-generated images, audio and video may appear on the site. Each carries a visible label where it appears, and the request behind each one is recorded in the site’s prompt log.</p>
+</section>
+
+<section id="labels">
+  <h2><span>05</span>Fact, interpretation, hypothesis</h2>
+  <p>Summaries label each takeaway by the status of its main claim:</p>
+  <ul class="labels">
+    <li><span class="kind fact">Fact</span><span>Stated by the cited source, reported as the source states it, with its date.</span></li>
+    <li><span class="kind">Interpretation</span><span>The author’s reading of the cited evidence: scores, frameworks, rankings and what a finding means.</span></li>
+    <li><span class="kind hyp">Hypothesis</span><span>Expected from the evidence but not yet observed. It is a claim to test at the next refresh.</span></li>
+  </ul>
+  <p>Figures inside any takeaway are always sourced facts; the label describes the conclusion drawn from them. The labels are used in each report’s “The report in 60 seconds” summary.</p>
+</section>
+
+<section id="scores">
+  <h2><span>06</span>Scores and scales</h2>
+  <p>Scores are the author’s analytical judgement from the cited evidence, not measured results or sourced figures. Each report states its own scale:</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Report</th><th>What is scored</th><th>Scale</th></tr></thead>
+    <tbody>
+      <tr><td>Mega Trends Outlook 2040</td><td>Each trend on impact, certainty, speed and cross-industry breadth. The criteria were set for this report, not taken from a validated method.</td><td>1–5 each, total out of 20</td></tr>
+      <tr><td>In-Car AI Assistant Benchmark</td><td>Each assistant on seven capability dimensions, plus who controls the stack. Calibrated across the set; no vehicle was driven or instrumented; pre-launch entries scored on announced specification.</td><td>1–5 per dimension</td></tr>
+      <tr><td>Mobility Product Outlook</td><td>Fifteen technologies on daily-life impact and mobility relevance, with timing and certainty.</td><td>1–5; timing Near (by 2030), Mid (2031–2036) or Far</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="refresh">
+  <h2><span>07</span>Refreshes and corrections</h2>
+  <p>Each report shows its data-as-of date and its next scheduled refresh. Long-range outlooks are refreshed at least once a year; the benchmark is refreshed quarterly. A refresh re-checks the report against its sources, and every change is recorded in the report’s change log. Updates are reviewed by the author before they go live.</p>
+  <p>Corrections are welcome via <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">LinkedIn</a>. To follow new editions, use the <a href="/feed.xml">RSS feed</a>.</p>
+</section>
+
+<section id="licence">
+  <h2><span>08</span>Licence and citation</h2>
+  <p>Unless stated otherwise, reports are licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>: share and adapt for non-commercial purposes with credit. Each report gives a suggested citation in the form: Chuhee Lee, <i>Report title</i>, edition (data as of date), URL, CC BY-NC 4.0.</p>
+</section>
+
+</div></main>
+
+<footer class="band"><div class="col">
+  <span>&copy; 2026 Chuhee Lee &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+  <span>Independent research &middot; not affiliated with or endorsed by any company named</span>
+  <span><a href="../">All publications</a></span>
+</div></footer>
+<script src="/assets/report-opener.js" defer></script>
+</body>
+</html>
