@@ -2,6 +2,14 @@
 
 ## Site-wide
 
+### 17 October 2026 — chapter openers, "Continue down the map", refreshed images (visual refresh, part 3 of 3)
+- Every numbered chapter now opens the same way: an outlined numeral, the title in Newsreader, a one-sentence thesis and a "Chapter n of N" progress bar. Agentic AI (8 chapters), Physical AI (6), the benchmark (5) and the three Parts of the Mobility Product Outlook use it; the Mobility Part intro sentences are the theses.
+- Mega Trends: each trend header now shows the numeral in the trend's colour, the existing thesis, the author's four scores and total, and one headline figure. The headline figure is the trend's first key figure moved up, so no figure was added or changed.
+- The other chapter theses restate each chapter's own text and add no new figures. Chapters keep their previous headings (numbering moved into the numeral); anchors and ids are unchanged.
+- New **Continue down the map** block at the end of every report: three related reports with cover, layer and research question, plus a "Follow new editions" band (RSS, LinkedIn). Next refresh dates stay on the home page only, so they are updated in one place.
+- Infographic PNGs and 1200×630 social previews re-exported for all five reports (`tools/export-infographics.py`).
+- Styles are in `assets/report-opener.css` (`.co`, `.rn`, `.rn-follow`). Printing hides the follow band.
+
 ### 17 October 2026 — "How this research is made" page
 - New page at `/method/`: independence, how topics are chosen, source order, how AI is used, the Fact / Interpretation / Hypothesis labels used in each report's 60-second summary, scoring scales, refreshes and corrections, licence and citation. Written only from practice already stated on the site.
 - Linked from the home page About section and footer, and from every report's footer. Added to `sitemap.xml`.

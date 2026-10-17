@@ -54,6 +54,12 @@ Rules for the 60-second takeaways:
 
 Reading times on the home page cards and in each report opener are estimates (rendered text at 230 words a minute, excluding tables and references). Update the card's `data-read` value, its meta line and the report opener when a report's length changes substantially.
 
+## Chapter openers and the end-of-report block
+
+Each numbered chapter starts with a `header.co` block (numeral, title, one-sentence thesis, progress bar). When adding or renaming a chapter, update the `Chapter n of N` text and the progress segments in every opener of that report. The thesis restates the chapter's own text; no new figures. On Mega Trends the openers are generated in the page script from the trend data (the headline figure is the first key figure of each trend).
+
+The "Continue down the map" block and follow band sit just before each report's footer. Cards link to sibling reports with their cover and research question. Refresh dates are not repeated there; they live on the home page (`#follow`).
+
 ## How reports are updated
 
 Updates arrive as pull requests. A scheduled research run re-checks each report against its sources and reports what changed. The author then has the findings applied as a pull request containing:
