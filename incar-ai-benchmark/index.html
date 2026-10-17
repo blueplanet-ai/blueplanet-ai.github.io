@@ -599,29 +599,75 @@ a.gl-name:hover{color:var(--g-accent)}
 
 .glance{--g-s:var(--surface);--g-s2:var(--surface-2);--g-rule:var(--line);--g-ink:var(--ink);--g-ink2:var(--ink-2);--g-muted:var(--ink-3);--g-accent:var(--signal-deep);--g-soft:color-mix(in srgb,var(--signal) 12%,var(--surface));--g-ui:var(--font-ui);--g-mono:var(--font-mono)}
 </style>
+<link rel="stylesheet" href="/assets/report-opener.css">
 </head>
 <body>
-<nav class="crumb"><div class="crumb-inner"><a href="../">&larr; All publications</a><span>Chuhee Lee &middot; Independent research</span></div></nav>
+<div class="ro-top"><div class="ro-inner">
+  <a class="ro-brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">Chuhee Lee<span>Independent research</span></a>
+  <nav class="ro-nav" aria-label="Site">
+    <a href="/#start">Start here</a>
+    <a href="/#map">The map</a>
+    <a href="/#publications">Publications</a>
+    <a href="/#opportunities">Opportunities</a>
+    <a href="/#about">About</a>
+    <a class="ro-follow" href="/#follow"><svg class="ro-ico" data-ro-ico="rss" viewBox="0 0 24 24" aria-hidden="true"></svg>Follow</a>
+  </nav>
+</div></div>
 
-<div class="mast">
-  <div class="mast-inner">
-    <div>
-      <div class="telltale"><span class="dot"></span><span class="eyebrow">Independent research report &middot; cockpit AI</span></div>
-      <h1>In-Car AI Assistant Benchmark</h1>
-      <p class="sub">Twenty-one production and near-production assistants, scored on what they can actually do for the driver and on who owns the layer that does it.</p>
-      <p class="byline">By <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">Chuhee Lee</a> &middot; October 2026 edition &middot; Data as of 11 October 2026 &middot; Next scheduled refresh: mid-January 2027</p>
-      <p class="byline-2">With research assistance from several AI models (Claude, Gemini, ChatGPT)</p>
-    </div>
-    <div class="stamp">
-      <div>EDITION <b>OCT 2026</b></div>
-      <div>DATA AS OF <b>11 OCT 2026</b></div>
-      <div>NEXT REFRESH <b>MID-JAN 2027</b></div>
-      <div>ENTRIES <b>21</b></div>
-      <div>DIMENSIONS <b>7 + 1</b></div>
-      <div>BASIS <b>OFFICIAL SOURCES FIRST</b></div>
-    </div>
+<header class="ro"><div class="ro-inner">
+  <div class="ro-side">
+    <figure class="ro-cover"><img src="cover.svg" width="600" height="800" alt="Cover art: 21 dots in 7 columns, for 21 assistants scored on 7 capability dimensions."></figure>
+    <dl class="ro-scope" aria-label="Scope"><div><dt>Entries</dt><dd>21</dd></div><div><dt>Dimensions</dt><dd>7 + 1</dd></div><div><dt>Refresh</dt><dd>Quarterly</dd></div><div><dt>Basis</dt><dd>Official sources first</dd></div></dl>
   </div>
-</div>
+  <div class="ro-main">
+    <div class="ro-tags"><span class="ro-tag layer"><svg class="ro-ico" data-ro-ico="signals" viewBox="0 0 24 24" aria-hidden="true"></svg>Signals</span><span class="ro-tag">Mobility</span><span class="ro-ed">October 2026 edition · Benchmark</span></div>
+    <h1 class="ro-title">In-Car AI Assistant <em>Benchmark</em></h1>
+    <p class="ro-dek">Twenty-one production and near-production assistants, scored on what they can actually do for the driver and on who owns the layer that does it.</p>
+    <p class="ro-q"><b>Research question</b><span>What can today’s in-car AI assistants actually do for the driver, and who owns the layer that does it?</span></p>
+    <div class="ro-meta"><span class="ro-by"><svg class="ro-ico" data-ro-ico="person" viewBox="0 0 24 24" aria-hidden="true"></svg>By&nbsp;<a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener"><b>Chuhee Lee</b></a></span><span><svg class="ro-ico" data-ro-ico="doc" viewBox="0 0 24 24" aria-hidden="true"></svg>Data as of 11 Oct 2026</span><span><svg class="ro-ico" data-ro-ico="calendar" viewBox="0 0 24 24" aria-hidden="true"></svg>Next refresh: mid-January 2027</span><a href="#changelog"><svg class="ro-ico" data-ro-ico="history" viewBox="0 0 24 24" aria-hidden="true"></svg>Change log</a></div>
+    <p class="ro-credit">With research assistance from several AI models (Claude, Gemini, ChatGPT)</p>
+    <div class="ro-acts">
+      <button type="button" class="ro-primary" id="roCite"><svg class="ro-ico" data-ro-ico="quote" viewBox="0 0 24 24" aria-hidden="true"></svg>Cite</button>
+      <button type="button" id="roShare"><svg class="ro-ico" data-ro-ico="share" viewBox="0 0 24 24" aria-hidden="true"></svg>Share</button>
+      <a href="incar-ai-benchmark-at-a-glance.png" download><svg class="ro-ico" data-ro-ico="download" viewBox="0 0 24 24" aria-hidden="true"></svg>Infographic (PNG)</a>
+      <a href="#refs"><svg class="ro-ico" data-ro-ico="doc" viewBox="0 0 24 24" aria-hidden="true"></svg>References</a>
+      <span class="ro-status" id="roStatus" role="status" aria-live="polite"></span>
+    </div>
+    <p class="ro-cite"><b>Cite as</b><span id="roCiteText">Chuhee Lee, <i>In-Car AI Assistant Benchmark</i>, October 2026 edition (data as of 11 October 2026), https://blueplanet-ai.github.io/incar-ai-benchmark/, CC BY-NC 4.0.</span></p>
+  </div>
+</div></header>
+
+<section class="ro-60" aria-labelledby="ro60H"><div class="ro-inner">
+  <div class="ro-60-head"><h2 id="ro60H">The report in <em>60 seconds</em></h2><span>Three takeaways · each with its source</span></div>
+  <ol>
+    <li class="interp">
+      <span class="ro-fig">116 / 170</span>
+      <span class="ro-kind">Interpretation</span>
+      <h3>Conversation is commodity. Vehicle control is not</h3>
+      <p>Every entry understands natural language; the spread is in actuation. Li Auto says nearly all vehicle functions are now voice-controllable, and Tesla’s Grok reached 116 of 170 commands in a community-compiled test.</p>
+      <span class="ro-src">Source: <a href="https://ir.lixiang.com/news-releases/news-release-details/li-auto-inc-launches-li-i8-six-seat-battery-electric-family-suv" target="_blank" rel="noopener">Li Auto</a>; <a href="https://driveteslacanada.ca/news/tesla-grok-voice-commands-vehicle-controls/" target="_blank" rel="noopener">Drive Tesla (community test)</a></span>
+    </li>
+    <li class="fact">
+      <span class="ro-fig">~4 million</span>
+      <span class="ro-kind">Fact</span>
+      <h3>The assistant has decoupled from the vehicle generation</h3>
+      <p>GM pushed Gemini over the air to about four million MY2022+ vehicles; Volvo to 16 models back to 2020; Honda to Google built-in trims back to MY2023.</p>
+      <span class="ro-src">Source: <a href="https://news.gm.com/home.detail.html/Pages/news/us/en/2026/apr/0428-Google-Gemini.html" target="_blank" rel="noopener">GM</a>; <a href="https://www.volvocars.com/us/media/press-releases/E84A67A6AEB4B35B/" target="_blank" rel="noopener">Volvo Cars</a>; Honda (see <a href="#refs">all sources</a>)</span>
+    </li>
+    <li class="interp">
+      <span class="ro-fig">5 architectures</span>
+      <span class="ro-kind">Interpretation</span>
+      <h3>Who owns the stack is now a strategic choice</h3>
+      <p>The field splits into five architectures, from fully in-house to big-tech platforms to supplier stacks. The highest-scoring cockpit, Huawei’s at 4.7, is the one its automaker partners control least.</p>
+      <span class="ro-src">Source: author’s scores and archetypes; see <a href="#method">method</a></span>
+    </li>
+  </ol>
+  <p class="ro-legend"><b>Fact</b>: stated by the cited source. <b>Interpretation</b>: the author&rsquo;s reading of the cited evidence. <b>Hypothesis</b>: expected from the evidence but not yet observed. Figures inside every takeaway are sourced.</p>
+</div></section>
+<nav class="ro-toc" aria-labelledby="roTocH"><div class="ro-inner">
+  <h2 id="roTocH">In this report</h2>
+  <ol><li><a href="#glance"><span>01</span>At a glance</a></li><li><a href="#summary"><span>02</span>Summary</a></li><li><a href="#read"><span>03</span>The strategic read</a></li><li><a href="#position"><span>04</span>Capability versus control</a></li><li><a href="#the-matrix"><span>05</span>The matrix</a></li><li><a href="#highlights"><span>06</span>Use-case highlights</a></li><li><a href="#usecases"><span>07</span>Use-case evidence</a></li><li><a href="#archetypes"><span>08</span>How the field is built</a></li><li><a href="#watch"><span>09</span>What moves next</a></li><li><a href="#method"><span>10</span>Method and sources</a></li></ol>
+</div></nav>
 
 <div class="wrap">
 
@@ -700,7 +746,7 @@ a.gl-name:hover{color:var(--g-accent)}
 </p>
 </section>
 
-<section>
+<section id="read">
   <div class="sec-head"><h2>The strategic read</h2><span class="eyebrow">Ranked by consequence</span></div>
   <div class="findings">
 
@@ -761,7 +807,7 @@ a.gl-name:hover{color:var(--g-accent)}
   </div>
 </section>
 
-<section>
+<section id="position">
   <div class="sec-head"><h2>Capability versus control</h2><span class="eyebrow">Positioning map</span></div>
   <div class="mapbox">
     <div class="map-legend">
@@ -777,7 +823,7 @@ a.gl-name:hover{color:var(--g-accent)}
   </div>
 </section>
 
-<section>
+<section id="the-matrix">
   <div class="sec-head"><h2>The matrix</h2><span class="eyebrow">Click any row for use cases, detail and sources</span></div>
   <div class="controls">
     <span class="lbl">Filter</span>
@@ -851,7 +897,7 @@ a.gl-name:hover{color:var(--g-accent)}
   </div>
 </section>
 
-<section>
+<section id="archetypes">
   <div class="sec-head"><h2>How the field is built</h2><span class="eyebrow">Architecture archetypes</span></div>
   <div class="arch">
     <div>
@@ -907,7 +953,7 @@ a.gl-name:hover{color:var(--g-accent)}
   </div>
 </section>
 
-<section>
+<section id="watch">
   <div class="sec-head"><h2>What moves next</h2><span class="eyebrow">Dated watch list</span></div>
   <div class="watch">
     <div class="item"><div class="when">H2 2026</div><div>
@@ -943,7 +989,7 @@ a.gl-name:hover{color:var(--g-accent)}
 <section id="method">
   <div class="sec-head"><h2>Method and sources</h2><span class="eyebrow">Read before citing</span></div>
 
-  <h3 class="sub-h" style="margin-top:0;">Change log</h3>
+  <h3 class="sub-h" id="changelog" style="margin-top:0;">Change log</h3>
   <ul class="log">
     <li class="loghead">October 2026 edition</li>
     <li><span class="chg">Changed</span><div>Published as an independent public report. Removed company-specific recommendations; the summary chart now ranks all 21 entries; the routes table covers four architectures; added author, licence, disclaimer and the next scheduled refresh date.</div></li>
@@ -972,7 +1018,7 @@ a.gl-name:hover{color:var(--g-accent)}
     <p><b>Suggested citation.</b> Chuhee Lee, <i>In-Car AI Assistant Benchmark</i>, October 2026 edition (data as of 11 October 2026), https://blueplanet-ai.github.io/incar-ai-benchmark/, CC BY-NC 4.0.</p>
     <p><b>Corrections.</b> Spotted an error or a newer source? Please get in touch via <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">LinkedIn</a>.</p>
   </div>
-  <h3 class="sub-h">All sources</h3>
+  <h3 class="sub-h" id="refs">All sources</h3>
   <ul class="srcs" id="srclist"></ul>
 </section>
 
@@ -980,7 +1026,7 @@ a.gl-name:hover{color:var(--g-accent)}
 <footer class="foot"><div class="foot-inner">
   <span>&copy; 2026 Chuhee Lee &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
   <span>Independent research &middot; not affiliated with or endorsed by any company named</span>
-  <span><a href="../">All publications</a></span>
+  <span><a href="../method/">How this research is made</a> &middot; <a href="../">All publications</a></span>
 </div></footer>
 <div class="tip" id="tip"></div>
 
@@ -1637,5 +1683,6 @@ var GL={
   GL.foot('blueplanet-ai.github.io/incar-ai-benchmark','&copy; 2026 Chuhee Lee · CC BY-NC 4.0 · Scores are the author&rsquo;s judgement');
 })();
 </script>
+<script src="/assets/report-opener.js" defer></script>
 </body>
 </html>

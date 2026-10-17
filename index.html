@@ -70,6 +70,28 @@ a{color:var(--signal-deep);text-decoration-thickness:1px;text-underline-offset:2
 .ico{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;vertical-align:-3px;}
 a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:2px;}
 
+/* start here */
+.start{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-strong);}
+.start li{border-bottom:1px solid var(--line);}
+.start a{display:grid;grid-template-columns:32px 220px minmax(0,1fr) minmax(0,auto);gap:6px 18px;align-items:baseline;padding:14px 0;text-decoration:none;color:var(--ink);}
+.start .n{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);}
+.start .lay{display:flex;gap:7px;align-items:center;font-family:var(--font-ui);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--signal-deep);}
+.start .t{font-family:var(--font-body);font-size:22px;line-height:1.2;}
+.start .s{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);text-align:right;}
+.start a:hover .t{color:var(--signal-deep);}
+@media (max-width:860px){.start a{grid-template-columns:28px minmax(0,1fr);}.start .lay,.start .t,.start .s{grid-column:2;text-align:left;}}
+.pub-q{font-family:var(--font-body);font-style:italic;font-size:16px;line-height:1.45;color:var(--ink);}
+.pub-q b{font-family:var(--font-ui);font-style:normal;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--signal-deep);margin-right:8px;}
+.pub.lead .pub-q{font-size:18px;}
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+/* compact opportunities (until briefs are published) */
+.opp-compact{display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;border:1px dashed var(--opp);background:var(--surface);padding:18px 20px;}
+.opp-compact .ico{width:26px;height:26px;color:var(--opp-ink);}
+.opp-compact p{font-size:16.5px;color:var(--ink-2);max-width:72ch;}
+.opp-compact ul{list-style:none;margin:12px 0 4px;padding:0;display:flex;flex-wrap:wrap;gap:8px;}
+.opp-compact li{font-family:var(--font-ui);font-size:14px;font-weight:500;border:1px solid var(--line-strong);padding:6px 10px;}
+.opp-compact li b{color:var(--opp-ink);font-weight:600;}
+
 /* top bar */
 .topbar{background:var(--surface);border-bottom:1px solid var(--line);}
 .topbar .inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;padding-block:14px;}
@@ -297,6 +319,7 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
 <div class="topbar"><div class="inner">
   <a class="brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">Chuhee Lee<span>Independent research</span></a>
   <nav class="topnav" aria-label="Sections">
+    <a href="#start">Start here</a>
     <a href="#map">The map</a>
     <a href="#publications">Publications</a>
     <a href="#opportunities">Opportunities</a>
@@ -323,10 +346,22 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
     <figcaption>AI-generated illustration (Gemini).</figcaption>
   </figure>
 
-  <a class="latest" id="latest" href="physical-ai-cabin/" hidden><span class="k">Latest</span><span class="t"></span><span class="m"></span><span class="go">Read the report →</span></a>
+  <a class="latest" id="latest" href="physical-ai-cabin/" hidden><span class="k">Latest</span><span class="t"></span><span class="m"></span><span class="go">Read the report<span class="vh"> (latest report)</span> →</span></a>
 </div></header>
 
 <main class="inner">
+
+  <section id="start">
+    <div class="sec-head"><h2>Start here</h2><span class="eyebrow">Five reports, read top to bottom</span></div>
+    <p class="lede">The reports follow the map: long-range forces first, then the shifts they drive, then what is actually shipping. Each row gives the report's scope as stated in the report.</p>
+    <ol class="start">
+      <li><a href="mega-trends-2040/"><span class="n">01</span><span class="lay"><svg class="ico" data-ico="forces" viewBox="0 0 24 24" aria-hidden="true"></svg>Forces · 10–15 yrs</span><span class="t">Mega Trends Outlook 2040</span><span class="s">2026–2040 · 7 trends scored · 130 references</span></a></li>
+      <li><a href="agentic-consumer-2027/"><span class="n">02</span><span class="lay"><svg class="ico" data-ico="shifts" viewBox="0 0 24 24" aria-hidden="true"></svg>Shifts · 1–5 yrs</span><span class="t">Agentic AI and the Consumer</span><span class="s">2027 · US, EU and China · general consumer</span></a></li>
+      <li><a href="mobility-product-outlook/"><span class="n">03</span><span class="lay"><svg class="ico" data-ico="shifts" viewBox="0 0 24 24" aria-hidden="true"></svg>Shifts · 1–5 yrs</span><span class="t">Mobility Product Outlook 2026–2036</span><span class="s">12-dimension framework · six markets</span></a></li>
+      <li><a href="physical-ai-cabin/"><span class="n">04</span><span class="lay"><svg class="ico" data-ico="shifts" viewBox="0 0 24 24" aria-hidden="true"></svg>Shifts · 1–5 yrs</span><span class="t">Physical AI and the Rider’s Cabin</span><span class="s">2026–2027 · global, whole stack · cabin and rider</span></a></li>
+      <li><a href="incar-ai-benchmark/"><span class="n">05</span><span class="lay"><svg class="ico" data-ico="signals" viewBox="0 0 24 24" aria-hidden="true"></svg>Signals · benchmarks</span><span class="t">In-Car AI Assistant Benchmark</span><span class="s">21 assistants · 7 dimensions · refreshed quarterly</span></a></li>
+    </ol>
+  </section>
 
   <section id="map">
     <div class="sec-head"><h2>The map</h2><span class="eyebrow">Layers × domains</span></div>
@@ -388,9 +423,10 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
         <span class="pub-body">
           <span class="tags"><span class="tag new">Latest</span><span class="tag layer"><svg class="ico" data-ico="shifts" viewBox="0 0 24 24" aria-hidden="true"></svg>Shifts</span><span class="tag">Mobility</span></span>
           <span class="pub-title">Physical AI and the Rider’s Cabin</span>
+          <span class="pub-q"><b>Question</b>What is physical AI, who builds it, what do people actually use, and how does it reach the car’s cabin and the rider?</span>
           <span class="pub-desc">What physical AI means, the main players across the stack, the most-used products and services, and how it reaches the car, with the cabin and the rider’s freed-up time as the main lens.</span>
           <span class="pub-meta">Research report · data as of 13 Oct 2026 · ≈20 min read · next refresh to be confirmed</span>
-          <span class="pub-go">Read the report →</span>
+          <span class="pub-go" aria-hidden="true">Read the report →</span>
         </span>
       </a>
       <a class="pub" href="agentic-consumer-2027/" data-dom="shared travel mobility" data-read="20">
@@ -398,6 +434,7 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
         <span class="pub-body">
           <span class="tags"><span class="tag layer"><svg class="ico" data-ico="shifts" viewBox="0 0 24 24" aria-hidden="true"></svg>Shifts</span><span class="tag">Shared</span><span class="tag">Travel</span><span class="tag">Mobility</span></span>
           <span class="pub-title">Agentic AI and the Consumer: 2027 Outlook</span>
+          <span class="pub-q"><b>Question</b>How does agentic AI change what consumers trust, delegate, buy and feel through 2027?</span>
           <span class="pub-desc">How agentic AI changes what consumers trust, delegate, buy and feel, across retail, travel, finance and mobility, with a US, EU and China comparison.</span>
           <span class="pub-meta">Research report · data as of 11 Oct 2026 · ≈20 min read · next refresh to be confirmed</span>
         </span>
@@ -407,6 +444,7 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
         <span class="pub-body">
           <span class="tags"><span class="tag layer"><svg class="ico" data-ico="shifts" viewBox="0 0 24 24" aria-hidden="true"></svg>Shifts</span><span class="tag">Mobility</span></span>
           <span class="pub-title">Mobility Product Outlook 2026–2036</span>
+          <span class="pub-q"><b>Question</b>How are consumer electronics and rising customer expectations redefining what a car is, and what defines the next-generation mobility product?</span>
           <span class="pub-desc">How consumer electronics and rising customer expectations are redefining the car: a twelve-dimension product-definition framework, robotaxi cabins and a ranking of fifteen technologies.</span>
           <span class="pub-meta">Research report · data as of 11 Oct 2026 · ≈26 min read · next refresh Oct 2027</span>
         </span>
@@ -416,6 +454,7 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
         <span class="pub-body">
           <span class="tags"><span class="tag layer"><svg class="ico" data-ico="forces" viewBox="0 0 24 24" aria-hidden="true"></svg>Forces</span><span class="tag">Shared</span></span>
           <span class="pub-title">Mega Trends Outlook 2040</span>
+          <span class="pub-q"><b>Question</b>Which long-range forces will reshape strategy between 2026 and 2040, how certain is each, and where do they collide?</span>
           <span class="pub-desc">Seven forces reshaping 2026–2040 across society, economy, technology, climate and geopolitics, scored, mapped across three horizons and stress-tested with scenarios.</span>
           <span class="pub-meta">Research report · data as of 1 Oct 2026 · ≈25 min read · next refresh Oct 2027</span>
         </span>
@@ -425,31 +464,13 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
         <span class="pub-body">
           <span class="tags"><span class="tag layer"><svg class="ico" data-ico="signals" viewBox="0 0 24 24" aria-hidden="true"></svg>Signals</span><span class="tag">Mobility</span></span>
           <span class="pub-title">In-Car AI Assistant Benchmark</span>
+          <span class="pub-q"><b>Question</b>What can today’s in-car AI assistants actually do for the driver, and who owns the layer that does it?</span>
           <span class="pub-desc">Twenty-one in-car assistants scored on seven capability dimensions and on who controls the stack, with use-case evidence and a dated watch list.</span>
           <span class="pub-meta">Benchmark · data as of 11 Oct 2026 · next refresh mid-Jan 2027</span>
         </span>
       </a>
     </div>
     <p class="pubs-note">Reading time is estimated from each report's text at 230 words a minute, excluding tables and references. None is given for the benchmark, which is mostly tables and lists.</p>
-  </section>
-
-  <section id="opportunities">
-    <div class="sec-head"><h2>Opportunities</h2><span class="eyebrow">How each brief will be built</span></div>
-    <p class="lede">Each opportunity brief follows the same template, so an idea can be traced back to the evidence behind it and judged on whether it could become a product.</p>
-    <div class="opp-card">
-      <div class="opp-head"><svg class="ico" data-ico="opp" viewBox="0 0 24 24" aria-hidden="true"></svg><span class="eyebrow">Template · no briefs published yet</span><h3>Opportunity brief</h3></div>
-      <div class="fields">
-        <div class="field"><b>Problem</b><span>What is hard or wasted today, and who feels it.</span></div>
-        <div class="field"><b>Why now</b><span>The forces, shifts and signals that open the window, with links.</span></div>
-        <div class="field"><b>Who is already there</b><span>Incumbents and startups working on it.</span></div>
-        <div class="field key"><b>Why not just the phone?</b><span>What this does that the phone in the rider’s hand cannot.</span></div>
-        <div class="field"><b>Business model</b><span>Who pays, how, and how often.</span></div>
-        <div class="field"><b>Entry wedge</b><span>The first customer and the smallest product that proves it.</span></div>
-        <div class="field"><b>Risks and open questions</b><span>What would make it fail, and what is still unknown.</span></div>
-        <div class="field"><b>Potential vs complexity</b><span>Market potential and execution complexity, each scored against defined criteria.</span></div>
-      </div>
-    </div>
-    <p class="map-note">Once at least three briefs are published, they will be plotted on a potential-versus-complexity chart.</p>
   </section>
 
   <section id="lenses">
@@ -497,12 +518,24 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
     </div>
   </section>
 
+  <section id="opportunities">
+    <div class="sec-head"><h2>Opportunities</h2><span class="eyebrow">No briefs published yet</span></div>
+    <div class="opp-compact">
+      <svg class="ico" data-ico="opp" viewBox="0 0 24 24" aria-hidden="true"></svg>
+      <div>
+        <p>Each opportunity brief will answer the same questions, so an idea can be traced back to the evidence behind it and judged on whether it could become a product:</p>
+        <ul><li>Problem</li><li>Why now</li><li>Who is already there</li><li><b>Why not just the phone?</b></li><li>Business model</li><li>Entry wedge</li><li>Risks and open questions</li><li>Potential vs complexity</li></ul>
+        <p class="map-note">The full template returns here once the first briefs are published; with three or more, they will be plotted on a potential-versus-complexity chart.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="about">
     <div class="sec-head"><h2>About</h2><span class="eyebrow">Author and method</span></div>
     <div class="about">
       <p><b>Chuhee Lee</b> has spent more than two decades in Silicon Valley turning ideas into products. His work spans the software-defined vehicle, artificial intelligence, autonomous driving and in-vehicle user experience. He leads a multidisciplinary organization of engineers and designers in advanced automotive R&amp;D, including responsibility for portfolio strategy, strategic partnerships and technology trend analysis. He works with startups on proofs of concept and with academic partners on framing research problems so the results can be used in the real world. He holds an M.S. in Electrical Engineering from Stanford University and a B.S. in Electrical Engineering from Johns Hopkins University.</p>
       <p>These are personal research projects. The views are the author's own and do not represent those of any employer or organization. No company covered sponsors, reviews or endorses this work.</p>
-      <p>Research, source verification and drafting are carried out with several AI models, including Claude (Anthropic), Gemini (Google) and ChatGPT (OpenAI); topic selection, scores and conclusions are the author’s. Facts are sourced to official and primary sources first, then recognized studies, then specialist trade press, and every report lists its references. Each report carries a change log and a next-refresh date, and corrections are welcome via LinkedIn. To follow new editions and refreshes, use the <a href="/feed.xml">RSS feed</a>.</p>
+      <p>Research, source verification and drafting are carried out with several AI models, including Claude (Anthropic), Gemini (Google) and ChatGPT (OpenAI); topic selection, scores and conclusions are the author’s. Facts are sourced to official and primary sources first, then recognized studies, then specialist trade press, and every report lists its references. Each report carries a change log and a next-refresh date, and corrections are welcome via LinkedIn. The full method is on <a href="/method/">How this research is made</a>. To follow new editions and refreshes, use the <a href="/feed.xml">RSS feed</a>.</p>
       <p>Unless stated otherwise, reports are licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>: share and adapt for non-commercial purposes with credit.</p>
     </div>
   </section>
@@ -534,7 +567,7 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
   </div>
   <div class="col">
     <span class="eyebrow">Site</span>
-    <a href="#map">The map</a><a href="#publications">Publications</a><a href="#opportunities">Opportunities</a><a href="#about">About and method</a>
+    <a href="#start">Start here</a><a href="#map">The map</a><a href="#publications">Publications</a><a href="#opportunities">Opportunities</a><a href="#about">About and method</a><a href="/method/">How this research is made</a>
   </div>
   <div class="col">
     <span class="eyebrow">Licence</span>
@@ -622,7 +655,7 @@ document.querySelectorAll('svg[data-ico]').forEach(function(s){s.innerHTML=ICONS
   var pv=document.getElementById('mapPreview');
   function show(href,link){
     var P=pubs[href]; if(!P||!pv) return;
-    pv.innerHTML='<img src="'+esc(P.cover)+'" alt="'+esc(P.alt)+'"><div class="body"><span class="k">'+esc(P.tags)+'</span><span class="t">'+esc(P.title)+'</span><span class="d">'+esc(P.desc)+'</span><span class="m">'+esc(P.meta)+'</span><a href="'+esc(P.href)+'">Read the report →</a></div>';
+    pv.innerHTML='<img src="'+esc(P.cover)+'" alt="'+esc(P.alt)+'"><div class="body"><span class="k">'+esc(P.tags)+'</span><span class="t">'+esc(P.title)+'</span><span class="d">'+esc(P.desc)+'</span><span class="m">'+esc(P.meta)+'</span><a href="'+esc(P.href)+'">Read the report<span class="vh">: '+esc(P.title)+'</span> →</a></div>';
     pv.hidden=false;
     document.querySelectorAll('.map .cell-link').forEach(function(a){a.classList.toggle('on',a===link);});
   }

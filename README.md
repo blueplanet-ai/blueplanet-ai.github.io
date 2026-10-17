@@ -37,9 +37,22 @@ python3 tools/make-covers.py
 
 A new report needs a motif function and an entry in `REPORTS` in that script.
 
+## Report opener
+
+Every report opens with the same block: top bar, cover, layer and domain tags, Newsreader title, dek, research question, scope, byline, reading time, data-as-of date, next refresh, change-log link, Cite / Share / Infographic / References buttons, a "Cite as" line, and **The report in 60 seconds** (three takeaways). The three shorter reports also get an "In this report" contents list; Mega Trends and the Mobility Product Outlook keep their own sticky section bars.
+
+The markup lives in each `index.html`; the styles and the Cite and Share behaviour are shared in `assets/report-opener.css` and `assets/report-opener.js`.
+
+Rules for the 60-second takeaways:
+
+- Each takeaway restates text already in the report's summary; no new figures. Its source line links to the report's own reference entry (or, for the benchmark, the source page).
+- Each carries one label for the status of its main claim: **Fact** (stated by the cited source), **Interpretation** (the author's reading of the cited evidence) or **Hypothesis** (expected from the evidence but not yet observed). Figures inside a takeaway are always sourced facts.
+- The labels are defined on `/method/`. Keep that page in step if a scoring scale or the source order changes.
+- At each refresh, check the takeaways, the data-as-of date, the next-refresh date and the citation line against the updated report.
+
 ## Reading time
 
-Reading times on the home page cards are estimates (rendered text at 230 words a minute, excluding tables and references). Update the card's `data-read` value and its meta line when a report's length changes substantially.
+Reading times on the home page cards and in each report opener are estimates (rendered text at 230 words a minute, excluding tables and references). Update the card's `data-read` value, its meta line and the report opener when a report's length changes substantially.
 
 ## How reports are updated
 

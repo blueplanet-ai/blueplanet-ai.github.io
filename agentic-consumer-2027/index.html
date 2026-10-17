@@ -636,29 +636,75 @@ a.gl-name:hover{color:var(--g-accent)}
 
 .glance{--g-s:var(--surface);--g-s2:var(--surface-2);--g-rule:var(--line);--g-ink:var(--ink);--g-ink2:var(--ink-2);--g-muted:var(--ink-3);--g-accent:var(--signal-deep);--g-soft:color-mix(in srgb,var(--signal) 12%,var(--surface));--g-ui:var(--font-ui);--g-mono:var(--font-mono)}
 </style>
+<link rel="stylesheet" href="/assets/report-opener.css">
 </head>
 <body>
-<nav class="crumb"><div class="crumb-inner"><a href="../">&larr; All publications</a><span>Chuhee Lee &middot; Independent research</span></div></nav>
+<div class="ro-top"><div class="ro-inner">
+  <a class="ro-brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">Chuhee Lee<span>Independent research</span></a>
+  <nav class="ro-nav" aria-label="Site">
+    <a href="/#start">Start here</a>
+    <a href="/#map">The map</a>
+    <a href="/#publications">Publications</a>
+    <a href="/#opportunities">Opportunities</a>
+    <a href="/#about">About</a>
+    <a class="ro-follow" href="/#follow"><svg class="ro-ico" data-ro-ico="rss" viewBox="0 0 24 24" aria-hidden="true"></svg>Follow</a>
+  </nav>
+</div></div>
 
-<div class="mast">
-  <div class="mast-inner">
-    <div>
-      <div class="telltale"><span class="dot"></span><span class="eyebrow">Independent research report &middot; consumer behavior</span></div>
-      <h1>Agentic AI and the Consumer: 2027 Outlook</h1>
-      <p class="sub">What changes when software starts acting for shoppers: what consumers trust, delegate, buy and feel, across retail, travel, finance and mobility.</p>
-      <p class="byline">By <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">Chuhee Lee</a> &middot; October 2026 edition &middot; Data as of 11 October 2026 &middot; Next scheduled refresh: to be confirmed</p>
-      <p class="byline-2">With research assistance from several AI models (Claude, Gemini) &middot; Views are the author&rsquo;s own</p>
-    </div>
-    <div class="stamp">
-      <div>EDITION <b>OCT 2026</b></div>
-      <div>DATA AS OF <b>11 OCT 2026</b></div>
-      <div>HORIZON <b>2027</b></div>
-      <div>SCOPE <b>US &middot; EU &middot; CHINA</b></div>
-      <div>LENS <b>GENERAL CONSUMER</b></div>
-      <div>BASIS <b>PRIMARY SOURCES FIRST</b></div>
-    </div>
+<header class="ro"><div class="ro-inner">
+  <div class="ro-side">
+    <figure class="ro-cover"><img src="cover.svg" width="600" height="800" alt="Cover art: one point handing tasks to many."></figure>
+    <dl class="ro-scope" aria-label="Scope"><div><dt>Horizon</dt><dd>2027</dd></div><div><dt>Scope</dt><dd>US · EU · China</dd></div><div><dt>Lens</dt><dd>General consumer</dd></div><div><dt>Basis</dt><dd>Primary sources first</dd></div></dl>
   </div>
-</div>
+  <div class="ro-main">
+    <div class="ro-tags"><span class="ro-tag layer"><svg class="ro-ico" data-ro-ico="shifts" viewBox="0 0 24 24" aria-hidden="true"></svg>Shifts</span><span class="ro-tag">Shared</span><span class="ro-tag">Travel</span><span class="ro-tag">Mobility</span><span class="ro-ed">October 2026 edition · Research report</span></div>
+    <h1 class="ro-title">Agentic AI and the Consumer: <em>2027 Outlook</em></h1>
+    <p class="ro-dek">What changes when software starts acting for shoppers: what consumers trust, delegate, buy and feel, across retail, travel, finance and mobility.</p>
+    <p class="ro-q"><b>Research question</b><span>How does agentic AI change what consumers trust, delegate, buy and feel through 2027?</span></p>
+    <div class="ro-meta"><span class="ro-by"><svg class="ro-ico" data-ro-ico="person" viewBox="0 0 24 24" aria-hidden="true"></svg>By&nbsp;<a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener"><b>Chuhee Lee</b></a></span><span><svg class="ro-ico" data-ro-ico="time" viewBox="0 0 24 24" aria-hidden="true"></svg>≈20 min read</span><span><svg class="ro-ico" data-ro-ico="doc" viewBox="0 0 24 24" aria-hidden="true"></svg>Data as of 11 Oct 2026</span><span><svg class="ro-ico" data-ro-ico="calendar" viewBox="0 0 24 24" aria-hidden="true"></svg>Next refresh: to be confirmed</span><a href="#changelog"><svg class="ro-ico" data-ro-ico="history" viewBox="0 0 24 24" aria-hidden="true"></svg>Change log</a></div>
+    <p class="ro-credit">With research assistance from several AI models (Claude, Gemini) · Views are the author’s own</p>
+    <div class="ro-acts">
+      <button type="button" class="ro-primary" id="roCite"><svg class="ro-ico" data-ro-ico="quote" viewBox="0 0 24 24" aria-hidden="true"></svg>Cite</button>
+      <button type="button" id="roShare"><svg class="ro-ico" data-ro-ico="share" viewBox="0 0 24 24" aria-hidden="true"></svg>Share</button>
+      <a href="agentic-consumer-2027-at-a-glance.png" download><svg class="ro-ico" data-ro-ico="download" viewBox="0 0 24 24" aria-hidden="true"></svg>Infographic (PNG)</a>
+      <a href="#refs"><svg class="ro-ico" data-ro-ico="doc" viewBox="0 0 24 24" aria-hidden="true"></svg>References</a>
+      <span class="ro-status" id="roStatus" role="status" aria-live="polite"></span>
+    </div>
+    <p class="ro-cite"><b>Cite as</b><span id="roCiteText">Chuhee Lee, <i>Agentic AI and the Consumer: 2027 Outlook</i>, October 2026 edition (data as of 11 October 2026), https://blueplanet-ai.github.io/agentic-consumer-2027/, CC BY-NC 4.0.</span></p>
+  </div>
+</div></header>
+
+<section class="ro-60" aria-labelledby="ro60H"><div class="ro-inner">
+  <div class="ro-60-head"><h2 id="ro60H">The report in <em>60 seconds</em></h2><span>Three takeaways · each with its source</span></div>
+  <ol>
+    <li class="fact">
+      <span class="ro-fig">9%</span>
+      <span class="ro-kind">Fact</span>
+      <h3>Advisor first, buyer later</h3>
+      <p>Fully autonomous purchasing draws 9% in Accenture’s 16-country survey and 11% in Gartner’s US survey, while 74% would let an agent handle specific tasks such as negotiating or resolving complaints.</p>
+      <span class="ro-src">Source: Accenture <a href="#r-acc">[1]</a>; Gartner <a href="#r-gartc">[2]</a></span>
+    </li>
+    <li class="fact">
+      <span class="ro-fig">+693%</span>
+      <span class="ro-kind">Fact</span>
+      <h3>Usage is real; delegation is still small</h3>
+      <p>Adobe measured AI-referred traffic to US retail sites up 693% year on year in holiday 2025. Yet Visa’s December 2025 release counts “hundreds” of controlled agent-initiated transactions.</p>
+      <span class="ro-src">Source: Adobe <a href="#r-adh">[5]</a>; Visa <a href="#r-visa">[7]</a></span>
+    </li>
+    <li class="hyp">
+      <span class="ro-fig">48% vs 33%</span>
+      <span class="ro-kind">Hypothesis</span>
+      <h3>Car buying shows the opening for agents</h3>
+      <p>48% of US car buyers want to apply for credit online but 33% do; 40% want to pick F&amp;I products online but 16% do. The first agent use cases are plausibly in these steps: the author’s inference, not yet observed at scale.</p>
+      <span class="ro-src">Source: Cox Automotive <a href="#r-cox">[11]</a></span>
+    </li>
+  </ol>
+  <p class="ro-legend"><b>Fact</b>: stated by the cited source. <b>Interpretation</b>: the author&rsquo;s reading of the cited evidence. <b>Hypothesis</b>: expected from the evidence but not yet observed. Figures inside every takeaway are sourced.</p>
+</div></section>
+<nav class="ro-toc" aria-labelledby="roTocH"><div class="ro-inner">
+  <h2 id="roTocH">In this report</h2>
+  <ol><li><a href="#glance"><span>01</span>At a glance</a></li><li><a href="#summary"><span>02</span>Summary</a></li><li><a href="#enterprise"><span>03</span>The agentic economy, briefly</a></li><li><a href="#consumer-agents"><span>04</span>Consumer-facing agents: what has shipped</a></li><li><a href="#trust"><span>05</span>Trust and delegation</a></li><li><a href="#stress"><span>06</span>Stress, control and affordability</a></li><li><a href="#sectors"><span>07</span>Sector spotlights</a></li><li><a href="#auto"><span>08</span>Automotive and mobility read-through</a></li><li><a href="#regions"><span>09</span>United States, EU and China compared</a></li><li><a href="#outlook"><span>10</span>The 2027 read and what to watch</a></li><li><a href="#method"><span>11</span>Method, limits and flags</a></li><li><a href="#refs"><span>12</span>References</a></li></ol>
+</div></nav>
 
 <div class="wrap">
 
@@ -985,7 +1031,7 @@ a.gl-name:hover{color:var(--g-accent)}
   <ol class="flags">
 <li><b>Dropped figures.</b> Four enterprise figures from earlier working research (about $1.4tn agent spend in 2027, 31% production deployment, about 80% of enterprise apps embedding an agent, about 1,000x inference growth) could not be confirmed against primary sources and are not used.</li><li><b>Accenture.</b> The page does not state a publication date. It gives 9% for fully autonomous purchasing in its introduction and figure but about 12% in the payments section; this report uses 9%. A headline claim that 74% would trust a personal agent over their best friend to buy something was not used pending the original report.</li><li><b>Quad / Harris Poll.</b> Read from a Finviz reproduction of the PR Newswire release, not the primary release.</li><li><b>Gartner consumer survey.</b> Two small US samples (n=322 and n=846); the release does not say which produced the 11% figure.</li><li><b>Experian.</b> The release lists fieldwork as &ldquo;[July 2026]&rdquo; in brackets, which may be a placeholder; no country split is given.</li><li><b>Adobe.</b> Vendor data. AI-traffic identification and survey sampling are not described; the agent-acceptance survey&rsquo;s fieldwork dates are not stated. Adobe&rsquo;s revenue-per-visit figures are inconsistent across the page and are not used.</li><li><b>Google I/O 2026 announcements</b> come from one secondary report with no link to a Google primary source.</li><li><b>Amazon figures</b> (300 million customers, nearly $12bn, 20% savings) are company-reported and read via secondary articles.</li><li><b>China figures</b> (Qwen users, Alipay transactions, Dianxiaomi conversion) are unattributed in the press report; only Alibaba&rsquo;s own release is primary. China&rsquo;s regulation was not researched.</li><li><b>Amazon v. Perplexity.</b> Read from one news report. Whether the injunction was stayed or appealed was not confirmed.</li><li><b>Not covered:</b> Mastercard Agent Pay in detail; the status of the EU Digital Fairness Act; independent measurement of enterprise customer-service or pricing agents; agent-negotiated auto financing; EU- and China-specific consumer survey splits.</li><li><b>Cox Automotive.</b> The study reports both 12% (visited an AI site) and 19% (used AI sites or AI-generated overviews); this report uses 19%.</li><li><b>Gallup</b> figures are read via Research Live, not Gallup&rsquo;s own page. The J.D. Power page shows two dates (17 and 20 August 2026).</li><li><b>Currency.</b> Visa&rsquo;s transaction count is from December 2025 and predates the 2026 holiday season; Gartner and IDC forecasts are from August 2025; the McKinsey commerce forecast is from October 2025.</li><li><b>Credit.</b> Research assistance came from Claude (Anthropic) and Gemini (Google); the credit line was updated on 14 October 2026 to name Gemini.</li>
   </ol>
-  <h3 class="sub-h">Change log</h3>
+  <h3 class="sub-h" id="changelog">Change log</h3>
   <ul class="log">
     <li class="loghead">14 October 2026</li>
     <li><span class="chg">Changed</span><div>Research credit now names Gemini (Google) alongside Claude (Anthropic). No figures or conclusions changed.</div></li>
@@ -996,7 +1042,7 @@ a.gl-name:hover{color:var(--g-accent)}
   <div class="about">
     <p>Personal research by <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">Chuhee Lee</a>. Research, source verification and drafting were carried out with several AI models, including Claude (Anthropic) and Gemini (Google). Every factual claim is sourced to the references listed below; topic selection, framing and conclusions are the author&rsquo;s. These are personal research projects; the views are the author&rsquo;s own and do not represent any employer or organization. No company named sponsors, reviews or endorses this report, and product names and trademarks belong to their owners. Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>.</p>
   </div>
-  <h3 class="sub-h">References</h3>
+  <h3 class="sub-h" id="refs">References</h3>
   <ul class="srcs">
 <li id="r-acc"><b>[1]</b> <a href="https://www.accenture.com/gb-en/insights/consulting/talk-my-ai-agent" target="_blank" rel="noopener">Accenture — Consumer Pulse Research 2026, “Talk to my AI agent” (25,590 consumers, 16 countries; fieldwork 7–22 Jan 2026)</a><span class="tag">vendor research &middot; publication date not stated; cites material to 20 May 2026</span></li>
 <li id="r-gartc"><b>[2]</b> <a href="https://www.gartner.com/en/newsroom/press-releases/2026-05-27-gartner-survey-finds-consumers-want-ai-shopping-help-but-not-ai-purchase-decisions" target="_blank" rel="noopener">Gartner — Survey finds consumers want AI shopping help, but not AI purchase decisions (US; n=322 and n=846)</a><span class="tag">vendor research &middot; 27 May 2026</span></li>
@@ -1036,7 +1082,7 @@ a.gl-name:hover{color:var(--g-accent)}
 <footer class="foot"><div class="foot-inner">
   <span>&copy; 2026 Chuhee Lee &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
   <span>Independent research &middot; not affiliated with or endorsed by any company named</span>
-  <span><a href="../">All publications</a></span>
+  <span><a href="../method/">How this research is made</a> &middot; <a href="../">All publications</a></span>
 </div></footer>
 <script>
 /* ---------- AT A GLANCE (infographic): shared helpers ---------- */
@@ -1088,5 +1134,6 @@ var GL={
   GL.foot('blueplanet-ai.github.io/agentic-consumer-2027','&copy; 2026 Chuhee Lee · CC BY-NC 4.0 · Survey figures from the cited sources; the read is the author&rsquo;s judgement');
 })();
 </script>
+<script src="/assets/report-opener.js" defer></script>
 </body>
 </html>
