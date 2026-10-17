@@ -2,6 +2,9 @@
 
 ## Site-wide
 
+### 17 October 2026 — Mobility Product Outlook: Zoox diagram legend
+- The "seat touchscreen" legend overlapped the vehicle outline in the Zoox cabin diagram. It now sits in its own row below the diagram. No data changed.
+
 ### 17 October 2026 — Mobility Product Outlook retitled 2026–2031
 - The title and horizon label change from 2026–2036 to 2026–2031, matching the Shifts layer (one to five years). Updated on the report, home page, feed, README, social card and infographic, in the Physical AI reference list and in the "Continue down the map" cards on the other reports.
 - The report text is unchanged. Passages that look beyond 2031 (the framework's 2030–2036 view, the 2031–2036 technology timings, adoption by 2036) are to be reviewed at the October 2027 refresh. The page URL is unchanged.
