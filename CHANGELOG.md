@@ -2,6 +2,14 @@
 
 ## Site-wide
 
+### 17 October 2026 — home page: Start here, research questions, compact Opportunities
+- New **Start here** section under the hero: the five reports in reading order (forces, then shifts, then signals), each with its layer and its scope as stated in the report. Also linked from the top bar and footer.
+- Each publication card now shows the report's one-line research question, the same wording as in the report opener.
+- Screen readers now hear which report a "Read the report" link opens (map preview and Latest strip); the card-level duplicate is hidden from them because the whole card is already the link.
+- Opportunities is compacted while no briefs are published: one short block listing the questions every brief will answer. The full template returns once briefs are published.
+- New section order: hero and Latest, Start here, the map, publications, how topics are found, Opportunities, About, Follow.
+- Headline and intro unchanged.
+
 ### 17 October 2026 — report openers and 60-second summaries (visual refresh, part 2 of 3)
 - Every report now opens with the same block: the site's top bar (replacing the "All publications" strip), the report's cover, layer and domain tags, the title in Newsreader, the existing standfirst, a one-line research question, a scope list (taken from each report's former "stamp" box), byline, reading time (not shown for the benchmark), data-as-of date, next refresh and a link to the change log, plus **Cite** (copies the citation), **Share**, **Infographic (PNG)** and **References** buttons and a "Cite as" line.
 - New **The report in 60 seconds** band on every report: three takeaways, each restating text already in the report's summary with its source linked, and labelled **Fact**, **Interpretation** or **Hypothesis**. No figures were added or changed.
