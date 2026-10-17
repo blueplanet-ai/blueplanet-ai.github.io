@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://blueplanet-ai.github.io/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Time and attention on the move: independent research by Chuhee Lee on technology, mobility and travel.">
+<meta property="og:image:alt" content="Time and attention on the move: independent research by Chuhee Lee. AI-generated illustration of a rider reading on a train while travel modes flow past the window.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://blueplanet-ai.github.io/og-image.png">
 <style>img{max-width:100%}[hidden]{display:none!important}</style>
@@ -25,14 +25,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
-/* Layout: existing blueplanet-ai masthead + sections, adding a layers x domains map as primary navigation. Tokens copied from the live site. */
+/* Layout: editorial front page. Newsreader for titles and decks, Saira for labels and navigation, Plex Mono for data. Tokens copied from the live site; --opp-ink added for small orange text. */
 :root{
   --ground:#F1F4F4; --surface:#FBFCFC; --surface-2:#E9EEEF;
   --line:#D3DBDC; --line-strong:#B2BEC0;
   --ink:#0F1719; --ink-2:#3F4C50; --ink-3:#6B787C;
   --signal:#0892A5; --signal-deep:#066A79;
-  --opp:#C2622D; --opp-soft:#F5E6DC;
+  --opp:#C2622D; --opp-soft:#F5E6DC; --opp-ink:#9A4A1F;
   --hl:#DDEFF2;
+  --plate:#0F1719; --plate-ink:#E7EDEE; --plate-2:#AFBDBF; --plate-3:#7F8D90; --plate-line:#3C4B4E; --plate-accent:#5FCCDB;
   --font-ui:"Saira","Helvetica Neue",Arial,sans-serif;
   --font-body:"Newsreader",Georgia,"Times New Roman",serif;
   --font-mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
@@ -43,8 +44,9 @@
     --line:#283436; --line-strong:#3C4B4E;
     --ink:#E7EDEE; --ink-2:#AFBDBF; --ink-3:#7F8D90;
     --signal:#2BB3C6; --signal-deep:#5FCCDB;
-    --opp:#DB8A4F; --opp-soft:#2A1E16;
+    --opp:#DB8A4F; --opp-soft:#2A1E16; --opp-ink:#DB8A4F;
     --hl:#16363C;
+    --plate:#151D1F; --plate-line:#283436;
     color-scheme:dark;
   }
 }
@@ -53,149 +55,234 @@
   --line:#283436; --line-strong:#3C4B4E;
   --ink:#E7EDEE; --ink-2:#AFBDBF; --ink-3:#7F8D90;
   --signal:#2BB3C6; --signal-deep:#5FCCDB;
-  --opp:#DB8A4F; --opp-soft:#2A1E16;
+  --opp:#DB8A4F; --opp-soft:#2A1E16; --opp-ink:#DB8A4F;
   --hl:#16363C;
+  --plate:#151D1F; --plate-line:#283436;
   color-scheme:dark;
 }
 *{box-sizing:border-box;}
 body{background:var(--ground);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;margin:0;}
-h1,h2,h3{font-family:var(--font-ui);text-wrap:balance;margin:0;line-height:1.12;}
+h1,h2,h3{font-family:var(--font-body);font-weight:400;text-wrap:balance;margin:0;line-height:1.1;}
 p{margin:0;}
 a{color:var(--signal-deep);text-decoration-thickness:1px;text-underline-offset:2px;}
 .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:500;}
 .inner{max-width:1180px;margin:0 auto;padding-inline:20px;}
+.ico{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;vertical-align:-3px;}
+a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:2px;}
 
+/* top bar */
+.topbar{background:var(--surface);border-bottom:1px solid var(--line);}
+.topbar .inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;padding-block:14px;}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--font-ui);font-weight:600;font-size:16px;}
+.brand img{width:28px;height:28px;display:block;}
+.brand span{font-family:var(--font-mono);font-weight:400;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);}
+.topnav{display:flex;flex-wrap:wrap;align-items:center;gap:4px 22px;font-family:var(--font-ui);font-size:14.5px;font-weight:500;}
+.topnav a{color:var(--ink);text-decoration:none;padding:6px 0;}
+.topnav a:hover{color:var(--signal-deep);}
+.topnav a.follow{display:flex;align-items:center;gap:7px;color:var(--signal-deep);border:1px solid var(--line-strong);padding:7px 12px;}
 
+/* hero */
 .mast{border-bottom:1px solid var(--line);background:var(--surface);}
-.mast .inner{padding-block:34px 30px;display:grid;gap:14px;}
+.mast .inner{padding-block:44px 30px;display:grid;gap:22px;}
+.mast-top{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:20px 56px;align-items:end;}
+.mast-text{display:grid;gap:14px;min-width:0;}
 .telltale{display:flex;align-items:center;gap:9px;}
 .telltale .dot{width:7px;height:7px;border-radius:50%;background:var(--signal);flex:none;}
-.mast h1{font-size:clamp(32px,5.6vw,56px);font-weight:600;letter-spacing:-.02em;max-width:20ch;}
-.mast h1 em{font-style:normal;color:var(--signal-deep);}
-.mast .sub{font-size:18px;color:var(--ink-2);max-width:62ch;}
-.mast .sowhat{font-family:var(--font-ui);font-size:15.5px;font-weight:500;color:var(--ink);border-left:2px solid var(--signal);padding-left:12px;max-width:62ch;line-height:1.45;}
+.mast h1{font-size:clamp(44px,7.6vw,96px);line-height:.98;letter-spacing:-.025em;}
+.mast h1 em{font-style:italic;color:var(--signal-deep);}
+.mast-side{display:grid;gap:14px;min-width:0;padding-bottom:6px;}
+.mast .sub{font-size:18.5px;color:var(--ink-2);line-height:1.5;}
+.mast .sowhat{font-family:var(--font-ui);font-size:15.5px;font-weight:500;color:var(--ink);border-left:2px solid var(--signal);padding-left:12px;line-height:1.45;}
 .byline{font-family:var(--font-ui);font-size:14px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:6px 18px;}
 .byline b{color:var(--ink);font-weight:600;}
+@media (max-width:860px){.mast-top{grid-template-columns:1fr;}}
+
+/* hero image */
+.hero-img{margin:0;display:grid;gap:8px;}
+.hero-img img{display:block;width:100%;height:auto;aspect-ratio:1600/893;object-fit:cover;background:var(--plate);}
+@media (max-width:640px){.hero-img img{aspect-ratio:4/3;object-position:22% 50%;}}
+.hero-img figcaption{border-top:1px solid var(--line);padding-top:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3);}
+.lens-figure{margin-bottom:22px;}
+
+/* journey illustration */
+.journey{margin:0;display:grid;gap:8px;}
+.journey svg{display:block;width:100%;height:auto;}
+.journey .narrow{display:none;}
+@media (max-width:640px){.journey .wide{display:none;}.journey .narrow{display:block;}}
+.j-band{fill:var(--opp-soft);}
+.j-edge{fill:none;stroke:var(--opp);stroke-width:1.5;stroke-dasharray:4 5;}
+.j-line{stroke:var(--ink);stroke-width:3;}
+.j-stop{fill:var(--surface);stroke:var(--signal);stroke-width:3;}
+.j-label{fill:var(--ink);font-family:var(--font-ui);font-weight:600;}
+.j-sub{fill:var(--ink-3);font-family:var(--font-mono);letter-spacing:.08em;}
+.j-ico{fill:none;stroke:var(--ink-2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.j-note{fill:var(--opp-ink);font-family:var(--font-body);font-style:italic;}
+.j-pointer{fill:none;stroke:var(--opp-ink);stroke-width:1.2;}
+.journey figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 20px;border-top:1px solid var(--line);padding-top:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3);}
+
+.latest{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;border-top:2px solid var(--ink);padding-top:14px;text-decoration:none;color:var(--ink);}
+.latest .k{font-family:var(--font-ui);font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--opp-ink);}
+.latest .t{font-family:var(--font-body);font-size:22px;font-weight:500;line-height:1.2;}
+.latest .m{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);}
+.latest .go{margin-left:auto;font-family:var(--font-ui);font-size:14.5px;font-weight:600;color:var(--signal-deep);}
+.latest:hover .t{color:var(--signal-deep);}
 
 main{padding-block:0 72px;}
-section{padding-top:56px;}
-.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;border-bottom:1px solid var(--line-strong);padding-bottom:9px;margin-bottom:22px;}
-.sec-head h2{font-size:22px;font-weight:600;letter-spacing:-.01em;}
+section{padding-top:64px;}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:22px;}
+.sec-head h2{font-size:clamp(30px,4vw,40px);letter-spacing:-.01em;}
 .sec-head .eyebrow{margin-left:auto;}
-.lede{font-size:16.5px;color:var(--ink-2);max-width:68ch;margin-bottom:22px;}
+.lede{font-size:17px;color:var(--ink-2);max-width:68ch;margin-bottom:22px;}
 
 /* lenses */
 .lenses{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
-.lens{background:var(--surface);padding:16px 18px;display:grid;gap:4px;align-content:start;}
+.lens{background:var(--surface);padding:18px;display:grid;gap:6px;align-content:start;}
 .lens .k{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);}
-.lens h3{font-size:17px;font-weight:600;}
+.lens .ico{width:28px;height:28px;color:var(--ink-2);margin-bottom:2px;}
+.lens.person .ico,.lens.person .k{color:var(--signal-deep);}
+.lens h3{font-family:var(--font-ui);font-size:17px;font-weight:600;}
 .lens p{font-size:14.5px;color:var(--ink-2);line-height:1.45;}
-.lens.person .k{color:var(--signal-deep);}
 
 /* controls */
 .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px;}
 .controls .lbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-right:4px;}
-button.chip{font-family:var(--font-ui);font-size:13px;font-weight:500;padding:5px 13px;border:1px solid var(--line-strong);background:transparent;color:var(--ink-2);cursor:pointer;border-radius:2px;}
+button.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-ui);font-size:13px;font-weight:500;padding:6px 13px;border:1px solid var(--line-strong);background:transparent;color:var(--ink-2);cursor:pointer;border-radius:2px;}
+button.chip .ico{width:15px;height:15px;}
 button.chip:hover{border-color:var(--signal);color:var(--ink);}
 button.chip[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink);}
-button.chip:focus-visible,a:focus-visible{outline:2px solid var(--signal);outline-offset:2px;}
 
 /* map */
+.map-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;align-items:start;}
+@media (max-width:1100px){.map-layout{grid-template-columns:1fr;}}
 .mapwrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface);}
-.map{display:grid;grid-template-columns:150px repeat(4,minmax(150px,1fr));min-width:800px;}
+.map{display:grid;grid-template-columns:150px repeat(4,minmax(140px,1fr));min-width:760px;}
 .map > div{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:12px;min-width:0;}
 .map > div:nth-child(5n){border-right:0;}
 .map .ch{background:var(--surface-2);font-family:var(--font-ui);padding-block:12px;}
-.map .ch b{display:block;font-size:14px;font-weight:600;color:var(--ink);}
-.map .ch span{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.04em;}
+.map .ch b{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ink);}
+.map .ch b .ico{color:var(--signal-deep);}
+.map .ch span{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.04em;margin-top:2px;}
 .map .rh{font-family:var(--font-ui);}
-.map .rh b{display:block;font-size:15px;font-weight:600;}
+.map .rh b{display:flex;align-items:center;gap:7px;font-size:15px;font-weight:600;}
 .map .rh span{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--ink-3);line-height:1.5;margin-top:2px;}
-.map .rh.opp b{color:var(--opp);}
+.map .rh.opp b{color:var(--opp-ink);}
 .map .last{border-bottom:0;}
 .cell-link{display:block;text-decoration:none;color:var(--ink);background:var(--hl);border-left:3px solid var(--signal);padding:9px 10px;font-family:var(--font-ui);font-size:13.5px;font-weight:600;line-height:1.25;}
+.cell-link + .cell-link{margin-top:6px;}
 .cell-link small{display:block;font-family:var(--font-mono);font-size:10.5px;font-weight:400;color:var(--ink-3);margin-top:3px;}
-.cell-link:hover{border-left-color:var(--signal-deep);}
+.cell-link:hover,.cell-link.on{border-left-color:var(--signal-deep);box-shadow:inset 0 0 0 1px var(--signal);}
 .coming{display:block;border:1px dashed var(--line-strong);color:var(--ink-3);padding:9px 10px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;}
-.coming.opp{border-color:var(--opp);color:var(--opp);}
+.coming.opp{border-color:var(--opp);color:var(--opp-ink);}
 .na{color:var(--line-strong);font-family:var(--font-mono);font-size:12px;}
 .map [data-col].dim{opacity:.38;}
 .map-note{font-size:14px;color:var(--ink-3);margin-top:10px;max-width:80ch;}
+.preview{background:var(--surface);border:1px solid var(--line-strong);display:grid;}
+.preview img{display:block;width:100%;height:150px;object-fit:cover;background:var(--plate);}
+.preview .body{padding:16px 18px 18px;display:grid;gap:8px;}
+.preview .k{font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--signal-deep);}
+.preview .t{font-family:var(--font-body);font-size:23px;line-height:1.15;}
+.preview .d{font-size:15px;color:var(--ink-2);line-height:1.5;}
+.preview .m{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);line-height:1.5;}
+.preview a{font-family:var(--font-ui);font-size:14px;font-weight:600;text-decoration:none;}
+@media (max-width:1100px){.preview{display:none;}}
+.map-stack{display:none;gap:10px;}
+.stack-row{background:var(--surface);border:1px solid var(--line);padding:14px;display:grid;gap:8px;}
+.stack-row.opp{background:var(--opp-soft);border:1px dashed var(--opp);}
+.stack-head{display:flex;align-items:center;gap:8px;font-family:var(--font-ui);font-size:16px;font-weight:600;}
+.stack-head .ico{color:var(--signal-deep);}
+.stack-row.opp .stack-head{color:var(--opp-ink);}
+.stack-row.opp .stack-head .ico{color:var(--opp-ink);}
+.stack-head small{margin-left:auto;font-family:var(--font-mono);font-size:10.5px;font-weight:400;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;}
+.stack-row .cell-link small b{font-weight:400;}
+.stack-row .coming{font-size:11px;}
+.stack-row[hidden]{display:none;}
+@media (max-width:700px){.mapwrap{display:none;}.map-stack{display:grid;}}
 
-/* pubs */
-.pubs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;}
-.pub{display:flex;flex-direction:column;gap:8px;background:var(--surface);border:1px solid var(--line);padding:20px 22px;text-decoration:none;color:inherit;min-width:0;}
-a.pub:hover{border-color:var(--signal);}
+/* publications */
+.pubs{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:0 44px;align-items:start;}
+@media (max-width:900px){.pubs{grid-template-columns:1fr;}}
+.pub{display:grid;grid-template-columns:96px minmax(0,1fr);gap:18px;padding:20px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;min-width:0;}
+.pub-cover{display:block;width:96px;height:128px;object-fit:cover;background:var(--plate);}
+.pub-body{display:flex;flex-direction:column;gap:8px;min-width:0;}
+.pub.lead{grid-column:1;grid-row:1 / span 4;grid-template-columns:1fr;gap:16px;padding-top:0;border-bottom:0;}
+.pub.lead .pub-cover{width:100%;height:auto;aspect-ratio:16/9;}
+.pub:not(.lead){grid-column:2;}
+@media (max-width:900px){.pub.lead,.pub:not(.lead){grid-column:1;grid-row:auto;}.pub.lead{border-bottom:1px solid var(--line);padding-bottom:22px;}}
+a.pub:hover .pub-title{color:var(--signal-deep);}
 .tags{display:flex;flex-wrap:wrap;gap:6px;}
-.tag{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;padding:2px 7px;border:1px solid var(--line-strong);color:var(--ink-2);}
+.tag{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;padding:2px 7px;border:1px solid var(--line-strong);color:var(--ink-2);}
+.tag .ico{width:13px;height:13px;}
 .tag.layer{background:var(--ink);color:var(--ground);border-color:var(--ink);}
+.tag.new{border-color:var(--opp);color:var(--opp-ink);}
 .pub-meta{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);}
-.pub-title{font-family:var(--font-ui);font-size:20px;font-weight:600;color:var(--ink);line-height:1.2;}
-.pub-desc{font-size:15px;color:var(--ink-2);line-height:1.55;}
-.pub-go{font-family:var(--font-ui);font-size:13.5px;font-weight:600;color:var(--signal-deep);margin-top:auto;}
+.pub-title{font-family:var(--font-body);font-size:25px;font-weight:400;color:var(--ink);line-height:1.15;}
+.pub.lead .pub-title{font-size:clamp(32px,4vw,46px);line-height:1.05;letter-spacing:-.01em;}
+.pub-desc{font-size:15.5px;color:var(--ink-2);line-height:1.5;}
+.pub.lead .pub-desc{font-size:19px;}
+.pub-go{font-family:var(--font-ui);font-size:14px;font-weight:600;color:var(--signal-deep);margin-top:auto;}
+.pubs-note{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);margin-top:14px;}
 
 /* opportunity template */
 .opp-card{border:1px dashed var(--opp);background:var(--surface);}
-.opp-head{padding:16px 20px;border-bottom:1px dashed var(--opp);display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;}
-.opp-head h3{font-size:18px;font-weight:600;}
-.opp-head .eyebrow{color:var(--opp);}
+.opp-head{padding:16px 20px;border-bottom:1px dashed var(--opp);display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;}
+.opp-head h3{font-size:24px;}
+.opp-head .ico{width:24px;height:24px;color:var(--opp-ink);}
+.opp-head .eyebrow{color:var(--opp-ink);}
 .fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
 .field{padding:14px 20px;border-bottom:1px solid var(--line);display:grid;gap:3px;}
 .field b{font-family:var(--font-ui);font-size:14.5px;font-weight:600;}
 .field span{font-size:14.5px;color:var(--ink-2);line-height:1.45;}
-.field.key b{color:var(--opp);}
+.field.key b{color:var(--opp-ink);}
 
 /* about */
 .about{display:grid;gap:10px;max-width:86ch;}
-.about p{font-size:15px;color:var(--ink-2);line-height:1.6;}
+.about p{font-size:15.5px;color:var(--ink-2);line-height:1.6;}
 .about b{font-family:var(--font-ui);color:var(--ink);font-weight:600;}
 
-.foot{border-top:1px solid var(--line);background:var(--surface);}
-.foot .inner{padding-block:20px 28px;display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-between;font-family:var(--font-mono);font-size:11px;color:var(--ink-3);}
+/* follow band and footer */
+.follow-band{background:var(--plate);color:var(--plate-ink);margin-top:72px;}
+.follow-band .inner{padding-block:48px;display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:28px 56px;align-items:start;}
+@media (max-width:860px){.follow-band .inner{grid-template-columns:1fr;}}
+.follow-band .k{font-family:var(--font-ui);font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--plate-accent);}
+.follow-band h2{font-size:clamp(28px,3.6vw,38px);margin-top:10px;color:var(--plate-ink);}
+.follow-band h2 em{color:var(--plate-accent);}
+.follow-band ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;}
+.follow-band li{display:flex;gap:12px;align-items:baseline;border-bottom:1px solid var(--plate-line);padding-bottom:8px;font-size:15.5px;color:var(--plate-ink);}
+.follow-band li span{margin-left:auto;font-family:var(--font-mono);font-size:11.5px;color:var(--plate-2);white-space:nowrap;}
+.follow-band .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
+.follow-band .acts a{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--plate-line);color:var(--plate-ink);text-decoration:none;padding:11px 15px;font-family:var(--font-ui);font-size:14.5px;font-weight:500;}
+.follow-band .acts a:hover{border-color:var(--plate-accent);}
+.follow-band .acts a:focus-visible{outline-color:var(--plate-accent);}
+.foot{background:var(--surface);border-top:1px solid var(--line);}
+.foot .inner{padding-block:30px 34px;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,3fr) minmax(0,3fr);gap:24px 40px;}
+@media (max-width:760px){.foot .inner{grid-template-columns:1fr;}}
+.foot .col{display:grid;gap:8px;align-content:start;font-size:14.5px;color:var(--ink-2);line-height:1.5;}
+.foot .col .eyebrow{margin-bottom:2px;}
+.foot .col a{font-family:var(--font-ui);font-weight:500;color:var(--ink);text-decoration:none;}
+.foot .col a:hover{color:var(--signal-deep);}
+.foot .mono{font-family:var(--font-mono);font-size:12px;}
 
 @media (max-width:560px){
-  .mast .inner{padding-block:26px 22px;}
+  .mast .inner{padding-block:30px 22px;}
   .sec-head .eyebrow{margin-left:0;}
+  .latest .go{margin-left:0;}
+  .topnav{gap:2px 16px;font-size:14px;}
 }
 @media (prefers-reduced-motion:no-preference){
   .map [data-col],.pub{transition:opacity .2s;}
 }
-
-/* Visuals: route pictogram in the masthead, domain and lens icons, report previews on cards. Built from the map and cards on this page. */
-.mast .inner{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px 48px;align-items:center}
-.mast-text{display:grid;gap:14px;min-width:0}
-@media (max-width:900px){.mast .inner{grid-template-columns:1fr}}
-.route{background:var(--ground);border:1px solid var(--line);padding:18px 20px 14px;position:relative}
-.route h2{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin:0 0 12px}
-.route ol{list-style:none;margin:0;padding:0;position:relative}
-.route li{position:relative;display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:0 12px;align-items:center;padding:9px 0}
-.route li::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--line-strong)}
-.route li:first-child::before{top:50%}
-.route li:last-child::before{bottom:50%}
-.route .nd{width:22px;height:22px;border-radius:50%;background:var(--signal);border:4px solid var(--ground);box-shadow:0 0 0 2px var(--signal);position:relative;z-index:1}
-.route li.todo .nd{background:var(--ground);box-shadow:0 0 0 2px var(--opp);border-color:var(--ground)}
-.route b{display:block;font-family:var(--font-ui);font-size:15px;font-weight:600;line-height:1.2}
-.route li.todo b{color:var(--opp)}
-.route small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.03em}
-.route .dots{display:flex;gap:4px;align-items:center;font-family:var(--font-mono);font-size:10.5px;color:var(--ink-3)}
-.route .dots i{width:12px;height:12px;border-radius:2px;background:var(--signal);display:block}
-.route li.todo .dots{color:var(--opp)}
-.route .cap{font-family:var(--font-ui);font-size:12.5px;color:var(--ink-3);margin-top:8px;border-top:1px solid var(--line);padding-top:8px}
-.map .ch b .ico,.lens h3 .ico{width:18px;height:18px;vertical-align:-3px;margin-right:6px;stroke:var(--signal-deep);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.lens.person h3 .ico{stroke:var(--signal-deep)}
-.lens:not(.person) h3 .ico{stroke:var(--ink-2)}
-.pub-img{display:block;width:100%;height:auto;aspect-ratio:1200/630;border:1px solid var(--line);margin:-2px 0 4px;background:var(--surface-2)}
-@media print{.pub-img{display:none}.route{break-inside:avoid}}
+@media print{.pub-cover,.preview,.journey,.hero-img,.topbar,.follow-band{display:none}}
 </style>
 
 <style media="print">
 /* Print: clean light copy. In the browser's print dialog choose Save as PDF. */
 @page{margin:14mm 12mm}
-:root,:root[data-theme="dark"]{color-scheme:light!important;--ground:#fff !important;--surface:#FBFCFC !important;--surface-2:#E9EEEF !important;--line:#D3DBDC !important;--line-strong:#B2BEC0 !important;--ink:#0F1719 !important;--ink-2:#3F4C50 !important;--ink-3:#6B787C !important;--signal:#0892A5 !important;--signal-deep:#066A79 !important;--opp:#C2622D !important;--opp-soft:#F5E6DC !important;--hl:#DDEFF2 !important}
+:root,:root[data-theme="dark"]{color-scheme:light!important;--ground:#fff !important;--surface:#FBFCFC !important;--surface-2:#E9EEEF !important;--line:#D3DBDC !important;--line-strong:#B2BEC0 !important;--ink:#0F1719 !important;--ink-2:#3F4C50 !important;--ink-3:#6B787C !important;--signal:#0892A5 !important;--signal-deep:#066A79 !important;--opp:#C2622D !important;--opp-soft:#F5E6DC !important;--opp-ink:#9A4A1F !important;--hl:#DDEFF2 !important}
 html{background:#fff!important}
 *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .crumb,.nav,.idx,.controls,.chips,.tabs,.tip,#tip,button,.noprint{display:none!important}
-.tablewrap,.tbl-wrap,.map-scroll,.mapwrap,.scroll{overflow:visible!important;max-height:none!important}
+.tablewrap,.tbl-wrap,.map-scroll,.mapwrap,.scroll{overflow:visible!important;max-height:none!important;display:block!important}
+.map-stack{display:none!important}
 .panel,.card,.caveat,figure,tr,.pub,.tile,.kpi{break-inside:avoid;page-break-inside:avoid}
 h2,h3,h4,.sec-head{break-after:avoid;page-break-after:avoid}
 table{font-size:9pt;min-width:0!important;width:100%!important}
@@ -203,18 +290,40 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
 #refs a[href^="http"]::after,.srcs a[href^="http"]::after,#srclist a[href^="http"]::after{content:" <" attr(href) ">";font-size:7.5pt;word-break:break-all;color:#555}
 .map{min-width:0!important;grid-template-columns:92px repeat(4,minmax(0,1fr))!important}
 .map>div{padding:8px!important}
+.pubs{grid-template-columns:1fr!important}.pub.lead,.pub:not(.lead){grid-column:1!important;grid-row:auto!important}
 </style>
 </head>
 <body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">Chuhee Lee<span>Independent research</span></a>
+  <nav class="topnav" aria-label="Sections">
+    <a href="#map">The map</a>
+    <a href="#publications">Publications</a>
+    <a href="#opportunities">Opportunities</a>
+    <a href="#about">About</a>
+    <a class="follow" href="#follow"><svg class="ico" data-ico="rss" viewBox="0 0 24 24" aria-hidden="true"></svg>Follow</a>
+  </nav>
+</div></div>
+
 <header class="mast"><div class="inner">
-<div class="mast-text">
-  <div class="telltale"><span class="dot"></span><span class="eyebrow">Independent research · Technology, Mobility, Travel</span></div>
-  <h1>Time and attention <em>on the move</em></h1>
-  <p class="sub">Every day, people move: to work, to visit, to travel. Along the way they read, watch, learn, work or rest. Mobility, travel and what people do with that time are one connected space. This site traces the forces shaping it and the opportunities it opens.</p>
-  <p class="sowhat">For people building products in tech, mobility and travel: where the opportunities are, and the evidence behind them.</p>
-  <p class="byline"><span>By <b>Chuhee Lee</b></span><a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">LinkedIn</a></p>
-</div>
-<aside class="route" id="routeArt" aria-label="The four layers of the site and how many reports each holds"></aside>
+  <div class="mast-top">
+    <div class="mast-text">
+      <div class="telltale"><span class="dot"></span><span class="eyebrow">Independent research · Technology, Mobility, Travel</span></div>
+      <h1>Time and attention <em>on the move</em></h1>
+    </div>
+    <div class="mast-side">
+      <p class="sub">Every day, people move: to work, to visit, to travel. Along the way they read, watch, learn, work or rest. Mobility, travel and what people do with that time are one connected space. This site traces the forces shaping it and the opportunities it opens.</p>
+      <p class="sowhat">For people building products in tech, mobility and travel: where the opportunities are, and the evidence behind them.</p>
+      <p class="byline"><span>By <b>Chuhee Lee</b></span><a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+  </div>
+
+  <figure class="hero-img">
+    <img src="media/home-hero-1600.webp" srcset="media/home-hero-800.webp 800w, media/home-hero-1600.webp 1600w" sizes="(max-width:1180px) 100vw, 1140px" width="1600" height="893" fetchpriority="high" alt="Illustration: a woman reads a tablet in a train seat by the window; beyond the window, layers of landscape, map grids, a train, a bus and a plane flow past.">
+    <figcaption>AI-generated illustration (Gemini).</figcaption>
+  </figure>
+
+  <a class="latest" id="latest" href="physical-ai-cabin/" hidden><span class="k">Latest</span><span class="t"></span><span class="m"></span><span class="go">Read the report →</span></a>
 </div></header>
 
 <main class="inner">
@@ -225,97 +334,110 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
     <div class="controls" role="group" aria-label="Filter by domain">
       <span class="lbl">Domain</span>
       <button class="chip" type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
-      <button class="chip" type="button" id="f-mobility" data-f="mobility" aria-pressed="false">Mobility</button>
-      <button class="chip" type="button" id="f-travel" data-f="travel" aria-pressed="false">Travel</button>
-      <button class="chip" type="button" id="f-edu" data-f="edu" aria-pressed="false">Entertainment</button>
+      <button class="chip" type="button" id="f-mobility" data-f="mobility" aria-pressed="false"><svg class="ico" data-ico="mobility" viewBox="0 0 24 24" aria-hidden="true"></svg>Mobility</button>
+      <button class="chip" type="button" id="f-travel" data-f="travel" aria-pressed="false"><svg class="ico" data-ico="travel" viewBox="0 0 24 24" aria-hidden="true"></svg>Travel</button>
+      <button class="chip" type="button" id="f-edu" data-f="edu" aria-pressed="false"><svg class="ico" data-ico="edu" viewBox="0 0 24 24" aria-hidden="true"></svg>Entertainment</button>
     </div>
-    <div class="mapwrap">
-      <div class="map">
-        <div class="ch"><b>Layer</b><span>&nbsp;</span></div>
-        <div class="ch" data-col="shared"><b>Shared</b><span>All domains</span></div>
-        <div class="ch" data-col="mobility"><b>Mobility</b><span>Everyday movement</span></div>
-        <div class="ch" data-col="travel"><b>Travel</b><span>The journey</span></div>
-        <div class="ch" data-col="edu"><b>Entertainment</b><span>Watch, listen, play, learn</span></div>
+    <div class="map-layout">
+      <div>
+        <div class="mapwrap">
+          <div class="map">
+            <div class="ch"><b>Layer</b><span>&nbsp;</span></div>
+            <div class="ch" data-col="shared"><b><svg class="ico" data-ico="shared" viewBox="0 0 24 24" aria-hidden="true"></svg>Shared</b><span>All domains</span></div>
+            <div class="ch" data-col="mobility"><b><svg class="ico" data-ico="mobility" viewBox="0 0 24 24" aria-hidden="true"></svg>Mobility</b><span>Everyday movement</span></div>
+            <div class="ch" data-col="travel"><b><svg class="ico" data-ico="travel" viewBox="0 0 24 24" aria-hidden="true"></svg>Travel</b><span>The journey</span></div>
+            <div class="ch" data-col="edu"><b><svg class="ico" data-ico="edu" viewBox="0 0 24 24" aria-hidden="true"></svg>Entertainment</b><span>Watch, listen, play, learn</span></div>
 
-        <div class="rh"><b>Forces</b><span>Macro · 10–15 yrs</span></div>
-        <div data-col="shared"><a class="cell-link" href="mega-trends-2040/">Mega Trends Outlook 2040<small>Oct 2026 edition</small></a></div>
-        <div data-col="mobility"><span class="na">—</span></div>
-        <div data-col="travel"><span class="na">—</span></div>
-        <div data-col="edu"><span class="na">—</span></div>
+            <div class="rh" data-layer="forces"><b><svg class="ico" data-ico="forces" viewBox="0 0 24 24" aria-hidden="true"></svg>Forces</b><span>Macro · 10–15 yrs</span></div>
+            <div data-col="shared"><a class="cell-link" href="mega-trends-2040/">Mega Trends Outlook 2040<small>Oct 2026 edition</small></a></div>
+            <div data-col="mobility"><span class="na">—</span></div>
+            <div data-col="travel"><span class="na">—</span></div>
+            <div data-col="edu"><span class="na">—</span></div>
 
-        <div class="rh"><b>Shifts</b><span>Tech + consumer · 1–5 yrs</span></div>
-        <div data-col="shared"><a class="cell-link" href="agentic-consumer-2027/">Agentic AI and the Consumer<small>Oct 2026 edition</small></a></div>
-        <div data-col="mobility"><a class="cell-link" href="mobility-product-outlook/">Mobility Product Outlook<small>Oct 2026 edition</small></a><a class="cell-link" style="margin-top:6px" href="physical-ai-cabin/">Physical AI and the Rider&rsquo;s Cabin<small>Oct 2026 edition</small></a></div>
-        <div data-col="travel"><span class="coming">Coming</span></div>
-        <div data-col="edu"><span class="coming">Coming</span></div>
+            <div class="rh" data-layer="shifts"><b><svg class="ico" data-ico="shifts" viewBox="0 0 24 24" aria-hidden="true"></svg>Shifts</b><span>Tech + consumer · 1–5 yrs</span></div>
+            <div data-col="shared"><a class="cell-link" href="agentic-consumer-2027/">Agentic AI and the Consumer<small>Oct 2026 edition</small></a></div>
+            <div data-col="mobility"><a class="cell-link" href="mobility-product-outlook/">Mobility Product Outlook<small>Oct 2026 edition</small></a><a class="cell-link" href="physical-ai-cabin/">Physical AI and the Rider&rsquo;s Cabin<small>Oct 2026 edition</small></a></div>
+            <div data-col="travel"><span class="coming">Planned</span></div>
+            <div data-col="edu"><span class="coming">Planned</span></div>
 
-        <div class="rh"><b>Signals</b><span>Benchmarks</span></div>
-        <div data-col="shared"><span class="na">—</span></div>
-        <div data-col="mobility"><a class="cell-link" href="incar-ai-benchmark/">In-Car AI Assistant Benchmark<small>Next refresh mid-Jan 2027</small></a></div>
-        <div data-col="travel"><span class="coming">Coming</span></div>
-        <div data-col="edu"><span class="coming">Coming</span></div>
+            <div class="rh" data-layer="signals"><b><svg class="ico" data-ico="signals" viewBox="0 0 24 24" aria-hidden="true"></svg>Signals</b><span>Benchmarks</span></div>
+            <div data-col="shared"><span class="na">—</span></div>
+            <div data-col="mobility"><a class="cell-link" href="incar-ai-benchmark/">In-Car AI Assistant Benchmark<small>Next refresh mid-Jan 2027</small></a></div>
+            <div data-col="travel"><span class="coming">Planned</span></div>
+            <div data-col="edu"><span class="coming">Planned</span></div>
 
-        <div class="rh opp last"><b>Opportunities</b><span>Product lens</span></div>
-        <div class="last" data-col="shared"><span class="na">—</span></div>
-        <div class="last" data-col="mobility"><span class="coming opp">First brief coming</span></div>
-        <div class="last" data-col="travel"><span class="coming opp">Coming</span></div>
-        <div class="last" data-col="edu"><span class="coming opp">Coming</span></div>
+            <div class="rh opp last" data-layer="opportunities"><b><svg class="ico" data-ico="opp" viewBox="0 0 24 24" aria-hidden="true"></svg>Opportunities</b><span>Product lens</span></div>
+            <div class="last" data-col="shared"><span class="na">—</span></div>
+            <div class="last" data-col="mobility"><span class="coming opp">First brief in progress</span></div>
+            <div class="last" data-col="travel"><span class="coming opp">Planned</span></div>
+            <div class="last" data-col="edu"><span class="coming opp">Planned</span></div>
+          </div>
+        </div>
+        <div class="map-stack" id="mapStack" aria-label="The map, as a list"></div>
       </div>
+      <aside class="preview" id="mapPreview" aria-live="polite" hidden></aside>
     </div>
-    <p class="map-note">Agentic AI and the Consumer already covers travel and mobility, alongside retail and finance, so it sits in the shared column.</p>
+    <p class="map-note">Agentic AI and the Consumer already covers travel and mobility, alongside retail and finance, so it sits in the shared column. Point to a report on the map to preview it.</p>
   </section>
 
   <section id="publications">
     <div class="sec-head"><h2>Publications</h2><span class="eyebrow">Latest first</span></div>
     <div class="pubs">
-      <a class="pub" href="physical-ai-cabin/" data-dom="mobility">
-        <img class="pub-img" src="physical-ai-cabin/og-image.png" width="1200" height="630" loading="lazy" alt="Preview card for Physical AI and the Rider’s Cabin">
-        <span class="tags"><span class="tag layer">Shifts</span><span class="tag">Mobility</span></span>
-        <span class="pub-meta">Research report · data as of 13 Oct 2026 · next refresh to be confirmed</span>
-        <span class="pub-title">Physical AI and the Rider’s Cabin</span>
-        <span class="pub-desc">What physical AI means, the main players across the stack, the most-used products and services, and how it reaches the car, with the cabin and the rider’s freed-up time as the main lens.</span>
-        <span class="pub-go">Read the report →</span>
+      <a class="pub lead" href="physical-ai-cabin/" data-dom="mobility" data-read="20">
+        <img class="pub-cover" src="physical-ai-cabin/cover-wide.svg" width="1600" height="900" alt="Cover art: a four-seat cabin seen from above, one rider marked.">
+        <span class="pub-body">
+          <span class="tags"><span class="tag new">Latest</span><span class="tag layer"><svg class="ico" data-ico="shifts" viewBox="0 0 24 24" aria-hidden="true"></svg>Shifts</span><span class="tag">Mobility</span></span>
+          <span class="pub-title">Physical AI and the Rider’s Cabin</span>
+          <span class="pub-desc">What physical AI means, the main players across the stack, the most-used products and services, and how it reaches the car, with the cabin and the rider’s freed-up time as the main lens.</span>
+          <span class="pub-meta">Research report · data as of 13 Oct 2026 · ≈20 min read · next refresh to be confirmed</span>
+          <span class="pub-go">Read the report →</span>
+        </span>
       </a>
-      <a class="pub" href="agentic-consumer-2027/" data-dom="shared travel mobility">
-        <img class="pub-img" src="agentic-consumer-2027/og-image.png" width="1200" height="630" loading="lazy" alt="Preview card for Agentic AI and the Consumer: 2027 Outlook">
-        <span class="tags"><span class="tag layer">Shifts</span><span class="tag">Shared</span><span class="tag">Travel</span><span class="tag">Mobility</span></span>
-        <span class="pub-meta">Research report · data as of 11 Oct 2026 · next refresh to be confirmed</span>
-        <span class="pub-title">Agentic AI and the Consumer: 2027 Outlook</span>
-        <span class="pub-desc">How agentic AI changes what consumers trust, delegate, buy and feel, across retail, travel, finance and mobility, with a US, EU and China comparison.</span>
-        <span class="pub-go">Read the report →</span>
+      <a class="pub" href="agentic-consumer-2027/" data-dom="shared travel mobility" data-read="20">
+        <img class="pub-cover" src="agentic-consumer-2027/cover.svg" width="600" height="800" alt="Cover art: one point handing tasks to many.">
+        <span class="pub-body">
+          <span class="tags"><span class="tag layer"><svg class="ico" data-ico="shifts" viewBox="0 0 24 24" aria-hidden="true"></svg>Shifts</span><span class="tag">Shared</span><span class="tag">Travel</span><span class="tag">Mobility</span></span>
+          <span class="pub-title">Agentic AI and the Consumer: 2027 Outlook</span>
+          <span class="pub-desc">How agentic AI changes what consumers trust, delegate, buy and feel, across retail, travel, finance and mobility, with a US, EU and China comparison.</span>
+          <span class="pub-meta">Research report · data as of 11 Oct 2026 · ≈20 min read · next refresh to be confirmed</span>
+        </span>
       </a>
-      <a class="pub" href="mobility-product-outlook/" data-dom="mobility">
-        <img class="pub-img" src="mobility-product-outlook/og-image.png" width="1200" height="630" loading="lazy" alt="Preview card for Mobility Product Outlook 2026–2036">
-        <span class="tags"><span class="tag layer">Shifts</span><span class="tag">Mobility</span></span>
-        <span class="pub-meta">Research report · data as of 11 Oct 2026 · next refresh Oct 2027</span>
-        <span class="pub-title">Mobility Product Outlook 2026–2036</span>
-        <span class="pub-desc">How consumer electronics and rising customer expectations are redefining the car: a twelve-dimension product-definition framework, robotaxi cabins and a ranking of fifteen technologies.</span>
-        <span class="pub-go">Read the report →</span>
+      <a class="pub" href="mobility-product-outlook/" data-dom="mobility" data-read="26">
+        <img class="pub-cover" src="mobility-product-outlook/cover.svg" width="600" height="800" alt="Cover art: twelve spokes, one per dimension of the product-definition framework.">
+        <span class="pub-body">
+          <span class="tags"><span class="tag layer"><svg class="ico" data-ico="shifts" viewBox="0 0 24 24" aria-hidden="true"></svg>Shifts</span><span class="tag">Mobility</span></span>
+          <span class="pub-title">Mobility Product Outlook 2026–2036</span>
+          <span class="pub-desc">How consumer electronics and rising customer expectations are redefining the car: a twelve-dimension product-definition framework, robotaxi cabins and a ranking of fifteen technologies.</span>
+          <span class="pub-meta">Research report · data as of 11 Oct 2026 · ≈26 min read · next refresh Oct 2027</span>
+        </span>
       </a>
-      <a class="pub" href="mega-trends-2040/" data-dom="shared">
-        <img class="pub-img" src="mega-trends-2040/og-image.png" width="1200" height="630" loading="lazy" alt="Preview card for Mega Trends Outlook 2040">
-        <span class="tags"><span class="tag layer">Forces</span><span class="tag">Shared</span></span>
-        <span class="pub-meta">Research report · data as of 1 Oct 2026 · next refresh Oct 2027</span>
-        <span class="pub-title">Mega Trends Outlook 2040</span>
-        <span class="pub-desc">Seven forces reshaping 2026–2040 across society, economy, technology, climate and geopolitics, scored, mapped across three horizons and stress-tested with scenarios.</span>
-        <span class="pub-go">Read the report →</span>
+      <a class="pub" href="mega-trends-2040/" data-dom="shared" data-read="25">
+        <img class="pub-cover" src="mega-trends-2040/cover.svg" width="600" height="800" alt="Cover art: seven arcs, one per force; each arc's length is the trend's score out of 20.">
+        <span class="pub-body">
+          <span class="tags"><span class="tag layer"><svg class="ico" data-ico="forces" viewBox="0 0 24 24" aria-hidden="true"></svg>Forces</span><span class="tag">Shared</span></span>
+          <span class="pub-title">Mega Trends Outlook 2040</span>
+          <span class="pub-desc">Seven forces reshaping 2026–2040 across society, economy, technology, climate and geopolitics, scored, mapped across three horizons and stress-tested with scenarios.</span>
+          <span class="pub-meta">Research report · data as of 1 Oct 2026 · ≈25 min read · next refresh Oct 2027</span>
+        </span>
       </a>
       <a class="pub" href="incar-ai-benchmark/" data-dom="mobility">
-        <img class="pub-img" src="incar-ai-benchmark/og-image.png" width="1200" height="630" loading="lazy" alt="Preview card for In-Car AI Assistant Benchmark">
-        <span class="tags"><span class="tag layer">Signals</span><span class="tag">Mobility</span></span>
-        <span class="pub-meta">Benchmark · data as of 11 Oct 2026 · next refresh mid-Jan 2027</span>
-        <span class="pub-title">In-Car AI Assistant Benchmark</span>
-        <span class="pub-desc">Twenty-one in-car assistants scored on seven capability dimensions and on who controls the stack, with use-case evidence and a dated watch list.</span>
-        <span class="pub-go">Read the report →</span>
+        <img class="pub-cover" src="incar-ai-benchmark/cover.svg" width="600" height="800" alt="Cover art: 21 dots in 7 columns, for 21 assistants scored on 7 capability dimensions.">
+        <span class="pub-body">
+          <span class="tags"><span class="tag layer"><svg class="ico" data-ico="signals" viewBox="0 0 24 24" aria-hidden="true"></svg>Signals</span><span class="tag">Mobility</span></span>
+          <span class="pub-title">In-Car AI Assistant Benchmark</span>
+          <span class="pub-desc">Twenty-one in-car assistants scored on seven capability dimensions and on who controls the stack, with use-case evidence and a dated watch list.</span>
+          <span class="pub-meta">Benchmark · data as of 11 Oct 2026 · next refresh mid-Jan 2027</span>
+        </span>
       </a>
     </div>
+    <p class="pubs-note">Reading time is estimated from each report's text at 230 words a minute, excluding tables and references. None is given for the benchmark, which is mostly tables and lists.</p>
   </section>
 
   <section id="opportunities">
     <div class="sec-head"><h2>Opportunities</h2><span class="eyebrow">How each brief will be built</span></div>
     <p class="lede">Each opportunity brief follows the same template, so an idea can be traced back to the evidence behind it and judged on whether it could become a product.</p>
     <div class="opp-card">
-      <div class="opp-head"><span class="eyebrow">Template · no briefs published yet</span><h3>Opportunity brief</h3></div>
+      <div class="opp-head"><svg class="ico" data-ico="opp" viewBox="0 0 24 24" aria-hidden="true"></svg><span class="eyebrow">Template · no briefs published yet</span><h3>Opportunity brief</h3></div>
       <div class="fields">
         <div class="field"><b>Problem</b><span>What is hard or wasted today, and who feels it.</span></div>
         <div class="field"><b>Why now</b><span>The forces, shifts and signals that open the window, with links.</span></div>
@@ -332,13 +454,46 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
 
   <section id="lenses">
     <div class="sec-head"><h2>How topics are found</h2><span class="eyebrow">Six lenses on the person on the move</span></div>
+    <figure class="journey lens-figure">
+    <svg class="wide" viewBox="0 0 1200 330" role="img" aria-label="Illustration: one journey line through car, rail, robotaxi and plane. As people move from driving to riding, free attention grows and is spent on reading, watching, working, learning and rest.">
+      <path class="j-band" d="M40 250 C 260 250 260 238 360 238 C 520 238 520 140 760 140 C 920 140 950 100 1160 100 L1160 250 Z"/>
+      <path class="j-edge" d="M40 250 C 260 250 260 238 360 238 C 520 238 520 140 760 140 C 920 140 950 100 1160 100"/>
+      <line class="j-line" x1="40" y1="250" x2="1160" y2="250"/>
+      <circle class="j-stop" cx="170" cy="250" r="11"/><circle class="j-stop" cx="470" cy="250" r="11"/><circle class="j-stop" cx="780" cy="250" r="11"/><circle class="j-stop" cx="1080" cy="250" r="11"/>
+      <g class="j-label" font-size="17" text-anchor="middle"><text x="170" y="290">Car</text><text x="470" y="290">Rail</text><text x="780" y="290">Robotaxi</text><text x="1080" y="290">Plane</text></g>
+      <g class="j-sub" font-size="12" text-anchor="middle"><text x="170" y="312">DRIVING</text><text x="470" y="312">RIDING</text><text x="780" y="312">RIDING</text><text x="1080" y="312">THE JOURNEY</text></g>
+      <g class="j-ico">
+        <g transform="translate(156,196)"><circle cx="14" cy="14" r="12"/><circle cx="14" cy="14" r="3"/><path d="M2 14h9M17 14h9M14 17v9"/></g>
+        <g transform="translate(420,178)"><rect x="6" y="2" width="16" height="26" rx="3"/><path d="M11 24h6"/></g>
+        <g transform="translate(492,166)"><path d="M3 6h9a4 4 0 0 1 4 4v16a3 3 0 0 0-3-3H3zM29 6h-9a4 4 0 0 0-4 4v16a3 3 0 0 1 3-3h10z"/></g>
+        <g transform="translate(704,108)"><rect x="2" y="4" width="26" height="18" rx="2"/><path d="M12 9l7 4-7 4z"/><path d="M9 27h12"/></g>
+        <g transform="translate(760,92)"><rect x="5" y="5" width="20" height="14" rx="1.5"/><path d="M1 24h28"/></g>
+        <g transform="translate(818,106)"><circle cx="9" cy="16" r="6"/><circle cx="23" cy="16" r="6"/><path d="M3 16V12a12 12 0 0 1 24 0v4"/></g>
+        <g transform="translate(1012,70)"><path d="M3 8l12-5 12 5-12 5z"/><path d="M8 11v7c3 3 11 3 14 0v-7"/></g>
+        <g transform="translate(1066,52)"><path d="M22 18a10 10 0 1 1-9-14 8 8 0 0 0 9 14z"/></g>
+        <g transform="translate(1116,74)"><path d="M3 6h9a4 4 0 0 1 4 4v16a3 3 0 0 0-3-3H3zM29 6h-9a4 4 0 0 0-4 4v16a3 3 0 0 1 3-3h10z"/></g>
+      </g>
+      <g class="j-note" font-size="19"><text x="210" y="226">a driver has little attention to give</text><text x="560" y="126">a rider has a lot</text></g>
+      <path class="j-pointer" d="M560 132 C 600 150 610 168 640 184"/>
+    </svg>
+    <svg class="narrow" viewBox="0 0 350 170" role="img" aria-label="Illustration: free attention grows from car to rail to robotaxi to plane, as people move from driving to riding.">
+      <path class="j-band" d="M10 112 C 70 112 80 106 110 106 C 160 106 170 62 240 62 C 290 62 300 44 340 44 L340 112 Z"/>
+      <path class="j-edge" d="M10 112 C 70 112 80 106 110 106 C 160 106 170 62 240 62 C 290 62 300 44 340 44"/>
+      <line class="j-line" x1="10" y1="112" x2="340" y2="112"/>
+      <circle class="j-stop" cx="45" cy="112" r="7"/><circle class="j-stop" cx="135" cy="112" r="7"/><circle class="j-stop" cx="230" cy="112" r="7"/><circle class="j-stop" cx="315" cy="112" r="7"/>
+      <g class="j-label" font-size="13" text-anchor="middle"><text x="45" y="138">Car</text><text x="135" y="138">Rail</text><text x="230" y="138">Robotaxi</text><text x="315" y="138">Plane</text></g>
+      <g class="j-sub" font-size="9" text-anchor="middle"><text x="45" y="156">DRIVING</text><text x="135" y="156">RIDING</text><text x="230" y="156">RIDING</text><text x="315" y="156">JOURNEY</text></g>
+      <g class="j-note" font-size="13"><text x="60" y="92">little attention free</text><text x="170" y="40">a lot free</text></g>
+    </svg>
+    <figcaption><span>Shaded band: attention that is free to spend. Illustrative, not to scale.</span><span>Drawn for this site</span></figcaption>
+  </figure>
     <div class="lenses">
-      <div class="lens person"><span class="k">The person</span><h3>Time</h3><p>How long, and how often. Any length of time gets spent on something.</p></div>
-      <div class="lens person"><span class="k">The person</span><h3>Attention</h3><p>What is free to give. A driver has little; a rider has a lot.</p></div>
-      <div class="lens person"><span class="k">The person</span><h3>State of mind</h3><p>Stress on the commute, rest on the way home, anticipation before a trip.</p></div>
-      <div class="lens"><span class="k">Surroundings</span><h3>Social context</h3><p>Alone, with family, or sharing a ride with strangers.</p></div>
-      <div class="lens"><span class="k">Surroundings</span><h3>Space</h3><p>The cabin, the seat, the window, the connection.</p></div>
-      <div class="lens"><span class="k">Surroundings</span><h3>Transitions</h3><p>Waits, transfers and the last mile between legs of a journey.</p></div>
+      <div class="lens person"><svg class="ico" data-ico="time" viewBox="0 0 24 24" aria-hidden="true"></svg><span class="k">The person</span><h3>Time</h3><p>How long, and how often. Any length of time gets spent on something.</p></div>
+      <div class="lens person"><svg class="ico" data-ico="attention" viewBox="0 0 24 24" aria-hidden="true"></svg><span class="k">The person</span><h3>Attention</h3><p>What is free to give. A driver has little; a rider has a lot.</p></div>
+      <div class="lens person"><svg class="ico" data-ico="mind" viewBox="0 0 24 24" aria-hidden="true"></svg><span class="k">The person</span><h3>State of mind</h3><p>Stress on the commute, rest on the way home, anticipation before a trip.</p></div>
+      <div class="lens"><svg class="ico" data-ico="social" viewBox="0 0 24 24" aria-hidden="true"></svg><span class="k">Surroundings</span><h3>Social context</h3><p>Alone, with family, or sharing a ride with strangers.</p></div>
+      <div class="lens"><svg class="ico" data-ico="space" viewBox="0 0 24 24" aria-hidden="true"></svg><span class="k">Surroundings</span><h3>Space</h3><p>The cabin, the seat, the window, the connection.</p></div>
+      <div class="lens"><svg class="ico" data-ico="transitions" viewBox="0 0 24 24" aria-hidden="true"></svg><span class="k">Surroundings</span><h3>Transitions</h3><p>Waits, transfers and the last mile between legs of a journey.</p></div>
     </div>
   </section>
 
@@ -354,65 +509,150 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
 
 </main>
 
+<section class="follow-band" id="follow"><div class="inner">
+  <div>
+    <span class="k">Follow new editions</span>
+    <h2>Each report is refreshed on a schedule. <em>Know when it changes.</em></h2>
+    <div class="acts">
+      <a href="/feed.xml"><svg class="ico" data-ico="rss" viewBox="0 0 24 24" aria-hidden="true"></svg>RSS feed</a>
+      <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener"><svg class="ico" data-ico="external" viewBox="0 0 24 24" aria-hidden="true"></svg>Follow on LinkedIn</a>
+    </div>
+  </div>
+  <ul aria-label="Next scheduled refreshes">
+    <li>In-Car AI Assistant Benchmark<span>mid-Jan 2027</span></li>
+    <li>Mega Trends Outlook 2040<span>Oct 2027</span></li>
+    <li>Mobility Product Outlook 2026–2036<span>Oct 2027</span></li>
+    <li>Agentic AI and the Consumer<span>to be confirmed</span></li>
+    <li>Physical AI and the Rider’s Cabin<span>to be confirmed</span></li>
+  </ul>
+</div></section>
+
 <footer class="foot"><div class="inner">
-  <span>© 2026 Chuhee Lee · <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-  <span>Independent research · not affiliated with or endorsed by any company named</span>
+  <div class="col">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">Chuhee Lee · Independent research</a>
+    <span>Independent research · not affiliated with or endorsed by any company named. Corrections welcome via <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener" style="font-weight:400;color:var(--signal-deep);text-decoration:underline">LinkedIn</a>.</span>
+  </div>
+  <div class="col">
+    <span class="eyebrow">Site</span>
+    <a href="#map">The map</a><a href="#publications">Publications</a><a href="#opportunities">Opportunities</a><a href="#about">About and method</a>
+  </div>
+  <div class="col">
+    <span class="eyebrow">Licence</span>
+    <span class="mono">© 2026 Chuhee Lee · <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-weight:400;color:var(--signal-deep)">CC BY-NC 4.0</a></span>
+    <span class="mono">Cover art and illustrations are drawn for this site. Any AI-generated image is labelled where it appears.</span>
+  </div>
 </div></footer>
 
 <script>
+/* Icon set: 24 x 24 grid, 1.6 stroke, drawn in currentColor. Shared by the map, tags, lenses and buttons. */
+var ICONS={
+  shared:'<circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/>',
+  mobility:'<path d="M2 17v-5l3-5h10l5 5h2v5h-3M8 17h7M2 17h2"/><circle cx="6" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>',
+  travel:'<path d="M2 13l20-8-6 15-4-6z"/><path d="M12 14l4-4"/>',
+  edu:'<rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M10 8l5 3-5 3z"/><path d="M8 21h8"/>',
+  forces:'<path d="M3 18c4-1 6-5 9-12 3 7 5 11 9 12"/><path d="M3 21h18"/>',
+  shifts:'<path d="M3 12h13M12 7l5 5-5 5"/><path d="M20 5v14"/>',
+  signals:'<path d="M2 12h3l3-7 4 14 3-7h7"/>',
+  opp:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/>',
+  time:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  attention:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  mind:'<path d="M2 14c3-5 5-5 7 0s4 5 7 0 4-5 6-2"/>',
+  social:'<circle cx="8" cy="9" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M2 20c0-3.5 2.7-6 6-6s6 2.5 6 6M14 19c0-2.6 1.4-4.5 3-4.5s4 1.9 4 4.5"/>',
+  space:'<path d="M6 20V9a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v6H9"/><path d="M6 20h12"/>',
+  transitions:'<circle cx="5" cy="17" r="2"/><circle cx="19" cy="7" r="2"/><path d="M7 17h4a3 3 0 0 0 3-3v-4a3 3 0 0 1 3-3"/>',
+  rss:'<path d="M5 5a14 14 0 0 1 14 14M5 11a8 8 0 0 1 8 8"/><circle cx="6" cy="18" r="1"/>',
+  external:'<path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>'
+};
+function icoHTML(n){return '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+(ICONS[n]||'')+'</svg>';}
+document.querySelectorAll('svg[data-ico]').forEach(function(s){s.innerHTML=ICONS[s.getAttribute('data-ico')]||'';});
+</script>
+
+<script>
+/* Domain filter for the map, the phone list and the publication list. */
 (function(){
   var chips = document.querySelectorAll('button.chip[data-f]');
-  var cols = document.querySelectorAll('.map [data-col]');
-  var pubs = document.querySelectorAll('.pub[data-dom]');
   function apply(f){
     chips.forEach(function(c){ c.setAttribute('aria-pressed', String(c.dataset.f === f)); });
-    cols.forEach(function(el){
+    document.querySelectorAll('.map [data-col]').forEach(function(el){
       var c = el.dataset.col;
       el.classList.toggle('dim', f !== 'all' && c !== f && c !== 'shared');
     });
-    pubs.forEach(function(p){
+    document.querySelectorAll('.map-stack [data-col]').forEach(function(el){
+      var c = el.dataset.col;
+      el.hidden = f !== 'all' && c !== f && c !== 'shared';
+    });
+    document.querySelectorAll('.pub[data-dom]').forEach(function(p){
       var d = p.dataset.dom.split(' ');
       p.hidden = !(f === 'all' || d.indexOf(f) > -1 || d.indexOf('shared') > -1);
     });
   }
   chips.forEach(function(c){ c.addEventListener('click', function(){ apply(c.dataset.f); }); });
+  window.__applyFilter = apply;
 })();
 </script>
 
-
 <script>
-/* Route pictogram, domain icons and lens icons, built from the map and cards above. */
+/* Latest strip, map preview and the phone version of the map. All built from the map and the publication list above, so there is one place to edit. */
 (function(){
-  var map=document.querySelector('.map'),art=document.getElementById('routeArt');
-  if(map&&art){
-    var k=map.children,rows=[];
-    for(var i=5;i+4<k.length;i+=5){
-      var rh=k[i],cells=[k[i+1],k[i+2],k[i+3],k[i+4]],n=0,soon=0;
-      cells.forEach(function(c){n+=c.querySelectorAll('.cell-link').length;soon+=c.querySelectorAll('.coming').length;});
-      rows.push({name:rh.querySelector('b').textContent,sub:rh.querySelector('span').textContent,n:n,soon:soon});
-    }
-    var total=rows.reduce(function(a,r){return a+r.n;},0);
-    var h='<h2>The route, top to bottom</h2><ol>'+rows.map(function(r){
-      var dots=r.n?Array(r.n+1).join('<i></i>'):'<span>none yet</span>';
-      return '<li class="'+(r.n?'':'todo')+'"><span class="nd"></span><span><b>'+r.name+'</b><small>'+r.sub+'</small></span><span class="dots" title="'+r.n+' published">'+dots+'</span></li>';}).join('')+'</ol>'+
-      '<p class="cap">'+total+' reports published so far. Each square is one report.</p>';
-    art.innerHTML=h;
+  var pubs={};
+  document.querySelectorAll('.pub').forEach(function(p){
+    var cover=p.querySelector('.pub-cover');
+    pubs[p.getAttribute('href')]={
+      href:p.getAttribute('href'),
+      title:p.querySelector('.pub-title').textContent,
+      desc:p.querySelector('.pub-desc').textContent,
+      meta:p.querySelector('.pub-meta').textContent,
+      tags:Array.prototype.map.call(p.querySelectorAll('.tag:not(.new)'),function(t){return t.textContent;}).join(' · '),
+      cover:cover.getAttribute('src').replace(/cover(-wide)?\.svg$/,'cover-wide.svg'),
+      alt:cover.getAttribute('alt')
+    };
+  });
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+  var first=document.querySelector('.pub');
+  var latest=document.getElementById('latest');
+  if(first&&latest){
+    var L=pubs[first.getAttribute('href')];
+    latest.setAttribute('href',L.href);
+    latest.querySelector('.t').textContent=L.title;
+    latest.querySelector('.m').textContent=L.meta.replace(/^[^·]*·\s*/,'');
+    latest.hidden=false;
   }
-  var I={
-    shared:'<circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/>',
-    mobility:'<path d="M3 15l1.6-5A2 2 0 0 1 6.5 8.5h11a2 2 0 0 1 1.9 1.5L21 15v3h-3v-1.5H6V18H3z"/><circle cx="7.5" cy="13.5" r=".6"/><circle cx="16.5" cy="13.5" r=".6"/>',
-    travel:'<path d="M3 11l18-7-7 18-2.5-7.5z"/><path d="M11.5 14.5L21 4"/>',
-    edu:'<rect x="3" y="5" width="18" height="13" rx="2"/><path d="M10 9.5v5l4.5-2.5z"/>',
-    Time:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/>',
-    Attention:'<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/>',
-    'State of mind':'<path d="M3 12c2-5 4-5 6 0s4 5 6 0 4-5 6 0"/>',
-    'Social context':'<circle cx="9" cy="9" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3.5 19c.6-3.4 2.8-5 5.5-5s4.9 1.6 5.5 5M15.5 14.4c2.6-.4 4.6.9 5.2 4.1"/>',
-    Space:'<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12L4 7.5M12 12v9"/>',
-    Transitions:'<path d="M4 8h13M13 4l4 4-4 4"/><path d="M20 16H7M11 12l-4 4 4 4"/>'
-  };
-  function ico(p){return '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+p+'</svg>';}
-  document.querySelectorAll('.map .ch[data-col] b').forEach(function(b){var c=b.parentNode.dataset.col;if(I[c])b.insertAdjacentHTML('afterbegin',ico(I[c]));});
-  document.querySelectorAll('.lens h3').forEach(function(h){var t=h.textContent.trim();if(I[t])h.insertAdjacentHTML('afterbegin',ico(I[t]));});
+
+  var pv=document.getElementById('mapPreview');
+  function show(href,link){
+    var P=pubs[href]; if(!P||!pv) return;
+    pv.innerHTML='<img src="'+esc(P.cover)+'" alt="'+esc(P.alt)+'"><div class="body"><span class="k">'+esc(P.tags)+'</span><span class="t">'+esc(P.title)+'</span><span class="d">'+esc(P.desc)+'</span><span class="m">'+esc(P.meta)+'</span><a href="'+esc(P.href)+'">Read the report →</a></div>';
+    pv.hidden=false;
+    document.querySelectorAll('.map .cell-link').forEach(function(a){a.classList.toggle('on',a===link);});
+  }
+  var links=document.querySelectorAll('.map .cell-link');
+  links.forEach(function(a){
+    a.addEventListener('mouseenter',function(){show(a.getAttribute('href'),a);});
+    a.addEventListener('focus',function(){show(a.getAttribute('href'),a);});
+  });
+  if(first){var fl=document.querySelector('.map .cell-link[href="'+first.getAttribute('href')+'"]');show(first.getAttribute('href'),fl);}
+
+  var map=document.querySelector('.map'),stack=document.getElementById('mapStack');
+  if(map&&stack){
+    var k=map.children,heads=[],html='';
+    for(var c=1;c<5;c++){heads.push(k[c].querySelector('b').textContent.trim());}
+    for(var i=5;i+4<k.length;i+=5){
+      var rh=k[i],opp=rh.classList.contains('opp'),layer=rh.dataset.layer;
+      var name=rh.querySelector('b').textContent.trim(),sub=rh.querySelector('span').textContent;
+      var body='';
+      for(var j=1;j<5;j++){
+        var cell=k[i+j],col=cell.dataset.col;
+        cell.querySelectorAll('.cell-link').forEach(function(a){
+          body+='<a class="cell-link" data-col="'+col+'" href="'+a.getAttribute('href')+'">'+esc(a.firstChild.textContent)+'<small>'+esc(heads[j-1])+' · '+esc(a.querySelector('small').textContent)+'</small></a>';
+        });
+        var soon=cell.querySelector('.coming');
+        if(soon) body+='<span class="coming'+(opp?' opp':'')+'" data-col="'+col+'">'+esc(heads[j-1])+': '+esc(soon.textContent.toLowerCase())+'</span>';
+      }
+      html+='<div class="stack-row'+(opp?' opp':'')+'"><div class="stack-head">'+icoHTML(opp?'opp':layer)+esc(name)+'<small>'+esc(sub)+'</small></div>'+body+'</div>';
+    }
+    stack.innerHTML=html;
+  }
 })();
 </script>
 </body>

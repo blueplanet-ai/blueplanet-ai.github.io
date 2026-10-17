@@ -27,6 +27,20 @@ python3 tools/export-infographics.py mega-trends-2040   # one report
 
 This needs Python with Playwright and Chromium (`pip install playwright && playwright install chromium`). The three figures printed on each social preview are set in `tools/og-cards.json`; update them if the headline figures change.
 
+## Cover art
+
+Each report has a drawn cover (`<report>/cover.svg`, 3:4, and `<report>/cover-wide.svg`, 16:9) used on the home page. The motifs come from each report's structure (for example, Mega Trends' arcs are sized by the trend scores). If a score or count changes, update the numbers at the top of the script and re-run:
+
+```
+python3 tools/make-covers.py
+```
+
+A new report needs a motif function and an entry in `REPORTS` in that script.
+
+## Reading time
+
+Reading times on the home page cards are estimates (rendered text at 230 words a minute, excluding tables and references). Update the card's `data-read` value and its meta line when a report's length changes substantially.
+
 ## How reports are updated
 
 Updates arrive as pull requests. A scheduled research run re-checks each report against its sources and reports what changed. The author then has the findings applied as a pull request containing:
