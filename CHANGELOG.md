@@ -2,6 +2,18 @@
 
 ## Site-wide
 
+### 17 October 2026 — editorial home page, icon set and report covers (visual refresh, part 1 of 3)
+- Home page redesigned as an editorial front page. Titles and section headings now use Newsreader; Saira stays for labels, navigation and data. No copy was rewritten except the map's empty cells ("Coming" is now "Planned"; the Mobility opportunity cell reads "First brief in progress").
+- New top bar with section links and a Follow link.
+- New hero illustration, the "journey line": car, rail, robotaxi and plane, with a shaded band for attention that is free to spend as people move from driving to riding. It is labelled as illustrative, not to scale. It replaces the "route" pictogram.
+- A "Latest" strip under the hero, built from the first publication card.
+- One icon set (24 × 24 grid, 1.6 stroke) for domains, layers, lenses and reader actions, used in the map, filters, tags and lenses.
+- Map: layer icons on each row; pointing to a report shows a preview (cover, description, data-as-of date) beside the map on wide screens; on phones the map becomes a stacked list by layer, with the same domain filter.
+- Publications: lead story plus a list, each with cover art. Reading time is shown for the four research reports (estimated from rendered text at 230 words a minute, excluding tables and references); none is shown for the benchmark.
+- Cover art for every report (`<report>/cover.svg`, `<report>/cover-wide.svg`), drawn by `tools/make-covers.py` from each report's own structure: Mega Trends' seven arcs are sized by each trend's score out of 20; the Mobility Product Outlook has twelve spokes for its twelve dimensions; the benchmark has 21 dots in 7 columns. The Agentic AI and Physical AI covers are abstract. Re-run the script if a score or count changes.
+- New "Follow new editions" band (RSS and LinkedIn, with each report's next refresh) and a three-column footer. No email sign-up.
+- Report pages are unchanged in this update; they follow in parts 2 and 3.
+
 ### 15 October 2026 — at-a-glance infographics, report previews and home page visuals
 - Every report now opens with an **At a glance** section: a one-page infographic built in the page from the report's own data, so it follows light and dark themes and fits a phone. Each has a downloadable PNG (`<report>/<report>-at-a-glance.png`). No figures were added or changed; every number is read from data or text already in the report and links back to its source or reference.
 - Every report has its own 1200×630 social preview (`<report>/og-image.png`) with matching Open Graph and Twitter tags. The site-wide `og-image.png` stays for the home page.
