@@ -8,7 +8,7 @@ Source for **https://blueplanet-ai.github.io/**: benchmarks, comparisons and res
 |---|---|---|
 | [Physical AI and the Rider’s Cabin](https://blueplanet-ai.github.io/physical-ai-cabin/) | October 2026 (data as of 13 Oct 2026; next refresh to be confirmed) | `physical-ai-cabin/` |
 | [Agentic AI and the Consumer: 2027 Outlook](https://blueplanet-ai.github.io/agentic-consumer-2027/) | October 2026 (data as of 11 Oct 2026; next refresh to be confirmed) | `agentic-consumer-2027/` |
-| [Mobility Product Outlook 2026–2036](https://blueplanet-ai.github.io/mobility-product-outlook/) | October 2026 (data as of 11 Oct 2026; next refresh Oct 2027) | `mobility-product-outlook/` |
+| [Mobility Product Outlook 2026–2031](https://blueplanet-ai.github.io/mobility-product-outlook/) | October 2026 (data as of 11 Oct 2026; next refresh Oct 2027) | `mobility-product-outlook/` |
 | [Mega Trends Outlook 2040](https://blueplanet-ai.github.io/mega-trends-2040/) | October 2026 (data as of 1 Oct 2026; next refresh Oct 2027) | `mega-trends-2040/` |
 | [In-Car AI Assistant Benchmark](https://blueplanet-ai.github.io/incar-ai-benchmark/) | October 2026 (data as of 11 Oct 2026; next refresh mid-Jan 2027) | `incar-ai-benchmark/` |
 

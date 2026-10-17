@@ -2,6 +2,10 @@
 
 ## Site-wide
 
+### 17 October 2026 — Mobility Product Outlook retitled 2026–2031
+- The title and horizon label change from 2026–2036 to 2026–2031, matching the Shifts layer (one to five years). Updated on the report, home page, feed, README, social card and infographic, in the Physical AI reference list and in the "Continue down the map" cards on the other reports.
+- The report text is unchanged. Passages that look beyond 2031 (the framework's 2030–2036 view, the 2031–2036 technology timings, adoption by 2036) are to be reviewed at the October 2027 refresh. The page URL is unchanged.
+
 ### 17 October 2026 — chapter openers, "Continue down the map", refreshed images (visual refresh, part 3 of 3)
 - Every numbered chapter now opens the same way: an outlined numeral, the title in Newsreader, a one-sentence thesis and a "Chapter n of N" progress bar. Agentic AI (8 chapters), Physical AI (6), the benchmark (5) and the three Parts of the Mobility Product Outlook use it; the Mobility Part intro sentences are the theses.
 - Mega Trends: each trend header now shows the numeral in the trend's colour, the existing thesis, the author's four scores and total, and one headline figure. The headline figure is the trend's first key figure moved up, so no figure was added or changed.
