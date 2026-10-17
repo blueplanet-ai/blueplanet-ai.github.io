@@ -2,6 +2,9 @@
 
 ## Site-wide
 
+### 17 October 2026 — design system document
+- Added `DESIGN.md` at the repository root: tokens, type scale, accessibility rules, page furniture, map method and the pre-PR checklist. No site files changed.
+
 ### 17 October 2026 — sage paper tone, readability and polish
 - **Paper tone (light mode).** The page ground changes from the near-white grey-green to a soft sage paper: ground #EBF0E6, cards and bars #F4F7F0, second surface #E0E7DA, rules #CDD6C6 and #B3BFAB. Colour tokens only, on all seven pages and in `assets/report-opener.css`. Dark mode and the print stylesheet are unchanged.
 - **Small grey text** (`--ink-3`, `--muted`, `--ro-ink-3`) darkens from #6B787C to #5A676B so it keeps at least 4.5:1 on the new surfaces. In a local scan the home page went from 59 to 5 text nodes under 4.5:1, and the report pages from 166–441 to 8–81. The remaining ones are mostly small teal and orange accent labels and numerals, left as designed.
