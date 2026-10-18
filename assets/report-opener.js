@@ -8,6 +8,7 @@
     forces:'<path d="M3 18c4-1 6-5 9-12 3 7 5 11 9 12"/><path d="M3 21h18"/>',
     shifts:'<path d="M3 12h13M12 7l5 5-5 5"/><path d="M20 5v14"/>',
     signals:'<path d="M2 12h3l3-7 4 14 3-7h7"/>',
+    opp:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/>',
     time:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
     rss:'<path d="M5 5a14 14 0 0 1 14 14M5 11a8 8 0 0 1 8 8"/><circle cx="6" cy="18" r="1"/>',
     doc:'<path d="M5 4h11l3 3v13H5z"/><path d="M9 10h7M9 14h7M9 18h4"/>',
