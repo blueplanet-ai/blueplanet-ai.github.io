@@ -93,5 +93,24 @@
         "humanoids shipped worldwide in 2025"
       ]
     ]
+  },
+  "shared-cabin": {
+    "eyebrow": "INDEPENDENT RESEARCH · OPPORTUNITY BRIEF",
+    "line1": "One cabin,",
+    "line2": "several people",
+    "stats": [
+      [
+        "1.5",
+        "people per US household vehicle, on average"
+      ],
+      [
+        "63 h",
+        "lost to US congestion, 2024"
+      ],
+      [
+        "35%",
+        "passenger screens never used"
+      ]
+    ]
   }
 }

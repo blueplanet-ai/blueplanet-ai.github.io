@@ -10,6 +10,9 @@ The motifs are drawn from each report's own structure, not decoration:
   total score out of 20 (the author's scores, from the report's T array).
 - Mobility Product Outlook: twelve spokes, one per product-definition dimension.
 - In-Car AI Assistant Benchmark: 21 dots in 7 columns (21 assistants, 7 dimensions).
+- One cabin, several people (opportunity brief): three bars to scale, hours a
+  year per person riding as a car passenger (solid to the low estimate, dashed to
+  the high one), lost to congestion, and flying (the brief's comparison).
 - Agentic AI and the Consumer, Physical AI and the Rider's Cabin: abstract
   (a hand-off from one point to many; a cabin seen from above). No data.
 Covers are always dark plates, so they read the same in light and dark themes.
@@ -26,6 +29,8 @@ INK, LINE, TEAL, ORANGE, PALE = "#0F1719", "#3C4B4E", "#2BB3C6", "#DB8A4F", "#E7
 MEGA_TREND_SCORES = [18, 17, 17, 16, 16, 14, 14]
 MOBILITY_DIMENSIONS = 12
 BENCHMARK_ASSISTANTS, BENCHMARK_DIMENSIONS = 21, 7
+# Shared cabin: hours per person per year (passenger low and high, congestion, flying high)
+SHARED_CABIN_HOURS = {"passenger": (70, 104), "congestion": 63, "flying": 9}
 
 
 def arc(cx, cy, r, frac):
@@ -79,12 +84,27 @@ def benchmark(cx, cy, s):
     return "".join(f'<circle cx="{x0 + (i % cols) * gap:.1f}" cy="{y0 + (i // cols) * gap:.1f}" r="{14 * s:.1f}" fill="{ORANGE if i % cols == 0 else TEAL}"/>' for i in range(BENCHMARK_ASSISTANTS))
 
 
+def shared(cx, cy, s):
+    h = SHARED_CABIN_HOURS
+    unit = 2.6 * s                      # px per hour; 110 h fits the plate
+    x0, bh, gap = cx - 55 * unit, 34 * s, 70 * s
+    y = cy - gap - bh / 2
+    lo, hi = h["passenger"]
+    out = [f'<rect x="{x0:.1f}" y="{y:.1f}" width="{lo * unit:.1f}" height="{bh:.1f}" fill="{ORANGE}"/>',
+           f'<rect x="{x0 + lo * unit:.1f}" y="{y + 2 * s:.1f}" width="{(hi - lo) * unit - 2 * s:.1f}" height="{bh - 4 * s:.1f}" fill="none" stroke="{ORANGE}" stroke-width="{3 * s:.1f}" stroke-dasharray="{8 * s:.1f} {6 * s:.1f}"/>']
+    for i, v in enumerate((h["congestion"], h["flying"]), start=1):
+        out.append(f'<rect x="{x0:.1f}" y="{y + i * gap:.1f}" width="{v * unit:.1f}" height="{bh:.1f}" fill="{TEAL}"/>')
+    out.append(f'<path d="M{x0 - 14 * s:.1f} {y - 20 * s:.1f} V{y + 2 * gap + bh + 20 * s:.1f}" stroke="{PALE}" stroke-width="{4 * s:.1f}" stroke-linecap="round"/>')
+    return "".join(out)
+
+
 REPORTS = {
     "mega-trends-2040": (mega, "Seven arcs, one per force in Mega Trends Outlook 2040; each arc's length is the trend's score out of 20."),
     "agentic-consumer-2027": (agentic, "Abstract cover: one point handing tasks to many."),
     "mobility-product-outlook": (mobility, "Twelve spokes, one per dimension of the product-definition framework."),
     "physical-ai-cabin": (cabin, "Abstract cover: a four-seat cabin seen from above, one rider marked."),
     "incar-ai-benchmark": (benchmark, "21 dots in 7 columns: 21 assistants scored on 7 capability dimensions."),
+    "shared-cabin": (shared, "Three bars to scale: hours a year per person riding as a car passenger, lost to congestion, and flying."),
 }
 
 
