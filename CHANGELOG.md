@@ -2,6 +2,9 @@
 
 ## Site-wide
 
+### 17 October 2026 — infographics re-exported on the Sage ground
+- The five "at a glance" PNG infographics were re-exported with the Sage paper ground and the 12 px type floor, so they match the pages. They are taller than before (roughly 50 to 190 px at 2x) because of the type-scale change. The social preview images are unchanged: they use the dark design, which did not change.
+
 ### 17 October 2026 — design system document
 - Added `DESIGN.md` at the repository root: tokens, type scale, accessibility rules, page furniture, map method and the pre-PR checklist. No site files changed.
 
