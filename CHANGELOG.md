@@ -2,6 +2,14 @@
 
 ## Site-wide
 
+### 18 October 2026 — content fixes from the site audit
+- **Physical AI and the Rider's Cabin:** all 24 headquarters shown on the map are now cited (references 78-101); Figure AI is shown in San Jose; Apollo Go Q2 rides are worded "at least about 0.9 million"; the edition is marked as updated 14 October.
+- **Agentic AI and the Consumer:** first-person wording replaced with "the author".
+- **Mega Trends Outlook 2040:** "notes" became "sources reviewed" in captions and charts.
+- **Mobility Product Outlook:** a note says some statements look past 2031 and will be revisited at the October 2027 refresh.
+- **Home and Method:** numerals in descriptions; clear wording that one-time briefs are not refreshed.
+- Sitemap `lastmod` and each page's `dateModified` set to match.
+
 ### 18 October 2026 — site polish: spelling, type, contrast, theme toggle
 - **Spelling and typography:** American spelling throughout (about 140 changes); straight quotes became curly on four pages; money in prose is spelled out ("3 billion dollars") while tables, charts and labels keep bn/m/tn; report `<title>`s end with the author name; the home `og:title` is plain and `og:type` is set; footers say "any company or organization named"; full report names are used in cards, lists, references and the Method table. "U.S." in official study names is left as published. No findings or figures changed.
 - **Type scale:** Mega Trends rem sizes and the 14.5 px, 12.5 px and sub-12 px sizes on Mega Trends, Mobility and Physical AI moved onto the 12-24 px scale.
