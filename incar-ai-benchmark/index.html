@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#F4F7F0" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#151D1F" media="(prefers-color-scheme: dark)">
-<title>In-Car AI Assistant Benchmark</title>
+<title>In-Car AI Assistant Benchmark — Chuhee Lee</title>
 <meta name="description" content="Independent benchmark of 21 in-car AI assistants, scored on seven capability dimensions and on who controls the stack. October 2026 edition by Chuhee Lee; data as of 11 October 2026.">
 <meta name="author" content="Chuhee Lee">
 <link rel="canonical" href="https://blueplanet-ai.github.io/incar-ai-benchmark/">
@@ -24,7 +24,10 @@
 <meta property="og:image:alt" content="In-Car AI Assistant Benchmark: 21 assistants, five architectures. Independent research by Chuhee Lee.">
 <meta name="twitter:image" content="https://blueplanet-ai.github.io/incar-ai-benchmark/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<style>img{max-width:100%}[hidden]{display:none!important}</style>
+<style>img{max-width:100%}[hidden]{display:none!important}:root{--signal-text:var(--signal-deep);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--signal-text:var(--signal);}}
+:root[data-theme="dark"]{--signal-text:var(--signal);}
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -37,8 +40,8 @@
   --line:#CDD6C6;
   --line-strong:#B3BFAB;
   --ink:#0F1719;
-  --ink-2:#3F4C50;
-  --ink-3:#5A676B;
+  --ink-2:#344145;
+  --ink-3:#4E5B5F;
   --signal:#0892A5;
   --signal-deep:#066A79;
 
@@ -47,13 +50,13 @@
   --cat-3:#4B5BA8;
   --cat-4:#8A8C36;
 
-  --s1:#E4EDEF; --s1-ink:#3F4C50;
+  --s1:#E4EDEF; --s1-ink:#344145;
   --s2:#BEDCE2; --s2-ink:#1B3438;
   --s3:#8AC4CF; --s3-ink:#12292D;
-  --s4:#3E9FB0; --s4-ink:#FBFCFC;
+  --s4:#3E9FB0; --s4-ink:#0F1719;
   --s5:#0A6F80; --s5-ink:#FBFCFC;
 
-  --warn:#B0561E;
+  --warn:#9A4A1F;
   --good:#2F7A52;
 
   --font-ui:"Saira","Helvetica Neue",Arial,sans-serif;
@@ -188,7 +191,7 @@ section{padding-top:56px;}
 }
 .finding .num{
   font-family:var(--font-mono);font-size:13px;font-weight:600;
-  color:var(--signal);padding-top:3px;
+  color:var(--signal-text);padding-top:3px;
 }
 .finding h3{font-size:18px;font-weight:600;letter-spacing:-.005em;margin-bottom:8px;}
 .finding p{color:var(--ink-2);font-size:16px;max-width:68ch;}
@@ -200,7 +203,7 @@ section{padding-top:56px;}
 }
 .finding .sowhat i{
   font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--signal);
+  text-transform:uppercase;color:var(--signal-text);
   display:inline-block;margin-right:13px;
 }
 
@@ -244,7 +247,7 @@ thead th{
 thead th.name{text-align:left;left:0;z-index:4;padding-left:16px;min-width:216px;}
 th.sortable{cursor:pointer;user-select:none;}
 th.sortable:hover{color:var(--signal-deep);}
-th .arrow{display:block;font-family:var(--font-mono);font-size:12px;color:var(--signal);height:10px;line-height:10px;}
+th .arrow{display:block;font-family:var(--font-mono);font-size:12px;color:var(--signal-text);height:10px;line-height:10px;}
 tbody td{
   border-bottom:1px solid var(--line);padding:0;text-align:center;
   font-variant-numeric:tabular-nums;
@@ -282,7 +285,7 @@ td.status{padding:0 10px;}
 
 tr.detail td{padding:0;background:var(--surface-2);border-bottom:1px solid var(--line-strong);}
 .det{padding:20px 24px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px 30px;}
-.det .col h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:500;margin-bottom:7px;}
+.det .col h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);font-weight:500;margin-bottom:7px;}
 .det .col p{font-size:15px;color:var(--ink-2);line-height:1.55;}
 .det .col.full{grid-column:1/-1;}
 .det .col.full p{color:var(--ink);font-family:var(--font-ui);font-size:15px;}
@@ -391,7 +394,7 @@ table.opts tr:last-child td{border-bottom:0;}
 .arch{grid-template-columns:repeat(auto-fit,minmax(205px,1fr));}
 .det{text-align:left;}
 .det .srcl{grid-column:1/-1;font-family:var(--font-mono);font-size:12px;line-height:1.8;color:var(--ink-3);border-top:1px dashed var(--line-strong);padding-top:10px;}
-.det .srcl b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal);}
+.det .srcl b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal-text);}
 .det .srcl a{margin-right:4px;}
 .det .flag{grid-column:1/-1;font-family:var(--font-ui);font-size:13px;color:var(--warn);}
 .log{margin:0 0 26px;padding:0;list-style:none;display:grid;gap:9px;max-width:92ch;}
@@ -407,7 +410,7 @@ table.opts tr:last-child td{border-bottom:0;}
 .conf.off{color:var(--good);} .conf.mix{color:var(--signal-deep);} .conf.trd{color:var(--warn);} .conf.ann{color:var(--ink-3);}
 .ucx{grid-column:1/-1;border-top:1px solid var(--line-strong);padding-top:14px;}
 .ucx-h{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-bottom:10px;}
-.ucx-h h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:500;margin:0;}
+.ucx-h h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);font-weight:500;margin:0;}
 .ucx-note{font-family:var(--font-ui);font-size:13px;color:var(--ink-3);}
 .ucx-g{display:grid;grid-template-columns:1fr 1.25fr .9fr;gap:14px 26px;}
 .ucx-g h5{font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);margin:0 0 6px;}
@@ -432,7 +435,7 @@ table.ucgrid td.n{font-family:var(--font-mono);font-size:12px;color:var(--ink-2)
 .gcard > h3{font-size:16px;font-weight:600;margin-bottom:4px;}
 .gcard .q{background:var(--surface-2);}
 .gsrc{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);margin-top:12px;}
-.gsrc b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal);}
+.gsrc b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal-text);}
 .gcard > p{font-size:14px;color:var(--ink-2);margin-bottom:14px;max-width:80ch;}
 
 /* ---------- use-case highlights table ---------- */
@@ -485,7 +488,7 @@ table.opts td.route span{line-height:1.45;}
 <style media="print">
 /* Print: clean light copy. In the browser's print dialog choose Save as PDF. */
 @page{margin:14mm 12mm}
-:root,:root[data-theme="dark"]{color-scheme:light!important;--ground:#fff !important;--surface:#FBFCFC !important;--surface-2:#E9EEEF !important;--line:#D3DBDC !important;--line-strong:#B2BEC0 !important;--ink:#0F1719 !important;--ink-2:#3F4C50 !important;--ink-3:#6B787C !important;--signal:#0892A5 !important;--signal-deep:#066A79 !important;--cat-1:#0892A5 !important;--cat-2:#C2622D !important;--cat-3:#4B5BA8 !important;--cat-4:#8A8C36 !important;--s1:#E4EDEF !important;--s1-ink:#3F4C50 !important;--s2:#BEDCE2 !important;--s2-ink:#1B3438 !important;--s3:#8AC4CF !important;--s3-ink:#12292D !important;--s4:#3E9FB0 !important;--s4-ink:#FBFCFC !important;--s5:#0A6F80 !important;--s5-ink:#FBFCFC !important;--warn:#B0561E !important;--good:#2F7A52 !important;--cat-5:#7A8588 !important}
+:root,:root[data-theme="dark"]{color-scheme:light!important;--ground:#fff !important;--surface:#FBFCFC !important;--surface-2:#E9EEEF !important;--line:#D3DBDC !important;--line-strong:#B2BEC0 !important;--ink:#0F1719 !important;--ink-2:#344145 !important;--ink-3:#6B787C !important;--signal:#0892A5 !important;--signal-deep:#066A79 !important;--cat-1:#0892A5 !important;--cat-2:#C2622D !important;--cat-3:#4B5BA8 !important;--cat-4:#8A8C36 !important;--s1:#E4EDEF !important;--s1-ink:#344145 !important;--s2:#BEDCE2 !important;--s2-ink:#1B3438 !important;--s3:#8AC4CF !important;--s3-ink:#12292D !important;--s4:#3E9FB0 !important;--s4-ink:#FBFCFC !important;--s5:#0A6F80 !important;--s5-ink:#FBFCFC !important;--warn:#9A4A1F !important;--good:#2F7A52 !important;--cat-5:#7A8588 !important}
 html{background:#fff!important}
 *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .crumb,.nav,.idx,.controls,.chips,.tabs,.tip,#tip,button,.noprint{display:none!important}
@@ -602,6 +605,34 @@ a.gl-name:hover{color:var(--g-accent)}
 .glance{--g-s:var(--surface);--g-s2:var(--surface-2);--g-rule:var(--line);--g-ink:var(--ink);--g-ink2:var(--ink-2);--g-muted:var(--ink-3);--g-accent:var(--signal-deep);--g-soft:color-mix(in srgb,var(--signal) 12%,var(--surface));--g-ui:var(--font-ui);--g-mono:var(--font-mono)}
 </style>
 <link rel="stylesheet" href="/assets/report-opener.css">
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Report",
+ "headline": "In-Car AI Assistant Benchmark",
+ "name": "In-Car AI Assistant Benchmark",
+ "description": "Independent benchmark of 21 in-car AI assistants, scored on seven capability dimensions and on who controls the stack. October 2026 edition by Chuhee Lee; data as of 11 October 2026.",
+ "url": "https://blueplanet-ai.github.io/incar-ai-benchmark/",
+ "mainEntityOfPage": "https://blueplanet-ai.github.io/incar-ai-benchmark/",
+ "inLanguage": "en",
+ "author": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "publisher": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "dateModified": "2026-10-15",
+ "image": "https://blueplanet-ai.github.io/og-image.png",
+ "datePublished": "2026-10-11"
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -673,11 +704,14 @@ a.gl-name:hover{color:var(--g-accent)}
   <ol><li><a href="#glance"><span>01</span>At a glance</a></li><li><a href="#summary"><span>02</span>Summary</a></li><li><a href="#read"><span>03</span>The strategic read</a></li><li><a href="#position"><span>04</span>Capability versus control</a></li><li><a href="#the-matrix"><span>05</span>The matrix</a></li><li><a href="#highlights"><span>06</span>Use-case highlights</a></li><li><a href="#usecases"><span>07</span>Use-case evidence</a></li><li><a href="#archetypes"><span>08</span>How the field is built</a></li><li><a href="#watch"><span>09</span>What moves next</a></li><li><a href="#method"><span>10</span>Method and sources</a></li></ol>
 </div></nav>
 
+<main>
+
 <div class="wrap">
 
 <section id="glance">
   <div class="sec-head"><h2>At a glance</h2><span class="eyebrow">One-page summary</span></div>
   <div class="glance" id="glanceBody" role="group" aria-label="Infographic: In-Car AI Assistant Benchmark at a glance"></div>
+  <p class="gl-cap"><b>Headline finding</b><span>Conversation is commodity. Vehicle control is not.</span></p>
   <div class="gl-actions"><a href="incar-ai-benchmark-at-a-glance.png" download>Download PNG</a></div>
 </section>
 
@@ -689,7 +723,7 @@ a.gl-name:hover{color:var(--g-accent)}
     <div class="sum-points">
       <div class="pt"><span class="tick"></span><div>
         <h3>Conversation is commodity. Vehicle control is not.</h3>
-        <p>Every entry understands natural language. The spread is in actuation &mdash; Li Auto says nearly all vehicle functions are now voice-controllable, and Tesla's Grok reached 116 of 170 commands in a community-compiled test. That depth needs signal-level access a Gemini or Alexa integration doesn't have on its own.</p>
+        <p>Every entry understands natural language. The spread is in actuation &mdash; Li Auto says nearly all vehicle functions are now voice-controllable, and Tesla’s Grok reached 116 of 170 commands in a community-compiled test. That depth needs signal-level access a Gemini or Alexa integration doesn’t have on its own.</p>
       </div></div>
       <div class="pt"><span class="tick"></span><div>
         <h3>The assistant has decoupled from the vehicle generation.</h3>
@@ -697,7 +731,7 @@ a.gl-name:hover{color:var(--g-accent)}
       </div></div>
       <div class="pt"><span class="tick"></span><div>
         <h3>Who owns the stack is now a strategic choice.</h3>
-        <p>The field splits into five architectures, from fully in-house (Tesla, Rivian, Li Auto) to big-tech platforms (GM, Volvo, Honda) to supplier stacks (Huawei, Cerence and SoundHound customers). The highest-scoring cockpit, Huawei's at 4.7, is the one its automaker partners control least. GM and Ford now pair a big-tech assistant with their own vehicle-knowledge agent, and on-device AI has started shipping, making offline competence the next differentiator.</p>
+        <p>The field splits into five architectures, from fully in-house (Tesla, Rivian, Li Auto) to big-tech platforms (GM, Volvo, Honda) to supplier stacks (Huawei, Cerence and SoundHound customers). The highest-scoring cockpit, Huawei’s at 4.7, is the one its automaker partners control least. GM and Ford now pair a big-tech assistant with their own vehicle-knowledge agent, and on-device AI has started shipping, making offline competence the next differentiator.</p>
       </div></div>
     </div>
 
@@ -707,7 +741,7 @@ a.gl-name:hover{color:var(--g-accent)}
         <p>Mean of seven dimensions &middot; scale 0&ndash;5 &middot; ranked</p>
       </figcaption>
       <div class="vb" id="vwbars"></div>
-      <p class="fignote" id="vwnote">Dashed line: median across all entries. Bar colour follows the architecture archetype used throughout the page.</p>
+      <p class="fignote" id="vwnote">Dashed line: median across all entries. Bar color follows the architecture archetype used throughout the page.</p>
     </figure>
   </div>
 
@@ -720,32 +754,32 @@ a.gl-name:hover{color:var(--g-accent)}
           <td class="route"><b>Build in-house</b><span><i style="background:var(--cat-1)"></i>Tesla, Rivian, Hyundai, Li Auto, XPeng, NIO, Xiaomi</span></td>
           <td>The deepest vehicle control, the interaction data and control of the roadmap.</td>
           <td>A standing model-operations organization and a permanent race against consumer AI.</td>
-          <td>Rivian Assistant launched May 2026, with local AI processing on R2 and Gen 2 R1 from September; Hyundai's Gleo AI debuted May 2026 with a target of about 20 million vehicles by 2030; Li Auto reports nearly all vehicle functions by voice.</td>
+          <td>Rivian Assistant launched May 2026, with local AI processing on R2 and Gen 2 R1 from September; Hyundai’s Gleo AI debuted May 2026 with a target of about 20 million vehicles by 2030; Li Auto reports nearly all vehicle functions by voice.</td>
         </tr>
         <tr>
           <td class="route"><b>Orchestrate</b><span><i style="background:var(--cat-4)"></i>Mercedes-Benz</span></td>
           <td>Own the router and the HMI; rent the brains. Best model per task, and vendors stay substitutable.</td>
           <td>Routing quality becomes the product. Several cloud dependencies degrade together when coverage drops.</td>
-          <td>Google's Automotive AI Agent in MBUX from the CLA; a three-model C-Class for US dealers in H1 2027 (press report); an on-device partnership with Liquid AI announced April 2026.</td>
+          <td>Google’s Automotive AI Agent in MBUX from the CLA; a three-model C-Class for US dealers in H1 2027 (press report); an on-device partnership with Liquid AI announced April 2026.</td>
         </tr>
         <tr>
           <td class="route"><b>Adopt a big-tech assistant</b><span><i style="background:var(--cat-2)"></i>GM, Ford, Volvo, Honda, BMW</span></td>
-          <td>Frontier capability on the platform's release cadence, delivered fleet-wide over the air, for little engineering.</td>
+          <td>Frontier capability on the platform’s release cadence, delivered fleet-wide over the air, for little engineering.</td>
           <td>The account, the data and the roadmap sit with the partner; differentiation narrows to voice, wake word and trim.</td>
           <td>Gemini to about four million GM vehicles (April 2026), 16 Volvo models (30 April) and Honda (15 July); BMW iX3 with Alexa+ in 2026; GM and Ford adding their own vehicle-knowledge assistants.</td>
         </tr>
         <tr>
           <td class="route"><b>Source from a supplier</b><span><i style="background:var(--cat-3)"></i>Huawei partners, Geely (export), Stellantis, Lucid, Volkswagen, Audi</span></td>
           <td>A brand-owned voice, multi-market localization and a hedge across model vendors.</td>
-          <td>A capability ceiling set by the supplier's release train and thin data rights; at the extreme (Huawei), the supplier owns agent, OS, silicon and app store.</td>
-          <td>Cerence xUI on Geely's Galaxy M9 (April 2026) and BYD (spring 2026), plus a multi-brand Stellantis award (August 2026); SoundHound in DS, Jeep Europe and Lucid; Huawei across 13 models from five partner brands.</td>
+          <td>A capability ceiling set by the supplier’s release train and thin data rights; at the extreme (Huawei), the supplier owns agent, OS, silicon and app store.</td>
+          <td>Cerence xUI on Geely’s Galaxy M9 (April 2026) and BYD (spring 2026), plus a multi-brand Stellantis award (August 2026); SoundHound in DS, Jeep Europe and Lucid; Huawei across 13 models from five partner brands.</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <p class="sum-src"><b>Summary sources</b><span id="sumsrc"></span>
-    &mdash; scores are analyst judgements from public sources, not drive-tested; see <a href="#method">method</a>.
+    &mdash; scores are analyst judgments from public sources, not drive-tested; see <a href="#method">method</a>.
   </p>
 </p>
 </section>
@@ -758,8 +792,8 @@ a.gl-name:hover{color:var(--g-accent)}
       <div class="num">01</div>
       <div>
         <h3>Conversation has converged. Vehicle control has not.</h3>
-        <p>Every entry on this list understands natural language, holds a multi-turn thread and answers open-domain questions &mdash; a capability bought from a handful of model vendors. The measurable spread is in how much of the car the assistant can operate. Li Auto's official launch material says nearly all vehicle functions, down to vents and wipers, are voice-controllable; Grok reached 116 of 170 commands in a community-compiled test; Hyundai's Gleo AI identifies which seat the speaker is in before acting. Platform integrations answer beautifully but reach the vehicle only as far as the OEM exposes its signals to them.</p>
-        <p class="sowhat"><i>Implication</i>Differentiation budget belongs on the actuation layer and the signal catalogue, not on conversational quality you can license.</p>
+        <p>Every entry on this list understands natural language, holds a multi-turn thread and answers open-domain questions &mdash; a capability bought from a handful of model vendors. The measurable spread is in how much of the car the assistant can operate. Li Auto’s official launch material says nearly all vehicle functions, down to vents and wipers, are voice-controllable; Grok reached 116 of 170 commands in a community-compiled test; Hyundai’s Gleo AI identifies which seat the speaker is in before acting. Platform integrations answer beautifully but reach the vehicle only as far as the OEM exposes its signals to them.</p>
+        <p class="sowhat"><i>Implication</i>Differentiation budget belongs on the actuation layer and the signal catalog, not on conversational quality you can license.</p>
       </div>
     </div>
 
@@ -768,7 +802,7 @@ a.gl-name:hover{color:var(--g-accent)}
       <div>
         <h3>The assistant has decoupled from the vehicle generation.</h3>
         <p>GM pushed Gemini to about four million MY2022-and-newer vehicles over the air from April 2026; Volvo followed on 30 April across 16 models dating back to 2020; Honda in July for Google built-in trims back to MY2023; Ford offers Gemini as an opt-in alternative to Google Assistant. Capability is no longer gated by the model year, the head-unit SoC or the E/E generation that shipped with the car.</p>
-        <p class="sowhat"><i>Implication</i>A programme that waits for the next E/E architecture to launch its assistant arrives several model years after the field.</p>
+        <p class="sowhat"><i>Implication</i>A program that waits for the next E/E architecture to launch its assistant arrives several model years after the field.</p>
       </div>
     </div>
 
@@ -776,7 +810,7 @@ a.gl-name:hover{color:var(--g-accent)}
       <div class="num">03</div>
       <div>
         <h3>Platform assistants are becoming the bridge, not the destination.</h3>
-        <p>GM and Ford now run the same dual track. GM ships Gemini today and confirmed on 31 July that its own assistant, built with an unnamed LLM provider on OnStar and vehicle data, arrives later in 2026. Ford's AI Assistant &mdash; hosted on Google Cloud and built on off-the-shelf LLMs &mdash; is live in the app for about eight million MY2021+ vehicles and moves into the cabin in 2027, while Gemini handles general voice tasks. The interaction log, the vehicle-health relationship and the service upsell are what both are reclaiming.</p>
+        <p>GM and Ford now run the same dual track. GM ships Gemini today and confirmed on 31 July that its own assistant, built with an unnamed LLM provider on OnStar and vehicle data, arrives later in 2026. Ford’s AI Assistant &mdash; hosted on Google Cloud and built on off-the-shelf LLMs &mdash; is live in the app for about eight million MY2021+ vehicles and moves into the cabin in 2027, while Gemini handles general voice tasks. The interaction log, the vehicle-health relationship and the service upsell are what both are reclaiming.</p>
         <p class="sowhat"><i>Implication</i>License the general assistant if it saves time, but keep the vehicle-knowledge agent and its data on your side of the boundary.</p>
       </div>
     </div>
@@ -785,7 +819,7 @@ a.gl-name:hover{color:var(--g-accent)}
       <div class="num">04</div>
       <div>
         <h3>The edge has started shipping.</h3>
-        <p>Rivian's RivianOS 2 (4 September 2026) brought &ldquo;hybrid edge compute and local AI processing&rdquo; to R2 and Gen 2 R1; Rivian says R2's 200 sparse TOPS of cabin compute lets the assistant run complex tasks offline. Mercedes signed a multi-year on-device partnership with Liquid AI for third- and fourth-generation MBUX in North America. VW China says personal information in its CEA agents &ldquo;never leaves the vehicle.&rdquo; SoundHound announced OASYS Edge in September 2026 &mdash; fully embedded agentic voice AI that keeps working offline, deploying from late 2026 &mdash; and Cerence xUI and Amazon's Alexa Custom Assistant on NVIDIA DRIVE AGX (automaker evaluation early 2027) are further supplier versions of the same bet.</p>
+        <p>Rivian’s RivianOS 2 (4 September 2026) brought &ldquo;hybrid edge compute and local AI processing&rdquo; to R2 and Gen 2 R1; Rivian says R2's 200 sparse TOPS of cabin compute lets the assistant run complex tasks offline. Mercedes signed a multi-year on-device partnership with Liquid AI for third- and fourth-generation MBUX in North America. VW China says personal information in its CEA agents &ldquo;never leaves the vehicle.&rdquo; SoundHound announced OASYS Edge in September 2026 &mdash; fully embedded agentic voice AI that keeps working offline, deploying from late 2026 &mdash; and Cerence xUI and Amazon’s Alexa Custom Assistant on NVIDIA DRIVE AGX (automaker evaluation early 2027) are further supplier versions of the same bet.</p>
         <p class="sowhat"><i>Implication</i>Offline competence and on-board privacy are becoming table stakes. The cloud-only generative path is now the laggard position.</p>
       </div>
     </div>
@@ -794,7 +828,7 @@ a.gl-name:hover{color:var(--g-accent)}
       <div class="num">05</div>
       <div>
         <h3>China has moved from chat to agents &mdash; and the supplier often owns them.</h3>
-        <p>At Auto China 2026 the story was agentic AI that executes tasks: Geely's &ldquo;Eva&rdquo; super-agent, BMW's three Qwen-based agents for China, VW's full-domain agent roadmap. Alibaba says nine groups, SAIC Volkswagen among them, will put Qwen-powered in-cabin services into select models. Huawei's HarmonySpace 6 bundles its Celia agent, cabin sensing and phone-to-home continuity for 13 models across five partner brands &mdash; and J.D. Power's 2026 China study ranked Huawei-partnered AITO top among premium NEVs. The same study found 48% of complaints were about technology instability and inaccuracy.</p>
+        <p>At Auto China 2026 the story was agentic AI that executes tasks: Geely’s &ldquo;Eva&rdquo; super-agent, BMW’s three Qwen-based agents for China, VW’s full-domain agent roadmap. Alibaba says nine groups, SAIC Volkswagen among them, will put Qwen-powered in-cabin services into select models. Huawei’s HarmonySpace 6 bundles its Celia agent, cabin sensing and phone-to-home continuity for 13 models across five partner brands &mdash; and J.D. Power’s 2026 China study ranked Huawei-partnered AITO top among premium NEVs. The same study found 48% of complaints were about technology instability and inaccuracy.</p>
         <p class="sowhat"><i>Implication</i>The highest-capability cockpit on this list is also the one where the badge-holder owns the least &mdash; and rollout speed is outrunning reliability.</p>
       </div>
     </div>
@@ -803,7 +837,7 @@ a.gl-name:hover{color:var(--g-accent)}
       <div class="num">06</div>
       <div>
         <h3>Owners keep rewarding restraint.</h3>
-        <p>J.D. Power's 2026 U.S. Tech Experience Index (20 August) found owners rate highest the technologies that work quietly in the background &mdash; smart ignition drew just 2.4 problems per 100 vehicles &mdash; while passenger screens drew 21.3, and 35% of owners who have one never use it. The study did not score voice assistants directly.</p>
+        <p>J.D. Power’s 2026 U.S. Tech Experience Index (20 August) found owners rate highest the technologies that work quietly in the background &mdash; smart ignition drew just 2.4 problems per 100 vehicles &mdash; while passenger screens drew 21.3, and 35% of owners who have one never use it. The study did not score voice assistants directly.</p>
         <p class="sowhat"><i>Implication</i>Score the assistant on tasks completed without the driver looking at a screen, not on demo-able breadth.</p>
       </div>
     </div>
@@ -823,7 +857,7 @@ a.gl-name:hover{color:var(--g-accent)}
       <span class="k"><span class="sw" style="background:var(--cat-5)"></span>In-house, pre-generative</span>
     </div>
     <div class="map-scroll" id="map"></div>
-    <p class="map-note">Horizontal: mean of the seven capability scores. Vertical: how much of the model, data and interaction layer the vehicle manufacturer controls. Huawei sits far right on capability and at the bottom on control because the control is Huawei's, not the badge-holder's. Entries with identical scores are nudged a few pixels apart so both stay readable; hover any point for its exact figures.</p>
+    <p class="map-note">Horizontal: mean of the seven capability scores. Vertical: how much of the model, data and interaction layer the vehicle manufacturer controls. Huawei sits far right on capability and at the bottom on control because the control is Huawei’s, not the badge-holder’s. Entries with identical scores are nudged a few pixels apart so both stay readable; hover any point for its exact figures.</p>
   </div>
 </section>
 
@@ -892,11 +926,11 @@ a.gl-name:hover{color:var(--g-accent)}
     <span><span class="dot e"></span>Not found in sources reviewed &mdash; not proof of absence</span>
   </div>
   <div class="tablewrap"><table class="ucgrid" id="ucgrid"></table></div>
-  <p class="map-note">This is a coverage view, not a score: it rewards companies that publish detailed examples. Volkswagen, Audi and VW Group China have published no concrete examples, so their rows are empty. XPeng's published example is air conditioning, which counts as climate here.</p>
+  <p class="map-note">This is a coverage view, not a score: it rewards companies that publish detailed examples. Volkswagen, Audi and VW Group China have published no concrete examples, so their rows are empty. XPeng’s published example is air conditioning, which counts as climate here.</p>
 
   <div class="gcard">
     <h3>Google built-in (shared by GM, Ford, Volvo and Honda)</h3>
-    <p>Google's own examples for Gemini in cars with Google built-in. Each brand's row adds only what it has published beyond these.</p>
+    <p>Google’s own examples for Gemini in cars with Google built-in. Each brand’s row adds only what it has published beyond these.</p>
     <div id="gshared"></div>
   </div>
 </section>
@@ -920,7 +954,7 @@ a.gl-name:hover{color:var(--g-accent)}
       <div class="who">GM &middot; FORD &middot; HONDA / ACURA &middot; VOLVO &middot; BMW</div>
       <p>A big-tech assistant becomes the assistant. Gemini replaces Google Assistant inside Google built-in cars; BMW builds its Intelligent Personal Assistant on Alexa+ architecture. GM and Ford now pair this with their own vehicle-knowledge assistants.</p>
       <div class="ledger">
-        <div class="up"><em>Buys</em><span>Frontier capability on the platform's release cadence, fleet-wide, for little engineering.</span></div>
+        <div class="up"><em>Buys</em><span>Frontier capability on the platform’s release cadence, fleet-wide, for little engineering.</span></div>
         <div class="dn"><em>Costs</em><span>The account, the data and the roadmap. Differentiation narrows to voice, wake word and trim.</span></div>
       </div>
     </div>
@@ -931,14 +965,14 @@ a.gl-name:hover{color:var(--g-accent)}
       <p>A tier-one delivers a branded assistant that routes to a frontier model behind it &mdash; Cerence Chat Pro and xUI, SoundHound Chat AI. Huawei is the extreme case: agent, OS, silicon and app store from one vendor.</p>
       <div class="ledger">
         <div class="up"><em>Buys</em><span>Brand-owned voice, multi-market localization, and a hedge against any single model vendor.</span></div>
-        <div class="dn"><em>Costs</em><span>A capability ceiling set by the supplier's release train, and thin data rights at the far end.</span></div>
+        <div class="dn"><em>Costs</em><span>A capability ceiling set by the supplier’s release train, and thin data rights at the far end.</span></div>
       </div>
     </div>
     <div>
       <div class="topbar" style="background:var(--cat-4)"></div>
       <h3>Orchestrated multi-agent</h3>
       <div class="who">MERCEDES-BENZ</div>
-      <p>The manufacturer keeps the router and the HMI and dispatches each request to whichever third-party brain answers it best &mdash; Google's Automotive AI Agent for places and traffic, other models for open knowledge.</p>
+      <p>The manufacturer keeps the router and the HMI and dispatches each request to whichever third-party brain answers it best &mdash; Google’s Automotive AI Agent for places and traffic, other models for open knowledge.</p>
       <div class="ledger">
         <div class="up"><em>Buys</em><span>Best-of-breed per task, vendor substitutability, and ownership of the layer the customer experiences.</span></div>
         <div class="dn"><em>Costs</em><span>Routing quality becomes the product, and cloud dependencies degrade together when coverage drops.</span></div>
@@ -948,7 +982,7 @@ a.gl-name:hover{color:var(--g-accent)}
       <div class="topbar" style="background:var(--cat-5)"></div>
       <h3>In-house, pre-generative</h3>
       <div class="who">TOYOTA / LEXUS</div>
-      <p>The OEM builds its own voice agent for commands and natural-language prompts, but has not shipped an LLM assistant in the cockpit. Toyota's agent is built by Toyota Connected North America, with speech recognition from Google Cloud.</p>
+      <p>The OEM builds its own voice agent for commands and natural-language prompts, but has not shipped an LLM assistant in the cockpit. Toyota’s agent is built by Toyota Connected North America, with speech recognition from Google Cloud.</p>
       <div class="ledger">
         <div class="up"><em>Buys</em><span>Control, embedded speed and offline reliability, with none of the hallucination risk.</span></div>
         <div class="dn"><em>Costs</em><span>A widening capability gap, and a catch-up that likely means skipping a generation.</span></div>
@@ -961,32 +995,32 @@ a.gl-name:hover{color:var(--g-accent)}
   <header class="co"><div class="co-bar"><span>Chapter 5 of 5</span><span class="co-seg" aria-hidden="true"><i></i><i></i><i></i><i></i><i class="on"></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">5</span><div class="co-body"><span class="co-eyebrow">Dated watch list</span><h2>What moves next</h2><p class="co-thesis">A dated watch list, from VW Group China&rsquo;s agents and BMW&rsquo;s Alexa+-based assistant to GM&rsquo;s own assistant alongside Gemini.</p></div></div></header>
   <div class="watch">
     <div class="item"><div class="when">H2 2026</div><div>
-      <h3>VW Group China's CEA agents confirmed in customer cars</h3>
-      <p>&ldquo;Agentic AI for all&rdquo; begins on China Electronic Architecture vehicles &mdash; ID. AURA T6, ID. UNYX 09, the Jetta brand and Audi E7X &mdash; with CEA 2.0 unifying cockpit and driving in 2027. The first CEA model, the ID. AURA T6, launched on 20 September 2026; whether its agent shipped at launch is not yet confirmed. A test of whether a global automaker's own agent can match local Chinese competitors.</p></div></div>
+      <h3>VW Group China’s CEA agents confirmed in customer cars</h3>
+      <p>&ldquo;Agentic AI for all&rdquo; begins on China Electronic Architecture vehicles &mdash; ID. AURA T6, ID. UNYX 09, the Jetta brand and Audi E7X &mdash; with CEA 2.0 unifying cockpit and driving in 2027. The first CEA model, the ID. AURA T6, launched on 20 September 2026; whether its agent shipped at launch is not yet confirmed. A test of whether a global automaker’s own agent can match local Chinese competitors.</p></div></div>
     <div class="item"><div class="when">H2 2026</div><div>
-      <h3>BMW's Alexa+-based assistant spreads beyond the iX3</h3>
-      <p>Live in iX3s in Germany since spring 2026, with US deliveries under way since September. Further Operating System 9 and X models follow from H2 2026 &mdash; the test of whether a manufacturer-branded assistant on a big-tech architecture reads to customers as the manufacturer's or as Amazon's.</p></div></div>
+      <h3>BMW’s Alexa+-based assistant spreads beyond the iX3</h3>
+      <p>Live in iX3s in Germany since spring 2026, with US deliveries under way since September. Further Operating System 9 and X models follow from H2 2026 &mdash; the test of whether a manufacturer-branded assistant on a big-tech architecture reads to customers as the manufacturer’s or as Amazon’s.</p></div></div>
     <div class="item"><div class="when">Late 2026</div><div>
-      <h3>GM's own assistant arrives alongside Gemini</h3>
+      <h3>GM’s own assistant arrives alongside Gemini</h3>
       <p>Confirmed on 31 July: deeper access to vehicle data and telematics, predictive maintenance, owner-specific routines. The first large-scale test of moving from platform-embedded to owned, on vehicles already in customers' hands.</p></div></div>
     <div class="item"><div class="when">Late 2026</div><div>
       <h3>SoundHound OASYS Edge reaches its first deployments</h3>
       <p>Fully embedded agentic voice AI that keeps working without a connection, announced in September 2026 for deployment from late 2026 and a CES 2027 showing. No automaker customers named yet.</p></div></div>
     <div class="item"><div class="when">2027</div><div>
-      <h3>Ford's AI Assistant moves into the cabin; VW's SSP cockpit starts</h3>
-      <p>Ford embeds its vehicle-knowledge assistant in select vehicles. Volkswagen's Qualcomm-based cockpit for the Rivian-JV architecture starts with the ID.EVERY1, promising &ldquo;agentic AI-driven experiences&rdquo; in the Western hemisphere.</p></div></div>
+      <h3>Ford’s AI Assistant moves into the cabin; VW’s SSP cockpit starts</h3>
+      <p>Ford embeds its vehicle-knowledge assistant in select vehicles. Volkswagen’s Qualcomm-based cockpit for the Rivian-JV architecture starts with the ID.EVERY1, promising &ldquo;agentic AI-driven experiences&rdquo; in the Western hemisphere.</p></div></div>
     <div class="item"><div class="when">Early 2027</div><div>
       <h3>Alexa Custom Assistant on NVIDIA DRIVE AGX opens for evaluation</h3>
       <p>Edge speech, vision and language inference in the vehicle with cloud for breadth &mdash; the reference supplier-grade hybrid architecture if the latency and privacy story holds.</p></div></div>
     <div class="item"><div class="when">Q1 2027</div><div>
       <h3>Huawei HarmonySpace &ldquo;Active Suggestion 2.0&rdquo;</h3>
-      <p>Huawei's OTA roadmap moves the cabin &ldquo;from passive response to proactive service&rdquo;, with Active Suggestion 2.0 scheduled for Q1 2027 (Gasgoo).</p></div></div>
+      <p>Huawei’s OTA roadmap moves the cabin &ldquo;from passive response to proactive service&rdquo;, with Active Suggestion 2.0 scheduled for Q1 2027 (Gasgoo).</p></div></div>
     <div class="item"><div class="when">H1 2027</div><div>
       <h3>Mercedes C-Class brings the three-model router to US dealers</h3>
-      <p>Watch the failure modes rather than the demo: how the router discloses which brain answered, and how it behaves out of coverage now that Liquid AI's on-device models are in the plan.</p></div></div>
+      <p>Watch the failure modes rather than the demo: how the router discloses which brain answered, and how it behaves out of coverage now that Liquid AI’s on-device models are in the plan.</p></div></div>
     <div class="item"><div class="when">Open</div><div>
       <h3>Whether Rivian licenses its assistant beyond its own vehicles</h3>
-      <p>Rivian's CEO said in December 2025 that the UI and its embedded AI are outside the JV; its CSO said in May 2026 that discussions are under way on &ldquo;similar technologies for the Volkswagen Group.&rdquo; A deal would make Rivian's stack the first in-house assistant licensed to another automaker.</p></div></div>
+      <p>Rivian’s CEO said in December 2025 that the UI and its embedded AI are outside the JV; its CSO said in May 2026 that discussions are under way on &ldquo;similar technologies for the Volkswagen Group.&rdquo; A deal would make Rivian’s stack the first in-house assistant licensed to another automaker.</p></div></div>
   </div>
 </section>
 
@@ -996,29 +1030,29 @@ a.gl-name:hover{color:var(--g-accent)}
   <h3 class="sub-h" id="changelog" style="margin-top:0;">Change log</h3>
   <ul class="log">
     <li class="loghead">October 2026 edition</li>
-    <li><span class="chg">Changed</span><div>Published as an independent public report. Removed company-specific recommendations; the summary chart now ranks all 21 entries; the routes table covers four architectures; added author, licence, disclaimer and the next scheduled refresh date.</div></li>
+    <li><span class="chg">Changed</span><div>Published as an independent public report. Removed company-specific recommendations; the summary chart now ranks all 21 entries; the routes table covers four architectures; added author, license, disclaimer and the next scheduled refresh date.</div></li>
     <li><span class="chg">Refreshed</span><div>Data checked to 11 October 2026. BMW Launching &rarr; Shipping (assistant live in iX3s in Germany since spring 2026; US deliveries from September). Rivian Assistant now on R2 (software 2026.36). Grok extended to Israel and the UAE. VW ID. AURA T6, the first CEA model, launched 20 September. Kia Sorento (India) assistant by SoundHound. Huawei OTA roadmap and SoundHound OASYS Edge added to the watch list. Toyota re-sourced to its 2022 in-house assistant release. No scores changed.</div></li>
     <li class="loghead">27 September 2026 refresh</li>
     <li><span class="new">Added</span><div>Use-case highlights: specific features, example requests (verbatim where published), limits and an evidence label in each company&rsquo;s matrix row, plus a full use-case highlights table after the matrix, a use-case evidence grid and a shared Google built-in card.</div></li>
-    <li><span class="new">Added</span><div>Volkswagen Group China (CEA agentic AI) as a 21st entry, scored provisionally on VW's announced specification.</div></li>
+    <li><span class="new">Added</span><div>Volkswagen Group China (CEA agentic AI) as a 21st entry, scored provisionally on VW’s announced specification.</div></li>
     <li><span class="new">Added</span><div>A fifth archetype, <b>In-house, pre-generative</b>. Toyota moved there after official sources confirmed its Hey Toyota agent is built in-house by Toyota Connected North America and no LLM cockpit assistant has shipped; it was wrongly listed as platform-embedded.</div></li>
-    <li><span class="chg">Rescored</span><div>Ford (no GenAI &rarr; shipping): Gemini opt-in plus Ford AI Assistant. Rivian edge 2&rarr;4 (RivianOS 2 local AI processing). Li Auto vehicle control 4&rarr;5 and personalization 4&rarr;5 (official Li i8 release). Lucid edge 2&rarr;3 (works without cellular for many features). Tesla OEM control 4&rarr;3 (Tesla's page says Grok is processed by SpaceXAI and anonymous to Tesla). Toyota OEM control 3&rarr;4 (agent built in-house).</div></li>
+    <li><span class="chg">Rescored</span><div>Ford (no GenAI &rarr; shipping): Gemini opt-in plus Ford AI Assistant. Rivian edge 2&rarr;4 (RivianOS 2 local AI processing). Li Auto vehicle control 4&rarr;5 and personalization 4&rarr;5 (official Li i8 release). Lucid edge 2&rarr;3 (works without cellular for many features). Tesla OEM control 4&rarr;3 (Tesla’s page says Grok is processed by SpaceXAI and anonymous to Tesla). Toyota OEM control 3&rarr;4 (agent built in-house).</div></li>
     <li><span class="chg">Status</span><div>Hyundai and Geely Launching &rarr; Shipping (Gleo AI live on the Korean Grandeur since May 2026; Cerence xUI on the Galaxy M9 since April 2026).</div></li>
-    <li><span class="fix">Corrected</span><div>NIO personalization 5&rarr;4 &mdash; &ldquo;long-term memory&rdquo; could not be confirmed in a credible source. Stellantis &ldquo;brand personalities&rdquo; removed as a deployed feature &mdash; SoundHound's release names no OEM using it. Li Auto &ldquo;MindGPT 3.0&rdquo; claim dropped with its aggregator source. Huawei&rsquo;s &ldquo;MoLA 2.0&rdquo; architecture was also dropped, then restored with Huawei&rsquo;s own HarmonySpace page as the source.</div></li>
-    <li><span class="chg">Updated</span><div>GM, Volvo, BMW, Mercedes, Rivian, Geely, Stellantis, Audi, XPeng, Huawei, Xiaomi and Hyundai status lines; findings 02&ndash;06; the watch list; and all sources, now labelled by type.</div></li>
+    <li><span class="fix">Corrected</span><div>NIO personalization 5&rarr;4 &mdash; &ldquo;long-term memory&rdquo; could not be confirmed in a credible source. Stellantis &ldquo;brand personalities&rdquo; removed as a deployed feature &mdash; SoundHound’s release names no OEM using it. Li Auto &ldquo;MindGPT 3.0&rdquo; claim dropped with its aggregator source. Huawei&rsquo;s &ldquo;MoLA 2.0&rdquo; architecture was also dropped, then restored with Huawei&rsquo;s own HarmonySpace page as the source.</div></li>
+    <li><span class="chg">Updated</span><div>GM, Volvo, BMW, Mercedes, Rivian, Geely, Stellantis, Audi, XPeng, Huawei, Xiaomi and Hyundai status lines; findings 02&ndash;06; the watch list; and all sources, now labeled by type.</div></li>
   </ul>
 
   <div class="caveat">
-    <p><b>How the scores were set.</b> Each entry was scored 1&ndash;5 per dimension from official manufacturer and supplier material first, then J.D. Power benchmark studies, then specialist trade press, current to 11 October 2026. These are analyst judgements calibrated across the set, not measured results &mdash; no vehicle was instrumented or driven. Pre-launch entries (marked Launching) are scored on announced specification, which tends to overstate. Where no official English source could be retrieved, the row says so in its detail. Chinese-market rows rest mainly on trade press and remain the least certain. Readers using this benchmark to inform decisions should validate it with hands-on testing against the seven dimensions.</p>
+    <p><b>How the scores were set.</b> Each entry was scored 1&ndash;5 per dimension from official manufacturer and supplier material first, then J.D. Power benchmark studies, then specialist trade press, current to 11 October 2026. These are analyst judgments calibrated across the set, not measured results &mdash; no vehicle was instrumented or driven. Pre-launch entries (marked Launching) are scored on announced specification, which tends to overstate. Where no official English source could be retrieved, the row says so in its detail. Chinese-market rows rest mainly on trade press and remain the least certain. Readers using this benchmark to inform decisions should validate it with hands-on testing against the seven dimensions.</p>
   </div>
 
   <h3 class="sub-h">About this report</h3>
   <div class="about">
-    <p><b>Author.</b> <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">Chuhee Lee</a>. This is an independent, personal research project. The views and assessments are the author's own and do not represent those of any employer or organization.</p>
+    <p><b>Author.</b> <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">Chuhee Lee</a>. This is an independent, personal research project. The views and assessments are the author’s own and do not represent those of any employer or organization.</p>
     <p><b>Independence.</b> No company named here sponsored, reviewed or endorsed this report. Product names and trademarks belong to their respective owners.</p>
-    <p><b>Research assistance.</b> Research, source verification and drafting were carried out with several AI models, including Claude (Anthropic), Gemini (Google) and ChatGPT (OpenAI). Every factual claim is sourced to the references listed below; scores and conclusions are the author's judgement.</p>
+    <p><b>Research assistance.</b> Research, source verification and drafting were carried out with several AI models, including Claude (Anthropic), Gemini (Google) and ChatGPT (OpenAI). Every factual claim is sourced to the references listed below; scores and conclusions are the author’s judgment.</p>
     <p><b>Update schedule.</b> The benchmark is refreshed quarterly, after the major industry events. The next scheduled refresh is in mid-January 2027; every change is recorded in the change log above.</p>
-    <p><b>Licence.</b> &copy; 2026 Chuhee Lee. Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)</a>. You may share and adapt this work for non-commercial purposes with appropriate credit, a link to the licence, and an indication of any changes.</p>
+    <p><b>License.</b> &copy; 2026 Chuhee Lee. Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)</a>. You may share and adapt this work for non-commercial purposes with appropriate credit, a link to the license, and an indication of any changes.</p>
     <p><b>Suggested citation.</b> Chuhee Lee, <i>In-Car AI Assistant Benchmark</i>, October 2026 edition (data as of 11 October 2026), https://blueplanet-ai.github.io/incar-ai-benchmark/, CC BY-NC 4.0.</p>
     <p><b>Corrections.</b> Spotted an error or a newer source? Please get in touch via <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">LinkedIn</a>.</p>
   </div>
@@ -1027,9 +1061,11 @@ a.gl-name:hover{color:var(--g-accent)}
 </section>
 
 </div>
+</main>
+
 <section class="rn" aria-labelledby="rnH"><div class="ro-inner">
   <div class="rn-head"><h2 id="rnH">Continue <em>down the map</em></h2><span class="rn-chain" aria-label="The four layers of the map"><span class="f">Forces</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="">Shifts</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class=" here" aria-current="true">Signals</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="o">Opportunities</span></span></div>
-  <div class="rn-cards"><a class="rn-card" href="/physical-ai-cabin/"><img src="/physical-ai-cabin/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Shifts</span><span class="rn-t">Physical AI and the Rider&rsquo;s Cabin</span><span class="rn-q">What is physical AI, who builds it, what do people actually use, and how does it reach the car&rsquo;s cabin and the rider?</span></span></a><a class="rn-card" href="/mobility-product-outlook/"><img src="/mobility-product-outlook/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Shifts</span><span class="rn-t">Mobility Product Outlook 2026&ndash;2031</span><span class="rn-q">How are consumer electronics and rising customer expectations redefining what a car is, and what defines the next-generation mobility product?</span></span></a><a class="rn-card" href="/agentic-consumer-2027/"><img src="/agentic-consumer-2027/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Shifts</span><span class="rn-t">Agentic AI and the Consumer</span><span class="rn-q">How does agentic AI change what consumers trust, delegate, buy and feel through 2027?</span></span></a></div>
+  <div class="rn-cards"><a class="rn-card" href="/physical-ai-cabin/"><img src="/physical-ai-cabin/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Shifts</span><span class="rn-t">Physical AI and the Rider&rsquo;s Cabin</span><span class="rn-q">What is physical AI, who builds it, what do people actually use, and how does it reach the car&rsquo;s cabin and the rider?</span></span></a><a class="rn-card" href="/mobility-product-outlook/"><img src="/mobility-product-outlook/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Shifts</span><span class="rn-t">Mobility Product Outlook 2026&ndash;2031</span><span class="rn-q">How are consumer electronics and rising customer expectations redefining what a car is, and what defines the next-generation mobility product?</span></span></a><a class="rn-card" href="/agentic-consumer-2027/"><img src="/agentic-consumer-2027/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Shifts</span><span class="rn-t">Agentic AI and the Consumer: 2027 Outlook</span><span class="rn-q">How does agentic AI change what consumers trust, delegate, buy and feel through 2027?</span></span></a></div>
 </div></section>
 <section class="rn-follow" aria-labelledby="rnF"><div class="ro-inner">
   <div><span class="rn-k">Follow new editions</span><h2 id="rnF">Each report is refreshed on a schedule. <em>Know when it changes.</em></h2><p>Next refresh dates are listed on the <a href="/#follow">home page</a>.</p></div>
@@ -1037,7 +1073,7 @@ a.gl-name:hover{color:var(--g-accent)}
 </div></section>
 <footer class="foot"><div class="foot-inner">
   <span>&copy; 2026 Chuhee Lee &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-  <span>Independent research &middot; not affiliated with or endorsed by any company named</span>
+  <span>Independent research &middot; not affiliated with or endorsed by any company or organization named</span>
   <span><a href="../method/">How this research is made</a> &middot; <a href="../">All publications</a></span>
 </div></footer>
 <div class="tip" id="tip"></div>
@@ -1060,11 +1096,11 @@ const SRC = {
   rv_r2upd:["Rivian — R2 software 2026.36 update details: Rivian Assistant now on R2 (Oct 2026)","https://media.rivian.com/image/upload/v1791378611/R2_update-details-20263640_10-06-2026_vutjmf.pdf","official"],
   nta_grok:["Not a Tesla App — Tesla launches Grok in new countries with update 2026.32.7 (27 Sep 2026)","https://www.notateslaapp.com/news/4743/tesla-launches-grok-in-new-countries-with-update-2026327","trade"],
   cnev_t6:["CnEVPost — VW launches ID. AURA T6 in China, first CEA model (20 Sep 2026)","https://cnevpost.com/2026/09/20/vw-launches-id-aura-t6-china/","trade"],
-  ek_kia:["Electrek — Kia vehicles to get Hyundai's Pleos infotainment from 2027 (28 Jul 2026)","https://electrek.co/2026/07/28/kias-vehicles-smart-upgrade-2027/","trade"],
+  ek_kia:["Electrek — Kia vehicles to get Hyundai’s Pleos infotainment from 2027 (28 Jul 2026)","https://electrek.co/2026/07/28/kias-vehicles-smart-upgrade-2027/","trade"],
   sh_kia:["SoundHound — Voice assistant with real-time generative AI for the Kia Sorento in India (30 Sep 2026)","https://www.globenewswire.com/news-release/2026/09/30/3372003/0/en/soundhound-ai-powers-next-generation-voice-assistant-with-real-time-generative-ai-for-the-kia-sorento-launched-in-india.html","official"],
   sh_edge:["SoundHound — OASYS Edge: fully embedded agentic voice AI for vehicles (24 Sep 2026)","https://www.globenewswire.com/news-release/2026/09/24/3368388/0/en/soundhound-ai-introduces-oasys-edge-bringing-fully-embedded-agentic-voice-ai-to-vehicles-and-smart-devices.html","official"],
   gasgoo_hs:["Gasgoo — Epicland X9 debuts Huawei ADS 5 and HarmonySpace 6 cockpit, incl. OTA roadmap (17 Jul 2026)","https://autonews.gasgoo.com/articles/news/epicland-x9-debuts-huawei-ads-5-and-harmonyspace-6-cockpit-2077950334705041409","trade"],
-  ty_2022:["Toyota — Toyota's new in-house intelligent assistant learns voice commands (31 May 2022)","https://pressroom.toyota.com/toyotas-new-in-house-intelligent-assistant-learns-voice-commands-and-gets-smarter-over-time/","official"],
+  ty_2022:["Toyota — Toyota’s new in-house intelligent assistant learns voice commands (31 May 2022)","https://pressroom.toyota.com/toyotas-new-in-house-intelligent-assistant-learns-voice-commands-and-gets-smarter-over-time/","official"],
   gm_gemini:["GM — Gemini comes to millions of vehicles on the road (28 Apr 2026)","https://news.gm.com/home.detail.html/Pages/news/us/en/2026/apr/0428-Google-Gemini.html","official"],
   gm_own:["GM Authority — GM proprietary AI assistant launching this year, citing CNBC interview (1 Aug 2026)","https://gmauthority.com/blog/2026/08/gm-proprietary-ai-assistant-launching-this-year/","trade"],
   honda:["Honda — Gemini added to Civic, Accord, CR-V, Pilot and more with Google built-in (15 Jul 2026)","https://hondanews.com/en-US/honda-automobiles/releases/release-197619b9ee3ec0adfccef0bd5f096c4f-honda-adds-google-gemini-a-helpful-ai-assistant-to-civic-accord-cr-v-pilot-and-more-vehicles-with-google-built-in","official"],
@@ -1072,7 +1108,7 @@ const SRC = {
   volvo:["Volvo Cars — Volvo cars now with Google Gemini (30 Apr 2026)","https://www.volvocars.com/us/media/press-releases/E84A67A6AEB4B35B/","official"],
   ford_ai:["Ford — Our Ford and Lincoln AI Assistant is open for questions (Aug 2026)","https://www.fromtheroad.ford.com/us/en/articles/2026/ford-lincoln-ai-assistant-open-for-questions","official"],
   ford_tc:["TechCrunch — Ford has an AI assistant on the way (7 Jan 2026)","https://techcrunch.com/2026/01/07/ford-has-an-ai-assistant-and-new-hands-free-bluecruise-tech-on-the-way","press"],
-  ford_gem:["Ford Authority — Ford says customers won't be forced into Google Gemini (11 Aug 2026)","https://fordauthority.com/2026/08/ford-says-customers-wont-be-forced-into-google-gemini/","trade"],
+  ford_gem:["Ford Authority — Ford says customers won’t be forced into Google Gemini (11 Aug 2026)","https://fordauthority.com/2026/08/ford-says-customers-wont-be-forced-into-google-gemini/","trade"],
   bmw:["BMW Group — Intelligent Personal Assistant expanded with Amazon Alexa+ technology (Jan 2026)","https://www.press.bmwgroup.com/global/article/detail/T0454477EN/a-milestone-for-human-vehicle-interaction-bmw-intelligent-personal-assistant-expanded-to-include-amazon-alexa-technology?language=en","official"],
   amazon_nv:["Amazon — Alexa+ teams with NVIDIA on in-car AI assistants","https://www.aboutamazon.com/news/devices/amazon-nvidia-car-ai-assistant-collaboration","official"],
   mb_google:["Google — Automotive AI Agent arrives for Mercedes-Benz","https://blog.google/feed/mercedes-google-cloud-automotive-ai-agent/","official"],
@@ -1082,7 +1118,7 @@ const SRC = {
   rv_assist:["Rivian — Introducing Rivian Assistant and Rivian Unified Intelligence (12 May 2026)","https://rivian.com/stories/software-update-hey-rivian-assistant-connect-ai-2026","official"],
   rv_r2:["Rivian — Built to Evolve: inside R2's transformational technology (Jun 2026, updated Aug)","https://rivian.com/stories/r2-transformational-tech-ai-defined-vehicle-2026","official"],
   rv_os2:["Rivian — Bringing RivianOS 2 to the R1 lineup (4 Sep 2026)","https://rivian.com/stories/new-software-rivianos-2","official"],
-  rv_ceo:["Newsweek — Volkswagen won't get Rivian's autonomous vehicle and AI tech, RJ Scaringe interview (12 Dec 2025)","https://www.newsweek.com/volkswagen-rivian-autonomous-vehicle-ai-tech-11199394","press"],
+  rv_ceo:["Newsweek — Volkswagen won’t get Rivian’s autonomous vehicle and AI tech, RJ Scaringe interview (12 Dec 2025)","https://www.newsweek.com/volkswagen-rivian-autonomous-vehicle-ai-tech-11199394","press"],
   decoder:["Decoder (The Verge) — Rivian CSO Wassym Bensaid interview (May 2026)","https://podcasts.apple.com/lb/podcast/rivians-software-chief-thinks-you-dont-need-carplay/id1011668648?i=1000769976854","press"],
   ev_decoder:["EV — Rivian in talks with Volkswagen Group to widen tech partnership, quoting Decoder (28 May 2026)","https://eletric-vehicles.com/rivian/rivian-in-talks-with-volkswagen-group-to-widen-tech-partnership-jv-co-ceo-says/","trade"],
   tesla:["Tesla — Grok support page","https://www.tesla.com/support/grok","official"],
@@ -1110,11 +1146,11 @@ const SRC = {
   li_ds:["Gasgoo — Li Auto integrates DeepSeek R1 into Li Xiang Tongxue (19 Feb 2025)","https://autonews.gasgoo.com/icv/70036017.html","trade"],
   nio_gpt:["CnEVPost — NIO rolls out AI-powered voice assistant NOMI GPT (12 Apr 2024)","https://cnevpost.com/2024/04/12/nio-rolls-out-nomi-gpt/","trade"],
   nio_eu:["CnEVPost — NIO faces European users over software delays (29 May 2026)","https://cnevpost.com/2026/05/29/nio-faces-european-users-address-software-delays-reaffirm-vision/","trade"],
-  xp_os:["XPeng — Industry's first AI-powered in-car OS, XOS 5.1 Tianji (20 May 2024)","https://www.xpeng.com/news/018f968985698f616d3f2c9e8f720154","official"],
+  xp_os:["XPeng — Industry’s first AI-powered in-car OS, XOS 5.1 Tianji (20 May 2024)","https://www.xpeng.com/news/018f968985698f616d3f2c9e8f720154","official"],
   xp_l03:["ADAS & Autonomous Vehicle International — XPeng L03 with next-generation AI cockpit (22 Jul 2026)","https://www.autonomousvehicleinternational.com/news/adas/xpeng-introduces-l03-with-next-generation-ai-cockpit-and-adas.html","trade"],
   xiaomi:["CnEVPost — Xiaomi launches Sky Nomad SUVs, cabin runs HyperOS with Xiao AI (7 Sep 2026)","https://cnevpost.com/2026/09/07/xiaomi-launches-sky-nomad-extended-range-suvs/","trade"],
   ty_rav4:["Toyota — The next adventure begins: 2026 RAV4 (22 Oct 2025)","https://pressroom.toyota.com/the-next-adventure-begins-2026-rav4-arrives-this-winter/","official"],
-  ty_genai:["Toyota — Toyota and generative AI: it's here, and this is how we're using it (6 Sep 2023)","https://pressroom.toyota.com/toyota-and-generative-ai-its-here-and-this-is-how-were-using-it/","official"],
+  ty_genai:["Toyota — Toyota and generative AI: it’s here, and this is how we’re using it (6 Sep 2023)","https://pressroom.toyota.com/toyota-and-generative-ai-its-here-and-this-is-how-were-using-it/","official"],
   ty_woven:["Toyota — Toyota and Woven by Toyota unveil new AI technologies (22 Apr 2026)","https://global.toyota/en/newsroom/corporate/44256155.html","official"],
   ty_google:["J.D. Power — Toyota partners with Google Cloud on AI-powered speech services (Oct 2022)","https://www.jdpower.com/automotive-news/toyota-partners-with-google-cloud-to-bring-ai-powered-speech-services-to-its-vehicles","press"],
   ieee:["IEEE Spectrum — Automakers race to add voice AI to connected vehicles","https://spectrum.ieee.org/ai-enabled-vehicle-assistant","press"],
@@ -1124,7 +1160,7 @@ const SRC = {
 // s = conv, agentic, control, nav, eco, pers, edge | own = OEM control
 const DATA = [
  {b:"Mercedes-Benz", p:"MBUX Virtual Assistant / MB.OS", a:"ma", st:"ship", s:[5,4,4,5,4,4,2], own:3, short:"Mercedes",
-  stack:"Google Cloud's Automotive AI Agent (Gemini on Vertex AI) powers conversational places and traffic search in MBUX. A press report on the 2027 C-Class describes a multi-agent router adding ChatGPT, Bing and Gemini for open-domain questions. Multi-year on-device partnership with Liquid AI announced April 2026.",
+  stack:"Google Cloud’s Automotive AI Agent (Gemini on Vertex AI) powers conversational places and traffic search in MBUX. A press report on the 2027 C-Class describes a multi-agent router adding ChatGPT, Bing and Gemini for open-domain questions. Multi-year on-device partnership with Liquid AI announced April 2026.",
   status:"Automotive AI Agent introduced with the new CLA on MB.OS. Three-model C-Class for US dealers in the first half of 2027 (press report). Liquid AI targets third- and fourth-generation MBUX in North America; no launch date given.",
   note:"The only entry that treats frontier models as substitutable components. Strategically the most defensible Western position here, and the most operationally demanding — routing quality is now the product.",
   flag:"Mercedes' own C-Class release could not be retrieved; the three-model configuration rests on the How-To Geek report.",
@@ -1132,20 +1168,20 @@ const DATA = [
 
  {b:"Huawei (HIMA brands)", p:"HarmonySpace 6 / Celia (Xiaoyi)", a:"si", st:"ship", s:[5,5,5,5,5,4,4], own:1, short:"Huawei",
   stack:"HarmonySpace 6 cockpit with the Celia agent (Xiaoyi in Chinese). Huawei says the next-gen HarmonySpace AI Assistant is \u201cpowered by the MoLA 2.0 architecture\u201d and \u201cunderstands intent\u201d. Full-scene conversational interaction and continuity across car, phone and smart home, plus an AI multimodal cabin perception system with RGB and infrared cameras and NearLink.",
-  status:"Showcased at Auto China 2026 across 13 models from five partner brands (AITO, Luxeed, Stelato, Zunjie, Shangjie). J.D. Power's 2026 China study ranked AITO first among premium NEVs. Huawei's OTA roadmap (July 2026): in-cabin fused perception in September–October 2026 and &ldquo;Active Suggestion 2.0&rdquo; for proactive services in Q1 2027 (Gasgoo).",
+  status:"Showcased at Auto China 2026 across 13 models from five partner brands (AITO, Luxeed, Stelato, Zunjie, Shangjie). J.D. Power’s 2026 China study ranked AITO first among premium NEVs. Huawei’s OTA roadmap (July 2026): in-cabin fused perception in September–October 2026 and &ldquo;Active Suggestion 2.0&rdquo; for proactive services in Q1 2027 (Gasgoo).",
   note:"The capability benchmark and the ownership cautionary tale in one row. A badge-holder partnering here gets a leading cockpit and very little claim on the layer that makes it good.",
   src:["huawei_hs","gasgoo_hw","gasgoo_hs","jdp_cn"]},
 
  {b:"Xiaomi", p:"HyperOS / Xiao AI", a:"vi", st:"ship", s:[4,4,4,4,5,4,3], own:5, short:"Xiaomi",
-  stack:"In-house Xiao AI assistant on HyperOS, carried over from Xiaomi's phone and smart-home business; cabin compute on Snapdragon 8 Gen 3.",
+  stack:"In-house Xiao AI assistant on HyperOS, carried over from Xiaomi’s phone and smart-home business; cabin compute on Snapdragon 8 Gen 3.",
   status:"Shipping in China across SU7, YU7 and the new Sky Nomad range (September 2026), with connectivity between phones, vehicles and smart-home devices.",
   note:"The only entrant whose assistant arrived in the car already embedded in a consumer device base. Ecosystem continuity from handset to appliance to vehicle is the moat, not the model.",
   flag:"No official English Xiaomi source retrieved; ecosystem and agent scores rest on trade press.",
   src:["xiaomi"]},
 
  {b:"Li Auto", p:"Li Xiang Tongxue / MindGPT", a:"vi", st:"ship", s:[5,4,5,4,3,5,3], own:5, short:"Li Auto",
-  stack:"Proprietary MindGPT foundation model — per Li Auto, the first automaker-developed large model filed under China's generative AI rules — with DeepSeek R1 and V3 selectable in the assistant. The assistant is now an agent that uses tools, handles complex tasks and keeps personalized memory.",
-  status:"Shipping in China. Li Auto's i8 launch release says nearly all vehicle functions are voice-controllable, with Face ID and family accounts for per-occupant personalization.",
+  stack:"Proprietary MindGPT foundation model — per Li Auto, the first automaker-developed large model filed under China’s generative AI rules — with DeepSeek R1 and V3 selectable in the assistant. The assistant is now an agent that uses tools, handles complex tasks and keeps personalized memory.",
+  status:"Shipping in China. Li Auto’s i8 launch release says nearly all vehicle functions are voice-controllable, with Face ID and family accounts for per-occupant personalization.",
   note:"Strongest in-house conversational and vehicle-control stack in the set. Shows that a mid-volume manufacturer can carry its own foundation model if it commits the organization to it.",
   src:["li_ir","li_wic","li_ds"]},
 
@@ -1156,7 +1192,7 @@ const DATA = [
   src:["nio_gpt","nio_eu","cnev_ai"]},
 
  {b:"XPeng", p:"Tianji XOS / Xiao P", a:"vi", st:"ship", s:[4,4,4,4,3,3,4], own:5, short:"XPeng",
-  stack:"In-house Xiao P assistant on the Tianji AI OS, with the XBrain large model; runs on XPeng's own Turing AI chips — three in the L03, up to 2,250 TOPS — shared with the VLA driving stack.",
+  stack:"In-house Xiao P assistant on the Tianji AI OS, with the XBrain large model; runs on XPeng’s own Turing AI chips — three in the L03, up to 2,250 TOPS — shared with the VLA driving stack.",
   status:"Shipping in China; XOS 6 in the L03 launches across 65 markets in Europe and China, with an assistant that infers intent and adjusts vehicle functions proactively.",
   note:"The clearest edge-compute bet in the set — owning the silicon lets cabin and driving intelligence share a model substrate.",
   src:["xp_os","xp_l03","cnev_ai"]},
@@ -1164,8 +1200,8 @@ const DATA = [
  {b:"Volkswagen Group China", p:"CEA agentic AI (“Agentic AI for all”)", a:"vi", st:"soon", s:[4,4,4,4,3,3,4], own:3, short:"VW China",
   stack:"Onboard AI agents on the China Electronic Architecture (CEA) with locally trained large language models; VW says personal information never leaves the vehicle. CEA 2.0 in 2027 unifies cockpit and driving. SAIC Volkswagen is also among the groups announcing Qwen-powered cabin services.",
   status:"Starts in H2 2026 on CEA vehicles including ID. AURA T6, ID. UNYX 09, the Jetta brand and Audi E7X. The first CEA model, the ID. AURA T6, launched on 20 September 2026; its cockpit chip supports on-device large AI models, but whether the agentic assistant shipped at launch is not confirmed (CnEVPost).",
-  note:"The group's most advanced announced assistant, and it is China-only. Scored provisionally on VW's own specification; model partners are not named in the release.",
-  flag:"Provisional scores — pre-launch and based on the manufacturer's announcement.",
+  note:"The group’s most advanced announced assistant, and it is China-only. Scored provisionally on VW’s own specification; model partners are not named in the release.",
+  flag:"Provisional scores — pre-launch and based on the manufacturer’s announcement.",
   src:["vw_china","cnev_t6","qwen","gasgoo_ac"]},
 
  {b:"Geely", p:"Eva super-agent (China) / Cerence xUI (export)", a:"si", st:"ship", s:[4,3,4,4,4,3,4], own:2, short:"Geely",
@@ -1175,22 +1211,22 @@ const DATA = [
   src:["cer_geely","cer_xui","gasgoo_ac","qwen"]},
 
  {b:"Rivian", p:"Rivian Assistant", a:"vi", st:"ship", s:[4,4,4,4,2,4,4], own:5, short:"Rivian",
-  stack:"In-house assistant and agentic framework for multi-step tasks, plus an in-house Owner's Guide system, on the 'Rivian Unified Intelligence' foundation. Google Calendar is the first outside integration. R2 carries 200 sparse TOPS of cabin-dedicated edge AI compute.",
+  stack:"In-house assistant and agentic framework for multi-step tasks, plus an in-house Owner’s Guide system, on the 'Rivian Unified Intelligence' foundation. Google Calendar is the first outside integration. R2 carries 200 sparse TOPS of cabin-dedicated edge AI compute.",
   status:"Launched May 2026 on Gen 1 and Gen 2 R1 (Connect+ required, English only). RivianOS 2 on 4 September 2026 unified R1 and R2 and brought hybrid edge compute and local AI processing to R2 and Gen 2 R1. Software 2026.36 (October 2026) brought Rivian Assistant to R2; Google Calendar and Memory are off by default.",
   note:"Best evidence that a low-volume manufacturer can own the layer end-to-end, now including on-board inference. Rivian has said it is in discussions to provide similar technology to its JV partner, Volkswagen Group — a sign the in-house stack may become licensable.",
   src:["rv_assist","rv_r2","rv_os2","rv_r2upd","rv_ceo","decoder","ev_decoder"]},
 
  {b:"Hyundai Motor Group", p:"Pleos Connect / Gleo AI", a:"vi", st:"ship", s:[4,3,4,4,4,3,3], own:4, short:"Hyundai Grp",
-  stack:"LLM-based Gleo AI on the Pleos Connect platform: context awareness, multiple commands in one utterance, zone-specific speaker recognition and a conversation history, with an App Market and the Pleos Playground developer programme.",
+  stack:"LLM-based Gleo AI on the Pleos Connect platform: context awareness, multiple commands in one utterance, zone-specific speaker recognition and a conversation history, with an App Market and the Pleos Playground developer program.",
   status:"Debuted on the Korean-market Grandeur in May 2026; IONIQ 3 brings it to Europe; Avante and Tucson follow later in 2026 and Kia models from 2027 (Electrek). Target of about 20 million Hyundai, Kia and Genesis vehicles by 2030. Separately, the &ldquo;Hey Kia&rdquo; assistant in the Kia Sorento launched in India in September 2026 is powered by SoundHound.",
-  note:"The most complete platform play outside China: assistant, app store and developer programme launched as one thing, with volume behind it.",
-  flag:"Hyundai's release does not name the LLM or say where it runs.",
+  note:"The most complete platform play outside China: assistant, app store and developer program launched as one thing, with volume behind it.",
+  flag:"Hyundai’s release does not name the LLM or say where it runs.",
   src:["hyundai","ek_kia","sh_kia"]},
 
  {b:"BMW", p:"Intelligent Personal Assistant + Alexa+", a:"pe", st:"ship", s:[4,4,4,3,4,4,2], own:2, short:"BMW",
-  stack:"Amazon's Alexa+ architecture behind the BMW Intelligent Personal Assistant on Operating System X with Panoramic iDrive. In China, BMW showed three agents built on Alibaba's Qwen at Auto China 2026.",
+  stack:"Amazon’s Alexa+ architecture behind the BMW Intelligent Personal Assistant on Operating System X with Panoramic iDrive. In China, BMW showed three agents built on Alibaba’s Qwen at Auto China 2026.",
   status:"Live in the iX3 in Germany: in production from mid-April 2026, with earlier-built cars updated over the air from the end of May; BMW says Germany and the US come first and that English and German were developed in parallel. US iX3 deliveries began in September 2026 (Electrek, citing a dealer notice). Further Operating System 9 and X models follow from H2 2026, and OS X can suggest routines from usage patterns from July 2026.",
-  note:"Keeps the BMW voice and gains Amazon's account graph, smart home and commerce reach — and uses a different model partner in China. The open question is whether a branded wrapper survives contact with a customer who already knows Alexa.",
+  note:"Keeps the BMW voice and gains Amazon’s account graph, smart home and commerce reach — and uses a different model partner in China. The open question is whether a branded wrapper survives contact with a customer who already knows Alexa.",
   src:["bmw","bmw_summer","bmw_news","ek_ix3","gasgoo_ac","ieee"]},
 
  {b:"GM", p:"Google Gemini + own assistant (late 2026)", a:"pe", st:"ship", s:[4,3,3,5,4,3,1], own:1, short:"GM",
@@ -1200,7 +1236,7 @@ const DATA = [
   src:["gm_gemini","gm_own"]},
 
  {b:"Ford", p:"Gemini (opt-in) + Ford AI Assistant", a:"pe", st:"ship", s:[4,3,3,5,4,3,1], own:2, short:"Ford",
-  stack:"Gemini as an opt-in alternative to Google Assistant for in-vehicle voice tasks. Ford's own AI Assistant — hosted on Google Cloud, built on off-the-shelf LLMs — handles vehicle-specific questions, warning lights and troubleshooting from vehicle data.",
+  stack:"Gemini as an opt-in alternative to Google Assistant for in-vehicle voice tasks. Ford’s own AI Assistant — hosted on Google Cloud, built on off-the-shelf LLMs — handles vehicle-specific questions, warning lights and troubleshooting from vehicle data.",
   status:"Ford AI Assistant rolling out in the Ford and Lincoln apps to about 8 million MY2021+ vehicles across 18 nameplates; in-vehicle integration in select vehicles in 2027.",
   note:"The same dual track as GM, one step further along on the owned half: the vehicle-knowledge agent is already live, if only in the app.",
   src:["ford_ai","ford_tc","ford_gem"]},
@@ -1214,15 +1250,15 @@ const DATA = [
  {b:"Honda / Acura", p:"Gemini in Google built-in", a:"pe", st:"ship", s:[4,3,3,5,4,3,1], own:1, short:"Honda",
   stack:"Gemini delivered through Google built-in; no Honda model layer of its own. Requires a Google account.",
   status:"Announced 15 July 2026 for Google built-in trims: MY2023+ Accord Touring Hybrid, MY2025+ Civic Si and Sport Touring Hybrid, MY2024+ Prologue, MY2026+ Pilot, Passport, CR-V Sport Touring Hybrid and Prelude, plus Acura ZDX, MDX and ADX.",
-  note:"Clean illustration of the decoupling: three-year-old vehicles receive a frontier assistant on Google's release train rather than Honda's.",
-  flag:"Kelley Blue Book reports it as free with no dealer visit; Honda's own release does not state terms.",
+  note:"Clean illustration of the decoupling: three-year-old vehicles receive a frontier assistant on Google’s release train rather than Honda’s.",
+  flag:"Kelley Blue Book reports it as free with no dealer visit; Honda’s own release does not state terms.",
   src:["honda","kbb_honda"]},
 
  {b:"Tesla", p:"Grok", a:"vi", st:"ship", s:[4,3,5,4,2,3,1], own:3, short:"Tesla",
   stack:"Grok, hands-free on 'Hey Grok'. Tesla says it can navigate, make calls, play music, adjust temperature, open the glovebox and answer questions about the vehicle. Interactions are processed by SpaceXAI and are anonymous to Tesla.",
   status:"In beta on AMD-processor vehicles with software 2025.26 or later, over Premium Connectivity or Wi-Fi. A community-compiled test found 116 of 170 commands working after the 2026 summer release. Update 2026.32.7 (late September 2026) extended Grok to Israel and the UAE, with more EMEA markets expected (Not a Tesla App).",
   note:"Sets the vehicle-control bar in the West. OEM control scored 3, not 4: Tesla owns the vehicle integration, but the model and the conversation data sit with an affiliated company.",
-  flag:"The 116-of-170 figure is a community test, not a Tesla figure. Grok is labelled beta and requires connectivity.",
+  flag:"The 116-of-170 figure is a community test, not a Tesla figure. Grok is labeled beta and requires connectivity.",
   src:["tesla","tesla_test","nta_grok"]},
 
  {b:"Volkswagen", p:"IDA + ChatGPT via Cerence Chat Pro", a:"si", st:"ship", s:[3,2,3,3,2,2,3], own:2, short:"VW",
@@ -1233,12 +1269,12 @@ const DATA = [
 
  {b:"Audi", p:"ChatGPT via Azure OpenAI / Cerence Chat Pro", a:"si", st:"ship", s:[3,2,3,3,2,2,3], own:2, short:"Audi",
   stack:"About two million MIB 3 vehicles from 2021 use ChatGPT through Microsoft Azure OpenAI Service; newer E3 1.2 models such as Q6 e-tron use Cerence Chat Pro. Vehicle-specific functions stay local; only general questions go to ChatGPT.",
-  status:"Shipping. Audi E7X in China moves to the group's CEA agent.",
-  note:"Shares the Volkswagen brand's architecture and capability ceiling outside China; in China, the Audi E7X moves to the group's CEA agent.",
+  status:"Shipping. Audi E7X in China moves to the group’s CEA agent.",
+  note:"Shares the Volkswagen brand’s architecture and capability ceiling outside China; in China, the Audi E7X moves to the group’s CEA agent.",
   src:["audi"]},
 
  {b:"Stellantis", p:"SoundHound Chat AI + Cerence xUI (awarded)", a:"si", st:"ship", s:[3,2,3,3,3,2,2], own:2, short:"Stellantis",
-  stack:"SoundHound Chat AI with integrated generative AI across DS, Alfa Romeo, Citroën, Peugeot, Opel, Vauxhall and Jeep (Europe). Stellantis also describes a Mistral AI owner's-manual assistant and a ChatGPT-powered assistant.",
+  stack:"SoundHound Chat AI with integrated generative AI across DS, Alfa Romeo, Citroën, Peugeot, Opel, Vauxhall and Jeep (Europe). Stellantis also describes a Mistral AI owner’s-manual assistant and a ChatGPT-powered assistant.",
   status:"In production. Cerence reported a new multi-brand xUI award from Stellantis in August 2026; timing and brands not disclosed.",
   note:"Running two voice suppliers plus a model partner across many brands. The xUI award suggests a move to a hybrid agentic platform; worth watching as a multi-brand group analogue.",
   src:["sh_ds","sh_jeep","sh_brand","stla_ai","cer_q3"]},
@@ -1246,12 +1282,12 @@ const DATA = [
  {b:"Lucid", p:"Lucid Assistant (SoundHound)", a:"si", st:"ship", s:[3,2,3,3,2,2,3], own:1, short:"Lucid",
   stack:"SoundHound voice assistant with integrated generative AI; routes each question to the right domain to limit hallucinations. Many features work without a cellular connection.",
   status:"Live in Lucid Air since January 2025, in six languages.",
-  note:"A premium EV brand that sources its entire voice layer from a supplier, so assistant capability tracks SoundHound's roadmap rather than Lucid's own.",
+  note:"A premium EV brand that sources its entire voice layer from a supplier, so assistant capability tracks SoundHound’s roadmap rather than Lucid’s own.",
   src:["sh_lucid"]},
 
  {b:"Toyota / Lexus", p:"Hey Toyota / Hey Lexus", a:"pg", st:"plan", s:[2,1,3,3,2,2,4], own:4, short:"Toyota",
-  stack:"Virtual agent built in-house by Toyota Connected North America (launched 2021) for audio, climate and vehicle functions, with Google Cloud speech recognition; Toyota says it understands English, Spanish and French and learns new phrasings over time. The 2026 RAV4 adds embedded voice functions for faster responses, on Woven by Toyota's Arene SDK.",
-  status:"No LLM cockpit assistant has shipped. Toyota's 2023 generative AI release described in-vehicle generative features as future plans; its 2026 AI announcements (Woven City vision and behaviour models) do not include a consumer voice assistant.",
+  stack:"Virtual agent built in-house by Toyota Connected North America (launched 2021) for audio, climate and vehicle functions, with Google Cloud speech recognition; Toyota says it understands English, Spanish and French and learns new phrasings over time. The 2026 RAV4 adds embedded voice functions for faster responses, on Woven by Toyota’s Arene SDK.",
+  status:"No LLM cockpit assistant has shipped. Toyota’s 2023 generative AI release described in-vehicle generative features as future plans; its 2026 AI announcements (Woven City vision and behavior models) do not include a consumer voice assistant.",
   note:"Deliberately conservative, and not obviously wrong given the J.D. Power evidence on quiet technology. But the capability gap is now wide enough that catching up likely means skipping a generation.",
   src:["ty_2022","ty_genai","ty_rav4","ty_google","ty_woven"]}
 ];
@@ -1270,7 +1306,7 @@ Object.assign(SRC,{
   mb_ces_group:["Mercedes-Benz Group — Mercedes-Benz at CES 2024","https://group.mercedes-benz.com/innovation/product-innovation/technology/ces-2024.html","official"],
   google_tips:["Google — Gemini is coming to cars with Google built-in (30 Apr 2026)","https://blog.google/products-and-platforms/platforms/android/cars-with-google-built-in-gemini-tips-2026/","official"],
   bmw_us:["BMW Group US — Intelligent Personal Assistant expanded with Alexa+ (5 Jan 2026)","https://www.press.bmwgroup.com/usa/article/detail/T0454787EN_US/a-milestone-for-human-vehicle-interaction-bmw-intelligent-personal-assistant-expanded-to-include","official"],
-  bmwblog:["BMWBLOG — Hands-on with BMW's Alexa+ assistant at CES (9 Jan 2026)","https://www.bmwblog.com/2026/01/09/bmw-alexa-plus-intelligent-personal-assistant/","trade"],
+  bmwblog:["BMWBLOG — Hands-on with BMW’s Alexa+ assistant at CES (9 Jan 2026)","https://www.bmwblog.com/2026/01/09/bmw-alexa-plus-intelligent-personal-assistant/","trade"],
   ford_eu:["Ford — Meet the AI assistant that knows your vehicle better than you do (Jul 2026)","https://www.fromtheroad.ford.com/eur/en/articles/2026/ford-ai-assistant-feature-capabilities","official"],
   volvo_ex60:["Volvo Cars — Volvo EX60, our most intelligent car to date","https://www.volvocars.com/intl/news/articles/ex60-the-most-intelligent-volvo/","official"],
   huawei_hs:["Huawei — HarmonySpace intelligent cockpit (undated product page)","https://auto.huawei.com/en/harmonyspace","official"],
@@ -1285,50 +1321,50 @@ const Q=t=>'<span class="q">'+t+'</span>';
 const UC_CONF={off:"Official",mix:"Mixed",trd:"Trade press",ann:"Announced"};
 const UC_ROWS=[
  {g:"ma", who:"Mercedes-Benz", prod:"MBUX Virtual Assistant", conf:"mix",
-  feat:["Google Automotive AI Agent answering place and traffic questions from Google Maps data","Multi-turn memory, including resuming an interrupted conversation","Proactive suggestions and routines based on learned behaviour and situational context","Animated &ldquo;living star&rdquo; avatar that shows when it is speaking, listening, thinking, suggesting or warning","Microsoft Teams calls from the car (MBUX app)"],
-  uc:[Q("Is there an Italian restaurant nearby?")+" &rarr; follow-up questions on reviews and popular dishes, without restating the place","2027 C-Class (press report): weather, ski-slope conditions or stock prices, each routed automatically to whichever model answers best","Restaurants, fuel stops and traffic along the route through Google's agent"],
+  feat:["Google Automotive AI Agent answering place and traffic questions from Google Maps data","Multi-turn memory, including resuming an interrupted conversation","Proactive suggestions and routines based on learned behavior and situational context","Animated &ldquo;living star&rdquo; avatar that shows when it is speaking, listening, thinking, suggesting or warning","Microsoft Teams calls from the car (MBUX app)"],
+  uc:[Q("Is there an Italian restaurant nearby?")+" &rarr; follow-up questions on reviews and popular dishes, without restating the place","2027 C-Class (press report): weather, ski-slope conditions or stock prices, each routed automatically to whichever model answers best","Restaurants, fuel stops and traffic along the route through Google’s agent"],
   lim:["Multi-model C-Class needs a data plan and a Mercedes me ID; offline it falls back to a limited command set (press report)"],
   src:["mb_google","mb_ces","mb_ces_group","mb_cclass"],
   grid:{poi:"y",prod:"y",pro:"y"}},
 
  {g:"pe", who:"Google built-in (shared)", prod:"Gemini &mdash; common to GM, Ford, Volvo, Honda", conf:"off",
-  feat:["Route-aware place search with Google Maps","Message reply, edit and summary, with ETA insertion","Mood- or activity-based music","Gemini Live for open conversation","Owner's-manual answers from the manufacturer's documentation"],
-  uc:[Q("Reply to Jane that I'm on my way and add my ETA.")+" then "+Q("Actually, also ask her if I should pick up dessert."),Q("I'm driving by the stadium. Is there an event happening and should I avoid it?"),Q("How should I prepare my car for an automatic car wash?")+" (owner's manual)",Q("It's foggy and freezing in here.")+" (climate)",Q("What's my current battery level?")],
-  lim:["Vehicle reach depends on what each OEM exposes; examples are Google's, not tied to one brand"],
+  feat:["Route-aware place search with Google Maps","Message reply, edit and summary, with ETA insertion","Mood- or activity-based music","Gemini Live for open conversation","Owner’s-manual answers from the manufacturer’s documentation"],
+  uc:[Q("Reply to Jane that I’m on my way and add my ETA.")+" then "+Q("Actually, also ask her if I should pick up dessert."),Q("I’m driving by the stadium. Is there an event happening and should I avoid it?"),Q("How should I prepare my car for an automatic car wash?")+" (owner’s manual)",Q("It’s foggy and freezing in here.")+" (climate)",Q("What’s my current battery level?")],
+  lim:["Vehicle reach depends on what each OEM exposes; examples are Google’s, not tied to one brand"],
   src:["google_tips"],
   grid:{poi:"y",msg:"y",know:"y"}},
 
  {g:"pe", who:"GM", prod:"Gemini + own assistant (late 2026)", conf:"mix",
   feat:["Everything in the Google built-in row","Fleet-oriented routing: fuel-price and trailer-parking queries","Own assistant announced: predictive maintenance, telemetry analysis, owner routines"],
-  uc:[Q("Send a message to Anna to let her know that I'm bringing dessert and add a cupcake emoji to it."),Q("Hey Google, take me to the nearest post office. Oh, and add a stop for some good coffee along the way."),Q("I'm suddenly craving barbecue. Are there any good spots along my route? Let's say, less than a mile detour."),Q("I have three stops to make today and need to finish my day with at least half a tank. Can you help me find the least expensive fuel along my route?"),"Announced own assistant: a &ldquo;kids setting&rdquo; that adjusts climate, music and seats together (CNBC interview, via GM Authority)"],
+  uc:[Q("Send a message to Anna to let her know that I’m bringing dessert and add a cupcake emoji to it."),Q("Hey Google, take me to the nearest post office. Oh, and add a stop for some good coffee along the way."),Q("I’m suddenly craving barbecue. Are there any good spots along my route? Let’s say, less than a mile detour."),Q("I have three stops to make today and need to finish my day with at least half a tank. Can you help me find the least expensive fuel along my route?"),"Announced own assistant: a &ldquo;kids setting&rdquo; that adjusts climate, music and seats together (CNBC interview, via GM Authority)"],
   lim:["Gemini needs OnStar connectivity, a Google account and US English"],
   src:["gm_gemini","gm_own"],
   grid:{poi:"y",msg:"y",chain:"y",pro:"a"}},
 
  {g:"pe", who:"Ford", prod:"Ford AI Assistant + Gemini (opt-in)", conf:"mix",
   feat:["Photo input: snap a picture and ask about it","Vehicle-specific knowledge down to bed length and tie-down layout","Warning-light decoding, troubleshooting, service scheduling, BlueCruise how-to","Gemini opt-in for navigation, climate and messaging"],
-  uc:["Photograph a stack of firewood and ask "+Q("How much of this will fit in my truck bed?")+" &rarr; an answer in bundles or fractions of a cord, from that truck's bed dimensions",Q("How do I prep my truck for off-roading?"),"Restaurant suggestions with stated preferences, live traffic and message summaries via Gemini (Ford Authority)"],
+  uc:["Photograph a stack of firewood and ask "+Q("How much of this will fit in my truck bed?")+" &rarr; an answer in bundles or fractions of a cord, from that truck’s bed dimensions",Q("How do I prep my truck for off-roading?"),"Restaurant suggestions with stated preferences, live traffic and message summaries via Gemini (Ford Authority)"],
   lim:["The Ford assistant is app-only until select vehicles get it in 2027"],
   src:["ford_eu","ford_ai","ford_gem"],
   grid:{poi:"y",msg:"y",know:"y",mm:"y"}},
 
  {g:"pe", who:"Volvo", prod:"Gemini in Google built-in", conf:"off",
-  feat:["Everything in the Google built-in row","Message composition in a specified language","On the EX60: Gemini pulling details from the driver's email"],
-  uc:[Q("Hey Google, find a place on my route that sells croissants")+" &rarr; "+Q("What are the reviews like?")+" &rarr; "+Q("Is there easy parking?"),"Message Sophie that you'll be 10 minutes late &mdash; Volvo also lists composing messages in a chosen language",Q("play something calming"),"EX60: "+Q("find a hotel booking address in their email")+" and "+Q("check if a recently bought item fits in their EX60 trunk")],
+  feat:["Everything in the Google built-in row","Message composition in a specified language","On the EX60: Gemini pulling details from the driver’s email"],
+  uc:[Q("Hey Google, find a place on my route that sells croissants")+" &rarr; "+Q("What are the reviews like?")+" &rarr; "+Q("Is there easy parking?"),"Message Sophie that you’ll be 10 minutes late &mdash; Volvo also lists composing messages in a chosen language",Q("play something calming"),"EX60: "+Q("find a hotel booking address in their email")+" and "+Q("check if a recently bought item fits in their EX60 trunk")],
   lim:["Requires connectivity and a US English Google account at launch"],
   src:["volvo","volvo_ex60"],
   grid:{poi:"y",msg:"y",know:"y",prod:"y"}},
 
  {g:"pe", who:"Honda / Acura", prod:"Gemini in Google built-in", conf:"off",
   feat:["Everything in the Google built-in row","Gemini Live for free-flowing conversation"],
-  uc:[Q("I need to grab a bite, find some good taco places along the way. When does [name of place] close? Great, let's go there"),Q("Hey Google, let's talk")+" &rarr; planning a weekend getaway, finding family activities, news summaries, brainstorming for a meeting"],
+  uc:[Q("I need to grab a bite, find some good taco places along the way. When does [name of place] close? Great, let’s go there"),Q("Hey Google, let’s talk")+" &rarr; planning a weekend getaway, finding family activities, news summaries, brainstorming for a meeting"],
   lim:["Only trims with Google built-in qualify"],
   src:["honda"],
   grid:{poi:"y"}},
 
  {g:"pe", who:"BMW", prod:"Intelligent Personal Assistant + Alexa+", conf:"mix",
   feat:["Several linked questions in one sentence, across vehicle and general knowledge","Answers flow straight into navigation","Amazon account: music, news, content","Routine suggestions from usage patterns, plus user-defined routines (OS X, from July 2026)","China: three Qwen-based agents &mdash; Car Usage Expert, Travel Companion, Encyclopedia Master"],
-  uc:[Q("Hey BMW what's the most famous painting there is in the world and where can I find it?")+" &rarr; "+Q("Take me there!"),"CES demo drive: add a CVS stop for sunscreen on the route; list charging stations along the way; switch to sport mode; open the windows &ldquo;just a little bit&rdquo;; check table availability at a named restaurant through OpenTable"],
+  uc:[Q("Hey BMW what’s the most famous painting there is in the world and where can I find it?")+" &rarr; "+Q("Take me there!"),"CES demo drive: add a CVS stop for sunscreen on the route; list charging stations along the way; switch to sport mode; open the windows &ldquo;just a little bit&rdquo;; check table availability at a named restaurant through OpenTable"],
   lim:["Demo-drive examples come from CES, before launch: sequential handling and noticeable latency; offline only basics (windows, climate, saved navigation) work; the bare &ldquo;BMW&rdquo; wake word risks false triggers","Production use confirmed in Germany; US availability in delivered cars not yet confirmed in a source reviewed"],
   src:["bmw_us","bmw_summer","bmwblog","gasgoo_ac"],
   grid:{poi:"y",ctrl:"y",chain:"y",pro:"y"}},
@@ -1341,15 +1377,15 @@ const UC_ROWS=[
   grid:{poi:"y",ctrl:"y",know:"y"}},
 
  {g:"vi", who:"Rivian", prod:"Rivian Assistant", conf:"off",
-  feat:["Drive modes, ride height, frunk, climate and range-on-arrival by voice","Occupant-aware commands","AI-drafted and summarized messages","Google Calendar agent","Owner's Guide troubleshooting","Privacy toggles for wake word, location sharing and memory","Local AI processing on R2 and Gen 2 R1"],
-  uc:[Q("Make everyone's seat toasty except mine"),Q("Move my meeting with Tim to 7pm"),Q("How do I change the tires?"),"Multi-step task: check the calendar, find a coffee stop, text the arrival time"],
+  feat:["Drive modes, ride height, frunk, climate and range-on-arrival by voice","Occupant-aware commands","AI-drafted and summarized messages","Google Calendar agent","Owner’s Guide troubleshooting","Privacy toggles for wake word, location sharing and memory","Local AI processing on R2 and Gen 2 R1"],
+  uc:[Q("Make everyone’s seat toasty except mine"),Q("Move my meeting with Tim to 7pm"),Q("How do I change the tires?"),"Multi-step task: check the calendar, find a coffee stop, text the arrival time"],
   lim:["Connect+ subscription, English only; Google Calendar and Memory off by default (R2 release notes)"],
   src:["rv_assist","rv_os2","rv_r2upd"],
   grid:{poi:"y",msg:"y",ctrl:"y",know:"y",prod:"y",chain:"y",zone:"y",off:"y"}},
 
  {g:"vi", who:"Hyundai Motor Group", prod:"Gleo AI on Pleos Connect", conf:"off",
   feat:["Resolves vague references (&ldquo;there&rdquo;, &ldquo;near here&rdquo;)","Several commands in one request","Seat-zone speaker recognition","Conversation history viewable in an app","App Market (NAVER, YouTube, Spotify, genie) and Pleos Playground APIs for developers","Split screen with floating route and ETA cards"],
-  uc:[Q("navigate there"),Q("find a restaurant near here"),Q("turn on my heated seat")+" &mdash; acts on the seat of whoever spoke","Kia Sorento, India (SoundHound, Sept 2026): &ldquo;Hey Kia&rdquo; adjusts climate, cabin lighting, windows and drive modes in natural language, and answers owner's-manual questions"],
+  uc:[Q("navigate there"),Q("find a restaurant near here"),Q("turn on my heated seat")+" &mdash; acts on the seat of whoever spoke","Kia Sorento, India (SoundHound, Sept 2026): &ldquo;Hey Kia&rdquo; adjusts climate, cabin lighting, windows and drive modes in natural language, and answers owner’s-manual questions"],
   lim:["LLM partner and where it runs not disclosed; app actions via Gleo AI are still &ldquo;scheduled&rdquo; for later"],
   src:["hyundai","sh_kia"],
   grid:{poi:"y",ctrl:"y",know:"y",zone:"y"}},
@@ -1370,7 +1406,7 @@ const UC_ROWS=[
 
  {g:"vi", who:"XPeng", prod:"Xiao P on Tianji XOS", conf:"mix",
   feat:["Infers intent from indirect statements","Smart Scheduling and an in-car encyclopedia","XOS 6 (L03): proactive adjustment of vehicle functions, multilingual","Three Turing chips, up to 2,250 TOPS on board"],
-  uc:[Q("I'm a bit cold")+" &rarr; the assistant decides whether to adjust the air conditioning"],
+  uc:[Q("I’m a bit cold")+" &rarr; the assistant decides whether to adjust the air conditioning"],
   lim:["Few published dialogue examples beyond this"],
   src:["xp_os","xp_l03"],
   grid:{pro:"y"}},
@@ -1385,14 +1421,14 @@ const UC_ROWS=[
  {g:"vi", who:"VW Group China", prod:"CEA agents (pre-launch)", conf:"ann",
   feat:["Agents that understand intent and execute multi-system actions","Locally trained LLMs, on-device; personal data stays in the car","Designed as a &ldquo;companion&rdquo; with personality (CTO Thomas Ulbrich, via AI Business)","CEA 2.0 (2027) coordinates agents for driving, cockpit and ecosystem services"],
   uc:["None published yet &mdash; debut vehicle is the ID. AURA T6"],
-  lim:["Partners per AI Business: CARIAD, XPeng, FAW, Tencent, Alibaba, Baidu (not named in VW's release)"],
+  lim:["Partners per AI Business: CARIAD, XPeng, FAW, Tencent, Alibaba, Baidu (not named in VW’s release)"],
   src:["vw_china","aibiz_vw"],
   grid:{chain:"a",off:"a"}},
 
  {g:"si", who:"Huawei (HIMA)", prod:"Celia on HarmonySpace", conf:"mix",
   feat:["Intent understanding on the MoLA 2.0 architecture (Huawei)","Navigation from a vague landmark, a characteristic or &ldquo;just a desire&rdquo;","Proactive alerts for anti-skid, tire pressure, extreme weather and air purification","Conversation as confidant or adviser; singing and games","HAMOMO character synced with the assistant","Multi-passenger, multi-screen, multi-zone","Cabin perception including rear-passenger vital signs; car-phone-home continuity","Roadmap: &ldquo;Active Suggestion 2.0&rdquo; proactive services in Q1 2027 (Gasgoo)"],
   uc:["Describe a place instead of naming it and get a route","Rear-passenger vital-sign monitoring (Auto China 2026)"],
-  lim:["Huawei's page is undated and unversioned"],
+  lim:["Huawei’s page is undated and unversioned"],
   src:["huawei_hs","gasgoo_hw","gasgoo_hs"],
   grid:{poi:"y",eco:"y",pro:"y",zone:"y",mm:"y"}},
 
@@ -1404,15 +1440,15 @@ const UC_ROWS=[
   grid:{poi:"y",ctrl:"y",mm:"y"}},
 
  {g:"si", who:"Stellantis", prod:"SoundHound Chat AI (+ Mistral, Cerence xUI)", conf:"off",
-  feat:["Follow-up questions without resetting context, mixing knowledge and vehicle control","Stories, quizzes and vehicle-manual help","Real-time domains: navigation, weather, sports, stocks, flight status","Mistral-based digital owner's manual with troubleshooting","AI EV route planning (e-ROUTES by Free2move Charge)"],
+  feat:["Follow-up questions without resetting context, mixing knowledge and vehicle control","Stories, quizzes and vehicle-manual help","Real-time domains: navigation, weather, sports, stocks, flight status","Mistral-based digital owner’s manual with troubleshooting","AI EV route planning (e-ROUTES by Free2move Charge)"],
   uc:["Jeep (Europe): ask about museums in Vienna &rarr; related attractions &rarr; control the windows &rarr; find a nearby coffee shop, all in one thread"],
   lim:["Cerence xUI multi-brand award: timing and brands undisclosed"],
   src:["sh_jeep","sh_ds","stla_ai","cer_q3"],
   grid:{poi:"y",ctrl:"y",know:"y"}},
 
  {g:"si", who:"Lucid", prod:"Lucid Assistant (SoundHound)", conf:"off",
-  feat:["&ldquo;Hey Lucid&rdquo; with vehicle function control","Whole owner's manual by voice","Routes each question to generative AI or a real-time domain","Many features work without a cellular connection","Six languages"],
-  uc:["Weather, sports and stock questions answered live","Owner's-manual questions answered by voice"],
+  feat:["&ldquo;Hey Lucid&rdquo; with vehicle function control","Whole owner’s manual by voice","Routes each question to generative AI or a real-time domain","Many features work without a cellular connection","Six languages"],
+  uc:["Weather, sports and stock questions answered live","Owner’s-manual questions answered by voice"],
   lim:["No sample dialogues published"],
   src:["sh_lucid"],
   grid:{know:"y",off:"y"}},
@@ -1595,7 +1631,7 @@ function hideTip(){ tip.style.opacity="0"; }
   });
   h+='<div class="vb-row sm"><div></div><div class="vb-axis">'+[0,1,2,3,4,5].map(t=>'<span style="left:'+(t*20)+'%">'+t+'</span>').join("")+'</div></div>';
   const box=document.getElementById("vwbars"); box.innerHTML=h;
-  document.getElementById("vwnote").textContent="Dashed line: median across all "+n+" entries ("+med.toFixed(2)+"). Bar colour follows the architecture archetype used throughout the page; pre-launch entries are scored on announced specification.";
+  document.getElementById("vwnote").textContent="Dashed line: median across all "+n+" entries ("+med.toFixed(2)+"). Bar color follows the architecture archetype used throughout the page; pre-launch entries are scored on announced specification.";
   box.querySelectorAll(".vb-row[data-b]").forEach(r=>{
     const d=DATA.find(x=>x.b===r.dataset.b);
     r.addEventListener("mousemove",e=>showTip(e,'<b>'+d.b+'</b>'+d.p+'<br>Index '+d.idx.toFixed(1)+' &middot; rank '+r.dataset.r+' of '+n+'<br>'+ARCH[d.a].label));
@@ -1675,7 +1711,7 @@ var GL={
  var lnk=function(k,t){return '<a href="'+SRC[k][1]+'" target="_blank" rel="noopener">'+t+'</a>';};
  var tiles=
   GL.tile(n,'in-car assistants benchmarked, across '+keys.filter(function(k){return DATA.some(function(d){return d.a===k;});}).length+' architectures','Official sources first · data as of 11 Oct 2026')+
-  GL.tile(top.idx.toFixed(1),'capability index of the top entry, '+GL.esc(top.b)+'. Its OEM control of the stack scores '+top.own+' of 5','Mean of seven 1–5 scores · analyst judgement')+
+  GL.tile(top.idx.toFixed(1),'capability index of the top entry, '+GL.esc(top.b)+'. Its OEM control of the stack scores '+top.own+' of 5','Mean of seven 1–5 scores · analyst judgment')+
   GL.tile('116 / 170','voice commands handled by Tesla&rsquo;s Grok in a community-compiled test, against Li Auto&rsquo;s claim of nearly all functions by voice',lnk('tesla_test','Drive Tesla')+' · '+lnk('li_ir','Li Auto'))+
   GL.tile('~4 million','GM vehicles (MY2022+) that received Gemini over the air, so the assistant no longer waits for the next vehicle generation',lnk('gm_gemini','GM, Apr 2026'));
  var ranked=rows.map(function(d){return GL.bar({nm:GL.esc(d.short),v:d.idx,max:5,txt:d.idx.toFixed(1),c:ARCH[d.a].color,mark:med,cls:'sm',lw:86});}).join('');
@@ -1688,11 +1724,11 @@ var GL={
  root.innerHTML=GL.mast('In-Car AI Assistant Benchmark','October 2026 edition · Data as of 11 Oct 2026 · Next refresh mid-Jan 2027')+
   '<div class="gl-lede"><b>Conversation is commodity. Vehicle control is not.</b> Every entry understands natural language; the spread is in actuation, in how far the assistant reaches into the car, and in who owns the layer that does it.</div>'+
   '<div class="gl-tiles">'+tiles+'</div>'+
-  '<div class="gl-two"><div><div class="gl-h">Capability index, all '+n+' entries</div><div class="gl-sub">Mean of seven dimensions, scale 0–5. Dashed line: median ('+med.toFixed(2)+'). Colour = architecture.</div>'+ranked+legend+'</div>'+
+  '<div class="gl-two"><div><div class="gl-h">Capability index, all '+n+' entries</div><div class="gl-sub">Mean of seven dimensions, scale 0–5. Dashed line: median ('+med.toFixed(2)+'). Color = architecture.</div>'+ranked+legend+'</div>'+
   '<div><div class="gl-h">Five architectures</div><div class="gl-sub">Average capability index by who owns the stack.</div>'+arch+
   '<div class="gl-h" style="margin-top:22px">Where the field is strong and weak</div><div class="gl-sub">Mean score per dimension across all entries.</div>'+dims+
-  '<div class="gl-note">Scores are analyst judgements from public sources, not drive-tested; pre-launch entries are scored on announced specification.</div></div></div>'+
-  GL.foot('blueplanet-ai.github.io/incar-ai-benchmark','&copy; 2026 Chuhee Lee · CC BY-NC 4.0 · Scores are the author&rsquo;s judgement');
+  '<div class="gl-note">Scores are analyst judgments from public sources, not drive-tested; pre-launch entries are scored on announced specification.</div></div></div>'+
+  GL.foot('blueplanet-ai.github.io/incar-ai-benchmark','&copy; 2026 Chuhee Lee · CC BY-NC 4.0 · Scores are the author&rsquo;s judgment');
 })();
 </script>
 <script src="/assets/report-opener.js" defer></script>

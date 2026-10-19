@@ -23,19 +23,25 @@
 <meta property="og:image:alt" content="Mobility Product Outlook 2026–2031: how consumer electronics are redefining the car. Independent research by Chuhee Lee.">
 <meta name="twitter:image" content="https://blueplanet-ai.github.io/mobility-product-outlook/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<style>img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Mobility Product Outlook 2026–2031</title>
+<style>img{max-width:100%}[hidden]{display:none!important}:root{--signal-text:var(--signal-deep);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--signal-text:var(--signal);}}
+:root[data-theme="dark"]{--signal-text:var(--signal);}
+:root{--eu-t:#656A2A;--cn-t:#9E4E1D;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--eu-t:var(--eu);--cn-t:var(--cn);}}
+:root[data-theme="dark"]{--eu-t:var(--eu);--cn-t:var(--cn);}
+</style>
+<title>Mobility Product Outlook 2026–2031 — Chuhee Lee</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
 /* House style of blueplanet-ai.github.io: masthead + stamp, ruled section heads, flat 1px-gap card grids.
-   Region colours fixed for the page: US = cat-3, Europe = cat-4, China = cat-2. */
+   Region colors fixed for the page: US = cat-3, Europe = cat-4, China = cat-2. */
 :root{
   --ground:#EBF0E6; --surface:#F4F7F0; --surface-2:#E0E7DA; --line:#CDD6C6; --line-strong:#B3BFAB;
-  --ink:#0F1719; --ink-2:#3F4C50; --ink-3:#5A676B; --signal:#0892A5; --signal-deep:#066A79;
+  --ink:#0F1719; --ink-2:#344145; --ink-3:#4E5B5F; --signal:#0892A5; --signal-deep:#066A79;
   --cat-1:#0892A5; --cat-2:#C2622D; --cat-3:#4B5BA8; --cat-4:#8A8C36; --cat-5:#7A8588;
-  --warn:#B0561E; --good:#2F7A52;
+  --warn:#9A4A1F; --good:#2F7A52;
   --us:var(--cat-3); --eu:var(--cat-4); --cn:var(--cat-2);
   --font-ui:"Saira","Helvetica Neue",Arial,sans-serif;
   --font-body:"Newsreader",Georgia,"Times New Roman",serif;
@@ -127,7 +133,7 @@ section{padding-top:56px;scroll-margin-top:52px;}
 .shiftlist li{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:14px;}
 .shiftlist .from{color:var(--ink-3);}
 .shiftlist .to{color:var(--ink);font-family:var(--font-ui);font-weight:600;font-size:14px;}
-.shiftlist .ar{font-family:var(--font-mono);color:var(--signal);text-align:center;}
+.shiftlist .ar{font-family:var(--font-mono);color:var(--signal-text);text-align:center;}
 .shiftlist .hd{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);border-top:0;padding-top:0;}
 
 .grid1{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
@@ -141,14 +147,14 @@ section{padding-top:56px;scroll-margin-top:52px;}
 
 .findings{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
 .finding{background:var(--surface);display:grid;grid-template-columns:52px minmax(0,1fr);gap:0 22px;padding:20px 24px;}
-.finding .num{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--signal);padding-top:3px;}
+.finding .num{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--signal-text);padding-top:3px;}
 .finding h3{font-size:18px;font-weight:600;margin-bottom:7px;}
 .finding p{color:var(--ink-2);font-size:16px;max-width:76ch;}
 .finding .ev{margin-top:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px 22px;}
 .finding .ev div{font-size:14px;color:var(--ink-2);border-left:2px solid var(--line-strong);padding-left:10px;}
 .finding .ev b{display:block;font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:500;}
 .finding .sowhat{font-family:var(--font-ui);font-size:14px;font-weight:500;color:var(--ink);margin-top:11px;padding-top:10px;border-top:1px dashed var(--line-strong);}
-.finding .sowhat i{font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);display:inline-block;margin-right:13px;}
+.finding .sowhat i{font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);display:inline-block;margin-right:13px;}
 
 .controls{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:flex-end;margin-bottom:16px;}
 .ctl{display:grid;gap:6px;}
@@ -170,7 +176,7 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;}
 .fw td{font-family:var(--font-body);font-size:15px;color:var(--ink-2);}
 .fw td.next{color:var(--ink);background:color-mix(in srgb,var(--signal) 7%,var(--surface));}
 .fw th.dim{width:170px;}
-.fw .dn{display:block;font-family:var(--font-mono);font-size:12px;color:var(--signal);font-weight:500;}
+.fw .dn{display:block;font-family:var(--font-mono);font-size:12px;color:var(--signal-text);font-weight:500;}
 .ex table{min-width:760px;}
 .ex td{font-family:var(--font-mono);font-size:13px;text-align:right;}
 .ex th.num{text-align:right;}
@@ -256,7 +262,7 @@ tr.det .go{margin-top:8px;}
 .dv-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);}
 .dv-col{padding:20px 24px;min-width:0;display:grid;gap:22px;align-content:start;}
 .dv-col + .dv-col{border-left:1px solid var(--line);}
-.blk h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:500;margin-bottom:8px;}
+.blk h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);font-weight:500;margin-bottom:8px;}
 .blk ul{margin:0;padding-left:17px;display:grid;gap:8px;font-size:15px;color:var(--ink-2);line-height:1.55;}
 .blk ul b{font-family:var(--font-ui);font-weight:600;color:var(--ink);font-size:14px;}
 .youbox{background:var(--surface-2);padding:14px 16px;}
@@ -266,21 +272,21 @@ tr.det .go{margin-top:8px;}
 .hz .k{font-family:var(--font-mono);font-size:12px;color:var(--signal-deep);font-weight:500;padding-top:2px;}
 .judg{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-left:6px;white-space:nowrap;}
 .impl{padding:16px 24px 20px;border-top:1px dashed var(--line-strong);}
-.impl h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:500;margin-bottom:8px;}
+.impl h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);font-weight:500;margin-bottom:8px;}
 .impl ul{margin:0;padding-left:17px;display:grid;gap:7px;font-family:var(--font-ui);font-size:14px;color:var(--ink);}
 .dive .tablewrap{border:0;border-top:1px solid var(--line);}
 
 .rt table{min-width:720px;}
 .rt thead th.c-us{color:var(--us);box-shadow:inset 0 3px 0 var(--us);}
-.rt thead th.c-eu{color:var(--eu);box-shadow:inset 0 3px 0 var(--eu);}
-.rt thead th.c-cn{color:var(--cn);box-shadow:inset 0 3px 0 var(--cn);}
+.rt thead th.c-eu{color:var(--eu-t);box-shadow:inset 0 3px 0 var(--eu);}
+.rt thead th.c-cn{color:var(--cn-t);box-shadow:inset 0 3px 0 var(--cn);}
 .rt td.c-us,.rt td.c-eu,.rt td.c-cn{font-family:var(--font-body);font-size:15px;color:var(--ink-2);transition:opacity .15s;}
 [data-lens="us"] .rt .c-eu,[data-lens="us"] .rt .c-cn,[data-lens="eu"] .rt .c-us,[data-lens="eu"] .rt .c-cn,[data-lens="cn"] .rt .c-us,[data-lens="cn"] .rt .c-eu{opacity:.3;}
 [data-lens="us"] .rt td.c-us{background:color-mix(in srgb,var(--us) 12%,var(--surface));}
 [data-lens="eu"] .rt td.c-eu{background:color-mix(in srgb,var(--eu) 14%,var(--surface));}
 [data-lens="cn"] .rt td.c-cn{background:color-mix(in srgb,var(--cn) 12%,var(--surface));}
 .leadc{font-size:13px;font-weight:600;}
-.leadc.us{color:var(--us);} .leadc.eu{color:var(--eu);} .leadc.cn{color:var(--cn);} .leadc.none{color:var(--ink-3);}
+.leadc.us{color:var(--us);} .leadc.eu{color:var(--eu-t);} .leadc.cn{color:var(--cn-t);} .leadc.none{color:var(--ink-3);}
 
 .charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:22px;}
 .chart{margin:0;background:var(--surface);border:1px solid var(--line);padding:18px 18px 14px;min-width:0;}
@@ -325,13 +331,13 @@ tr.det .go{margin-top:8px;}
 .watch p{font-size:15px;color:var(--ink-2);max-width:80ch;}
 .qs{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);grid-template-columns:repeat(2,minmax(0,1fr));}
 .qs div{background:var(--surface);padding:16px 18px;font-size:15px;color:var(--ink-2);}
-.qs div b{display:block;font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:var(--signal);font-weight:500;margin-bottom:4px;}
+.qs div b{display:block;font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:var(--signal-text);font-weight:500;margin-bottom:4px;}
 
 details{border:1px solid var(--line);background:var(--surface);}
 details + details{border-top:0;}
 summary{cursor:pointer;padding:11px 16px;font-family:var(--font-ui);font-weight:600;font-size:15px;list-style:none;display:flex;gap:12px;align-items:baseline;}
 summary::-webkit-details-marker{display:none;}
-summary::before{content:"+";font-family:var(--font-mono);color:var(--signal);width:12px;flex:none;}
+summary::before{content:"+";font-family:var(--font-mono);color:var(--signal-text);width:12px;flex:none;}
 details[open] > summary::before{content:"\2013";}
 summary .fn{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);font-weight:500;flex:none;}
 summary .pill{margin-left:auto;font-weight:500;}
@@ -384,7 +390,7 @@ details .body{padding:0 16px 14px 40px;font-size:15px;color:var(--ink-2);max-wid
 <style media="print">
 /* Print: clean light copy. In the browser's print dialog choose Save as PDF. */
 @page{margin:14mm 12mm}
-:root,:root[data-theme="dark"]{color-scheme:light!important;--ground:#fff !important;--surface:#FBFCFC !important;--surface-2:#E9EEEF !important;--line:#D3DBDC !important;--line-strong:#B2BEC0 !important;--ink:#0F1719 !important;--ink-2:#3F4C50 !important;--ink-3:#6B787C !important;--signal:#0892A5 !important;--signal-deep:#066A79 !important;--cat-1:#0892A5 !important;--cat-2:#C2622D !important;--cat-3:#4B5BA8 !important;--cat-4:#8A8C36 !important;--cat-5:#7A8588 !important;--warn:#B0561E !important;--good:#2F7A52 !important}
+:root,:root[data-theme="dark"]{color-scheme:light!important;--ground:#fff !important;--surface:#FBFCFC !important;--surface-2:#E9EEEF !important;--line:#D3DBDC !important;--line-strong:#B2BEC0 !important;--ink:#0F1719 !important;--ink-2:#344145 !important;--ink-3:#6B787C !important;--signal:#0892A5 !important;--signal-deep:#066A79 !important;--cat-1:#0892A5 !important;--cat-2:#C2622D !important;--cat-3:#4B5BA8 !important;--cat-4:#8A8C36 !important;--cat-5:#7A8588 !important;--warn:#9A4A1F !important;--good:#2F7A52 !important}
 html{background:#fff!important}
 *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .crumb,.nav,.idx,.controls,.chips,.tabs,.tip,#tip,button,.noprint{display:none!important}
@@ -500,6 +506,34 @@ a.gl-name:hover{color:var(--g-accent)}
 .glance{--g-s:var(--surface);--g-s2:var(--surface-2);--g-rule:var(--line);--g-ink:var(--ink);--g-ink2:var(--ink-2);--g-muted:var(--ink-3);--g-accent:var(--signal-deep);--g-soft:color-mix(in srgb,var(--signal) 12%,var(--surface));--g-ui:var(--font-ui);--g-mono:var(--font-mono)}
 </style>
 <link rel="stylesheet" href="/assets/report-opener.css">
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Report",
+ "headline": "Mobility Product Outlook 2026–2031",
+ "name": "Mobility Product Outlook 2026–2031",
+ "description": "How consumer electronics and customer expectations are redefining the car: a 12-dimension product-definition framework, future-car examples, robotaxi cabins and a ranking of 15 technologies. October 2026 edition by Chuhee Lee; data as of 11 October 2026.",
+ "url": "https://blueplanet-ai.github.io/mobility-product-outlook/",
+ "mainEntityOfPage": "https://blueplanet-ai.github.io/mobility-product-outlook/",
+ "inLanguage": "en",
+ "author": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "publisher": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "dateModified": "2026-10-15",
+ "image": "https://blueplanet-ai.github.io/og-image.png",
+ "datePublished": "2026-10-11"
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -589,6 +623,7 @@ a.gl-name:hover{color:var(--g-accent)}
 <section id="glance">
   <div class="sec-head"><h2>At a glance</h2><span class="eyebrow">One-page summary</span></div>
   <div class="glance" id="glanceBody" role="group" aria-label="Infographic: Mobility Product Outlook 2026–2031 at a glance"></div>
+  <p class="gl-cap"><b>Headline finding</b><span>Customers now judge cars by the standard their phones set.</span></p>
   <div class="gl-actions"><a href="mobility-product-outlook-at-a-glance.png" download>Download PNG</a></div>
 </section>
 
@@ -668,7 +703,7 @@ a.gl-name:hover{color:var(--g-accent)}
       <tbody id="exBody"></tbody>
     </table>
   </div>
-  <p class="note">Source: Deloitte, 2026 Global Automotive Consumer Study (Jan 2026; 28,000+ consumers in 27 countries). US figures confirmed in Deloitte&rsquo;s US release; other figures read from the global focus-market report. Deloitte notes its online panel may favour affluent, urban consumers in China and India. Two rows in the report could not be read reliably and are left out (see Research flags).</p>
+  <p class="note">Source: Deloitte, 2026 Global Automotive Consumer Study (Jan 2026; 28,000+ consumers in 27 countries). US figures confirmed in Deloitte&rsquo;s US release; other figures read from the global focus-market report. Deloitte notes its online panel may favor affluent, urban consumers in China and India. Two rows in the report could not be read reliably and are left out (see Research flags).</p>
 
   <h3 class="sub-h">Trendsetting markets at a glance</h3>
   <div class="grid1" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))" id="mkts"></div>
@@ -862,10 +897,10 @@ a.gl-name:hover{color:var(--g-accent)}
 
 <section id="map">
   <div class="sec-head"><h2>Where the new products are</h2><span class="eyebrow">Schematic map</span></div>
-  <p class="intro">Robotaxi services, Level 3 permits, car-to-grid programmes and the first showrooms of electronics-style carmakers named in the research. Each panel is a flat latitude&ndash;longitude plot without a basemap, so positions are approximate. Switch layers with the chips.</p>
+  <p class="intro">Robotaxi services, Level 3 permits, car-to-grid programs and the first showrooms of electronics-style carmakers named in the research. Each panel is a flat latitude&ndash;longitude plot without a basemap, so positions are approximate. Switch layers with the chips.</p>
   <div class="controls"><div class="legend" id="legend"></div></div>
   <div class="maps" id="maps"></div>
-  <p class="note">Country-wide programmes (France, Germany, Switzerland) sit at an approximate country centre. City lists are not exhaustive: Waymo served 15 US cities by 24 September 2026 (TechCrunch) and Apollo Go 28 cities as of August 2026 (Baidu).</p>
+  <p class="note">Country-wide programs (France, Germany, Switzerland) sit at an approximate country center. City lists are not exhaustive: Waymo served 15 US cities by 24 September 2026 (TechCrunch) and Apollo Go 28 cities as of August 2026 (Baidu).</p>
 </section>
 
 <section id="watch">
@@ -898,7 +933,7 @@ a.gl-name:hover{color:var(--g-accent)}
       <ul>
         <li>Five-to-ten-year technology forecasts have often been wrong in both directions. Robotaxi timelines were over-promised in 2015&ndash;2020, while electric car and generative AI adoption beat many forecasts.</li>
         <li>Survey answers are not purchases. Stated interest in software and services has often exceeded what buyers later pay for.</li>
-        <li>Several case-study figures come from trade press reporting company statements rather than from the companies&rsquo; own filings; they are labelled in the sources.</li>
+        <li>Several case-study figures come from trade press reporting company statements rather than from the companies&rsquo; own filings; they are labeled in the sources.</li>
       </ul></div>
   </div>
 </section>
@@ -928,7 +963,7 @@ a.gl-name:hover{color:var(--g-accent)}
     <p><b>Independence.</b> No company named here sponsored, reviewed or endorsed this report. Product names and trademarks belong to their respective owners.</p>
     <p><b>Research assistance.</b> Research, source verification and drafting were carried out with several AI models: mainly Claude (Anthropic), with Gemini (Google) and ChatGPT (OpenAI) used for smaller supporting references. Every factual claim is sourced to the references listed below; the framework, scores and conclusions are the author&rsquo;s judgment.</p>
     <p><b>Update schedule.</b> The outlook is refreshed once a year. The next scheduled refresh is in October 2027; every change is recorded in the change log above.</p>
-    <p><b>Licence.</b> &copy; 2026 Chuhee Lee. Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)</a>. You may share and adapt this work for non-commercial purposes with appropriate credit, a link to the licence, and an indication of any changes.</p>
+    <p><b>License.</b> &copy; 2026 Chuhee Lee. Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)</a>. You may share and adapt this work for non-commercial purposes with appropriate credit, a link to the license, and an indication of any changes.</p>
     <p><b>Suggested citation.</b> Chuhee Lee, <i>Mobility Product Outlook 2026&ndash;2031</i>, October 2026 edition (data as of 11 October 2026), https://blueplanet-ai.github.io/mobility-product-outlook/, CC BY-NC 4.0.</p>
     <p><b>Related report.</b> The <a href="../mega-trends-2040/">Mega Trends Outlook 2040</a> covers the long-run economic, social and geopolitical forces behind the expectations in this report.</p>
     <p><b>Corrections.</b> Spotted an error or a newer source? Please get in touch via <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">LinkedIn</a>.</p>
@@ -940,7 +975,7 @@ a.gl-name:hover{color:var(--g-accent)}
 
 <section class="rn" aria-labelledby="rnH"><div class="ro-inner">
   <div class="rn-head"><h2 id="rnH">Continue <em>down the map</em></h2><span class="rn-chain" aria-label="The four layers of the map"><span class="f">Forces</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class=" here" aria-current="true">Shifts</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="">Signals</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="o">Opportunities</span></span></div>
-  <div class="rn-cards"><a class="rn-card" href="/incar-ai-benchmark/"><img src="/incar-ai-benchmark/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Signals</span><span class="rn-t">In-Car AI Assistant Benchmark</span><span class="rn-q">What can today&rsquo;s in-car AI assistants actually do for the driver, and who owns the layer that does it?</span></span></a><a class="rn-card" href="/physical-ai-cabin/"><img src="/physical-ai-cabin/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Shifts</span><span class="rn-t">Physical AI and the Rider&rsquo;s Cabin</span><span class="rn-q">What is physical AI, who builds it, what do people actually use, and how does it reach the car&rsquo;s cabin and the rider?</span></span></a><a class="rn-card" href="/agentic-consumer-2027/"><img src="/agentic-consumer-2027/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Shifts</span><span class="rn-t">Agentic AI and the Consumer</span><span class="rn-q">How does agentic AI change what consumers trust, delegate, buy and feel through 2027?</span></span></a></div>
+  <div class="rn-cards"><a class="rn-card" href="/incar-ai-benchmark/"><img src="/incar-ai-benchmark/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Signals</span><span class="rn-t">In-Car AI Assistant Benchmark</span><span class="rn-q">What can today&rsquo;s in-car AI assistants actually do for the driver, and who owns the layer that does it?</span></span></a><a class="rn-card" href="/physical-ai-cabin/"><img src="/physical-ai-cabin/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Shifts</span><span class="rn-t">Physical AI and the Rider&rsquo;s Cabin</span><span class="rn-q">What is physical AI, who builds it, what do people actually use, and how does it reach the car&rsquo;s cabin and the rider?</span></span></a><a class="rn-card" href="/agentic-consumer-2027/"><img src="/agentic-consumer-2027/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Shifts</span><span class="rn-t">Agentic AI and the Consumer: 2027 Outlook</span><span class="rn-q">How does agentic AI change what consumers trust, delegate, buy and feel through 2027?</span></span></a></div>
 </div></section>
 <section class="rn-follow" aria-labelledby="rnF"><div class="ro-inner">
   <div><span class="rn-k">Follow new editions</span><h2 id="rnF">Each report is refreshed on a schedule. <em>Know when it changes.</em></h2><p>Next refresh dates are listed on the <a href="/#follow">home page</a>.</p></div>
@@ -948,7 +983,7 @@ a.gl-name:hover{color:var(--g-accent)}
 </div></section>
 <footer class="foot"><div class="foot-inner">
   <span>&copy; 2026 Chuhee Lee &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-  <span>Independent research &middot; not affiliated with or endorsed by any company named</span>
+  <span>Independent research &middot; not affiliated with or endorsed by any company or organization named</span>
   <span><a href="../method/">How this research is made</a> &middot; <a href="../">All publications</a></span>
 </div></footer>
 
@@ -1014,11 +1049,11 @@ a.gl-name:hover{color:var(--g-accent)}
   ];
 
   var CTX = [
-    ["Consumers seeking control and comfort", "Society", "Stressed customers want calm, and they want things made for them.", ["58% of consumers experience moderate to extreme daily stress; 50% want products and services tailored to them (Euromonitor, Nov 2025)"], "A calmer, simpler cabin; personalisation only with transparent data use"],
+    ["Consumers seeking control and comfort", "Society", "Stressed customers want calm, and they want things made for them.", ["58% of consumers experience moderate to extreme daily stress; 50% want products and services tailored to them (Euromonitor, Nov 2025)"], "A calmer, simpler cabin; personalization only with transparent data use"],
     ["Cost of living and value-seeking", "Economy", "Buyers weigh every recurring cost.", ["31% of US adults name cost of living as their top financial problem; 13% name energy costs, the highest since 2008 (Gallup, Apr 2026)"], "Fair pricing, few subscriptions, and features that save money, such as smart charging"],
-    ["The power demand supercycle", "Energy", "AI data centres and electrification push up electricity demand and bills.", ["US utilities requested $18.6B in rate increases in H1 2026, against $29B in all of 2025; 78% of Americans are at least somewhat concerned data centres will raise prices (Consumer Reports, Jul 2026)"], "Home-energy management and car-to-grid become a money-saving product benefit"],
+    ["The power demand supercycle", "Energy", "AI data centers and electrification push up electricity demand and bills.", ["US utilities requested $18.6 billion in rate increases in H1 2026, against $29 billion in all of 2025; 78% of Americans are at least somewhat concerned data centers will raise prices (Consumer Reports, Jul 2026)"], "Home-energy management and car-to-grid become a money-saving product benefit"],
     ["The agentic AI shakeout", "Technology", "Agents are spreading fast, but many projects will not survive.", ["Gartner predicts more than 40% of agentic AI projects will be canceled by end-2027 for cost, unclear value or weak risk controls; it counts only about 130 real agentic vendors (Jun 2025)"], "In-car agents must prove reliability and value before they replace familiar controls"],
-    ["The demographic inversion", "Demographics", "Populations are ageing fast in East Asia and Europe.", ["China recorded 7.92 million births in 2025, the lowest since 1949, and a fourth straight population fall (national statistics, reported Jan 2026)"], "Assistance and automation framed as independence for older people; cabins designed for easy access"],
+    ["The demographic inversion", "Demographics", "Populations are aging fast in East Asia and Europe.", ["China recorded 7.92 million births in 2025, the lowest since 1949, and a fourth straight population fall (national statistics, reported Jan 2026)"], "Assistance and automation framed as independence for older people; cabins designed for easy access"],
     ["Geoeconomic fragmentation", "Geopolitics", "Electric cars, chips and connected-car software are where US&ndash;China rules are hardening.", ["US rules ban Chinese-linked connected-vehicle software from model year 2027 and hardware from model year 2030; China mandates its own Level 3/4 standard from July 2027"], "Regional product variants and separate software stacks as a design assumption"]
   ];
 
@@ -1040,7 +1075,7 @@ a.gl-name:hover{color:var(--g-accent)}
     ["Hardware headroom", "Specified to cost, at the start of production", "Neue Klasse &ldquo;superbrains&rdquo; with 20 times the automated-driving compute of the previous generation (BMW)", "Compute and sensors sized for features that ship years later"],
     ["Business model", "Sell the car plus options; finance; service", "BMW heated-seat backlash; low willingness to pay for OTA alone; paid safety services accepted (Deloitte)", "Hardware included; subscriptions only for services with ongoing value"],
     ["Cabin role", "A driving space with entertainment for passengers", "Afeela&rsquo;s &ldquo;creative entertainment space&rdquo;; Li Auto&rsquo;s &ldquo;mobile home&rdquo;; BMW video and games when stationary; but 35% never use passenger screens", "Modes for drive, rest, work and play, unlocked as automation allows, not screens for their own sake"],
-    ["Development model", "4&ndash;5 year programmes; hardware-led gates", "Chinese new operating model: twice as fast, 40&ndash;50% lower investment; virtual testing in Toyota&rsquo;s Arene", "Software-led programmes with continuous integration and virtual validation"],
+    ["Development model", "4&ndash;5 year programs; hardware-led gates", "Chinese new operating model: twice as fast, 40&ndash;50% lower investment; virtual testing in Toyota&rsquo;s Arene", "Software-led programs with continuous integration and virtual validation"],
     ["Sales channel", "Dealer-led, negotiated", "Afeela studios and delivery hubs; 46% of US and 73% of Chinese buyers interested in buying online direct", "Chosen online, experienced in person, serviced with remote updates"],
     ["Data and trust", "Data collected in the background", "62% of US buyers concerned about synced-device data; Arene collects driving data with customer consent", "Explicit consent, on-device AI where possible, and visible privacy controls"],
     ["Access and age", "Designed around an average, able-bodied driver", "Waymo Ojai: low step-in, flat floor, grab bars, braille labels; China&rsquo;s births at a record low as populations age", "Assistance and automation that extend independence for older people; cabins easy to enter, use and understand"]
@@ -1062,7 +1097,7 @@ a.gl-name:hover{color:var(--g-accent)}
       [["Hardware", "Long-life battery and compute with headroom; physical controls for the essentials"], ["Software", "A published support window of many years; monthly fixes and a yearly feature drop"], ["Agent", "The family&rsquo;s own assistant, shared across phone, home and car, with a profile per seat"], ["Energy", "Two-way charging as standard; the agent shifts charging to cheap hours and backs up the house"], ["Access", "Easy entry and assistance features that help older family members keep driving safely"], ["Pricing", "Most features included; paid plans only for services such as safety monitoring or extended assistance"]],
       "Pixel and Galaxy seven-year support; 52&ndash;72% would keep a car longer with OTA; car-to-grid offers from Renault, BMW with E.ON and Volkswagen&rsquo;s Elli; Gleo AI seat recognition."],
     ["The personal lounge", "Premium car with eyes-off highway driving &middot; ~2033", "When the car drives itself on the highway, the cabin becomes a place to work, watch or rest.",
-      [["Hardware", "Sensors and compute sized for eyes-off driving; reconfigurable seats; quiet cabin"], ["Software", "Cabin modes for drive, work, play and rest that change with the automation level"], ["Agent", "Plans the trip, joins calls, summarises messages and hands back control clearly"], ["Ecosystem", "Your phone, glasses and streaming accounts carry straight in"], ["Pricing", "Automation and premium content sold as services with clear, ongoing value"]],
+      [["Hardware", "Sensors and compute sized for eyes-off driving; reconfigurable seats; quiet cabin"], ["Software", "Cabin modes for drive, work, play and rest that change with the automation level"], ["Agent", "Plans the trip, joins calls, summarizes messages and hands back control clearly"], ["Ecosystem", "Your phone, glasses and streaming accounts carry straight in"], ["Pricing", "Automation and premium content sold as services with clear, ongoing value"]],
       "China&rsquo;s first Level 3 permits (Dec 2025); Afeela&rsquo;s entertainment focus; BMW apps when stationary; J.D. Power warning on unused passenger screens."],
     ["The robotaxi pod", "Purpose-built shared vehicle &middot; ~2030&ndash;2035", "No owner and no driver: the product is a safe, clean, accessible trip that feels personal.",
       [["Hardware", "Facing seats, flat floor, wide doors, wipe-clean surfaces, airbags for every seat direction"], ["Software", "Fleet-managed updates; the rider&rsquo;s profile sets music, temperature and screens"], ["Agent", "Answers questions, changes the stop and calls for help on request"], ["Controls", "Start, Help and Pull Over at every seat; location sharing"], ["Pricing", "Per ride, priced against comfort-class ride-hailing"]],
@@ -1072,7 +1107,7 @@ a.gl-name:hover{color:var(--g-accent)}
   var DAY = [
     ["06:40", "<b>Charged overnight, cheaply.</b> The agent charged the car in the cheapest hours and kept a reserve because a storm warning is out."],
     ["07:30", "<b>Profiles load as each person sits down.</b> The driver&rsquo;s seat, mirrors and playlist; a child&rsquo;s audiobook at the rear seat."],
-    ["08:05", "<b>Errands by voice.</b> &ldquo;Book the tyre check and move my 10 o&rsquo;clock.&rdquo; The agent does both and confirms on the dashboard."],
+    ["08:05", "<b>Errands by voice.</b> &ldquo;Book the tire check and move my 10 o&rsquo;clock.&rdquo; The agent does both and confirms on the dashboard."],
     ["12:15", "<b>An update arrives.</b> A feature drop improves parking assistance; release notes appear in plain language, with an option to wait."],
     ["18:20", "<b>Home is ready.</b> The car tells the house to start cooling ten minutes before arrival, as phones can do today in some ecosystems."],
     ["21:00", "<b>The car helps the grid.</b> Parked at home, it sells a little power back at peak price and reports the savings for the month."]
@@ -1101,7 +1136,7 @@ a.gl-name:hover{color:var(--g-accent)}
     { id: 11, name: "AI trust, content provenance, cybersecurity (incl. post-quantum)", impact: 3, auto: 4, timing: "Near-Mid", tf: "Near-Mid", cert: "High (need) / Medium (form)", certN: 2.5, anchor: "Gartner 2026: digital provenance, AI security platforms; 58–62% of US buyers worry about in-car data (Deloitte)" },
     { id: 12, name: "Satellite-to-phone connectivity", impact: 2, auto: 3, timing: "Near-Mid", tf: "Near-Mid", cert: "Medium", certN: 2, anchor: "Not researched in depth in this edition" },
     { id: 13, name: "Gene therapy and CRISPR", impact: 2, auto: 1, timing: "Mid", tf: "Mid", cert: "Medium", certN: 2, anchor: "Not researched in depth in this edition" },
-    { id: 14, name: "Small modular and advanced nuclear reactors", impact: 2, auto: 2, timing: "Mid", tf: "Mid", cert: "Low-Medium", certN: 1.4, anchor: "IEA links data-centre power demand to nuclear; not researched in depth" },
+    { id: 14, name: "Small modular and advanced nuclear reactors", impact: 2, auto: 2, timing: "Mid", tf: "Mid", cert: "Low-Medium", certN: 1.4, anchor: "IEA links data-center power demand to nuclear; not researched in depth" },
     { id: 15, name: "Quantum computing (beyond cryptography)", impact: 1, auto: 1, timing: "Far (beyond 2036 for daily life)", tf: "Far", cert: "Low", certN: 1, anchor: "Not researched in depth in this edition" }
   ];
 
@@ -1118,7 +1153,7 @@ a.gl-name:hover{color:var(--g-accent)}
       badges: ["Near term", "High certainty", "Impact 5", "Mobility 5"],
       you: "You hand off multi-step errands, such as booking travel, filing a claim, comparing insurance or planning a route with charging stops, and keep one running conversation with an assistant across your phone, glasses, home and car.",
       evidence: [
-        "<b>Adoption.</b> Stanford AI Index 2026: 53% of the population used generative AI within three years, faster than the PC or the internet; 88% of organisations use AI; four in five university students use it.",
+        "<b>Adoption.</b> Stanford AI Index 2026: 53% of the population used generative AI within three years, faster than the PC or the internet; 88% of organizations use AI; four in five university students use it.",
         "<b>Capability.</b> METR Time Horizon 1.1 (29 Jan 2026): the length of task AI agents complete on their own doubles every 130.8 days for models since 2023 and every 88.6 days since 2024; the long-run figure is about seven months.",
         "<b>US and China.</b> Stanford says the model-performance gap &ldquo;has effectively closed&rdquo;: as of March 2026 the best US model leads the best Chinese model by 2.7%.",
         "<b>In cars.</b> Gemini reached about four million GM vehicles from April 2026; BMW adds an Alexa+-based assistant from H2 2026; Hyundai&rsquo;s Gleo AI launched in May 2026; Afeela&rsquo;s personal agent runs on Microsoft Azure OpenAI Service.",
@@ -1132,7 +1167,7 @@ a.gl-name:hover{color:var(--g-accent)}
         "The METR benchmark may be saturating, so extrapolation is risky; METR itself warns about this.",
         "Who is liable when an agent acts in the physical world is unsettled.",
         "Public trust is low: 73% of AI experts but only 23% of the US public expect AI to improve how people do their jobs (Stanford).",
-        "Data-centre electricity is projected to rise from about 415 TWh (2024) to about 1,200 TWh by 2035 (IEA)."
+        "Data-center electricity is projected to rise from about 415 TWh (2024) to about 1,200 TWh by 2035 (IEA)."
       ],
       impl: [
         "The agent becomes the main interface, so the product must define what the agent can do with the car: climate, routes, charging, seats and safety.",
@@ -1238,7 +1273,7 @@ a.gl-name:hover{color:var(--g-accent)}
         "<b>Ecosystem link.</b> Xiaomi showed home devices controlled from the car at IFA 2026."
       ],
       horizon: [
-        ["2026–2030", "Carmaker car-to-grid tariffs live in several European markets; China&rsquo;s pilots scale; US offers centre on backup power.", true],
+        ["2026–2030", "Carmaker car-to-grid tariffs live in several European markets; China&rsquo;s pilots scale; US offers center on backup power.", true],
         ["2031–2036", "Smart charging is the default; AI agents manage home and car energy together.", true]
       ],
       unc: ["Smart-meter rollout and tariff design.", "How battery warranties treat two-way charging."],
@@ -1315,9 +1350,9 @@ a.gl-name:hover{color:var(--g-accent)}
     ["Ecosystem strategy splits the industry.", "Apple extends CarPlay to every screen; GM removes projection; Xiaomi and Huawei own the phone, the car and the home.", "Each product needs an explicit answer to whether it hosts, links to or owns the customer&rsquo;s ecosystem."],
     ["Software revenue has to earn its keep.", "Customers rejected paying to unlock hardware, but many will pay for safety services with ongoing value.", "Business models move from feature unlocks to services."],
     ["Simplicity is a competitive feature.", "J.D. Power finds passenger screens among the most problematic technologies and owners preferring systems that clearly assist the driver.", "Fewer, better features, with the agent absorbing complexity."],
-    ["Speed has become a product attribute.", "China&rsquo;s new operating model brings cars to market twice as fast; Xiaomi reached 600,000 deliveries in 22 months.", "Long programmes risk launching products defined for a market that has already moved."],
+    ["Speed has become a product attribute.", "China&rsquo;s new operating model brings cars to market twice as fast; Xiaomi reached 600,000 deliveries in 22 months.", "Long programs risk launching products defined for a market that has already moved."],
     ["Shared vehicles are a separate product category.", "Zoox, Waymo&rsquo;s Ojai and Tesla&rsquo;s Cybercab are designed around the rider, not the driver.", "Accessibility, durability and rider control matter more than performance."],
-    ["The customer is more anxious, older and more cost-aware.", "58% of consumers report moderate to extreme daily stress (Euromonitor); energy costs are the top money worry for 13% of Americans, the highest since 2008 (Gallup); East Asian and European populations are ageing fast.", "Products that reduce stress, save money and extend independence fit the customer better than feature-heavy flagships."]
+    ["The customer is more anxious, older and more cost-aware.", "58% of consumers report moderate to extreme daily stress (Euromonitor); energy costs are the top money worry for 13% of Americans, the highest since 2008 (Gallup); East Asian and European populations are aging fast.", "Products that reduce stress, save money and extend independence fit the customer better than feature-heavy flagships."]
   ];
   var QS = [
     "Will buyers pay for a promised software-support window, or treat it as standard?",
@@ -1464,7 +1499,7 @@ a.gl-name:hover{color:var(--g-accent)}
       "</div><p class=\"today\"><b>Already visible:</b> " + c[4] + "</p></article>";
   }).join("");
   $("#dayline").innerHTML = DAY.map(function (d) { return "<li><span class=\"t\">" + d[0] + "</span><span class=\"d\"></span><span>" + d[1] + "</span></li>"; }).join("");
-  $("#rtBody").innerHTML = RT.map(function (r) { return "<tr><th scope=\"row\">" + r[0] + "</th><td style=\"font-family:var(--font-body);font-size:14.5px;color:var(--ink-2)\">" + r[1] + "</td><td style=\"font-family:var(--font-body);font-size:14.5px;color:var(--ink-2)\">" + r[2] + "</td><td>" + r[3] + "</td></tr>"; }).join("");
+  $("#rtBody").innerHTML = RT.map(function (r) { return "<tr><th scope=\"row\">" + r[0] + "</th><td style=\"font-family:var(--font-body);font-size:15px;color:var(--ink-2)\">" + r[1] + "</td><td style=\"font-family:var(--font-body);font-size:15px;color:var(--ink-2)\">" + r[2] + "</td><td>" + r[3] + "</td></tr>"; }).join("");
 
   (function () {
     var s = "<rect x=\"60\" y=\"20\" width=\"300\" height=\"190\" rx=\"28\" fill=\"var(--surface-2)\" stroke=\"var(--line-strong)\" stroke-width=\"2\"/>";
@@ -1507,7 +1542,7 @@ a.gl-name:hover{color:var(--g-accent)}
       html += "<tr class=\"row\" data-id=\"" + t.id + "\" tabindex=\"0\" aria-expanded=\"" + (state.open === t.id) + "\">" +
         "<td class=\"num mono\">" + t.id + "</td><th scope=\"row\"><button type=\"button\" class=\"namebtn\">" + esc(t.name) + "</button></th>" +
         "<td>" + pips(t.impact) + "</td><td>" + pips(t.auto) + "</td><td>" + esc(t.timing) + "</td><td>" + esc(t.cert) + "</td>" +
-        "<td><div class=\"wbar\"><div class=\"tr\"><div class=\"fi\" style=\"width:" + (w / 5 * 100) + "%\"></div></div><span class=\"mono\" style=\"font-size:12.5px\">" + w.toFixed(1) + "</span></div></td></tr>";
+        "<td><div class=\"wbar\"><div class=\"tr\"><div class=\"fi\" style=\"width:" + (w / 5 * 100) + "%\"></div></div><span class=\"mono\" style=\"font-size:12px\">" + w.toFixed(1) + "</span></div></td></tr>";
       if (state.open === t.id) {
         html += "<tr class=\"det\"><td></td><td colspan=\"6\"><div><b>Key evidence:</b> " + esc(t.anchor) + "</div>" +
           (t.dive ? "<div class=\"go\"><button type=\"button\" class=\"btn\" data-dive=\"" + t.dive + "\">Read the deep dive</button></div>" : "<div class=\"go\" style=\"color:var(--ink-3)\">No deep dive in this edition; the score rests on weaker evidence.</div>") + "</td></tr>";
@@ -1626,7 +1661,7 @@ a.gl-name:hover{color:var(--g-accent)}
     { n: "2025", v: 3, c: "gl", label: "3%" }, { n: "2026", v: 13, label: "13%" }
   ], 20);
   bars($("#rateBars"), [
-    { n: "2024", v: 15, c: "gl", label: "$15B" }, { n: "2025", v: 29, c: "gl", label: "$29B" }, { n: "H1 2026 only", v: 18.6, k: "tgt", label: "$18.6B" }
+    { n: "2024", v: 15, c: "gl", label: "$15bn" }, { n: "2025", v: 29, c: "gl", label: "$29bn" }, { n: "H1 2026 only", v: 18.6, k: "tgt", label: "$18.6bn" }
   ], 30);
   bars($("#rideBars"), [
     { n: "Riders confident in robotaxis", v: 76, label: "76%" },
@@ -1796,7 +1831,7 @@ var GL={
   '<div><div class="gl-h">Would keep the car longer with regular OTA updates</div><div class="gl-sub">% of respondents, Deloitte 2026.</div>'+mk(1)+'</div>'+
   '<div><div class="gl-h">Concerned about data from synced devices</div><div class="gl-sub">% of respondents, Deloitte 2026.</div>'+mk(5)+'</div></div>'+
   '<div class="gl-hz">'+col('Done so far','2025–2026',done)+col('Targets and scheduled','2026–2027',nxt)+col('Forecasts','2030–2036',fc)+'</div>'+
-  GL.foot('blueplanet-ai.github.io/mobility-product-outlook','&copy; 2026 Chuhee Lee · CC BY-NC 4.0 · Framework, ranking and outlook are the author&rsquo;s judgement');
+  GL.foot('blueplanet-ai.github.io/mobility-product-outlook','&copy; 2026 Chuhee Lee · CC BY-NC 4.0 · Framework, ranking and outlook are the author&rsquo;s judgment');
 })();
 
 })();

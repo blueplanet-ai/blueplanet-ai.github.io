@@ -6,7 +6,7 @@
 :root{
   --ro-ground:#EBF0E6; --ro-surface:#F4F7F0; --ro-surface-2:#E0E7DA;
   --ro-line:#CDD6C6; --ro-line-strong:#B3BFAB;
-  --ro-ink:#0F1719; --ro-ink-2:#3F4C50; --ro-ink-3:#5A676B;
+  --ro-ink:#0F1719; --ro-ink-2:#344145; --ro-ink-3:#4E5B5F;
   --ro-signal:#0892A5; --ro-signal-deep:#066A79;
   --ro-opp:#C2622D; --ro-opp-ink:#9A4A1F;
   --ro-plate:#0F1719; --ro-plate-ink:#E7EDEE; --ro-plate-2:#AFBDBF; --ro-plate-3:#93A1A4; --ro-plate-line:#3C4B4E; --ro-plate-accent:#5FCCDB; --ro-plate-opp:#DB8A4F;
@@ -213,7 +213,7 @@ section.ro-60{background:var(--ro-plate);color:var(--ro-plate-ink);padding:0;mar
   .ro,.ro-toc{background:#fff!important;}
   .ro-60{background:#fff!important;color:#0F1719!important;border:1px solid #B2BEC0;break-inside:avoid;page-break-inside:avoid;}
   .ro-60 h2,.ro-60 h3,.ro-60 p,.ro-60 .ro-fig{color:#0F1719!important;}
-  .ro-60 .ro-src,.ro-60 .ro-legend,.ro-60-head span,.ro-60 .ro-kind{color:#3F4C50!important;}
+  .ro-60 .ro-src,.ro-60 .ro-legend,.ro-60-head span,.ro-60 .ro-kind{color:#344145!important;}
   .ro-60 .ro-src a{color:#066A79!important;}
   .ro-cover img{max-width:160px;}
   .ro > .ro-inner{grid-template-columns:160px minmax(0,1fr);}
@@ -243,3 +243,9 @@ body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
   @keyframes rp-grow{to{transform:scaleX(1);}}
 }
 @media print{.rp{display:none!important;}}
+
+/* Headline finding under the at-a-glance infographic: restates the report's own summary line. */
+.gl-cap{margin:14px 0 0;max-width:68ch;display:grid;gap:4px;border-left:2px solid var(--ro-signal);padding-left:14px;}
+.gl-cap b{font-family:var(--ro-ui);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ro-signal-deep);}
+.gl-cap span{font-family:var(--ro-serif);font-size:18px;line-height:1.45;font-style:italic;color:var(--ro-ink);}
+@media print{.gl-cap{break-inside:avoid}}

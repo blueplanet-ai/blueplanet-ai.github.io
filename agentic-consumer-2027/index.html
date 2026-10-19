@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#F4F7F0" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#151D1F" media="(prefers-color-scheme: dark)">
-<title>Agentic AI and the Consumer: 2027 Outlook</title>
+<title>Agentic AI and the Consumer: 2027 Outlook — Chuhee Lee</title>
 <meta name="description" content="Independent report on how agentic AI changes what consumers trust, delegate, buy and feel through 2027, across retail, travel, finance and mobility. October 2026 edition by Chuhee Lee; data as of 11 October 2026.">
 <meta name="author" content="Chuhee Lee">
 <link rel="canonical" href="https://blueplanet-ai.github.io/agentic-consumer-2027/">
@@ -24,7 +24,10 @@
 <meta property="og:image:alt" content="Agentic AI and the Consumer: 2027 Outlook. Independent research by Chuhee Lee.">
 <meta name="twitter:image" content="https://blueplanet-ai.github.io/agentic-consumer-2027/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<style>img{max-width:100%}[hidden]{display:none!important}</style>
+<style>img{max-width:100%}[hidden]{display:none!important}:root{--signal-text:var(--signal-deep);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--signal-text:var(--signal);}}
+:root[data-theme="dark"]{--signal-text:var(--signal);}
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -37,8 +40,8 @@
   --line:#CDD6C6;
   --line-strong:#B3BFAB;
   --ink:#0F1719;
-  --ink-2:#3F4C50;
-  --ink-3:#5A676B;
+  --ink-2:#344145;
+  --ink-3:#4E5B5F;
   --signal:#0892A5;
   --signal-deep:#066A79;
 
@@ -47,13 +50,13 @@
   --cat-3:#4B5BA8;
   --cat-4:#8A8C36;
 
-  --s1:#E4EDEF; --s1-ink:#3F4C50;
+  --s1:#E4EDEF; --s1-ink:#344145;
   --s2:#BEDCE2; --s2-ink:#1B3438;
   --s3:#8AC4CF; --s3-ink:#12292D;
-  --s4:#3E9FB0; --s4-ink:#FBFCFC;
+  --s4:#3E9FB0; --s4-ink:#0F1719;
   --s5:#0A6F80; --s5-ink:#FBFCFC;
 
-  --warn:#B0561E;
+  --warn:#9A4A1F;
   --good:#2F7A52;
 
   --font-ui:"Saira","Helvetica Neue",Arial,sans-serif;
@@ -188,7 +191,7 @@ section{padding-top:56px;}
 }
 .finding .num{
   font-family:var(--font-mono);font-size:13px;font-weight:600;
-  color:var(--signal);padding-top:3px;
+  color:var(--signal-text);padding-top:3px;
 }
 .finding h3{font-size:18px;font-weight:600;letter-spacing:-.005em;margin-bottom:8px;}
 .finding p{color:var(--ink-2);font-size:16px;max-width:68ch;}
@@ -200,7 +203,7 @@ section{padding-top:56px;}
 }
 .finding .sowhat i{
   font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--signal);
+  text-transform:uppercase;color:var(--signal-text);
   display:inline-block;margin-right:13px;
 }
 
@@ -244,7 +247,7 @@ thead th{
 thead th.name{text-align:left;left:0;z-index:4;padding-left:16px;min-width:216px;}
 th.sortable{cursor:pointer;user-select:none;}
 th.sortable:hover{color:var(--signal-deep);}
-th .arrow{display:block;font-family:var(--font-mono);font-size:12px;color:var(--signal);height:10px;line-height:10px;}
+th .arrow{display:block;font-family:var(--font-mono);font-size:12px;color:var(--signal-text);height:10px;line-height:10px;}
 tbody td{
   border-bottom:1px solid var(--line);padding:0;text-align:center;
   font-variant-numeric:tabular-nums;
@@ -282,7 +285,7 @@ td.status{padding:0 10px;}
 
 tr.detail td{padding:0;background:var(--surface-2);border-bottom:1px solid var(--line-strong);}
 .det{padding:20px 24px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px 30px;}
-.det .col h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:500;margin-bottom:7px;}
+.det .col h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);font-weight:500;margin-bottom:7px;}
 .det .col p{font-size:15px;color:var(--ink-2);line-height:1.55;}
 .det .col.full{grid-column:1/-1;}
 .det .col.full p{color:var(--ink);font-family:var(--font-ui);font-size:15px;}
@@ -391,7 +394,7 @@ table.opts tr:last-child td{border-bottom:0;}
 .arch{grid-template-columns:repeat(auto-fit,minmax(205px,1fr));}
 .det{text-align:left;}
 .det .srcl{grid-column:1/-1;font-family:var(--font-mono);font-size:12px;line-height:1.8;color:var(--ink-3);border-top:1px dashed var(--line-strong);padding-top:10px;}
-.det .srcl b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal);}
+.det .srcl b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal-text);}
 .det .srcl a{margin-right:4px;}
 .det .flag{grid-column:1/-1;font-family:var(--font-ui);font-size:13px;color:var(--warn);}
 .log{margin:0 0 26px;padding:0;list-style:none;display:grid;gap:9px;max-width:92ch;}
@@ -407,7 +410,7 @@ table.opts tr:last-child td{border-bottom:0;}
 .conf.off{color:var(--good);} .conf.mix{color:var(--signal-deep);} .conf.trd{color:var(--warn);} .conf.ann{color:var(--ink-3);}
 .ucx{grid-column:1/-1;border-top:1px solid var(--line-strong);padding-top:14px;}
 .ucx-h{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-bottom:10px;}
-.ucx-h h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:500;margin:0;}
+.ucx-h h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);font-weight:500;margin:0;}
 .ucx-note{font-family:var(--font-ui);font-size:13px;color:var(--ink-3);}
 .ucx-g{display:grid;grid-template-columns:1fr 1.25fr .9fr;gap:14px 26px;}
 .ucx-g h5{font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);margin:0 0 6px;}
@@ -432,7 +435,7 @@ table.ucgrid td.n{font-family:var(--font-mono);font-size:12px;color:var(--ink-2)
 .gcard > h3{font-size:16px;font-weight:600;margin-bottom:4px;}
 .gcard .q{background:var(--surface-2);}
 .gsrc{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);margin-top:12px;}
-.gsrc b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal);}
+.gsrc b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal-text);}
 .gcard > p{font-size:14px;color:var(--ink-2);margin-bottom:14px;max-width:80ch;}
 
 /* ---------- use-case highlights table ---------- */
@@ -509,7 +512,7 @@ table.opts td.route span{line-height:1.45;}
 .cards3 ul{margin:0;padding-left:17px;}
 .cards3 li{font-size:15px;color:var(--ink-2);margin-bottom:7px;line-height:1.5;}
 .cards3 .lean{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line-strong);font-family:var(--font-ui);font-size:14px;color:var(--ink);}
-.cards3 .lean i{font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);margin-right:8px;}
+.cards3 .lean i{font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);margin-right:8px;}
 table.cmp{min-width:860px;}
 table.cmp th{position:static;text-align:left;padding:10px 14px;}
 table.cmp td{text-align:left;vertical-align:top;padding:13px 14px;font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--ink-2);}
@@ -527,7 +530,7 @@ table.cmp td b{font-family:var(--font-ui);color:var(--ink);}
 <style media="print">
 /* Print: clean light copy. In the browser's print dialog choose Save as PDF. */
 @page{margin:14mm 12mm}
-:root,:root[data-theme="dark"]{color-scheme:light!important;--ground:#fff !important;--surface:#FBFCFC !important;--surface-2:#E9EEEF !important;--line:#D3DBDC !important;--line-strong:#B2BEC0 !important;--ink:#0F1719 !important;--ink-2:#3F4C50 !important;--ink-3:#6B787C !important;--signal:#0892A5 !important;--signal-deep:#066A79 !important;--cat-1:#0892A5 !important;--cat-2:#C2622D !important;--cat-3:#4B5BA8 !important;--cat-4:#8A8C36 !important;--s1:#E4EDEF !important;--s1-ink:#3F4C50 !important;--s2:#BEDCE2 !important;--s2-ink:#1B3438 !important;--s3:#8AC4CF !important;--s3-ink:#12292D !important;--s4:#3E9FB0 !important;--s4-ink:#FBFCFC !important;--s5:#0A6F80 !important;--s5-ink:#FBFCFC !important;--warn:#B0561E !important;--good:#2F7A52 !important;--cat-5:#7A8588 !important}
+:root,:root[data-theme="dark"]{color-scheme:light!important;--ground:#fff !important;--surface:#FBFCFC !important;--surface-2:#E9EEEF !important;--line:#D3DBDC !important;--line-strong:#B2BEC0 !important;--ink:#0F1719 !important;--ink-2:#344145 !important;--ink-3:#6B787C !important;--signal:#0892A5 !important;--signal-deep:#066A79 !important;--cat-1:#0892A5 !important;--cat-2:#C2622D !important;--cat-3:#4B5BA8 !important;--cat-4:#8A8C36 !important;--s1:#E4EDEF !important;--s1-ink:#344145 !important;--s2:#BEDCE2 !important;--s2-ink:#1B3438 !important;--s3:#8AC4CF !important;--s3-ink:#12292D !important;--s4:#3E9FB0 !important;--s4-ink:#FBFCFC !important;--s5:#0A6F80 !important;--s5-ink:#FBFCFC !important;--warn:#9A4A1F !important;--good:#2F7A52 !important;--cat-5:#7A8588 !important}
 html{background:#fff!important}
 *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .crumb,.nav,.idx,.controls,.chips,.tabs,.tip,#tip,button,.noprint{display:none!important}
@@ -639,6 +642,34 @@ a.gl-name:hover{color:var(--g-accent)}
 .glance{--g-s:var(--surface);--g-s2:var(--surface-2);--g-rule:var(--line);--g-ink:var(--ink);--g-ink2:var(--ink-2);--g-muted:var(--ink-3);--g-accent:var(--signal-deep);--g-soft:color-mix(in srgb,var(--signal) 12%,var(--surface));--g-ui:var(--font-ui);--g-mono:var(--font-mono)}
 </style>
 <link rel="stylesheet" href="/assets/report-opener.css">
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Report",
+ "headline": "Agentic AI and the Consumer: 2027 Outlook",
+ "name": "Agentic AI and the Consumer: 2027 Outlook",
+ "description": "Independent report on how agentic AI changes what consumers trust, delegate, buy and feel through 2027, across retail, travel, finance and mobility. October 2026 edition by Chuhee Lee; data as of 11 October 2026.",
+ "url": "https://blueplanet-ai.github.io/agentic-consumer-2027/",
+ "mainEntityOfPage": "https://blueplanet-ai.github.io/agentic-consumer-2027/",
+ "inLanguage": "en",
+ "author": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "publisher": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "dateModified": "2026-10-15",
+ "image": "https://blueplanet-ai.github.io/og-image.png",
+ "datePublished": "2026-10-11"
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -710,11 +741,14 @@ a.gl-name:hover{color:var(--g-accent)}
   <ol><li><a href="#glance"><span>01</span>At a glance</a></li><li><a href="#summary"><span>02</span>Summary</a></li><li><a href="#enterprise"><span>03</span>The agentic economy, briefly</a></li><li><a href="#consumer-agents"><span>04</span>Consumer-facing agents: what has shipped</a></li><li><a href="#trust"><span>05</span>Trust and delegation</a></li><li><a href="#stress"><span>06</span>Stress, control and affordability</a></li><li><a href="#sectors"><span>07</span>Sector spotlights</a></li><li><a href="#auto"><span>08</span>Automotive and mobility read-through</a></li><li><a href="#regions"><span>09</span>United States, EU and China compared</a></li><li><a href="#outlook"><span>10</span>The 2027 read and what to watch</a></li><li><a href="#method"><span>11</span>Method, limits and flags</a></li><li><a href="#refs"><span>12</span>References</a></li></ol>
 </div></nav>
 
+<main>
+
 <div class="wrap">
 
 <section id="glance">
   <div class="sec-head"><h2>At a glance</h2><span class="eyebrow">One-page summary</span></div>
   <div class="glance" id="glanceBody" role="group" aria-label="Infographic: Agentic AI and the Consumer: 2027 Outlook at a glance"></div>
+  <p class="gl-cap"><b>Headline finding</b><span>Agentic AI is changing how consumers search, compare and track faster than it is changing who makes the final purchase decision.</span></p>
   <div class="gl-actions"><a href="agentic-consumer-2027-at-a-glance.png" download>Download PNG</a></div>
 </section>
 
@@ -765,9 +799,9 @@ a.gl-name:hover{color:var(--g-accent)}
 </section>
 
 <section id="enterprise">
-  <header class="co"><div class="co-bar"><span>Chapter 1 of 8</span><span class="co-seg" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">1</span><div class="co-body"><span class="co-eyebrow">Enterprise side</span><h2>The agentic economy, briefly</h2><p class="co-thesis">Enterprise adoption is broad but scaled deployment is narrower: 40% of organisations above $1bn in revenue say they are scaling agents, against 22% of smaller ones (McKinsey, 2026).</p></div></div></header>
+  <header class="co"><div class="co-bar"><span>Chapter 1 of 8</span><span class="co-seg" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">1</span><div class="co-body"><span class="co-eyebrow">Enterprise side</span><h2>The agentic economy, briefly</h2><p class="co-thesis">Enterprise adoption is broad but scaled deployment is narrower: 40% of organizations above $1 billion in revenue say they are scaling agents, against 22% of smaller ones (McKinsey, 2026).</p></div></div></header>
   <div class="prose">
-    <p>Enterprise adoption is broad and scaled deployment is narrower. McKinsey&rsquo;s 2026 survey of 1,719 respondents in 97 countries finds nearly nine in ten using AI regularly, 44% saying AI is scaling across the enterprise, and 37% attributing at least some EBIT impact to it. For agents specifically, 40% of organisations above $1bn in revenue say they are scaling them, up from 27% a year earlier, against 22% of smaller organisations, essentially flat.<sup class="cite"><a href="#r-mckai" title="McKinsey — The state of AI in 2026">[12]</a></sup> The infrastructure side of this story, including power and compute constraints, is covered in the mega trends report (<a href="../mega-trends-2040/">Trend 1</a>).<sup class="cite"><a href="#r-mkmeg" title="Chuhee Lee — Mega Trends Outlook 2040">[13]</a></sup></p>
+    <p>Enterprise adoption is broad and scaled deployment is narrower. McKinsey&rsquo;s 2026 survey of 1,719 respondents in 97 countries finds nearly nine in ten using AI regularly, 44% saying AI is scaling across the enterprise, and 37% attributing at least some EBIT impact to it. For agents specifically, 40% of organizations above $1 billion in revenue say they are scaling them, up from 27% a year earlier, against 22% of smaller organizations, essentially flat.<sup class="cite"><a href="#r-mckai" title="McKinsey — The state of AI in 2026">[12]</a></sup> The infrastructure side of this story, including power and compute constraints, is covered in the mega trends report (<a href="../mega-trends-2040/">Trend 1</a>).<sup class="cite"><a href="#r-mkmeg" title="Chuhee Lee — Mega Trends Outlook 2040">[13]</a></sup></p>
   </div>
   <div class="tablewrap">
     <table class="cmp">
@@ -775,15 +809,15 @@ a.gl-name:hover{color:var(--g-accent)}
       <tbody>
         <tr><td class="rh">Agents inside enterprise apps</td><td>Up to 40% of enterprise applications will include task-specific AI agents by end-2026, from under 5% in 2025.</td><td><span class="kindpill kp-fc">Forecast</span></td><td>Gartner, 26 Aug 2025<sup class="cite"><a href="#r-gart_e" title="Gartner — Predicts 40% of enterprise apps will feature task-specific AI agents by 2026, up">[14]</a></sup></td></tr>
         <tr><td class="rh">Agentic front ends</td><td>By 2028, a third of user experiences will shift from native applications to agentic front ends.</td><td><span class="kindpill kp-fc">Forecast</span></td><td>Gartner, 26 Aug 2025<sup class="cite"><a href="#r-gart_e" title="Gartner — Predicts 40% of enterprise apps will feature task-specific AI agents by 2026, up">[14]</a></sup></td></tr>
-        <tr><td class="rh">Share of software revenue</td><td>Best case: about 30% of enterprise application software revenue by 2035 (above $450bn), against 2% in 2025. Gartner calls this an optimistic scenario, not a base case.</td><td><span class="kindpill kp-fc">Scenario</span></td><td>Gartner, 26 Aug 2025<sup class="cite"><a href="#r-gart_e" title="Gartner — Predicts 40% of enterprise apps will feature task-specific AI agents by 2026, up">[14]</a></sup></td></tr>
-        <tr><td class="rh">AI spending</td><td>$1.3tn in 2029, growing 31.9% a year from 2025. The figure covers AI IT spending broadly (infrastructure, applications, platforms, services), not agents alone.</td><td><span class="kindpill kp-fc">Forecast</span></td><td>IDC, 26 Aug 2025<sup class="cite"><a href="#r-idc" title="IDC — Agentic AI to dominate IT budget expansion over the next five years">[15]</a></sup></td></tr>
-        <tr><td class="rh">Agents at scale</td><td>40% of large and 22% of smaller organisations are scaling agents.</td><td><span class="kindpill kp-sv">Survey</span></td><td>McKinsey, 25 Aug 2026<sup class="cite"><a href="#r-mckai" title="McKinsey — The state of AI in 2026">[12]</a></sup></td></tr>
+        <tr><td class="rh">Share of software revenue</td><td>Best case: about 30% of enterprise application software revenue by 2035 (above $450 billion), against 2% in 2025. Gartner calls this an optimistic scenario, not a base case.</td><td><span class="kindpill kp-fc">Scenario</span></td><td>Gartner, 26 Aug 2025<sup class="cite"><a href="#r-gart_e" title="Gartner — Predicts 40% of enterprise apps will feature task-specific AI agents by 2026, up">[14]</a></sup></td></tr>
+        <tr><td class="rh">AI spending</td><td>$1.3 trillion in 2029, growing 31.9% a year from 2025. The figure covers AI IT spending broadly (infrastructure, applications, platforms, services), not agents alone.</td><td><span class="kindpill kp-fc">Forecast</span></td><td>IDC, 26 Aug 2025<sup class="cite"><a href="#r-idc" title="IDC — Agentic AI to dominate IT budget expansion over the next five years">[15]</a></sup></td></tr>
+        <tr><td class="rh">Agents at scale</td><td>40% of large and 22% of smaller organizations are scaling agents.</td><td><span class="kindpill kp-sv">Survey</span></td><td>McKinsey, 25 Aug 2026<sup class="cite"><a href="#r-mckai" title="McKinsey — The state of AI in 2026">[12]</a></sup></td></tr>
         <tr><td class="rh">Payoff</td><td>37% report at least some EBIT impact from AI; about 6% are &ldquo;high performers&rdquo; (5%+ of EBIT, significant impact).</td><td><span class="kindpill kp-sv">Survey</span></td><td>McKinsey, 25 Aug 2026<sup class="cite"><a href="#r-mckai" title="McKinsey — The state of AI in 2026">[12]</a></sup></td></tr>
       </tbody>
     </table>
   </div>
-  <div class="caveat"><b>Currency check.</b> Earlier working research for this report included four enterprise figures: about $1.4tn of enterprise agent spend in 2027, a 31% production-deployment rate, about 80% of enterprise apps embedding an agent, and roughly 1,000x inference demand growth. None could be confirmed against a primary source in this pass, so none is used. The Gartner figure above is 40% by end-2026 for <i>task-specific agents</i>, not 80%, and IDC&rsquo;s $1.3tn is a 2029 figure for all AI spending.</div>
-  <div class="verdict"><span class="tag">Gap</span>A central question is how enterprise agents (customer service, dynamic pricing, personalised offers) change what consumers experience. I found merchant-side claims, such as Alibaba&rsquo;s merchant service agent reportedly lifting conversion 30% (unattributed in the press report)<sup class="cite"><a href="#r-tnw" title="The Next Web — China’s tech giants are replacing the search bar with AI agents that shop f">[16]</a></sup>, but no independent study that measures the consumer-side outcome of agent-run customer service or pricing. This report therefore treats that channel as unmeasured, not as neutral.</div>
+  <div class="caveat"><b>Currency check.</b> Earlier working research for this report included four enterprise figures: about $1.4 trillion of enterprise agent spend in 2027, a 31% production-deployment rate, about 80% of enterprise apps embedding an agent, and roughly 1,000x inference demand growth. None could be confirmed against a primary source in this pass, so none is used. The Gartner figure above is 40% by end-2026 for <i>task-specific agents</i>, not 80%, and IDC&rsquo;s $1.3 trillion is a 2029 figure for all AI spending.</div>
+  <div class="verdict"><span class="tag">Gap</span>A central question is how enterprise agents (customer service, dynamic pricing, personalized offers) change what consumers experience. I found merchant-side claims, such as Alibaba&rsquo;s merchant service agent reportedly lifting conversion 30% (unattributed in the press report)<sup class="cite"><a href="#r-tnw" title="The Next Web — China’s tech giants are replacing the search bar with AI agents that shop f">[16]</a></sup>, but no independent study that measures the consumer-side outcome of agent-run customer service or pricing. This report therefore treats that channel as unmeasured, not as neutral.</div>
 </section>
 
 <section id="consumer-agents">
@@ -815,7 +849,7 @@ a.gl-name:hover{color:var(--g-accent)}
 <div class="vb-row sm"><div class="vb-lab"><b>McKinsey: US “orchestrated” agentic revenue, 2030</b><span>forecast; range $0.9–1.0tn; bar to upper end</span></div><div class="vb-track"><div class="vb-bar" style="width:66.7%;background:var(--cat-4)"></div><div class="vb-val" style="left:calc(66.7% + 6px)">$0.9–1.0tn</div></div></div>
 <div class="vb-row sm"><div class="vb-lab"><b>McKinsey: global “orchestrated” agentic revenue, 2030</b><span>forecast; range $3–5tn; bar to upper end</span></div><div class="vb-track"><div class="vb-bar" style="width:90.0%;background:var(--cat-4)"></div><div class="vb-val" style="left:calc(90.0% + 6px)">$3–5tn</div></div></div>
 </div>
-      <p class="fignote">Amazon&rsquo;s figure is company-reported.<sup class="cite"><a href="#r-rufus" title="PPC Land — Amazon’s AI shopping assistant drove $12 billion in sales for 2025">[6]</a></sup> Salesforce measures sales AI &ldquo;influenced&rdquo; (about one-fifth of global online holiday sales, 1.5 billion shoppers analysed), not sales an agent executed.<sup class="cite"><a href="#r-sfdc" title="Salesforce — As AI agents transform commerce, Salesforce unleashes its biggest Agentforce ">[21]</a></sup> McKinsey&rsquo;s figures are early forecasts for goods only, assuming moderate merchant readiness, and the authors call adoption &ldquo;still unclear&rdquo;.<sup class="cite"><a href="#r-mckac" title="McKinsey — The agentic commerce opportunity: how AI agents are ushering in a new era for c">[22]</a></sup> The bars are not additive.</p>
+      <p class="fignote">Amazon&rsquo;s figure is company-reported.<sup class="cite"><a href="#r-rufus" title="PPC Land — Amazon’s AI shopping assistant drove $12 billion in sales for 2025">[6]</a></sup> Salesforce measures sales AI &ldquo;influenced&rdquo; (about one-fifth of global online holiday sales, 1.5 billion shoppers analyzed), not sales an agent executed.<sup class="cite"><a href="#r-sfdc" title="Salesforce — As AI agents transform commerce, Salesforce unleashes its biggest Agentforce ">[21]</a></sup> McKinsey&rsquo;s figures are early forecasts for goods only, assuming moderate merchant readiness, and the authors call adoption &ldquo;still unclear&rdquo;.<sup class="cite"><a href="#r-mckac" title="McKinsey — The agentic commerce opportunity: how AI agents are ushering in a new era for c">[22]</a></sup> The bars are not additive.</p>
     </figure>
     <figure class="figbox">
       <h3>AI-referred traffic growth, holiday 2025</h3>
@@ -883,9 +917,9 @@ a.gl-name:hover{color:var(--g-accent)}
 </section>
 
 <section id="stress">
-  <header class="co"><div class="co-bar"><span>Chapter 4 of 8</span><span class="co-seg" aria-hidden="true"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">4</span><div class="co-body"><span class="co-eyebrow">The intersection</span><h2>Stress, control and affordability: relief or escalation?</h2><p class="co-thesis">Agents could ease or add to a strained consumer&rsquo;s load; the relief evidence is self-reported and mostly vendor-run, while the escalation evidence centres on privacy, verification and control.</p></div></div></header>
+  <header class="co"><div class="co-bar"><span>Chapter 4 of 8</span><span class="co-seg" aria-hidden="true"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">4</span><div class="co-body"><span class="co-eyebrow">The intersection</span><h2>Stress, control and affordability: relief or escalation?</h2><p class="co-thesis">Agents could ease or add to a strained consumer&rsquo;s load; the relief evidence is self-reported and mostly vendor-run, while the escalation evidence centers on privacy, verification and control.</p></div></div></header>
   <div class="prose">
-    <p>The backdrop is a consumer under strain: 58% report moderate to extreme stress daily and 50% want products and services uniquely tailored to them (Euromonitor global survey; the release gives no methodology).<sup class="cite"><a href="#r-euro" title="Euromonitor International — Global Consumer Trends for 2026">[24]</a></sup> The question is whether agents ease or add to that. The evidence below is organised by direction. Every relief figure is self-reported, and most come from vendor-run surveys.</p>
+    <p>The backdrop is a consumer under strain: 58% report moderate to extreme stress daily and 50% want products and services uniquely tailored to them (Euromonitor global survey; the release gives no methodology).<sup class="cite"><a href="#r-euro" title="Euromonitor International — Global Consumer Trends for 2026">[24]</a></sup> The question is whether agents ease or add to that. The evidence below is organized by direction. Every relief figure is self-reported, and most come from vendor-run surveys.</p>
   </div>
   <div class="tablewrap">
     <table class="cmp">
@@ -916,7 +950,7 @@ a.gl-name:hover{color:var(--g-accent)}
 </div>
       <p class="fignote">Self-reported perceptions, not measured behavior; margin of error &plusmn;3% at 95% confidence. Fieldwork dates not stated.<sup class="cite"><a href="#r-ada" title="Adobe — The agentic AI acceptance curve">[9]</a></sup></p>
     </figure>
-    <div class="verdict" style="margin-top:0;"><span class="tag">Author&rsquo;s read</span><b>No source I found measures whether using an agent lowers consumer stress over time.</b> The pattern across the signals is that agents appear to ease <b>administrative and comparison effort</b> (tracking subscriptions, comparing loans or fares) while raising concerns where <b>money, data and accountability</b> are handed over. Whether the net effect is relief depends on error rates and on control design: permissions, undo, disclosure. This is a judgement from correlated self-reports, not a finding.</div>
+    <div class="verdict" style="margin-top:0;"><span class="tag">Author&rsquo;s read</span><b>No source I found measures whether using an agent lowers consumer stress over time.</b> The pattern across the signals is that agents appear to ease <b>administrative and comparison effort</b> (tracking subscriptions, comparing loans or fares) while raising concerns where <b>money, data and accountability</b> are handed over. Whether the net effect is relief depends on error rates and on control design: permissions, undo, disclosure. This is a judgment from correlated self-reports, not a finding.</div>
   </div>
 
   <h3 class="sub-h">Affordability: a savings tool and a spending nudge at once</h3>
@@ -1007,7 +1041,7 @@ a.gl-name:hover{color:var(--g-accent)}
 </section>
 
 <section id="outlook">
-  <header class="co"><div class="co-bar"><span>Chapter 8 of 8</span><span class="co-seg" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">8</span><div class="co-body"><span class="co-eyebrow">Judgement, not forecast</span><h2>The 2027 read and what to watch</h2><p class="co-thesis">The author&rsquo;s read for 2027 is advisor-led: most agent use stays research, comparison and tracking, and bounded delegation grows first in low-stakes, reversible tasks.</p></div></div></header>
+  <header class="co"><div class="co-bar"><span>Chapter 8 of 8</span><span class="co-seg" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">8</span><div class="co-body"><span class="co-eyebrow">Judgment, not forecast</span><h2>The 2027 read and what to watch</h2><p class="co-thesis">The author&rsquo;s read for 2027 is advisor-led: most agent use stays research, comparison and tracking, and bounded delegation grows first in low-stakes, reversible tasks.</p></div></div></header>
   <div class="verdict" style="margin-top:0;"><span class="tag">Author&rsquo;s read for 2027</span>
     <b>1. Advisor-led.</b> Most agent use stays research, comparison, tracking and negotiation. Fully autonomous buying remains a minority behavior in most surveys (5&ndash;11%, with one 39% outlier on a looser question).<br>
     <b>2. Bounded delegation grows first</b> in low-stakes, rule-based, reversible tasks: price-triggered buys with a cancellation window, subscription tracking and cancellation, replenishment.<br>
@@ -1018,7 +1052,7 @@ a.gl-name:hover{color:var(--g-accent)}
   <h3 class="sub-h">Two indicators that would most change the picture</h3>
   <div class="watch">
     <div class="item"><div class="when">Holiday 2026 &rarr; Jan 2027</div><div><h3>Reported agent-completed transaction volume</h3><p>Visa forecast that millions of consumers would use agents to complete purchases by the 2026 holiday season.<sup class="cite"><a href="#r-visa" title="Visa — Visa and partners complete secure AI transactions, setting the stage for mainstream">[7]</a></sup> Adobe and Salesforce holiday reports (January 2027) and any network or Amazon disclosures will show whether agent-<i>executed</i> sales, not just AI-<i>referred</i> traffic, are measured and how large. Reported volumes in the millions of consumers would support a faster delegation path than this report assumes; continued &ldquo;hundreds&rdquo; or undefined &ldquo;influence&rdquo; figures would support the advisor-first read.</p></div></div>
-    <div class="item"><div class="when">Next survey waves</div><div><h3>Willingness to let an agent complete the purchase</h3><p>Repeat waves of the like-for-like questions behind the autonomy cliff (Accenture 9% fully autonomous and 32% agent chooses; Gartner 11%; Quad / Harris 39%).<sup class="cite"><a href="#r-acc" title="Accenture — Consumer Pulse Research 2026, “Talk to my AI agent”">[1]</a></sup><sup class="cite"><a href="#r-gartc" title="Gartner — Survey finds consumers want AI shopping help, but not AI purchase decisions">[2]</a></sup><sup class="cite"><a href="#r-quad" title="Quad / The Harris Poll — “The New Rules of Retail Trust in the Age of AI”">[3]</a></sup> A rise of ten points or more in a repeated question would signal a real shift in trust; the threshold is the author&rsquo;s judgement. Falling trust after a visible agent error or a sponsored-results controversy would be equally informative.</p></div></div>
+    <div class="item"><div class="when">Next survey waves</div><div><h3>Willingness to let an agent complete the purchase</h3><p>Repeat waves of the like-for-like questions behind the autonomy cliff (Accenture 9% fully autonomous and 32% agent chooses; Gartner 11%; Quad / Harris 39%).<sup class="cite"><a href="#r-acc" title="Accenture — Consumer Pulse Research 2026, “Talk to my AI agent”">[1]</a></sup><sup class="cite"><a href="#r-gartc" title="Gartner — Survey finds consumers want AI shopping help, but not AI purchase decisions">[2]</a></sup><sup class="cite"><a href="#r-quad" title="Quad / The Harris Poll — “The New Rules of Retail Trust in the Age of AI”">[3]</a></sup> A rise of ten points or more in a repeated question would signal a real shift in trust; the threshold is the author&rsquo;s judgment. Falling trust after a visible agent error or a sponsored-results controversy would be equally informative.</p></div></div>
     <div class="item"><div class="when">Also watching</div><div><h3>Access and rules</h3><p>The outcome of any Amazon v. Perplexity appeal, the final FTC personalized-pricing statement after the comment period, and the status of the EU Digital Fairness Act.<sup class="cite"><a href="#r-perp" title="GeekWire — Judge blocks Perplexity’s AI bot from shopping on Amazon in early test of agent">[8]</a></sup><sup class="cite"><a href="#r-ftcw" title="WilmerHale — FTC issues proposed policy statement on personalized pricing">[27]</a></sup></p></div></div>
   </div>
 </section>
@@ -1028,12 +1062,12 @@ a.gl-name:hover{color:var(--g-accent)}
   <div class="about">
     <p><b>Question.</b> How does the rise of agentic AI, on the enterprise side and the consumer side, change what consumers trust, delegate, buy and feel by 2027? The report treats the two as one causal system, not as separate trend summaries.</p>
     <p><b>Scope.</b> General consumer lens, with automotive and mobility as a dedicated section. United States first, with EU and China as comparison points. Neutral and industry-wide: no recommendation is made to any company.</p>
-    <p><b>Sources.</b> Official and primary sources first (company releases, regulators, research institutes), then consultancy and vendor research, then reputable secondary reporting. Each reference below carries its type and date. Vendor-run surveys are labelled as such. Observed, company-reported, survey and forecast numbers are kept apart and labelled.</p>
-    <p><b>What this report is not.</b> The &ldquo;author&rsquo;s read&rdquo; boxes are judgement based on the evidence cited, not forecasts. Survey figures from different studies are not like-for-like and are charted together only to show a pattern.</p>
+    <p><b>Sources.</b> Official and primary sources first (company releases, regulators, research institutes), then consultancy and vendor research, then reputable secondary reporting. Each reference below carries its type and date. Vendor-run surveys are labeled as such. Observed, company-reported, survey and forecast numbers are kept apart and labeled.</p>
+    <p><b>What this report is not.</b> The &ldquo;author&rsquo;s read&rdquo; boxes are judgment based on the evidence cited, not forecasts. Survey figures from different studies are not like-for-like and are charted together only to show a pattern.</p>
   </div>
   <h3 class="sub-h" style="margin-top:0;">Flags and open questions</h3>
   <ol class="flags">
-<li><b>Dropped figures.</b> Four enterprise figures from earlier working research (about $1.4tn agent spend in 2027, 31% production deployment, about 80% of enterprise apps embedding an agent, about 1,000x inference growth) could not be confirmed against primary sources and are not used.</li><li><b>Accenture.</b> The page does not state a publication date. It gives 9% for fully autonomous purchasing in its introduction and figure but about 12% in the payments section; this report uses 9%. A headline claim that 74% would trust a personal agent over their best friend to buy something was not used pending the original report.</li><li><b>Quad / Harris Poll.</b> Read from a Finviz reproduction of the PR Newswire release, not the primary release.</li><li><b>Gartner consumer survey.</b> Two small US samples (n=322 and n=846); the release does not say which produced the 11% figure.</li><li><b>Experian.</b> The release lists fieldwork as &ldquo;[July 2026]&rdquo; in brackets, which may be a placeholder; no country split is given.</li><li><b>Adobe.</b> Vendor data. AI-traffic identification and survey sampling are not described; the agent-acceptance survey&rsquo;s fieldwork dates are not stated. Adobe&rsquo;s revenue-per-visit figures are inconsistent across the page and are not used.</li><li><b>Google I/O 2026 announcements</b> come from one secondary report with no link to a Google primary source.</li><li><b>Amazon figures</b> (300 million customers, nearly $12bn, 20% savings) are company-reported and read via secondary articles.</li><li><b>China figures</b> (Qwen users, Alipay transactions, Dianxiaomi conversion) are unattributed in the press report; only Alibaba&rsquo;s own release is primary. China&rsquo;s regulation was not researched.</li><li><b>Amazon v. Perplexity.</b> Read from one news report. Whether the injunction was stayed or appealed was not confirmed.</li><li><b>Not covered:</b> Mastercard Agent Pay in detail; the status of the EU Digital Fairness Act; independent measurement of enterprise customer-service or pricing agents; agent-negotiated auto financing; EU- and China-specific consumer survey splits.</li><li><b>Cox Automotive.</b> The study reports both 12% (visited an AI site) and 19% (used AI sites or AI-generated overviews); this report uses 19%.</li><li><b>Gallup</b> figures are read via Research Live, not Gallup&rsquo;s own page. The J.D. Power page shows two dates (17 and 20 August 2026).</li><li><b>Currency.</b> Visa&rsquo;s transaction count is from December 2025 and predates the 2026 holiday season; Gartner and IDC forecasts are from August 2025; the McKinsey commerce forecast is from October 2025.</li><li><b>Credit.</b> Research assistance came from Claude (Anthropic) and Gemini (Google); the credit line was updated on 14 October 2026 to name Gemini.</li>
+<li><b>Dropped figures.</b> Four enterprise figures from earlier working research (about $1.4 trillion agent spend in 2027, 31% production deployment, about 80% of enterprise apps embedding an agent, about 1,000x inference growth) could not be confirmed against primary sources and are not used.</li><li><b>Accenture.</b> The page does not state a publication date. It gives 9% for fully autonomous purchasing in its introduction and figure but about 12% in the payments section; this report uses 9%. A headline claim that 74% would trust a personal agent over their best friend to buy something was not used pending the original report.</li><li><b>Quad / Harris Poll.</b> Read from a Finviz reproduction of the PR Newswire release, not the primary release.</li><li><b>Gartner consumer survey.</b> Two small US samples (n=322 and n=846); the release does not say which produced the 11% figure.</li><li><b>Experian.</b> The release lists fieldwork as &ldquo;[July 2026]&rdquo; in brackets, which may be a placeholder; no country split is given.</li><li><b>Adobe.</b> Vendor data. AI-traffic identification and survey sampling are not described; the agent-acceptance survey&rsquo;s fieldwork dates are not stated. Adobe&rsquo;s revenue-per-visit figures are inconsistent across the page and are not used.</li><li><b>Google I/O 2026 announcements</b> come from one secondary report with no link to a Google primary source.</li><li><b>Amazon figures</b> (300 million customers, nearly $12bn, 20% savings) are company-reported and read via secondary articles.</li><li><b>China figures</b> (Qwen users, Alipay transactions, Dianxiaomi conversion) are unattributed in the press report; only Alibaba&rsquo;s own release is primary. China&rsquo;s regulation was not researched.</li><li><b>Amazon v. Perplexity.</b> Read from one news report. Whether the injunction was stayed or appealed was not confirmed.</li><li><b>Not covered:</b> Mastercard Agent Pay in detail; the status of the EU Digital Fairness Act; independent measurement of enterprise customer-service or pricing agents; agent-negotiated auto financing; EU- and China-specific consumer survey splits.</li><li><b>Cox Automotive.</b> The study reports both 12% (visited an AI site) and 19% (used AI sites or AI-generated overviews); this report uses 19%.</li><li><b>Gallup</b> figures are read via Research Live, not Gallup&rsquo;s own page. The J.D. Power page shows two dates (17 and 20 August 2026).</li><li><b>Currency.</b> Visa&rsquo;s transaction count is from December 2025 and predates the 2026 holiday season; Gartner and IDC forecasts are from August 2025; the McKinsey commerce forecast is from October 2025.</li><li><b>Credit.</b> Research assistance came from Claude (Anthropic) and Gemini (Google); the credit line was updated on 14 October 2026 to name Gemini.</li>
   </ol>
   <h3 class="sub-h" id="changelog">Change log</h3>
   <ul class="log">
@@ -1075,13 +1109,15 @@ a.gl-name:hover{color:var(--g-accent)}
 <li id="r-pew"><b>[25]</b> <a href="https://www.pewresearch.org/short-reads/2026/03/12/key-findings-about-how-americans-view-artificial-intelligence/" target="_blank" rel="noopener">Pew Research Center — Key findings about how Americans view artificial intelligence</a><span class="tag">primary (research institute) &middot; 12 Mar 2026 (survey data June 2025)</span></li>
 <li id="r-gall"><b>[26]</b> <a href="https://www.research-live.com/article/news/affordability-dominates-us-publics-financial-concerns/id/5149023" target="_blank" rel="noopener">Research Live — Affordability dominates US public’s financial concerns (reporting Gallup Economy and Personal Finance survey, n=1,001, 1–15 Apr 2026)</a><span class="tag">secondary (Gallup data) &middot; 6 May 2026</span></li>
 <li id="r-ftcw"><b>[27]</b> <a href="https://www.wilmerhale.com/en/insights/blogs/wilmerhale-privacy-and-cybersecurity-law/20260827-ftc-issues-proposed-policy-statement-on-personalized-pricing" target="_blank" rel="noopener">WilmerHale — FTC issues proposed policy statement on personalized pricing</a><span class="tag">secondary (law firm) &middot; 27 Aug 2026</span></li>
-<li id="r-beuc"><b>[28]</b> <a href="https://www.beuc.eu/news/eu-adopts-ai-omnibus-what-it-means-consumers" target="_blank" rel="noopener">BEUC — EU adopts the AI Omnibus: what it means for consumers</a><span class="tag">secondary (consumer organisation) &middot; 29 Jun 2026 adoption</span></li>
+<li id="r-beuc"><b>[28]</b> <a href="https://www.beuc.eu/news/eu-adopts-ai-omnibus-what-it-means-consumers" target="_blank" rel="noopener">BEUC — EU adopts the AI Omnibus: what it means for consumers</a><span class="tag">secondary (consumer organization) &middot; 29 Jun 2026 adoption</span></li>
 <li id="r-ins"><b>[29]</b> <a href="https://insurify.com/press/news/insurify-expands-chatgpt-plugin/" target="_blank" rel="noopener">Insurify — Insurify expands ChatGPT plugin with real-time personalized quotes and in-chat shopping</a><span class="tag">primary (company claims) &middot; updated 18 Aug 2026</span></li>
 <li id="r-jdp"><b>[30]</b> <a href="https://www.jdpower.com/business/press-releases/2026-u-s-tech-experience-index-txi-study/" target="_blank" rel="noopener">J.D. Power — 2026 U.S. Tech Experience Index (TXI) study (n=68,084 owners)</a><span class="tag">benchmark study &middot; Aug 2026 (page shows 17 and 20 Aug)</span></li>
 <li id="r-bench"><b>[31]</b> <a href="https://blueplanet-ai.github.io/incar-ai-benchmark/" target="_blank" rel="noopener">Chuhee Lee — In-Car AI Assistant Benchmark, October 2026 edition (this site)</a><span class="tag">own report &middot; 11 Oct 2026</span></li>
   </ul>
 </section>
 </div>
+
+</main>
 
 <section class="rn" aria-labelledby="rnH"><div class="ro-inner">
   <div class="rn-head"><h2 id="rnH">Continue <em>down the map</em></h2><span class="rn-chain" aria-label="The four layers of the map"><span class="f">Forces</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class=" here" aria-current="true">Shifts</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="">Signals</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="o">Opportunities</span></span></div>
@@ -1093,7 +1129,7 @@ a.gl-name:hover{color:var(--g-accent)}
 </div></section>
 <footer class="foot"><div class="foot-inner">
   <span>&copy; 2026 Chuhee Lee &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-  <span>Independent research &middot; not affiliated with or endorsed by any company named</span>
+  <span>Independent research &middot; not affiliated with or endorsed by any company or organization named</span>
   <span><a href="../method/">How this research is made</a> &middot; <a href="../">All publications</a></span>
 </div></footer>
 <script>
@@ -1137,13 +1173,13 @@ var GL={
   '<div class="gl-tiles">'+tiles+'</div>'+
   '<div class="gl-two"><div><div class="gl-h">The autonomy cliff</div><div class="gl-sub">Share willing, by degree of autonomy. Different surveys, so not like-for-like: the pattern is the finding.</div>'+cliffH+'</div>'+
   '<div><div class="gl-h">Discovery has moved to AI</div><div class="gl-sub">AI-referred traffic growth by sector, holiday 2025, US sites (Adobe). Clicks from AI tools, not agent-completed purchases.</div>'+traffic+
-  '<div class="gl-h" style="margin-top:22px">The 2027 read</div><div class="gl-sub">Author&rsquo;s judgement, not a forecast.</div><ul class="gl-ul" style="font-size:.8rem;color:var(--g-ink2)">'+read+'</ul></div></div>'+
+  '<div class="gl-h" style="margin-top:22px">The 2027 read</div><div class="gl-sub">Author&rsquo;s judgment, not a forecast.</div><ul class="gl-ul" style="font-size:.8rem;color:var(--g-ink2)">'+read+'</ul></div></div>'+
   '<div class="gl-two"><div><div class="gl-h">Car buyers: intent versus action</div><div class="gl-sub">% of US vehicle buyers, Cox Automotive, fall 2025. The gap is the space a buyer-side agent could fill; agents are not yet seen doing so.</div>'+coxH+'</div>'+
   '<div><div class="gl-h">What to watch</div><div class="gl-sub">The two indicators that would most change the picture.</div><ul class="gl-ul" style="font-size:.82rem;color:var(--g-ink2)">'+
   '<li><b style="color:var(--g-ink)">Agent-completed transaction volume</b><br>Holiday 2026 to Jan 2027: does Visa&rsquo;s &ldquo;millions of consumers&rdquo; forecast show up in reported volume?</li>'+
   '<li><b style="color:var(--g-ink)">Willingness to let an agent complete the purchase</b><br>Repeat waves of the like-for-like survey questions behind the cliff.</li>'+
   '<li><b style="color:var(--g-ink)">Access and rules</b><br>Amazon v. Perplexity, the FTC personalized-pricing statement and the EU Digital Fairness Act.</li></ul></div></div>'+
-  GL.foot('blueplanet-ai.github.io/agentic-consumer-2027','&copy; 2026 Chuhee Lee · CC BY-NC 4.0 · Survey figures from the cited sources; the read is the author&rsquo;s judgement');
+  GL.foot('blueplanet-ai.github.io/agentic-consumer-2027','&copy; 2026 Chuhee Lee · CC BY-NC 4.0 · Survey figures from the cited sources; the read is the author&rsquo;s judgment');
 })();
 </script>
 <script src="/assets/report-opener.js" defer></script>

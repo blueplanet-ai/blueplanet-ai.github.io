@@ -42,7 +42,7 @@ A new report needs a motif function and an entry in `REPORTS` in that script.
 
 Every report opens with the same block: top bar, cover, layer and domain tags, Newsreader title, dek, research question, scope, byline, reading time, data-as-of date, next refresh, change-log link, Cite / Share / Infographic / References buttons, a "Cite as" line, and **The report in 60 seconds** (three takeaways). The three shorter reports also get an "In this report" contents list; Mega Trends and the Mobility Product Outlook keep their own sticky section bars.
 
-The markup lives in each `index.html`; the styles and the Cite and Share behaviour are shared in `assets/report-opener.css` and `assets/report-opener.js`.
+The markup lives in each `index.html`; the styles and the Cite and Share behavior are shared in `assets/report-opener.css` and `assets/report-opener.js`. The light/dark toggle is `assets/theme.js` and `assets/theme.css`, linked on every page. `404.html` is the not-found page.
 
 Rules for the 60-second takeaways:
 
@@ -71,7 +71,7 @@ Updates arrive as pull requests. A scheduled research run re-checks each report 
 
 Nothing goes live until the author reviews and merges the pull request.
 
-## Licence
+## License
 
 © 2026 Chuhee Lee. Report content is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). See [`LICENSE.md`](LICENSE.md).
 

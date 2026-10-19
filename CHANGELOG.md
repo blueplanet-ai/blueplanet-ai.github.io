@@ -2,6 +2,14 @@
 
 ## Site-wide
 
+### 18 October 2026 — site polish: spelling, type, contrast, theme toggle
+- **Spelling and typography:** American spelling throughout (about 140 changes); straight quotes became curly on four pages; money in prose is spelled out ("3 billion dollars") while tables, charts and labels keep bn/m/tn; report `<title>`s end with the author name; the home `og:title` is plain and `og:type` is set; footers say "any company or organization named"; full report names are used in cards, lists, references and the Method table. "U.S." in official study names is left as published. No findings or figures changed.
+- **Type scale:** Mega Trends rem sizes and the 14.5 px, 12.5 px and sub-12 px sizes on Mega Trends, Mobility and Physical AI moved onto the 12-24 px scale.
+- **Contrast (light mode only):** `ink-2` is now #344145 and `ink-3` #4E5B5F; small teal labels and numerals use the new `--signal-text`. Other light-mode text fixes: `--warn` is #9A4A1F, `--s4-ink` is dark on the mid-teal score cells, Mobility's Europe and China text and Mega Trends' flag, T1 and T2 colors reach 4.5:1. Dark mode is unchanged.
+- **Infographics:** the six at-a-glance PNGs and social previews were re-exported to match the text changes.
+- **Structure and accessibility:** `<main>` added to four reports; Method gets a visible keyboard focus ring.
+- **New:** theme toggle (`assets/theme.js`, `assets/theme.css`), branded `404.html`, JSON-LD on every page, and a "Headline finding" line under each at-a-glance infographic (existing summary text, not new claims).
+
 ### 18 October 2026 — first opportunity brief: One cabin, several people
 - **New page** `shared-cabin/`: the first Opportunities brief, built on the report template (opener, 60-second takeaways, at-a-glance infographic, seven chapters, method and references). It answers the eight template questions, sizes the shared-cabin problem in the US against congestion, distraction, phone integration, EV charging and in-flight entertainment, and lists concepts from the US, Europe, China, Korea and Japan.
 - **Home page:** the brief is the new lead publication and "Latest"; added as 06 in Start here; the Mobility / Opportunities map cell now links to it; the Opportunities section shows the filled eight-question card instead of the placeholder; not added to the follow list because it is a one-time brief and will not be refreshed.

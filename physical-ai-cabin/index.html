@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#F4F7F0" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#151D1F" media="(prefers-color-scheme: dark)">
-<title>Physical AI and the Rider’s Cabin</title>
+<title>Physical AI and the Rider’s Cabin — Chuhee Lee</title>
 <meta name="description" content="Independent report on physical AI: what it means, the main players across the stack, the most-used products and services, and how it applies to the car, with the cabin and rider experience as the main lens. October 2026 edition by Chuhee Lee; data as of 13 October 2026.">
 <meta name="author" content="Chuhee Lee">
 <link rel="canonical" href="https://blueplanet-ai.github.io/physical-ai-cabin/">
@@ -24,7 +24,10 @@
 <meta property="og:image:alt" content="Physical AI and the Rider’s Cabin. Independent research by Chuhee Lee.">
 <meta name="twitter:image" content="https://blueplanet-ai.github.io/physical-ai-cabin/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<style>img{max-width:100%}[hidden]{display:none!important}</style>
+<style>img{max-width:100%}[hidden]{display:none!important}:root{--signal-text:var(--signal-deep);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--signal-text:var(--signal);}}
+:root[data-theme="dark"]{--signal-text:var(--signal);}
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -37,8 +40,8 @@
   --line:#CDD6C6;
   --line-strong:#B3BFAB;
   --ink:#0F1719;
-  --ink-2:#3F4C50;
-  --ink-3:#5A676B;
+  --ink-2:#344145;
+  --ink-3:#4E5B5F;
   --signal:#0892A5;
   --signal-deep:#066A79;
 
@@ -47,13 +50,13 @@
   --cat-3:#4B5BA8;
   --cat-4:#8A8C36;
 
-  --s1:#E4EDEF; --s1-ink:#3F4C50;
+  --s1:#E4EDEF; --s1-ink:#344145;
   --s2:#BEDCE2; --s2-ink:#1B3438;
   --s3:#8AC4CF; --s3-ink:#12292D;
-  --s4:#3E9FB0; --s4-ink:#FBFCFC;
+  --s4:#3E9FB0; --s4-ink:#0F1719;
   --s5:#0A6F80; --s5-ink:#FBFCFC;
 
-  --warn:#B0561E;
+  --warn:#9A4A1F;
   --good:#2F7A52;
 
   --font-ui:"Saira","Helvetica Neue",Arial,sans-serif;
@@ -188,7 +191,7 @@ section{padding-top:56px;}
 }
 .finding .num{
   font-family:var(--font-mono);font-size:13px;font-weight:600;
-  color:var(--signal);padding-top:3px;
+  color:var(--signal-text);padding-top:3px;
 }
 .finding h3{font-size:18px;font-weight:600;letter-spacing:-.005em;margin-bottom:8px;}
 .finding p{color:var(--ink-2);font-size:16px;max-width:68ch;}
@@ -200,7 +203,7 @@ section{padding-top:56px;}
 }
 .finding .sowhat i{
   font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--signal);
+  text-transform:uppercase;color:var(--signal-text);
   display:inline-block;margin-right:13px;
 }
 
@@ -244,7 +247,7 @@ thead th{
 thead th.name{text-align:left;left:0;z-index:4;padding-left:16px;min-width:216px;}
 th.sortable{cursor:pointer;user-select:none;}
 th.sortable:hover{color:var(--signal-deep);}
-th .arrow{display:block;font-family:var(--font-mono);font-size:12px;color:var(--signal);height:10px;line-height:10px;}
+th .arrow{display:block;font-family:var(--font-mono);font-size:12px;color:var(--signal-text);height:10px;line-height:10px;}
 tbody td{
   border-bottom:1px solid var(--line);padding:0;text-align:center;
   font-variant-numeric:tabular-nums;
@@ -282,7 +285,7 @@ td.status{padding:0 10px;}
 
 tr.detail td{padding:0;background:var(--surface-2);border-bottom:1px solid var(--line-strong);}
 .det{padding:20px 24px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px 30px;}
-.det .col h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:500;margin-bottom:7px;}
+.det .col h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);font-weight:500;margin-bottom:7px;}
 .det .col p{font-size:15px;color:var(--ink-2);line-height:1.55;}
 .det .col.full{grid-column:1/-1;}
 .det .col.full p{color:var(--ink);font-family:var(--font-ui);font-size:15px;}
@@ -391,7 +394,7 @@ table.opts tr:last-child td{border-bottom:0;}
 .arch{grid-template-columns:repeat(auto-fit,minmax(205px,1fr));}
 .det{text-align:left;}
 .det .srcl{grid-column:1/-1;font-family:var(--font-mono);font-size:12px;line-height:1.8;color:var(--ink-3);border-top:1px dashed var(--line-strong);padding-top:10px;}
-.det .srcl b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal);}
+.det .srcl b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal-text);}
 .det .srcl a{margin-right:4px;}
 .det .flag{grid-column:1/-1;font-family:var(--font-ui);font-size:13px;color:var(--warn);}
 .log{margin:0 0 26px;padding:0;list-style:none;display:grid;gap:9px;max-width:92ch;}
@@ -407,7 +410,7 @@ table.opts tr:last-child td{border-bottom:0;}
 .conf.off{color:var(--good);} .conf.mix{color:var(--signal-deep);} .conf.trd{color:var(--warn);} .conf.ann{color:var(--ink-3);}
 .ucx{grid-column:1/-1;border-top:1px solid var(--line-strong);padding-top:14px;}
 .ucx-h{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-bottom:10px;}
-.ucx-h h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:500;margin:0;}
+.ucx-h h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);font-weight:500;margin:0;}
 .ucx-note{font-family:var(--font-ui);font-size:13px;color:var(--ink-3);}
 .ucx-g{display:grid;grid-template-columns:1fr 1.25fr .9fr;gap:14px 26px;}
 .ucx-g h5{font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);margin:0 0 6px;}
@@ -432,7 +435,7 @@ table.ucgrid td.n{font-family:var(--font-mono);font-size:12px;color:var(--ink-2)
 .gcard > h3{font-size:16px;font-weight:600;margin-bottom:4px;}
 .gcard .q{background:var(--surface-2);}
 .gsrc{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);margin-top:12px;}
-.gsrc b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal);}
+.gsrc b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal-text);}
 .gcard > p{font-size:14px;color:var(--ink-2);margin-bottom:14px;max-width:80ch;}
 
 /* ---------- use-case highlights table ---------- */
@@ -509,7 +512,7 @@ table.opts td.route span{line-height:1.45;}
 .cards3 ul{margin:0;padding-left:17px;}
 .cards3 li{font-size:15px;color:var(--ink-2);margin-bottom:7px;line-height:1.5;}
 .cards3 .lean{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line-strong);font-family:var(--font-ui);font-size:14px;color:var(--ink);}
-.cards3 .lean i{font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);margin-right:8px;}
+.cards3 .lean i{font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);margin-right:8px;}
 table.cmp{min-width:860px;}
 table.cmp th{position:static;text-align:left;padding:10px 14px;}
 table.cmp td{text-align:left;vertical-align:top;padding:13px 14px;font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--ink-2);}
@@ -528,7 +531,7 @@ table.cmp td b{font-family:var(--font-ui);color:var(--ink);}
 <style media="print">
 /* Print: clean light copy. In the browser's print dialog choose Save as PDF. */
 @page{margin:14mm 12mm}
-:root,:root[data-theme="dark"]{color-scheme:light!important;--ground:#fff !important;--surface:#FBFCFC !important;--surface-2:#E9EEEF !important;--line:#D3DBDC !important;--line-strong:#B2BEC0 !important;--ink:#0F1719 !important;--ink-2:#3F4C50 !important;--ink-3:#6B787C !important;--signal:#0892A5 !important;--signal-deep:#066A79 !important;--cat-1:#0892A5 !important;--cat-2:#C2622D !important;--cat-3:#4B5BA8 !important;--cat-4:#8A8C36 !important;--s1:#E4EDEF !important;--s1-ink:#3F4C50 !important;--s2:#BEDCE2 !important;--s2-ink:#1B3438 !important;--s3:#8AC4CF !important;--s3-ink:#12292D !important;--s4:#3E9FB0 !important;--s4-ink:#FBFCFC !important;--s5:#0A6F80 !important;--s5-ink:#FBFCFC !important;--warn:#B0561E !important;--good:#2F7A52 !important;--cat-5:#7A8588 !important}
+:root,:root[data-theme="dark"]{color-scheme:light!important;--ground:#fff !important;--surface:#FBFCFC !important;--surface-2:#E9EEEF !important;--line:#D3DBDC !important;--line-strong:#B2BEC0 !important;--ink:#0F1719 !important;--ink-2:#344145 !important;--ink-3:#6B787C !important;--signal:#0892A5 !important;--signal-deep:#066A79 !important;--cat-1:#0892A5 !important;--cat-2:#C2622D !important;--cat-3:#4B5BA8 !important;--cat-4:#8A8C36 !important;--s1:#E4EDEF !important;--s1-ink:#344145 !important;--s2:#BEDCE2 !important;--s2-ink:#1B3438 !important;--s3:#8AC4CF !important;--s3-ink:#12292D !important;--s4:#3E9FB0 !important;--s4-ink:#FBFCFC !important;--s5:#0A6F80 !important;--s5-ink:#FBFCFC !important;--warn:#9A4A1F !important;--good:#2F7A52 !important;--cat-5:#7A8588 !important}
 html{background:#fff!important}
 *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .crumb,.nav,.idx,.controls,.chips,.tabs,.tip,#tip,button,.noprint{display:none!important}
@@ -543,7 +546,7 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
 /* ---------- physical AI report additions ---------- */
 .stack{display:grid;gap:4px;margin-top:6px}
 .stack .lyr{display:grid;grid-template-columns:44px 1fr minmax(0,1.3fr);gap:0 16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--signal);padding:12px 16px}
-.stack .lyr .n{font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--signal)}
+.stack .lyr .n{font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--signal-text)}
 .stack .lyr b{font-family:var(--font-ui);font-size:15px;font-weight:600;color:var(--ink)}
 .stack .lyr span{font-size:14px;color:var(--ink-2);line-height:1.45}
 .stack .lyr.top{border-left-color:var(--cat-2)}
@@ -659,6 +662,34 @@ a.gl-name:hover{color:var(--g-accent)}
 .glance{--g-s:var(--surface);--g-s2:var(--surface-2);--g-rule:var(--line);--g-ink:var(--ink);--g-ink2:var(--ink-2);--g-muted:var(--ink-3);--g-accent:var(--signal-deep);--g-soft:color-mix(in srgb,var(--signal) 12%,var(--surface));--g-ui:var(--font-ui);--g-mono:var(--font-mono)}
 </style>
 <link rel="stylesheet" href="/assets/report-opener.css">
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Report",
+ "headline": "Physical AI and the Rider’s Cabin",
+ "name": "Physical AI and the Rider’s Cabin",
+ "description": "Independent report on physical AI: what it means, the main players across the stack, the most-used products and services, and how it applies to the car, with the cabin and rider experience as the main lens. October 2026 edition by Chuhee Lee; data as of 13 October 2026.",
+ "url": "https://blueplanet-ai.github.io/physical-ai-cabin/",
+ "mainEntityOfPage": "https://blueplanet-ai.github.io/physical-ai-cabin/",
+ "inLanguage": "en",
+ "author": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "publisher": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "dateModified": "2026-10-15",
+ "image": "https://blueplanet-ai.github.io/og-image.png",
+ "datePublished": "2026-10-13"
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -730,11 +761,14 @@ a.gl-name:hover{color:var(--g-accent)}
   <ol><li><a href="#glance"><span>01</span>At a glance</a></li><li><a href="#summary"><span>02</span>Summary</a></li><li><a href="#definition"><span>03</span>What physical AI is</a></li><li><a href="#players"><span>04</span>Main players across the stack</a></li><li><a href="#adoption"><span>05</span>What people actually use</a></li><li><a href="#cabin"><span>06</span>In the car: the cabin and the rider</a></li><li><a href="#driving"><span>07</span>In the car: driving, factory and service</a></li><li><a href="#watch"><span>08</span>What to watch in 2027</a></li><li><a href="#method"><span>09</span>Method, limits and flags</a></li><li><a href="#refs"><span>10</span>References</a></li></ol>
 </div></nav>
 
+<main>
+
 <div class="wrap">
 
 <section id="glance">
   <div class="sec-head"><h2>At a glance</h2><span class="eyebrow">One-page summary</span></div>
   <div class="glance" id="glanceBody" role="group" aria-label="Infographic: Physical AI and the Rider’s Cabin at a glance"></div>
+  <p class="gl-cap"><b>Headline finding</b><span>By measurable use, the most widely used physical AI today is driving, not humanoid robots.</span></p>
   <div class="gl-actions"><a href="physical-ai-cabin-at-a-glance.png" download>Download PNG</a></div>
 </section>
 
@@ -779,15 +813,15 @@ a.gl-name:hover{color:var(--g-accent)}
 <div class="vb-row"><div class="vb-lab"><b>Sep 2026</b><span>no newer figure</span></div><div class="vb-track"><div class="vb-bar" style="width:45.5%;background:var(--cat-5)"></div><div class="vb-val" style="left:calc(45.5% + 6px)">~500k</div></div></div>
 <div class="vb-row"><div class="vb-lab"><b>End-2026</b><span>target</span></div><div class="vb-track"><div class="vb-tgt" style="left:0;width:90.9%"></div><div class="vb-val" style="left:calc(90.9% + 6px)">&gt;1M</div></div></div>
       </div>
-      <p class="fignote">Bars to scale (1.1 million = full width). The grey bar repeats the last published figure; the dashed outline is Waymo&rsquo;s stated target, not a forecast by the author. Sources: TechCrunch <a href="#r-tc">[16]</a>, InsideEVs <a href="#r-ievs">[18]</a>, Automotive World <a href="#r-aw">[19]</a>, Electric Vehicles <a href="#r-ev">[20]</a>.</p>
+      <p class="fignote">Bars to scale (1.1 million = full width). The gray bar repeats the last published figure; the dashed outline is Waymo&rsquo;s stated target, not a forecast by the author. Sources: TechCrunch <a href="#r-tc">[16]</a>, InsideEVs <a href="#r-ievs">[18]</a>, Automotive World <a href="#r-aw">[19]</a>, Electric Vehicles <a href="#r-ev">[20]</a>.</p>
     </figure>
   </div>
 </section>
 
 <section id="definition">
-  <header class="co"><div class="co-bar"><span>Chapter 1 of 6</span><span class="co-seg" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">1</span><div class="co-body"><span class="co-eyebrow">Definitions</span><h2>What physical AI is</h2><p class="co-thesis">The term went mainstream in 2025; the definitions organisations publish agree on sensing and acting in the physical world and differ on whether vehicles are named.</p></div></div></header>
+  <header class="co"><div class="co-bar"><span>Chapter 1 of 6</span><span class="co-seg" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">1</span><div class="co-body"><span class="co-eyebrow">Definitions</span><h2>What physical AI is</h2><p class="co-thesis">The term went mainstream in 2025; the definitions organizations publish agree on sensing and acting in the physical world and differ on whether vehicles are named.</p></div></div></header>
   <div class="prose">
-    <p>&ldquo;Physical AI&rdquo; became mainstream between January 2025, when NVIDIA positioned it as AI&rsquo;s next wave at CES, and October 2025, when Gartner added it to its trend list. The table shows how organisations that publish a definition use the term.</p>
+    <p>&ldquo;Physical AI&rdquo; became mainstream between January 2025, when NVIDIA positioned it as AI&rsquo;s next wave at CES, and October 2025, when Gartner added it to its trend list. The table shows how organizations that publish a definition use the term.</p>
   </div>
   <div class="tablewrap">
     <table class="cmp">
@@ -810,7 +844,7 @@ a.gl-name:hover{color:var(--g-accent)}
     <table class="cmp">
       <thead><tr><th>Term</th><th>What it stresses</th><th>Relation to physical AI (author&rsquo;s synthesis)</th></tr></thead>
       <tbody>
-        <tr><td class="rh">Traditional automation</td><td>Fixed, pre-programmed rules (when this sensor fires, do that)</td><td>The boundary. Physical AI starts where fixed rules give way to learned behaviour that adapts to what the machine senses. A robot vacuum that turns a set angle at every bump is automation; one that plans around what it sees is physical AI.</td></tr>
+        <tr><td class="rh">Traditional automation</td><td>Fixed, pre-programmed rules (when this sensor fires, do that)</td><td>The boundary. Physical AI starts where fixed rules give way to learned behavior that adapts to what the machine senses. A robot vacuum that turns a set angle at every bump is automation; one that plans around what it sees is physical AI.</td></tr>
         <tr><td class="rh">Embodied AI</td><td>AI with a body that learns by interacting</td><td>Near-synonym. NVIDIA uses both and includes vehicles in each; academic use stresses learning through embodiment.</td></tr>
         <tr><td class="rh">World models</td><td>Models that predict how a physical scene will evolve (e.g. NVIDIA Cosmos)</td><td>The training and simulation layer: they generate synthetic data and test policies.</td></tr>
         <tr><td class="rh">Vision-language-action (VLA) models</td><td>One model maps camera and language input to actions</td><td>The &ldquo;brain&rdquo; layer, e.g. NVIDIA Alpamayo for driving.<sup class="cite"><a href="#r-ces" title="NVIDIA — CES 2026 special presentation">[13]</a></sup></td></tr>
@@ -860,11 +894,11 @@ a.gl-name:hover{color:var(--g-accent)}
       <tr><td class="rh">NVIDIA<br><span class="prov">Santa Clara, US</span></td><td>Cosmos 3 world model (launched 1 Jun 2026), Isaac GR00T N1.7 for humanoids, Alpamayo 1.5 and 2 Super for driving</td><td>Cosmos passed 10 million Hugging Face downloads (27 Jul 2026); downloads are not deployments</td><td>Company<sup class="cite"><a href="#r-cos3" title="NVIDIA — Launches Cosmos 3">[12]</a></sup><sup class="cite"><a href="#r-cos10" title="NVIDIA Developer Forums — 10M downloads">[15]</a></sup></td></tr>
       <tr><td class="rh">Tesla<br><span class="prov">Austin, US</span></td><td>End-to-end FSD model (v14), trained on customer and Robotaxi data</td><td>Cumulative FSD miles approaching 12 billion</td><td>Company filing<sup class="cite"><a href="#r-tsu" title="Tesla — Q2 2026 Update">[8]</a></sup></td></tr>
       <tr><td class="rh">Geely<br><span class="prov">Hangzhou, CN</span></td><td>&ldquo;WAM&rdquo; world action model behind Super Eva; debuted in the Zeekr 8X</td><td>Announced 17 Mar 2026</td><td>Trade press<sup class="cite"><a href="#r-geely" title="China Biz Insider — Geely at GTC 2026">[42]</a></sup></td></tr>
-      <tr><td class="rh">Physical Intelligence<br><span class="prov">San Francisco, US</span></td><td>&pi;-series robot foundation models</td><td>$600M at about $5.6B valuation (Nov 2025); talks reported at $11B (Mar 2026)</td><td>Secondary<sup class="cite"><a href="#r-pi" title="Wikipedia — Physical Intelligence">[34]</a></sup></td></tr>
-      <tr><td class="rh">Generalist AI, Odyssey, General Intuition<br><span class="prov">US</span></td><td>Embodied models; world models; models trained on gaming video</td><td>June 2026 rounds of $400M, $310M and $320M</td><td>Crunchbase News<sup class="cite"><a href="#r-cbj" title="Crunchbase News — June 2026 unicorn board">[28]</a></sup></td></tr>
+      <tr><td class="rh">Physical Intelligence<br><span class="prov">San Francisco, US</span></td><td>&pi;-series robot foundation models</td><td>$600m at about $5.6bn valuation (Nov 2025); talks reported at $11bn (Mar 2026)</td><td>Secondary<sup class="cite"><a href="#r-pi" title="Wikipedia — Physical Intelligence">[34]</a></sup></td></tr>
+      <tr><td class="rh">Generalist AI, Odyssey, General Intuition<br><span class="prov">US</span></td><td>Embodied models; world models; models trained on gaming video</td><td>June 2026 rounds of $400m, $310m and $320m</td><td>Crunchbase News<sup class="cite"><a href="#r-cbj" title="Crunchbase News — June 2026 unicorn board">[28]</a></sup></td></tr>
       <tr><td class="rh">Google DeepMind<br><span class="prov">London, UK</span></td><td>Gemini 4 Argon, a physical-reasoning model for robotics, released 13 Oct 2026 through the Gemini API and AI Studio</td><td>Google reports 87% on the ERQA embodied-reasoning benchmark, ahead of other frontier models; its own benchmark claim</td><td>Company<sup class="cite"><a href="#r-argon" title="Google — Gemini 4 Argon for robotics">[68]</a></sup></td></tr>
       <tr><td class="rh">Wayve<br><span class="prov">London, UK</span></td><td>GAIA-3 generative world model (15 billion parameters) for testing driving AI on rare and unsafe scenarios</td><td>Trained on ten times more data than GAIA-2; announced 2 Dec 2025</td><td>Trade press<sup class="cite"><a href="#r-gaia3" title="Automotive World — Wayve unveils GAIA-3">[69]</a></sup></td></tr>
-      <tr><td class="rh">Winverse AI<br><span class="prov">China</span></td><td>Robot AI start-up founded in 2026 by a former Tencent robotics scientist; a separate company, not part of DeepSeek</td><td>DeepSeek reportedly leading a seed round at about $400M valuation (12 Oct 2026); not final</td><td>Press, citing Bloomberg<sup class="cite"><a href="#r-winv" title="TNW — DeepSeek to lead seed round in Winverse">[75]</a></sup></td></tr>
+      <tr><td class="rh">Winverse AI<br><span class="prov">China</span></td><td>Robot AI start-up founded in 2026 by a former Tencent robotics scientist; a separate company, not part of DeepSeek</td><td>DeepSeek reportedly leading a seed round at about $400m valuation (12 Oct 2026); not final</td><td>Press, citing Bloomberg<sup class="cite"><a href="#r-winv" title="TNW — DeepSeek to lead seed round in Winverse">[75]</a></sup></td></tr>
       <tr><td class="rh">Figure (Helix), Meta, World Labs, AgiBot (GO-1), OpenAI</td><td colspan="2">Not re-verified for this edition</td><td><span class="kindpill kp-fc">Gap</span></td></tr>
     </tbody>
   </table></div>
@@ -874,7 +908,7 @@ a.gl-name:hover{color:var(--g-accent)}
     <thead><tr><th>Player</th><th>Product</th><th>Evidence in this edition</th></tr></thead>
     <tbody>
       <tr><td class="rh">NVIDIA<br><span class="prov">Santa Clara, US</span></td><td>DRIVE AGX Thor, Jetson Thor, DGX for training</td><td>DRIVE AGX paired with a MediaTek cockpit chip in a central-computer demo; Bosch&rsquo;s AI extension platform is built on NVIDIA CUDA (CES 2026).<sup class="cite"><a href="#r-cer" title="Cerence — Agentic in-cabin AI and the automotive AI box">[47]</a></sup><sup class="cite"><a href="#r-bosch" title="Bosch — CES 2026">[51]</a></sup></td></tr>
-      <tr><td class="rh">Qualcomm<br><span class="prov">San Diego, US</span></td><td>Snapdragon Cockpit Elite and Ride; combined Snapdragon Elite</td><td>Leapmotor D19 to use the combined platform.<sup class="cite"><a href="#r-jdp" title="J.D. Power — Carmakers accelerate AI applications at CES 2026">[52]</a></sup> Automotive revenue of $1,326M in fiscal Q2 2026, up 38% year on year.<sup class="cite"><a href="#r-qsec" title="Qualcomm — Q2 FY2026 earnings release (8-K)">[72]</a></sup> At its June 2026 Investor Day Qualcomm reportedly put its automotive design-win pipeline at $65B and raised its fiscal 2029 automotive revenue target to $10B (analyst reports; the release itself was not read).<sup class="cite"><a href="#r-qap" title="AutoPacific — Qualcomm Investor Day 2026">[73]</a></sup><sup class="cite"><a href="#r-qfut" title="Futurum — Qualcomm Investor Day 2026">[74]</a></sup></td></tr>
+      <tr><td class="rh">Qualcomm<br><span class="prov">San Diego, US</span></td><td>Snapdragon Cockpit Elite and Ride; combined Snapdragon Elite</td><td>Leapmotor D19 to use the combined platform.<sup class="cite"><a href="#r-jdp" title="J.D. Power — Carmakers accelerate AI applications at CES 2026">[52]</a></sup> Automotive revenue of $1,326 million in fiscal Q2 2026, up 38% year on year.<sup class="cite"><a href="#r-qsec" title="Qualcomm — Q2 FY2026 earnings release (8-K)">[72]</a></sup> At its June 2026 Investor Day Qualcomm reportedly put its automotive design-win pipeline at $65 billion and raised its fiscal 2029 automotive revenue target to $10 billion (analyst reports; the release itself was not read).<sup class="cite"><a href="#r-qap" title="AutoPacific — Qualcomm Investor Day 2026">[73]</a></sup><sup class="cite"><a href="#r-qfut" title="Futurum — Qualcomm Investor Day 2026">[74]</a></sup></td></tr>
       <tr><td class="rh">MediaTek<br><span class="prov">Hsinchu, TW</span></td><td>Dimensity Auto C-X1 cockpit chip</td><td>CES 2026 demo with NVIDIA.<sup class="cite"><a href="#r-cer" title="Cerence — automotive AI box">[47]</a></sup></td></tr>
       <tr><td class="rh">Renesas<br><span class="prov">Tokyo, JP</span></td><td>R-Car X5H</td><td>Shown at CES 2026 (vendor blog).<sup class="cite"><a href="#r-any" title="Anyverse — In-cabin monitoring at CES 2026">[53]</a></sup></td></tr>
       <tr><td class="rh">Tesla<br><span class="prov">Austin, US</span></td><td>AI5 inference chip</td><td>Described as a step-function improvement (Q4 2025 Update).<sup class="cite"><a href="#r-ts4" title="Tesla — Q4 2025 Update">[6]</a></sup></td></tr>
@@ -903,7 +937,7 @@ a.gl-name:hover{color:var(--g-accent)}
       <tr><td class="rh">Waymo (Alphabet)<br><span class="prov">Mountain View, US</span></td><td>Public service in more US cities after adding Denver, San Diego and Tampa on 1 Sep 2026</td><td>About 500,000 paid rides a week; more than 4 million autonomous miles a week; target above 1 million rides a week by end-2026</td><td>Sep 2026 &middot; company via press<sup class="cite"><a href="#r-tc" title="TechCrunch — Waymo ridership">[16]</a></sup><sup class="cite"><a href="#r-ev" title="Electric Vehicles — Waymo 500,000 weekly rides">[20]</a></sup><sup class="cite"><a href="#r-deep" title="Deep Arrival — Waymo Denver, San Diego, Tampa">[21]</a></sup></td></tr>
       <tr><td class="rh">Baidu Apollo Go<br><span class="prov">Beijing, CN</span></td><td>28 cities (Aug 2026)<sup class="cite"><a href="#r-bdq2" title="Baidu — Q2 2026 results">[23]</a></sup>; driverless service in Dubai on its own app and Uber</td><td>More than 23 million cumulative rides; over 4.1 million driverless rides in H1 2026</td><td>30 Jun 2026 &middot; company filing<sup class="cite"><a href="#r-bdi" title="Baidu — 2026 Interim Report">[22]</a></sup><sup class="cite"><a href="#r-bdub" title="PR Newswire — Apollo Go on Uber in Dubai">[25]</a></sup></td></tr>
       <tr><td class="rh">Tesla FSD and Robotaxi<br><span class="prov">Austin, US</span></td><td>Unsupervised Robotaxi in several metros; Cybercab production started; FSD approved in five European countries</td><td>1.48 million active FSD subscriptions (excludes free trials)</td><td>Q2 2026 &middot; company filing<sup class="cite"><a href="#r-tsu" title="Tesla — Q2 2026 Update">[8]</a></sup></td></tr>
-      <tr><td class="rh">Pony.ai<br><span class="prov">Guangzhou, CN</span></td><td>Gen-7 robotaxi in daily service; Uber deal for Europe</td><td>Fleet of 1,975 (30 Jun 2026); robotaxi revenue US$12.1M in Q2</td><td>Q2 2026 &middot; company<sup class="cite"><a href="#r-pony" title="Pony.ai — investor press releases">[29]</a></sup></td></tr>
+      <tr><td class="rh">Pony.ai<br><span class="prov">Guangzhou, CN</span></td><td>Gen-7 robotaxi in daily service; Uber deal for Europe</td><td>Fleet of 1,975 (30 Jun 2026); robotaxi revenue $12.1m in Q2</td><td>Q2 2026 &middot; company<sup class="cite"><a href="#r-pony" title="Pony.ai — investor press releases">[29]</a></sup></td></tr>
       <tr><td class="rh">Zoox (Amazon)<br><span class="prov">Foster City, US</span></td><td>Paid rides in Las Vegas since 10 Aug 2026; free service in other cities</td><td>About 1 million riders during the free period</td><td>Aug 2026 &middot; press<sup class="cite"><a href="#r-cnbc" title="CNBC — Zoox paid rides">[26]</a></sup></td></tr>
       <tr><td class="rh">WeRide, Wayve, Mobileye, May Mobility, Nuro, Momenta</td><td colspan="2">WeRide&rsquo;s reported fleet of about 3,400 rests on secondary sources only; the others were not re-verified</td><td><span class="kindpill kp-fc">Gap</span></td></tr>
     </tbody>
@@ -912,12 +946,12 @@ a.gl-name:hover{color:var(--g-accent)}
   <h3 class="sub-h">Where the players are based</h3>
   <div class="hqmaps" id="hqmaps"></div>
   <div class="map-legend" style="margin-top:12px" id="hqlegend"></div>
-  <p class="map-note">Schematic latitude&ndash;longitude plots over a simplified basemap (land and borders from Natural Earth, public domain). Each black pin is a city; coloured dots show the companies based there and their main layer. Positions are approximate. Headquarters were taken from general knowledge where the sources did not state them; check against company sites before citing.</p>
+  <p class="map-note">Schematic latitude&ndash;longitude plots over a simplified basemap (land and borders from Natural Earth, public domain). Each black pin is a city; colored dots show the companies based there and their main layer. Positions are approximate. Headquarters were taken from general knowledge where the sources did not state them; check against company sites before citing.</p>
 </section>
 
 <section id="adoption">
   <header class="co"><div class="co-bar"><span>Chapter 3 of 6</span><span class="co-seg" aria-hidden="true"><i></i><i></i><i class="on"></i><i></i><i></i><i></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">3</span><div class="co-body"><span class="co-eyebrow">Measurable adoption</span><h2>What people actually use</h2><p class="co-thesis">Ranked by the scale of real use, the most widely used physical AI today is driving: Tesla FSD (Supervised) and Waymo lead, ahead of humanoid robots.</p></div></div></header>
-  <div class="prose"><p>Ranked by the scale of real use, not by attention or funding. Metrics differ by product, so the order is a judgement, not a calculation.</p></div>
+  <div class="prose"><p>Ranked by the scale of real use, not by attention or funding. Metrics differ by product, so the order is a judgment, not a calculation.</p></div>
   <div class="tablewrap"><table class="cmp">
     <thead><tr><th>Rank</th><th>Product or service</th><th>Adoption metric</th><th>As of</th><th>Verification</th></tr></thead>
     <tbody>
@@ -932,7 +966,7 @@ a.gl-name:hover{color:var(--g-accent)}
       <tr><td class="rh">Context</td><td><b>Industrial robots</b></td><td>About 603,000 installed in 2025; 5 million in operation; China 54%&ndash;59% of installs</td><td>2025</td><td><span class="kindpill kp-obs">Industry census</span></td></tr>
     </tbody>
   </table></div>
-  <p class="map-note">Rank is the author&rsquo;s judgement. Sources: Tesla <a href="#r-tsu">[8]</a>, TechCrunch <a href="#r-tc">[16]</a>, Baidu <a href="#r-bdi">[22]</a>, NVIDIA <a href="#r-cos10">[15]</a>, Unitree <a href="#r-unit">[33]</a>, AgiBot <a href="#r-agi">[31]</a>, CNBC <a href="#r-cnbc">[26]</a>, Pony.ai <a href="#r-pony">[29]</a>, IFR <a href="#r-ifr">[37]</a>.</p>
+  <p class="map-note">Rank is the author&rsquo;s judgment. Sources: Tesla <a href="#r-tsu">[8]</a>, TechCrunch <a href="#r-tc">[16]</a>, Baidu <a href="#r-bdi">[22]</a>, NVIDIA <a href="#r-cos10">[15]</a>, Unitree <a href="#r-unit">[33]</a>, AgiBot <a href="#r-agi">[31]</a>, CNBC <a href="#r-cnbc">[26]</a>, Pony.ai <a href="#r-pony">[29]</a>, IFR <a href="#r-ifr">[37]</a>.</p>
 
   <div class="twocol" style="margin-top:22px">
     <figure class="figbox">
@@ -965,11 +999,11 @@ a.gl-name:hover{color:var(--g-accent)}
     <h3>Venture money into physical AI, by half-year</h3>
     <p class="cap">USD billions &middot; Crunchbase&rsquo;s broad definition</p>
     <div class="vb">
-<div class="vb-row"><div class="vb-lab"><b>H1 2025</b><span>436 deals</span></div><div class="vb-track"><div class="vb-bar" style="width:48.9%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(48.9% + 6px)">$26.4B</div></div></div>
-<div class="vb-row"><div class="vb-lab"><b>H2 2025</b><span>470 deals</span></div><div class="vb-track"><div class="vb-bar" style="width:22.2%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(22.2% + 6px)">$12B</div></div></div>
-<div class="vb-row"><div class="vb-lab"><b>H1 2026</b><span>521 deals</span></div><div class="vb-track"><div class="vb-bar" style="width:87.8%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(87.8% + 6px)">$47.4B</div></div></div>
+<div class="vb-row"><div class="vb-lab"><b>H1 2025</b><span>436 deals</span></div><div class="vb-track"><div class="vb-bar" style="width:48.9%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(48.9% + 6px)">$26.4bn</div></div></div>
+<div class="vb-row"><div class="vb-lab"><b>H2 2025</b><span>470 deals</span></div><div class="vb-track"><div class="vb-bar" style="width:22.2%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(22.2% + 6px)">$12bn</div></div></div>
+<div class="vb-row"><div class="vb-lab"><b>H1 2026</b><span>521 deals</span></div><div class="vb-track"><div class="vb-bar" style="width:87.8%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(87.8% + 6px)">$47.4bn</div></div></div>
     </div>
-    <p class="fignote">Swollen by mega-rounds; one secondary analysis estimates Waymo&rsquo;s $16B round alone is about a third of the H1 2026 total. PitchBook, with a different definition, records $16.3B (Q1 2026) and $18.6B (Q2 2026). Sources: Crunchbase News <a href="#r-cb">[27]</a>; PitchBook <a href="#r-pbq1">[62]</a> <a href="#r-pbq2">[30]</a>; Value Add VC <a href="#r-vav">[58]</a>.</p>
+    <p class="fignote">Swollen by mega-rounds; one secondary analysis estimates Waymo&rsquo;s $16 billion round alone is about a third of the H1 2026 total. PitchBook, with a different definition, records $16.3 billion (Q1 2026) and $18.6 billion (Q2 2026). Sources: Crunchbase News <a href="#r-cb">[27]</a>; PitchBook <a href="#r-pbq1">[62]</a> <a href="#r-pbq2">[30]</a>; Value Add VC <a href="#r-vav">[58]</a>.</p>
   </figure>
 </section>
 
@@ -1005,15 +1039,15 @@ a.gl-name:hover{color:var(--g-accent)}
     <div class="figbox">
       <h3>Separated: cabin AI fenced off from driving</h3>
       <p class="cap">Example: Waymo</p>
-      <p style="font-size:14.5px;color:var(--ink-2);margin-top:10px">Waymo says Gemini works independently of the Waymo Driver, does not control the car&rsquo;s movement or routing, has no access to real-time driving data, and stays inactive unless the rider engages it. The rider can ask to pull over; the driving system decides how.<sup class="cite"><a href="#r-wgem" title="Waymo — Gemini in Waymo">[17]</a></sup></p>
+      <p style="font-size:15px;color:var(--ink-2);margin-top:10px">Waymo says Gemini works independently of the Waymo Driver, does not control the car&rsquo;s movement or routing, has no access to real-time driving data, and stays inactive unless the rider engages it. The rider can ask to pull over; the driving system decides how.<sup class="cite"><a href="#r-wgem" title="Waymo — Gemini in Waymo">[17]</a></sup></p>
     </div>
     <div class="figbox">
       <h3>Unified: one vehicle-level agent</h3>
       <p class="cap">Example: Geely &ldquo;1+2+N&rdquo;</p>
-      <p style="font-size:14.5px;color:var(--ink-2);margin-top:10px">Geely&rsquo;s framework places one vehicle-level agent over a driving agent and a cabin agent, with many task agents beneath them, so a request can span both domains.<sup class="cite"><a href="#r-geely" title="China Biz Insider — Geely">[42]</a></sup><sup class="cite"><a href="#r-gas" title="Gasgoo — Unified agent">[40]</a></sup></p>
+      <p style="font-size:15px;color:var(--ink-2);margin-top:10px">Geely&rsquo;s framework places one vehicle-level agent over a driving agent and a cabin agent, with many task agents beneath them, so a request can span both domains.<sup class="cite"><a href="#r-geely" title="China Biz Insider — Geely">[42]</a></sup><sup class="cite"><a href="#r-gas" title="Gasgoo — Unified agent">[40]</a></sup></p>
     </div>
   </div>
-  <div class="verdict"><span class="tag">Author&rsquo;s read</span>Separation limits what a cabin agent can do but keeps safety cases and liability simple. Unification enables richer requests (&ldquo;find somewhere quiet to stop and recline my seat&rdquo;) but ties a conversational system to safety-critical behaviour. Which design wins is open, and it decides how much of the cabin a third party can ever control.</div>
+  <div class="verdict"><span class="tag">Author&rsquo;s read</span>Separation limits what a cabin agent can do but keeps safety cases and liability simple. Unification enables richer requests (&ldquo;find somewhere quiet to stop and recline my seat&rdquo;) but ties a conversational system to safety-critical behavior. Which design wins is open, and it decides how much of the cabin a third party can ever control.</div>
   <h3 class="sub-h">Which safety standard applies</h3>
   <div class="tablewrap"><table class="cmp">
     <thead><tr><th>Standard</th><th>What it covers</th><th>What it means for cabin agents (author&rsquo;s reading)</th></tr></thead>
@@ -1025,7 +1059,7 @@ a.gl-name:hover{color:var(--g-accent)}
 
   <h3 class="sub-h">Sensing that regulation already puts in the cabin</h3>
   <div class="tablewrap"><table class="cmp">
-    <thead><tr><th>Rule or programme</th><th>What it requires or rewards</th><th>Dates</th><th>Implication</th></tr></thead>
+    <thead><tr><th>Rule or program</th><th>What it requires or rewards</th><th>Dates</th><th>Implication</th></tr></thead>
     <tbody>
       <tr><td class="rh">EU drowsiness and attention warning (Delegated Reg. 2021/1341)</td><td>Must work without biometric information, including facial recognition, and may only record and keep data needed to function, within a closed-loop system.<sup class="cite"><a href="#r-eu1341" title="EUR-Lex — Delegated Regulation (EU) 2021/1341">[54]</a></sup></td><td>New types Jul 2022; all new cars Jul 2024</td><td rowspan="2">Cameras now fitted to every new EU car cannot simply be reused for comfort or entertainment features without separate legal grounds and architecture (author&rsquo;s reading).</td></tr>
       <tr><td class="rh">EU advanced driver distraction warning (Delegated Reg. 2023/2590)</td><td>Distraction detection with similar closed-loop data wording.<sup class="cite"><a href="#r-eu2590" title="EUR-Lex — Delegated Regulation (EU) 2023/2590">[55]</a></sup></td><td>New types Jul 2024; all new cars 7 Jul 2026</td></tr>
@@ -1055,7 +1089,7 @@ a.gl-name:hover{color:var(--g-accent)}
       <tr><td class="rh">Motion sickness when riders read or watch</td><td>Riders no longer drive, so screen time rises</td><td>No commercial product verified in this edition</td><td>Needs vehicle-motion data and cabin control</td></tr>
       <tr><td class="rh">Turning mandated sensing into rider value within privacy rules</td><td>Distraction warning in all new EU cars from Jul 2026; Euro NCAP scoring</td><td>Smart Eye, LG (sensing); Cerence, Bosch (agents)</td><td>The phone cannot see the cabin</td></tr>
       <tr><td class="rh">A rider profile that travels across operators and cars</td><td>Ride-hail networks host several robotaxi operators (Uber with Baidu, Pony.ai and others)</td><td>Uber; Google</td><td>The phone is the natural carrier: here the phone may win</td></tr>
-      <tr><td class="rh">Explaining the car&rsquo;s behaviour (&ldquo;why did we stop?&rdquo;)</td><td>Stall incidents and first-time riders</td><td>Waymo (rider education in Gemini)</td><td>Needs authoritative vehicle state</td></tr>
+      <tr><td class="rh">Explaining the car&rsquo;s behavior (&ldquo;why did we stop?&rdquo;)</td><td>Stall incidents and first-time riders</td><td>Waymo (rider education in Gemini)</td><td>Needs authoritative vehicle state</td></tr>
     </tbody>
   </table></div>
   <p class="map-note">Framed for the industry as a whole; not a recommendation to any company. Any of these could become an opportunity brief on this site after full research.</p>
@@ -1109,7 +1143,7 @@ a.gl-name:hover{color:var(--g-accent)}
   <div class="about">
     <p><b>Question.</b> What is physical AI, who are the main players across the stack, which products are used most, and how does it apply to the car, with the cabin and rider experience as the main lens?</p>
     <p><b>Scope.</b> Global, whole stack. Placed under Shifts / Mobility on this site. Neutral and industry-wide: no recommendation is made to any company.</p>
-    <p><b>Sources.</b> Official and primary sources first (company filings and releases, regulators, standards bodies), then analyst research, then trade press. Each reference carries its type and date. Company-reported, analyst and forecast numbers are labelled. Two figures were re-checked against primary documents for this page: Baidu&rsquo;s H1 2026 rides (2026 Interim Report) and Euro NCAP&rsquo;s occupant-monitoring points (protocol v1.2).</p>
+    <p><b>Sources.</b> Official and primary sources first (company filings and releases, regulators, standards bodies), then analyst research, then trade press. Each reference carries its type and date. Company-reported, analyst and forecast numbers are labeled. Two figures were re-checked against primary documents for this page: Baidu&rsquo;s H1 2026 rides (2026 Interim Report) and Euro NCAP&rsquo;s occupant-monitoring points (protocol v1.2).</p>
     <p><b>What this report is not.</b> The ranking, the working definition, the stack diagram, maturity ratings and the &ldquo;why not just the phone&rdquo; and opportunity tables are the author&rsquo;s analysis, not sourced figures.</p>
   </div>
   <h3 class="sub-h" style="margin-top:0;">Flags and open questions</h3>
@@ -1123,7 +1157,7 @@ a.gl-name:hover{color:var(--g-accent)}
     <li><b>Company claims not independently verified:</b> Waymo safety statistics, Baidu safety rates, Cerence&rsquo;s installed base, AgiBot production counts (production is not deployment), NVIDIA benchmark claims for Cosmos 3, Zeekr order counts.</li>
     <li><b>Forecasts, not facts:</b> Gartner&rsquo;s 2035 prediction, IFR&rsquo;s 2029 outlook, TrendForce and bank humanoid forecasts, and Waymo&rsquo;s 1 million-a-week target.</li>
     <li><b>Not covered:</b> Figure Helix, World Labs, Meta and OpenAI robotics; Horizon Robotics, Huawei, Mobileye and AMD chips; Applied Intuition and other simulation firms; Boston Dynamics at Hyundai and Apptronik at Mercedes; Huawei, Xiaomi and Xpeng cabins; robotic charging and valet parking; motion-sickness products.</li>
-    <li><b>Added 14 October 2026.</b> The Gemini 4 Argon ERQA score is Google&rsquo;s own claim. Qualcomm&rsquo;s $65B pipeline and $10B target come from analyst reports of its Investor Day; its quarterly revenue is from its SEC filing. The Winverse round was reported as not final. Several claims in a second draft produced with Gemini (Google) were checked and not used: Winverse is not DeepSeek&rsquo;s robotics arm, and a reported 2,000 TOPS figure for Snapdragon Ride Flex, a BCG definition and a &ldquo;GAIA-4&rdquo; model could not be confirmed.</li>
+    <li><b>Added 14 October 2026.</b> The Gemini 4 Argon ERQA score is Google&rsquo;s own claim. Qualcomm&rsquo;s $65 billion pipeline and $10 billion target come from analyst reports of its Investor Day; its quarterly revenue is from its SEC filing. The Winverse round was reported as not final. Several claims in a second draft produced with Gemini (Google) were checked and not used: Winverse is not DeepSeek&rsquo;s robotics arm, and a reported 2,000 TOPS figure for Snapdragon Ride Flex, a BCG definition and a &ldquo;GAIA-4&rdquo; model could not be confirmed.</li>
     <li><b>Map.</b> Headquarters not stated in the sources come from general knowledge and should be checked before citing.</li>
     <li><b>Refresh date.</b> Not yet set; the author to decide.</li>
   </ol>
@@ -1137,7 +1171,7 @@ a.gl-name:hover{color:var(--g-accent)}
   </ul>
   <h3 class="sub-h">Related reports on this site</h3>
   <div class="about">
-    <p><a href="../mega-trends-2040/">Mega Trends Outlook 2040</a> (Trend 1: AI becomes physical infrastructure)<sup class="cite"><a href="#r-mega" title="Mega Trends Outlook 2040">[64]</a></sup> &middot; <a href="../mobility-product-outlook/">Mobility Product Outlook 2026&ndash;2031</a> (robotaxi and shared-vehicle interiors)<sup class="cite"><a href="#r-mpo" title="Mobility Product Outlook">[65]</a></sup> &middot; <a href="../incar-ai-benchmark/">In-Car AI Assistant Benchmark</a> &middot; <a href="../agentic-consumer-2027/">Agentic AI and the Consumer</a></p>
+    <p><a href="../mega-trends-2040/">Mega Trends Outlook 2040</a> (Trend 1: AI becomes physical infrastructure)<sup class="cite"><a href="#r-mega" title="Mega Trends Outlook 2040">[64]</a></sup> &middot; <a href="../mobility-product-outlook/">Mobility Product Outlook 2026&ndash;2031</a> (robotaxi and shared-vehicle interiors)<sup class="cite"><a href="#r-mpo" title="Mobility Product Outlook 2026–2031">[65]</a></sup> &middot; <a href="../incar-ai-benchmark/">In-Car AI Assistant Benchmark</a> &middot; <a href="../agentic-consumer-2027/">Agentic AI and the Consumer: 2027 Outlook</a></p>
   </div>
   <h3 class="sub-h">About this report</h3>
   <div class="about">
@@ -1226,9 +1260,11 @@ a.gl-name:hover{color:var(--g-accent)}
 </section>
 </div>
 
+</main>
+
 <section class="rn" aria-labelledby="rnH"><div class="ro-inner">
   <div class="rn-head"><h2 id="rnH">Continue <em>down the map</em></h2><span class="rn-chain" aria-label="The four layers of the map"><span class="f">Forces</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class=" here" aria-current="true">Shifts</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="">Signals</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="o">Opportunities</span></span></div>
-  <div class="rn-cards"><a class="rn-card" href="/mobility-product-outlook/"><img src="/mobility-product-outlook/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Shifts</span><span class="rn-t">Mobility Product Outlook 2026&ndash;2031</span><span class="rn-q">How are consumer electronics and rising customer expectations redefining what a car is, and what defines the next-generation mobility product?</span></span></a><a class="rn-card" href="/incar-ai-benchmark/"><img src="/incar-ai-benchmark/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Signals</span><span class="rn-t">In-Car AI Assistant Benchmark</span><span class="rn-q">What can today&rsquo;s in-car AI assistants actually do for the driver, and who owns the layer that does it?</span></span></a><a class="rn-card" href="/agentic-consumer-2027/"><img src="/agentic-consumer-2027/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Shifts</span><span class="rn-t">Agentic AI and the Consumer</span><span class="rn-q">How does agentic AI change what consumers trust, delegate, buy and feel through 2027?</span></span></a></div>
+  <div class="rn-cards"><a class="rn-card" href="/mobility-product-outlook/"><img src="/mobility-product-outlook/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Shifts</span><span class="rn-t">Mobility Product Outlook 2026&ndash;2031</span><span class="rn-q">How are consumer electronics and rising customer expectations redefining what a car is, and what defines the next-generation mobility product?</span></span></a><a class="rn-card" href="/incar-ai-benchmark/"><img src="/incar-ai-benchmark/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Signals</span><span class="rn-t">In-Car AI Assistant Benchmark</span><span class="rn-q">What can today&rsquo;s in-car AI assistants actually do for the driver, and who owns the layer that does it?</span></span></a><a class="rn-card" href="/agentic-consumer-2027/"><img src="/agentic-consumer-2027/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Shifts</span><span class="rn-t">Agentic AI and the Consumer: 2027 Outlook</span><span class="rn-q">How does agentic AI change what consumers trust, delegate, buy and feel through 2027?</span></span></a></div>
 </div></section>
 <section class="rn-follow" aria-labelledby="rnF"><div class="ro-inner">
   <div><span class="rn-k">Follow new editions</span><h2 id="rnF">Each report is refreshed on a schedule. <em>Know when it changes.</em></h2><p>Next refresh dates are listed on the <a href="/#follow">home page</a>.</p></div>
@@ -1236,7 +1272,7 @@ a.gl-name:hover{color:var(--g-accent)}
 </div></section>
 <footer class="foot"><div class="foot-inner">
   <span>&copy; 2026 Chuhee Lee &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-  <span>Independent research &middot; not affiliated with or endorsed by any company named</span>
+  <span>Independent research &middot; not affiliated with or endorsed by any company or organization named</span>
   <span><a href="../method/">How this research is made</a> &middot; <a href="../">All publications</a></span>
 </div></footer>
 
@@ -1307,7 +1343,7 @@ var GL={
  /* text of a node without citation superscripts */
  plain:function(n){var c=n.cloneNode(true);Array.prototype.forEach.call(c.querySelectorAll('sup'),function(x){x.remove();});return GL.esc(c.textContent.replace(/\s+/g,' ').trim());}
 };
-/* ---------- AT A GLANCE: Physical AI and the Rider's Cabin ---------- */
+/* ---------- AT A GLANCE: Physical AI and the Rider’s Cabin ---------- */
 (function(){
  var root=document.getElementById("glanceBody");if(!root)return;
  var ref=function(id,t){return '<a href="#'+id+'">'+t+'</a>';};
@@ -1328,14 +1364,14 @@ var GL={
  root.innerHTML=GL.mast('Physical AI and the Rider&rsquo;s Cabin','October 2026 edition · Data as of 13 Oct 2026, updated 14 Oct')+
   '<div class="gl-lede"><b>By measurable use, the most widely used physical AI today is driving, not humanoid robots.</b> Inside the car, the frontier is moving from chatbots to cabin agents that perceive occupants and operate cabin hardware.</div>'+
   '<div class="gl-tiles">'+tiles+'</div>'+
-  '<div class="gl-two"><div><div class="gl-h">Robotaxi growth stalled at 500,000 a week</div><div class="gl-sub">Waymo weekly paid rides, company-reported. Grey bar repeats the last published figure; dashed is Waymo&rsquo;s stated target, not a forecast.</div>'+bars(way?GL.scrape(way):[],100,'110')+'</div>'+
-  '<div><div class="gl-h">What people actually use</div><div class="gl-sub">Ranked by scale of real use. Metrics differ by product, so the order is the author&rsquo;s judgement.</div>'+rows+'</div></div>'+
+  '<div class="gl-two"><div><div class="gl-h">Robotaxi growth stalled at 500,000 a week</div><div class="gl-sub">Waymo weekly paid rides, company-reported. Gray bar repeats the last published figure; dashed is Waymo&rsquo;s stated target, not a forecast.</div>'+bars(way?GL.scrape(way):[],100,'110')+'</div>'+
+  '<div><div class="gl-h">What people actually use</div><div class="gl-sub">Ranked by scale of real use. Metrics differ by product, so the order is the author&rsquo;s judgment.</div>'+rows+'</div></div>'+
   '<div class="gl-three"><div><div class="gl-h">Apollo Go driverless rides</div><div class="gl-sub">Millions per quarter; Q2 is the author&rsquo;s arithmetic.</div>'+bars(get(fh("Apollo Go")),100,'80','sm')+'</div>'+
   '<div><div class="gl-h">Humanoid shipments, 2025</div><div class="gl-sub">Units: company prospectus vs Omdia.</div>'+bars(get(fh("Humanoid")),100,'110','sm')+'</div>'+
   '<div><div class="gl-h">Venture money into physical AI</div><div class="gl-sub">USD billions by half-year, Crunchbase&rsquo;s broad definition.</div>'+bars(get(fh("Venture")),100,'80','sm')+'</div></div>'+
   '<div class="gl-three"><div style="grid-column:1/-1;padding-bottom:0"><div class="gl-h">In the car: three stages of cabin AI</div><div class="gl-sub" style="margin-bottom:0">As people move from driving to riding, freed time and attention land in the cabin.</div></div></div>'+
   '<div class="gl-three" style="border-top:0">'+stages+'</div>'+
-  GL.foot('blueplanet-ai.github.io/physical-ai-cabin','&copy; 2026 Chuhee Lee · CC BY-NC 4.0 · Figures from the cited sources; rankings are the author&rsquo;s judgement');
+  GL.foot('blueplanet-ai.github.io/physical-ai-cabin','&copy; 2026 Chuhee Lee · CC BY-NC 4.0 · Figures from the cited sources; rankings are the author&rsquo;s judgment');
 })();
 </script>
 <script src="/assets/report-opener.js" defer></script>
