@@ -36,7 +36,7 @@
   --signal:#0892A5; --signal-deep:#066A79;
   --opp:#C2622D; --opp-soft:#F5E6DC; --opp-ink:#9A4A1F;
   --hl:#DDEFF2;
-  --plate:#0F1719; --plate-ink:#E7EDEE; --plate-2:#AFBDBF; --plate-3:#7F8D90; --plate-line:#3C4B4E; --plate-accent:#5FCCDB;
+  --plate:#0F1719; --plate-ink:#E7EDEE; --plate-2:#AFBDBF; --plate-3:#8C9A9D; --plate-line:#3C4B4E; --plate-accent:#5FCCDB;
   --font-ui:"Saira","Helvetica Neue",Arial,sans-serif;
   --font-body:"Newsreader",Georgia,"Times New Roman",serif;
   --font-mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
@@ -45,7 +45,7 @@
   :root:not([data-theme="light"]){
     --ground:#0D1213; --surface:#151D1F; --surface-2:#1D2729;
     --line:#283436; --line-strong:#3C4B4E;
-    --ink:#E7EDEE; --ink-2:#AFBDBF; --ink-3:#7F8D90;
+    --ink:#E7EDEE; --ink-2:#AFBDBF; --ink-3:#8C9A9D;
     --signal:#2BB3C6; --signal-deep:#5FCCDB;
     --opp:#DB8A4F; --opp-soft:#2A1E16; --opp-ink:#DB8A4F;
     --hl:#16363C;
@@ -56,7 +56,7 @@
 :root[data-theme="dark"]{
   --ground:#0D1213; --surface:#151D1F; --surface-2:#1D2729;
   --line:#283436; --line-strong:#3C4B4E;
-  --ink:#E7EDEE; --ink-2:#AFBDBF; --ink-3:#7F8D90;
+  --ink:#E7EDEE; --ink-2:#AFBDBF; --ink-3:#8C9A9D;
   --signal:#2BB3C6; --signal-deep:#5FCCDB;
   --opp:#DB8A4F; --opp-soft:#2A1E16; --opp-ink:#DB8A4F;
   --hl:#16363C;
@@ -169,6 +169,13 @@ body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 .latest .m{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);}
 .latest .go{margin-left:auto;font-family:var(--font-ui);font-size:15px;font-weight:600;color:var(--signal-deep);}
 .latest:hover .t{color:var(--signal-deep);}
+.upd{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);}
+.upd li{display:grid;grid-template-columns:132px minmax(0,1fr);gap:4px 20px;padding:13px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+.upd time{font-family:var(--font-mono);font-size:13px;color:var(--ink-3);}
+.upd .t{font-family:var(--font-body);font-size:18px;line-height:1.4;color:var(--ink);}
+.upd .k{font-family:var(--font-ui);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--opp-ink);margin-right:10px;}
+.upd-more{margin:14px 0 0;font-family:var(--font-ui);font-size:15px;font-weight:500;}
+@media (max-width:600px){.upd li{grid-template-columns:1fr;}}
 
 main{padding-block:0 72px;}
 section{padding-top:64px;}
@@ -213,7 +220,7 @@ button.chip[aria-pressed="true"]{background:var(--ink);color:var(--ground);borde
 .map .last{border-bottom:0;}
 .cell-link{display:block;text-decoration:none;color:var(--ink);background:var(--hl);border-left:3px solid var(--signal);padding:9px 10px;font-family:var(--font-ui);font-size:14px;font-weight:600;line-height:1.25;}
 .cell-link + .cell-link{margin-top:6px;}
-.cell-link small{display:block;font-family:var(--font-mono);font-size:12px;font-weight:400;color:var(--ink-3);margin-top:3px;}
+.cell-link small{display:block;font-family:var(--font-mono);font-size:12px;font-weight:400;color:var(--ink-2);margin-top:3px;}
 .cell-link:hover,.cell-link.on{border-left-color:var(--signal-deep);box-shadow:inset 0 0 0 1px var(--signal);}
 .coming{display:block;border:1px dashed var(--line-strong);color:var(--ink-3);padding:9px 10px;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;}
 .coming.opp{border-color:var(--opp);color:var(--opp-ink);}
@@ -598,10 +605,20 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
     <p class="map-note">Every brief answers these eight questions, so an idea can be traced back to its evidence. With three or more briefs, they will be plotted on a potential-versus-complexity chart.</p>
   </section>
 
+  <section id="updates">
+    <div class="sec-head"><h2>What changed</h2><span class="eyebrow">Latest updates</span></div>
+    <ol class="upd">
+      <li><time datetime="2026-10-18">18 Oct 2026</time><span class="t"><span class="k">Site</span> American spelling, higher text contrast in light mode, a light/dark toggle, and a headline-finding line under each at-a-glance summary.</span></li>
+      <li><time datetime="2026-10-18">18 Oct 2026</time><span class="t"><span class="k">New</span> <a href="/shared-cabin/">One cabin, several people</a>, the first opportunity brief.</span></li>
+      <li><time datetime="2026-10-17">17 Oct 2026</time><span class="t"><span class="k">Updated</span> The at-a-glance infographics were re-exported to match the pages.</span></li>
+    </ol>
+    <p class="upd-more"><a href="https://github.com/blueplanet-ai/blueplanet-ai.github.io/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Full change log</a> &middot; <a href="/feed.xml">RSS feed</a></p>
+  </section>
+
   <section id="about">
     <div class="sec-head"><h2>About</h2><span class="eyebrow">Author and method</span></div>
     <div class="about">
-      <p><b>Chuhee Lee</b> has spent over two decades in Silicon Valley translating emerging technology trends into tangible automotive products. Spanning software-defined vehicles, AI, autonomous driving, and in-vehicle user experiences, his work bridges the gap between advanced R&amp;D and real-world commercial application. He leads a multidisciplinary organization focused on strategy, technology, and partnerships, collaborating with startups and academia to transform complex problems into scalable mobility solutions. A close observer of how consumer attention and macro trends shape the automotive industry, he holds an M.S. in Electrical Engineering from Stanford University and a B.S. in Electrical Engineering from Johns Hopkins University.</p>
+      <p><b>Chuhee Lee</b> has spent over two decades in Silicon Valley translating emerging technology trends into tangible automotive products. Spanning software-defined vehicles, AI, autonomous driving, and in-vehicle user experiences, his work bridges the gap between advanced R&amp;D and real-world commercial applications. He leads a multidisciplinary organization focused on strategy, technology, and partnerships, collaborating with startups, tech leaders, and academia to transform complex problems into scalable mobility solutions. He anticipates the trajectory of automotive technology by analyzing shifts in consumer attention and macro trends. He holds an M.S. in Electrical Engineering from Stanford University and a B.S. in Electrical Engineering from Johns Hopkins University.</p>
       <p>These are personal research projects. The views are the author’s own and do not represent those of any employer or organization. No company covered sponsors, reviews or endorses this work.</p>
       <p>Research, source verification and drafting are carried out with several AI models, including Claude (Anthropic), Gemini (Google) and ChatGPT (OpenAI); topic selection, scores and conclusions are the author’s. Facts are sourced to official and primary sources first, then recognized studies, then specialist trade press, and every report lists its references. Each report carries a change log and a next-refresh date, and corrections are welcome via LinkedIn. The full method is on <a href="/method/">How this research is made</a>. To follow new editions and refreshes, use the <a href="/feed.xml">RSS feed</a>.</p>
       <p>Unless stated otherwise, reports are licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>: share and adapt for non-commercial purposes with credit.</p>

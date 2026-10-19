@@ -249,3 +249,11 @@ body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 .gl-cap b{font-family:var(--ro-ui);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ro-signal-deep);}
 .gl-cap span{font-family:var(--ro-serif);font-size:18px;line-height:1.45;font-style:italic;color:var(--ro-ink);}
 @media print{.gl-cap{break-inside:avoid}}
+
+/* Back link above the report header. */
+.ro-crumb{background:var(--ro-ground);border-bottom:1px solid var(--ro-line);}
+.ro-crumb .ro-inner{padding-block:9px;}
+.ro-crumb a{display:inline-block;font-family:var(--ro-ui);font-size:15px;font-weight:500;color:var(--ro-signal-deep);text-decoration:none;padding:3px 0;}
+.ro-crumb a:hover{text-decoration:underline;text-underline-offset:3px;}
+.ro-crumb a:focus-visible{outline:2px solid var(--ro-signal);outline-offset:2px;}
+@media print{.ro-crumb{display:none}}

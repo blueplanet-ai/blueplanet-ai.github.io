@@ -26,9 +26,9 @@
 <style>img{max-width:100%}[hidden]{display:none!important}:root{--signal-text:var(--signal-deep);}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--signal-text:var(--signal);}}
 :root[data-theme="dark"]{--signal-text:var(--signal);}
-:root{--eu-t:#656A2A;--cn-t:#9E4E1D;}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--eu-t:var(--eu);--cn-t:var(--cn);}}
-:root[data-theme="dark"]{--eu-t:var(--eu);--cn-t:var(--cn);}
+:root{--us-t:var(--us);--eu-t:#656A2A;--cn-t:#9E4E1D;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--us-t:#8A9AE0;--eu-t:var(--eu);--cn-t:#D98450;}}
+:root[data-theme="dark"]{--us-t:#8A9AE0;--eu-t:var(--eu);--cn-t:#D98450;}
 </style>
 <title>Mobility Product Outlook 2026–2031 — Chuhee Lee</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,14 +50,14 @@
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --ground:#0D1213; --surface:#151D1F; --surface-2:#1D2729; --line:#283436; --line-strong:#3C4B4E;
-    --ink:#E7EDEE; --ink-2:#AFBDBF; --ink-3:#7F8D90; --signal:#2BB3C6; --signal-deep:#5FCCDB;
+    --ink:#E7EDEE; --ink-2:#AFBDBF; --ink-3:#8C9A9D; --signal:#2BB3C6; --signal-deep:#5FCCDB;
     --cat-1:#16A2B6; --cat-2:#CB7439; --cat-3:#7687D0; --cat-4:#94993F; --cat-5:#8C989B;
     --warn:#DB8A4F; --good:#5FAE81; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --ground:#0D1213; --surface:#151D1F; --surface-2:#1D2729; --line:#283436; --line-strong:#3C4B4E;
-  --ink:#E7EDEE; --ink-2:#AFBDBF; --ink-3:#7F8D90; --signal:#2BB3C6; --signal-deep:#5FCCDB;
+  --ink:#E7EDEE; --ink-2:#AFBDBF; --ink-3:#8C9A9D; --signal:#2BB3C6; --signal-deep:#5FCCDB;
   --cat-1:#16A2B6; --cat-2:#CB7439; --cat-3:#7687D0; --cat-4:#94993F; --cat-5:#8C989B;
   --warn:#DB8A4F; --good:#5FAE81; color-scheme:dark;
 }
@@ -277,7 +277,7 @@ tr.det .go{margin-top:8px;}
 .dive .tablewrap{border:0;border-top:1px solid var(--line);}
 
 .rt table{min-width:720px;}
-.rt thead th.c-us{color:var(--us);box-shadow:inset 0 3px 0 var(--us);}
+.rt thead th.c-us{color:var(--us-t);box-shadow:inset 0 3px 0 var(--us);}
 .rt thead th.c-eu{color:var(--eu-t);box-shadow:inset 0 3px 0 var(--eu);}
 .rt thead th.c-cn{color:var(--cn-t);box-shadow:inset 0 3px 0 var(--cn);}
 .rt td.c-us,.rt td.c-eu,.rt td.c-cn{font-family:var(--font-body);font-size:15px;color:var(--ink-2);transition:opacity .15s;}
@@ -550,6 +550,7 @@ a.gl-name:hover{color:var(--g-accent)}
   </nav>
 </div></div>
 
+<div class="ro-crumb"><div class="ro-inner"><a href="/#publications"><span aria-hidden="true">&larr;</span> All publications</a></div></div>
 <header class="ro" id="main" tabindex="-1"><div class="ro-inner">
   <div class="ro-side">
     <figure class="ro-cover"><img src="cover.svg" width="600" height="800" alt="Cover art: twelve spokes, one per dimension of the product-definition framework."></figure>

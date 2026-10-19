@@ -26,6 +26,9 @@
 <style>img{max-width:100%}[hidden]{display:none!important}:root{--t1-t:#1F5FB0;}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--t1-t:var(--t1);}}
 :root[data-theme="dark"]{--t1-t:var(--t1);}
+:root{--tc1:#fff;--tc2:#121722;--tc3:#121722;--tc4:#121722;--tc5:#121722;--tc6:#fff;--tc7:#fff;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--tc1:#121722;--tc2:#121722;--tc3:#121722;--tc4:#121722;--tc5:#121722;--tc6:#121722;--tc7:#121722;}}
+:root[data-theme="dark"]{--tc1:#121722;--tc2:#121722;--tc3:#121722;--tc4:#121722;--tc5:#121722;--tc6:#121722;--tc7:#121722;}
 </style>
 <title>Mega Trends Outlook 2040 — Chuhee Lee</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -267,10 +270,10 @@ footer{padding-block:40px 64px;border-top:1px solid var(--rule);font-size:13px;c
   --shadow:none;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --bg:#0D1213; --surface:#151D1F; --surface-2:#1D2729; --ink:#E7EDEE; --ink-2:#AFBDBF; --muted:#7F8D90; --rule:#283436;
+  --bg:#0D1213; --surface:#151D1F; --surface-2:#1D2729; --ink:#E7EDEE; --ink-2:#AFBDBF; --muted:#8C9A9D; --rule:#283436;
   --accent:#5FCCDB; --accent-soft:#17323A; --pos:#2BB3C6; } }
 :root[data-theme="dark"]{
-  --bg:#0D1213; --surface:#151D1F; --surface-2:#1D2729; --ink:#E7EDEE; --ink-2:#AFBDBF; --muted:#7F8D90; --rule:#283436;
+  --bg:#0D1213; --surface:#151D1F; --surface-2:#1D2729; --ink:#E7EDEE; --ink-2:#AFBDBF; --muted:#8C9A9D; --rule:#283436;
   --accent:#5FCCDB; --accent-soft:#17323A; --pos:#2BB3C6; }
 body{margin:0}
 h1,h2,h3{font-family:var(--f-ui);font-weight:600;letter-spacing:-.012em}
@@ -472,6 +475,7 @@ a.gl-name:hover{color:var(--g-accent)}
   </nav>
 </div></div>
 
+<div class="ro-crumb"><div class="ro-inner"><a href="/#publications"><span aria-hidden="true">&larr;</span> All publications</a></div></div>
 <header class="ro" id="main" tabindex="-1"><div class="ro-inner">
   <div class="ro-side">
     <figure class="ro-cover"><img src="cover.svg" width="600" height="800" alt="Cover art: seven arcs, one per force; each arc's length is the trend's score out of 20."></figure>
@@ -966,7 +970,6 @@ const T=[
  {id:"t7",n:7,c:"--t7",short:"Social contract",name:"The social contract frays as inequality, distrust and autocratisation spread",s:[4,3,3,4]}
 ];
 const tot=t=>t.s.reduce((a,b)=>a+b,0);
-const DARKTXT=[2,3,4,5];
 const NODE={1:"AI",2:"Climate",3:"Geopolitics",4:"Electrification",5:"Demography",6:"Growth & debt",7:"Social contract"};
 const cv=t=>`var(${t.c})`;
 
@@ -1282,7 +1285,7 @@ const E=[[1,4,"+","Data-center load (415 → ~945 TWh by 2030) drives grid, gas,
   S("path",{d:`M${sx},${sy} Q${mx},${my} ${ex},${ey}`,class:"edge-hit","data-tip":tt,style:"fill:none;stroke:transparent;stroke-width:14"},gE);
   });
  T.forEach(t=>{const [x,y]=P[t.n];const g=S("g",{"data-tip":`<b>T${t.n} ${t.short}</b><br>Score ${tot(t)}/20`},s);S("circle",{cx:x,cy:y,r:nr,style:`fill:${cv(t)};stroke:var(--surface);stroke-width:3`},g);
-  const tc=DARKTXT.includes(t.n)?"#121722":"#fff";S("text",{x,y:y-3,"text-anchor":"middle",style:`font-family:var(--f-display);font-size:20px;fill:${tc}`,text:"T"+t.n},g);
+  const tc="var(--tc"+t.n+")";S("text",{x,y:y-3,"text-anchor":"middle",style:`font-family:var(--f-display);font-size:20px;fill:${tc}`,text:"T"+t.n},g);
   S("text",{x,y:y+15,"text-anchor":"middle",style:`font-size:10px;fill:${tc};font-weight:600`,text:NODE[t.n]},g);});
  document.querySelectorAll(".net-controls button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".net-controls button").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));const lp=b.dataset.loop;
   s.querySelectorAll("path.edge").forEach(p=>{p.style.opacity=(lp==="all"||p.dataset.loop===lp)?".85":".08";});}));
@@ -1341,7 +1344,7 @@ hbar("fri",[{l:"Domain experts",v:24.6,txt:"24.6%",tip:"Domain experts: average 
   [heroK[4],"global public debt-to-GDP by 2029, a year earlier than expected"],
   [heroK[5],"of global wealth owned by the top 10%; the bottom half owns 2%"]
  ];
- const tc=t=>DARKTXT.includes(t.n)?"#121722":"#fff";
+ const tc=t=>"var(--tc"+t.n+")";
  const cards=T.map((t,i)=>{const a=A[i];
   return `<div class="gl-card" style="--c:${cv(t)}"><div class="gl-top"><span class="gl-badge" style="color:${tc(t)}">T${t.n}</span><a class="gl-name" href="#${t.id}">${t.short}</a><span class="gl-tot">${tot(t)}<small>/20</small></span></div>
    <div class="gl-big">${a[0][0]}</div><div class="gl-cap">${a[1]}</div>

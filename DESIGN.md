@@ -32,7 +32,7 @@ Each page carries an inline `<style>` token block: bare `:root` for light, then 
 | opp | #C2622D | #DB8A4F | The single accent |
 | opp-ink | #9A4A1F | #DB8A4F | Accent as text on light |
 
-Note: dark `ink-3` is #7F8D90 on the home page and #8C9A9D in `report-opener.css`. Keep each as it is unless you are fixing a contrast problem.
+Note: dark `ink-3` is #8C9A9D on every page (it was #7F8D90 on the home page and Mega Trends before the 18 October polish; that gave only 4.45:1 on surface-2).
 
 The print stylesheet forces a white ground with `!important`. That is intentional.
 
@@ -56,6 +56,9 @@ Sizes in page CSS snap to 12, 13, 14, 15, 16, 18, 20, 22 and 24 px. Use px, not 
 - **`404.html`:** branded not-found page that lists the publications. It uses root-relative asset paths so it works at any depth.
 - **JSON-LD:** each page has one `application/ld+json` block (home: `WebSite` and `Person`; reports: `Report`; Method: `Article`). Update `dateModified` with the sitemap `lastmod` when a page changes.
 - **Headline finding:** `.gl-cap` under the at-a-glance infographic restates the report's own summary line. Do not write a new claim there.
+- **Back link:** `.ro-crumb` ("← All publications") sits between the top bar and the header on every report and Method; it links to `/#publications`.
+- **What changed (home):** `#updates` lists the three latest entries from `CHANGELOG.md` with dates. Update it when you add a changelog entry; keep it to three rows.
+- **Text on trend colors (Mega Trends):** `--tc1`..`--tc7` set the text color on each trend fill per theme; do not hard-code white or black.
 - **`<main>`** wraps the content between the contents bar and the "read next" block on every report.
 - **Paper grain:** a faint SVG feTurbulence data-URI behind the light ground. Off in dark mode and print.
 - **Page transitions:** CSS cross-document `@view-transition`, only under `prefers-reduced-motion: no-preference`.
