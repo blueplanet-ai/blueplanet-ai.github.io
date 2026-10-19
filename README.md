@@ -7,7 +7,7 @@ Source for **https://blueplanet-ai.github.io/**: benchmarks, comparisons and res
 | Report | Edition | Path |
 |---|---|---|
 | [One cabin, several people](https://blueplanet-ai.github.io/shared-cabin/) (opportunity brief) | October 2026 (data as of 17 Oct 2026; one-time brief, not refreshed) | `shared-cabin/` |
-| [Physical AI and the Rider’s Cabin](https://blueplanet-ai.github.io/physical-ai-cabin/) | October 2026 (data as of 13 Oct 2026; next refresh to be confirmed) | `physical-ai-cabin/` |
+| [Physical AI and the Rider’s Cabin](https://blueplanet-ai.github.io/physical-ai-cabin/) | October 2026 (data as of 13 Oct 2026, updated 14 Oct; next refresh to be confirmed) | `physical-ai-cabin/` |
 | [Agentic AI and the Consumer: 2027 Outlook](https://blueplanet-ai.github.io/agentic-consumer-2027/) | October 2026 (data as of 11 Oct 2026; next refresh to be confirmed) | `agentic-consumer-2027/` |
 | [Mobility Product Outlook 2026–2031](https://blueplanet-ai.github.io/mobility-product-outlook/) | October 2026 (data as of 11 Oct 2026; next refresh Oct 2027) | `mobility-product-outlook/` |
 | [Mega Trends Outlook 2040](https://blueplanet-ai.github.io/mega-trends-2040/) | October 2026 (data as of 1 Oct 2026; next refresh Oct 2027) | `mega-trends-2040/` |
@@ -42,7 +42,7 @@ A new report needs a motif function and an entry in `REPORTS` in that script.
 
 Every report opens with the same block: top bar, cover, layer and domain tags, Newsreader title, dek, research question, scope, byline, reading time, data-as-of date, next refresh, change-log link, Cite / Share / Infographic / References buttons, a "Cite as" line, and **The report in 60 seconds** (three takeaways). The three shorter reports also get an "In this report" contents list; Mega Trends and the Mobility Product Outlook keep their own sticky section bars.
 
-The markup lives in each `index.html`; the styles and the Cite and Share behaviour are shared in `assets/report-opener.css` and `assets/report-opener.js`.
+The markup lives in each `index.html`; the styles and the Cite and Share behavior are shared in `assets/report-opener.css` and `assets/report-opener.js`. The light/dark toggle is `assets/theme.js` and `assets/theme.css`, linked on every page. `404.html` is the not-found page.
 
 Rules for the 60-second takeaways:
 
@@ -71,7 +71,7 @@ Updates arrive as pull requests. A scheduled research run re-checks each report 
 
 Nothing goes live until the author reviews and merges the pull request.
 
-## Licence
+## License
 
 © 2026 Chuhee Lee. Report content is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). See [`LICENSE.md`](LICENSE.md).
 

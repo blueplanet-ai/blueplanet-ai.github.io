@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#F4F7F0" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#151D1F" media="(prefers-color-scheme: dark)">
 <title>How this research is made — Chuhee Lee</title>
-<meta name="description" content="How Chuhee Lee’s independent research is made: how topics are chosen, where facts come from, how AI is used, how claims are labelled and scored, and how reports are refreshed and corrected.">
+<meta name="description" content="How Chuhee Lee’s independent research is made: how topics are chosen, where facts come from, how AI is used, how claims are labeled and scored, and how reports are refreshed and corrected.">
 <meta name="author" content="Chuhee Lee">
 <link rel="canonical" href="https://blueplanet-ai.github.io/method/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -15,7 +15,7 @@
 <link rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How this research is made">
-<meta property="og:description" content="How Chuhee Lee’s independent research is made: how topics are chosen, where facts come from, how AI is used, how claims are labelled and scored, and how reports are refreshed and corrected.">
+<meta property="og:description" content="How Chuhee Lee’s independent research is made: how topics are chosen, where facts come from, how AI is used, how claims are labeled and scored, and how reports are refreshed and corrected.">
 <meta property="og:url" content="https://blueplanet-ai.github.io/method/">
 <meta property="og:site_name" content="Chuhee Lee — Independent Research">
 <meta property="og:image" content="https://blueplanet-ai.github.io/og-image.png">
@@ -30,7 +30,7 @@
 /* Method page: one reading column, numbered sections. Tokens match the rest of the site. */
 :root{
   --ground:#EBF0E6; --surface:#F4F7F0; --line:#CDD6C6; --line-strong:#B3BFAB;
-  --ink:#0F1719; --ink-2:#3F4C50; --ink-3:#5A676B;
+  --ink:#0F1719; --ink-2:#344145; --ink-3:#4E5B5F;
   --signal:#0892A5; --signal-deep:#066A79;
   --opp:#C2622D; --opp-soft:#F5E6DC; --opp-ink:#9A4A1F;
   --serif:"Newsreader",Georgia,"Times New Roman",serif;
@@ -60,6 +60,7 @@ main .col{padding-block:12px 64px;display:grid;gap:0}
 section{padding-top:40px;display:grid;gap:14px}
 h2{margin:0;font-weight:400;font-size:clamp(26px,3.4vw,32px);line-height:1.15;display:flex;gap:14px;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:8px;text-wrap:balance}
 h2 span{font-family:var(--mono);font-size:13px;color:var(--ink-3);flex:none}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--ro-signal,#0E6E6E);outline-offset:2px;}
 p{margin:0;max-width:66ch}
 ul,ol{margin:0;padding-left:22px;display:grid;gap:6px;max-width:66ch}
 .labels{display:grid;gap:0;border-top:1px solid var(--line-strong);padding:0;list-style:none}
@@ -84,6 +85,34 @@ footer a{color:var(--signal-deep)}
 @media print{.ro-top{display:none!important}body{background:#fff}}
 </style>
 <link rel="stylesheet" href="/assets/report-opener.css">
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How this research is made",
+ "name": "How this research is made",
+ "description": "How Chuhee Lee’s independent research is made: how topics are chosen, where facts come from, how AI is used, how claims are labeled and scored, and how reports are refreshed and corrected.",
+ "url": "https://blueplanet-ai.github.io/method/",
+ "mainEntityOfPage": "https://blueplanet-ai.github.io/method/",
+ "inLanguage": "en",
+ "author": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "publisher": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "dateModified": "2026-10-18",
+ "image": "https://blueplanet-ai.github.io/og-image.png",
+ "datePublished": "2026-10-17"
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -99,10 +128,11 @@ footer a{color:var(--signal-deep)}
   </nav>
 </div></div>
 
+<div class="ro-crumb"><div class="ro-inner"><a href="/#publications"><span aria-hidden="true">&larr;</span> All publications</a></div></div>
 <header class="band" id="main" tabindex="-1"><div class="col">
   <span class="eyebrow">Chuhee Lee · Independent research · Method</span>
   <h1>How this research <em>is made</em></h1>
-  <p class="dek">How topics are chosen, where facts come from, how AI is used, how claims are labelled and scored, and how reports are refreshed and corrected.</p>
+  <p class="dek">How topics are chosen, where facts come from, how AI is used, how claims are labeled and scored, and how reports are refreshed and corrected.</p>
 </div></header>
 
 <main class="band"><div class="col">
@@ -155,25 +185,25 @@ footer a{color:var(--signal-deep)}
 
 <section id="scores">
   <h2><span>06</span>Scores and scales</h2>
-  <p>Scores are the author’s analytical judgement from the cited evidence, not measured results or sourced figures. Each report states its own scale:</p>
+  <p>Scores are the author’s analytical judgment from the cited evidence, not measured results or sourced figures. Each report states its own scale:</p>
   <div class="tbl"><table>
     <thead><tr><th>Report</th><th>What is scored</th><th>Scale</th></tr></thead>
     <tbody>
       <tr><td>Mega Trends Outlook 2040</td><td>Each trend on impact, certainty, speed and cross-industry breadth. The criteria were set for this report, not taken from a validated method.</td><td>1–5 each, total out of 20</td></tr>
       <tr><td>In-Car AI Assistant Benchmark</td><td>Each assistant on seven capability dimensions, plus who controls the stack. Calibrated across the set; no vehicle was driven or instrumented; pre-launch entries scored on announced specification.</td><td>1–5 per dimension</td></tr>
-      <tr><td>Mobility Product Outlook</td><td>Fifteen technologies on daily-life impact and mobility relevance, with timing and certainty.</td><td>1–5; timing Near (by 2030), Mid (2031–2036) or Far</td></tr>
+      <tr><td>Mobility Product Outlook 2026–2031</td><td>Fifteen technologies on daily-life impact and mobility relevance, with timing and certainty.</td><td>1–5; timing Near (by 2030), Mid (2031–2036) or Far</td></tr>
     </tbody>
   </table></div>
 </section>
 
 <section id="refresh">
   <h2><span>07</span>Refreshes and corrections</h2>
-  <p>Each report shows its data-as-of date and its next scheduled refresh. Long-range outlooks are refreshed at least once a year; the benchmark is refreshed quarterly. A refresh re-checks the report against its sources, and every change is recorded in the report’s change log. Updates are reviewed by the author before they go live.</p>
+  <p>Each report and benchmark shows its data-as-of date and its next scheduled refresh (one-time briefs are not refreshed). Long-range outlooks are refreshed at least once a year; the benchmark is refreshed quarterly. A refresh re-checks the report against its sources, and every change is recorded in the report’s change log. Updates are reviewed by the author before they go live.</p>
   <p>Corrections are welcome via <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">LinkedIn</a>. To follow new editions, use the <a href="/feed.xml">RSS feed</a>.</p>
 </section>
 
-<section id="licence">
-  <h2><span>08</span>Licence and citation</h2>
+<section id="license">
+  <h2><span>08</span>License and citation</h2>
   <p>Unless stated otherwise, reports are licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>: share and adapt for non-commercial purposes with credit. Each report gives a suggested citation in the form: Chuhee Lee, <i>Report title</i>, edition (data as of date), URL, CC BY-NC 4.0.</p>
 </section>
 
@@ -181,7 +211,7 @@ footer a{color:var(--signal-deep)}
 
 <footer class="band"><div class="col">
   <span>&copy; 2026 Chuhee Lee &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-  <span>Independent research &middot; not affiliated with or endorsed by any company named</span>
+  <span>Independent research &middot; not affiliated with or endorsed by any company or organization named</span>
   <span><a href="../">All publications</a></span>
 </div></footer>
 <script src="/assets/report-opener.js" defer></script>

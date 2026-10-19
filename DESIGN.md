@@ -6,14 +6,14 @@ Last updated 17 October 2026, after the Sage paper tone (PR #15).
 
 ## Direction
 
-Editorial and calm, not corporate. Type does most of the work. Colour is restrained: ink on paper, with teal for the main subject and one burnt-orange accent per view.
+Editorial and calm, not corporate. Type does most of the work. Color is restrained: ink on paper, with teal for the main subject and one burnt-orange accent per view.
 
 - **Newsreader** (serif): titles, body, quotes.
 - **Saira** (sans): labels, navigation, UI.
 - **IBM Plex Mono**: data, numbers, small captions. (Mega Trends also uses IBM Plex Sans.)
 - Dark mode is a first-class theme. Don't change it unless asked.
 
-## Colour tokens
+## Color tokens
 
 Each page carries an inline `<style>` token block: bare `:root` for light, then dark twice, once in `@media (prefers-color-scheme: dark)` guarded by `:root:not([data-theme="light"])` and once in `:root[data-theme="dark"]`. The shared `assets/report-opener.css` uses the same values with a `--ro-` prefix. Mega Trends names a few tokens differently (`--bg`, `--muted`, `--rule`). If you change a token, change it on all seven pages and in the opener CSS.
 
@@ -25,32 +25,41 @@ Each page carries an inline `<style>` token block: bare `:root` for light, then 
 | line | #CDD6C6 | #283436 | Hairlines |
 | line-strong | #B3BFAB | #3C4B4E | Stronger rules |
 | ink | #0F1719 | #E7EDEE | Main text |
-| ink-2 | #3F4C50 | #AFBDBF | Secondary text |
-| ink-3 | #5A676B | see note | Small grey text, captions |
+| ink-2 | #344145 | #AFBDBF | Secondary text |
+| ink-3 | #4E5B5F | see note | Small gray text, captions |
 | signal | #0892A5 | #2BB3C6 | Main subject, links, data |
 | signal-deep | #066A79 | #5FCCDB | Text on light, emphasis |
 | opp | #C2622D | #DB8A4F | The single accent |
 | opp-ink | #9A4A1F | #DB8A4F | Accent as text on light |
 
-Note: dark `ink-3` is #7F8D90 on the home page and #8C9A9D in `report-opener.css`. Keep each as it is unless you are fixing a contrast problem.
+Note: dark `ink-3` is #8C9A9D on every page (it was #7F8D90 on the home page and Mega Trends before the 18 October polish; that gave only 4.45:1 on surface-2).
 
 The print stylesheet forces a white ground with `!important`. That is intentional.
 
 ### Rules
 
 - Light-mode ground is never white. If it looks white, check the surfaces too: ground and cards need a visible tint difference.
-- Normal text must reach WCAG 2.2 AA, 4.5:1, on the surface it sits on. `ink-3` #5A676B gives 5.06:1 on ground and 4.63:1 on surface-2.
-- Known gap: some small teal and orange accent labels and numerals are below 4.5:1. They are left as designed. Don't add more; fix them if you touch them.
+- Normal text must reach WCAG 2.2 AA, 4.5:1, on the surface it sits on. `ink-3` #4E5B5F gives 6.08:1 on ground and 5.56:1 on surface-2; `ink-2` #344145 gives 9.12:1 on ground.
+- Small teal text uses `--signal-text` (light: `signal-deep`, 5.42:1 on ground; dark: `signal`). `--signal` itself is for fills, rules and large display type, not for text under 18 px.
+- Remaining known gaps: outlined chapter numerals, decorative dashes and some chart fills are not text and are exempt; fix any small orange text with `opp-ink`.
 - Use tokens, never raw hex, in page CSS and SVG (`var(--ink)`, `fill:var(--surface-2)`), so dark mode follows.
 
 ## Type scale
 
-Sizes in page CSS snap to 12, 13, 14, 15, 16, 18, 20, 22 and 24 px. Nothing in page text or labels goes below 12 px. Chart labels drawn by script, SVG text and `em` sizes are exempt. Display sizes above 24 px are set per component.
+Sizes in page CSS snap to 12, 13, 14, 15, 16, 18, 20, 22 and 24 px. Use px, not rem, for text sizes. Body copy is 15-16 px sans on reports; the Method page is a serif essay at 18 px; leads (`.ro-dek`, `.co-thesis`) are 18-21 px. Nothing in page text or labels goes below 12 px. Chart labels drawn by script, SVG text and `em` sizes are exempt. Display sizes above 24 px are set per component.
 
 ## Page furniture
 
 - **Skip link and `id="main"`** on the first header of every page (`tabindex="-1"` on reports). Keep the skip link first in `<body>`.
 - **`theme-color` metas** for light and dark.
+- **Theme toggle:** `assets/theme.js` and `assets/theme.css`, linked in the `<head>` of every page. Saves `bp-theme` (light or dark) in localStorage and sets `data-theme`; with no saved choice the system setting applies. The button is added to `nav.topnav` or `nav.ro-nav`.
+- **`404.html`:** branded not-found page that lists the publications. It uses root-relative asset paths so it works at any depth.
+- **JSON-LD:** each page has one `application/ld+json` block (home: `WebSite` and `Person`; reports: `Report`; Method: `Article`). Update `dateModified` with the sitemap `lastmod` when a page changes.
+- **Headline finding:** `.gl-cap` under the at-a-glance infographic restates the report's own summary line. Do not write a new claim there.
+- **Back link:** `.ro-crumb` ("← All publications") sits between the top bar and the header on every report and Method; it links to `/#publications`.
+- **What changed (home):** `#updates` lists the three latest entries from `CHANGELOG.md` with dates. Update it when you add a changelog entry; keep it to three rows.
+- **Text on trend colors (Mega Trends):** `--tc1`..`--tc7` set the text color on each trend fill per theme; do not hard-code white or black.
+- **`<main>`** wraps the content between the contents bar and the "read next" block on every report.
 - **Paper grain:** a faint SVG feTurbulence data-URI behind the light ground. Off in dark mode and print.
 - **Page transitions:** CSS cross-document `@view-transition`, only under `prefers-reduced-motion: no-preference`.
 - **Reading progress bar:** `.rp` element on the five reports, driven by `animation-timeline: scroll()`.
@@ -83,6 +92,6 @@ Local setup used so far: serve the repo with `python3 -m http.server`, drive it 
 
 ## Known follow-ups
 
-- Static PNG infographics and social previews still show the old ground colour. Regenerate with `python3 tools/export-infographics.py`.
+- Static PNG infographics and social previews still show the old ground color. Regenerate with `python3 tools/export-infographics.py`.
 - The media style kit still lists the old ground #F1F4F4. Update it before generating new media.
 - Mobility Product Outlook body text still looks past 2031. Review at the October 2027 refresh.

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#F4F7F0" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#151D1F" media="(prefers-color-scheme: dark)">
-<title>One cabin, several people</title>
+<title>One cabin, several people — Chuhee Lee</title>
 <meta name="description" content="Opportunity brief: several people share many car trips, but the car is built around one of them. Sizes the shared-cabin problem in the US against well-known issues, reviews concepts from the US, Europe, China, Korea and Japan, and invites solutions. October 2026, by Chuhee Lee; data as of 17 October 2026.">
 <meta name="author" content="Chuhee Lee">
 <link rel="canonical" href="https://blueplanet-ai.github.io/shared-cabin/">
@@ -24,7 +24,10 @@
 <meta property="og:image:alt" content="One cabin, several people: an opportunity brief. Independent research by Chuhee Lee.">
 <meta name="twitter:image" content="https://blueplanet-ai.github.io/shared-cabin/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<style>img{max-width:100%}[hidden]{display:none!important}</style>
+<style>img{max-width:100%}[hidden]{display:none!important}:root{--signal-text:var(--signal-deep);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--signal-text:var(--signal);}}
+:root[data-theme="dark"]{--signal-text:var(--signal);}
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -37,8 +40,8 @@
   --line:#CDD6C6;
   --line-strong:#B3BFAB;
   --ink:#0F1719;
-  --ink-2:#3F4C50;
-  --ink-3:#5A676B;
+  --ink-2:#344145;
+  --ink-3:#4E5B5F;
   --signal:#0892A5;
   --signal-deep:#066A79;
 
@@ -47,13 +50,13 @@
   --cat-3:#4B5BA8;
   --cat-4:#8A8C36;
 
-  --s1:#E4EDEF; --s1-ink:#3F4C50;
+  --s1:#E4EDEF; --s1-ink:#344145;
   --s2:#BEDCE2; --s2-ink:#1B3438;
   --s3:#8AC4CF; --s3-ink:#12292D;
-  --s4:#3E9FB0; --s4-ink:#FBFCFC;
+  --s4:#3E9FB0; --s4-ink:#0F1719;
   --s5:#0A6F80; --s5-ink:#FBFCFC;
 
-  --warn:#B0561E;
+  --warn:#9A4A1F;
   --good:#2F7A52;
 
   --font-ui:"Saira","Helvetica Neue",Arial,sans-serif;
@@ -69,7 +72,7 @@
     --line-strong:#3C4B4E;
     --ink:#E7EDEE;
     --ink-2:#AFBDBF;
-    --ink-3:#7F8D90;
+    --ink-3:#8C9A9D;
     --signal:#2BB3C6;
     --signal-deep:#5FCCDB;
 
@@ -81,7 +84,7 @@
     --s1:#1B2527; --s1-ink:#8E9B9E;
     --s2:#1F4249; --s2-ink:#BFD3D7;
     --s3:#25616D; --s3-ink:#DCEAED;
-    --s4:#2B8C9D; --s4-ink:#F2F8F9;
+    --s4:#2B8C9D; --s4-ink:#0D1213;
     --s5:#4FB8C8; --s5-ink:#0B1415;
 
     --warn:#DB8A4F;
@@ -96,7 +99,7 @@
   --line-strong:#3C4B4E;
   --ink:#E7EDEE;
   --ink-2:#AFBDBF;
-  --ink-3:#7F8D90;
+  --ink-3:#8C9A9D;
   --signal:#2BB3C6;
   --signal-deep:#5FCCDB;
   --cat-1:#16A2B6;
@@ -106,7 +109,7 @@
   --s1:#1B2527; --s1-ink:#8E9B9E;
   --s2:#1F4249; --s2-ink:#BFD3D7;
   --s3:#25616D; --s3-ink:#DCEAED;
-  --s4:#2B8C9D; --s4-ink:#F2F8F9;
+  --s4:#2B8C9D; --s4-ink:#0D1213;
   --s5:#4FB8C8; --s5-ink:#0B1415;
   --warn:#DB8A4F;
   --good:#5FAE81;
@@ -188,7 +191,7 @@ section{padding-top:56px;}
 }
 .finding .num{
   font-family:var(--font-mono);font-size:13px;font-weight:600;
-  color:var(--signal);padding-top:3px;
+  color:var(--signal-text);padding-top:3px;
 }
 .finding h3{font-size:18px;font-weight:600;letter-spacing:-.005em;margin-bottom:8px;}
 .finding p{color:var(--ink-2);font-size:16px;max-width:68ch;}
@@ -200,7 +203,7 @@ section{padding-top:56px;}
 }
 .finding .sowhat i{
   font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--signal);
+  text-transform:uppercase;color:var(--signal-text);
   display:inline-block;margin-right:13px;
 }
 
@@ -244,7 +247,7 @@ thead th{
 thead th.name{text-align:left;left:0;z-index:4;padding-left:16px;min-width:216px;}
 th.sortable{cursor:pointer;user-select:none;}
 th.sortable:hover{color:var(--signal-deep);}
-th .arrow{display:block;font-family:var(--font-mono);font-size:12px;color:var(--signal);height:10px;line-height:10px;}
+th .arrow{display:block;font-family:var(--font-mono);font-size:12px;color:var(--signal-text);height:10px;line-height:10px;}
 tbody td{
   border-bottom:1px solid var(--line);padding:0;text-align:center;
   font-variant-numeric:tabular-nums;
@@ -282,7 +285,7 @@ td.status{padding:0 10px;}
 
 tr.detail td{padding:0;background:var(--surface-2);border-bottom:1px solid var(--line-strong);}
 .det{padding:20px 24px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px 30px;}
-.det .col h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:500;margin-bottom:7px;}
+.det .col h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);font-weight:500;margin-bottom:7px;}
 .det .col p{font-size:15px;color:var(--ink-2);line-height:1.55;}
 .det .col.full{grid-column:1/-1;}
 .det .col.full p{color:var(--ink);font-family:var(--font-ui);font-size:15px;}
@@ -391,7 +394,7 @@ table.opts tr:last-child td{border-bottom:0;}
 .arch{grid-template-columns:repeat(auto-fit,minmax(205px,1fr));}
 .det{text-align:left;}
 .det .srcl{grid-column:1/-1;font-family:var(--font-mono);font-size:12px;line-height:1.8;color:var(--ink-3);border-top:1px dashed var(--line-strong);padding-top:10px;}
-.det .srcl b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal);}
+.det .srcl b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal-text);}
 .det .srcl a{margin-right:4px;}
 .det .flag{grid-column:1/-1;font-family:var(--font-ui);font-size:13px;color:var(--warn);}
 .log{margin:0 0 26px;padding:0;list-style:none;display:grid;gap:9px;max-width:92ch;}
@@ -407,7 +410,7 @@ table.opts tr:last-child td{border-bottom:0;}
 .conf.off{color:var(--good);} .conf.mix{color:var(--signal-deep);} .conf.trd{color:var(--warn);} .conf.ann{color:var(--ink-3);}
 .ucx{grid-column:1/-1;border-top:1px solid var(--line-strong);padding-top:14px;}
 .ucx-h{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-bottom:10px;}
-.ucx-h h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:500;margin:0;}
+.ucx-h h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);font-weight:500;margin:0;}
 .ucx-note{font-family:var(--font-ui);font-size:13px;color:var(--ink-3);}
 .ucx-g{display:grid;grid-template-columns:1fr 1.25fr .9fr;gap:14px 26px;}
 .ucx-g h5{font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);margin:0 0 6px;}
@@ -432,7 +435,7 @@ table.ucgrid td.n{font-family:var(--font-mono);font-size:12px;color:var(--ink-2)
 .gcard > h3{font-size:16px;font-weight:600;margin-bottom:4px;}
 .gcard .q{background:var(--surface-2);}
 .gsrc{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);margin-top:12px;}
-.gsrc b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal);}
+.gsrc b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal-text);}
 .gcard > p{font-size:14px;color:var(--ink-2);margin-bottom:14px;max-width:80ch;}
 
 /* ---------- use-case highlights table ---------- */
@@ -509,7 +512,7 @@ table.opts td.route span{line-height:1.45;}
 .cards3 ul{margin:0;padding-left:17px;}
 .cards3 li{font-size:15px;color:var(--ink-2);margin-bottom:7px;line-height:1.5;}
 .cards3 .lean{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line-strong);font-family:var(--font-ui);font-size:14px;color:var(--ink);}
-.cards3 .lean i{font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);margin-right:8px;}
+.cards3 .lean i{font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);margin-right:8px;}
 table.cmp{min-width:860px;}
 table.cmp th{position:static;text-align:left;padding:10px 14px;}
 table.cmp td{text-align:left;vertical-align:top;padding:13px 14px;font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--ink-2);}
@@ -528,7 +531,7 @@ table.cmp td b{font-family:var(--font-ui);color:var(--ink);}
 <style media="print">
 /* Print: clean light copy. In the browser's print dialog choose Save as PDF. */
 @page{margin:14mm 12mm}
-:root,:root[data-theme="dark"]{color-scheme:light!important;--ground:#fff !important;--surface:#FBFCFC !important;--surface-2:#E9EEEF !important;--line:#D3DBDC !important;--line-strong:#B2BEC0 !important;--ink:#0F1719 !important;--ink-2:#3F4C50 !important;--ink-3:#6B787C !important;--signal:#0892A5 !important;--signal-deep:#066A79 !important;--cat-1:#0892A5 !important;--cat-2:#C2622D !important;--cat-3:#4B5BA8 !important;--cat-4:#8A8C36 !important;--s1:#E4EDEF !important;--s1-ink:#3F4C50 !important;--s2:#BEDCE2 !important;--s2-ink:#1B3438 !important;--s3:#8AC4CF !important;--s3-ink:#12292D !important;--s4:#3E9FB0 !important;--s4-ink:#FBFCFC !important;--s5:#0A6F80 !important;--s5-ink:#FBFCFC !important;--warn:#B0561E !important;--good:#2F7A52 !important;--cat-5:#7A8588 !important}
+:root,:root[data-theme="dark"]{color-scheme:light!important;--ground:#fff !important;--surface:#FBFCFC !important;--surface-2:#E9EEEF !important;--line:#D3DBDC !important;--line-strong:#B2BEC0 !important;--ink:#0F1719 !important;--ink-2:#344145 !important;--ink-3:#6B787C !important;--signal:#0892A5 !important;--signal-deep:#066A79 !important;--cat-1:#0892A5 !important;--cat-2:#C2622D !important;--cat-3:#4B5BA8 !important;--cat-4:#8A8C36 !important;--s1:#E4EDEF !important;--s1-ink:#344145 !important;--s2:#BEDCE2 !important;--s2-ink:#1B3438 !important;--s3:#8AC4CF !important;--s3-ink:#12292D !important;--s4:#3E9FB0 !important;--s4-ink:#FBFCFC !important;--s5:#0A6F80 !important;--s5-ink:#FBFCFC !important;--warn:#9A4A1F !important;--good:#2F7A52 !important;--cat-5:#7A8588 !important}
 html{background:#fff!important}
 *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .crumb,.nav,.idx,.controls,.chips,.tabs,.tip,#tip,button,.noprint{display:none!important}
@@ -543,7 +546,7 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
 /* ---------- physical AI report additions ---------- */
 .stack{display:grid;gap:4px;margin-top:6px}
 .stack .lyr{display:grid;grid-template-columns:44px 1fr minmax(0,1.3fr);gap:0 16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--signal);padding:12px 16px}
-.stack .lyr .n{font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--signal)}
+.stack .lyr .n{font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--signal-text)}
 .stack .lyr b{font-family:var(--font-ui);font-size:15px;font-weight:600;color:var(--ink)}
 .stack .lyr span{font-size:14px;color:var(--ink-2);line-height:1.45}
 .stack .lyr.top{border-left-color:var(--cat-2)}
@@ -659,6 +662,34 @@ a.gl-name:hover{color:var(--g-accent)}
 .glance{--g-s:var(--surface);--g-s2:var(--surface-2);--g-rule:var(--line);--g-ink:var(--ink);--g-ink2:var(--ink-2);--g-muted:var(--ink-3);--g-accent:var(--signal-deep);--g-soft:color-mix(in srgb,var(--signal) 12%,var(--surface));--g-ui:var(--font-ui);--g-mono:var(--font-mono)}
 </style>
 <link rel="stylesheet" href="/assets/report-opener.css">
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Report",
+ "headline": "One cabin, several people",
+ "name": "One cabin, several people",
+ "description": "Opportunity brief: several people share many car trips, but the car is built around one of them. Sizes the shared-cabin problem in the US against well-known issues, reviews concepts from the US, Europe, China, Korea and Japan, and invites solutions. October 2026, by Chuhee Lee; data as of 17 October 2026.",
+ "url": "https://blueplanet-ai.github.io/shared-cabin/",
+ "mainEntityOfPage": "https://blueplanet-ai.github.io/shared-cabin/",
+ "inLanguage": "en",
+ "author": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "publisher": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "dateModified": "2026-10-18",
+ "image": "https://blueplanet-ai.github.io/og-image.png",
+ "datePublished": "2026-10-18"
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -675,6 +706,7 @@ a.gl-name:hover{color:var(--g-accent)}
   </nav>
 </div></div>
 
+<div class="ro-crumb"><div class="ro-inner"><a href="/#publications"><span aria-hidden="true">&larr;</span> All publications</a></div></div>
 <header class="ro" id="main" tabindex="-1"><div class="ro-inner">
   <div class="ro-side">
     <figure class="ro-cover"><img src="cover.svg" width="600" height="800" alt="Cover art: three bars to scale, hours a year per person riding as a car passenger, lost to congestion, and flying."></figure>
@@ -730,11 +762,14 @@ a.gl-name:hover{color:var(--g-accent)}
   <ol><li><a href="#glance"><span>01</span>At a glance</a></li><li><a href="#summary"><span>02</span>Summary</a></li><li><a href="#problem"><span>03</span>Problem</a></li><li><a href="#size"><span>04</span>How big is it?</a></li><li><a href="#whynow"><span>05</span>Why now</a></li><li><a href="#there"><span>06</span>Who is already there</a></li><li><a href="#phone"><span>07</span>Why not just the phone?</a></li><li><a href="#model"><span>08</span>Business model and entry wedges</a></li><li><a href="#risks"><span>09</span>Risks, potential and complexity</a></li><li><a href="#method"><span>10</span>Method, limits and flags</a></li><li><a href="#refs"><span>11</span>References</a></li></ol>
 </div></nav>
 
+<main>
+
 <div class="wrap">
 
 <section id="glance">
   <div class="sec-head"><h2>At a glance</h2><span class="eyebrow">One-page summary</span></div>
   <div class="glance" id="glanceBody" role="group" aria-label="Infographic: One cabin, several people at a glance"></div>
+  <p class="gl-cap"><b>Headline finding</b><span>The car is designed around one person, the driver. Everyone else in it is a guest using their own phone.</span></p>
   <div class="gl-actions"><a href="shared-cabin-at-a-glance.png" download>Download PNG</a></div>
 </section>
 
@@ -777,7 +812,7 @@ a.gl-name:hover{color:var(--g-accent)}
 <div class="vb-row"><div class="vb-lab"><b>Congestion delay</b><span>TTI, 2024</span></div><div class="vb-track"><div class="vb-bar" style="width:50.4%;background:var(--cat-5)"></div><div class="vb-val" style="left:calc(50.4% + 6px)">63</div></div></div>
 <div class="vb-row"><div class="vb-lab"><b>Flying</b><span>author’s arithmetic, BTS</span></div><div class="vb-track"><div class="vb-bar" style="width:6%;background:var(--cat-5)"></div><div class="vb-tgt" style="left:6%;width:1.4%"></div><div class="vb-val" style="left:calc(7.4% + 6px)">7–9</div></div></div>
       </div>
-      <p class="fignote">Bars to scale (125 hours = full width). Solid bars show the low end; dashed outlines show the range, which depends on an assumed average speed (see Method). Denominators differ: the passenger and flying figures are per resident, while TTI reports congestion delay per traveller. Sources: NHTS 2022 <a href="#r-nhts">[1]</a>, TTI <a href="#r-tti">[5]</a>, BTS via FRED <a href="#r-rpm">[11]</a>.</p>
+      <p class="fignote">Bars to scale (125 hours = full width). Solid bars show the low end; dashed outlines show the range, which depends on an assumed average speed (see Method). Denominators differ: the passenger and flying figures are per resident, while TTI reports congestion delay per traveler. Sources: NHTS 2022 <a href="#r-nhts">[1]</a>, TTI <a href="#r-tti">[5]</a>, BTS via FRED <a href="#r-rpm">[11]</a>.</p>
     </figure>
   </div>
 </section>
@@ -796,16 +831,16 @@ a.gl-name:hover{color:var(--g-accent)}
 <section id="size">
   <header class="co"><div class="co-bar"><span>Chapter 2 of 7</span><span class="co-seg" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">2</span><div class="co-body"><span class="co-eyebrow">Problem size</span><h2>How big is it?</h2><p class="co-thesis">Measured against problems the industry already treats as priorities, the shared cabin is largest on exposure, moderate on pain, and the only one with no widely used measure of its cost.</p></div></div></header>
   <div class="prose">
-    <p>The comparison uses four yardsticks: how many people and hours are exposed, how many are affected, the cost that is already recognised, and whether the problem is being worked on. Figures are US unless stated.</p>
+    <p>The comparison uses four yardsticks: how many people and hours are exposed, how many are affected, the cost that is already recognized, and whether the problem is being worked on. Figures are US unless stated.</p>
   </div>
   <div class="tablewrap"><table class="cmp">
-    <thead><tr><th>Issue</th><th>Exposure</th><th>How many are affected</th><th>Recognised cost</th><th>Status</th></tr></thead>
+    <thead><tr><th>Issue</th><th>Exposure</th><th>How many are affected</th><th>Recognized cost</th><th>Status</th></tr></thead>
     <tbody>
       <tr><td class="rh">Shared cabin (this brief)</td><td>About 0.79 trillion passenger-miles; 21 to 32 billion passenger-hours a year; 70 to 104 hours per person at an assumed 25 to 37 mph (author&rsquo;s arithmetic)<sup class="cite"><a href="#r-nhts" title="FHWA — Summary of Travel Trends, 2022 NHTS">[1]</a></sup></td><td>About a third of adults prone to motion sickness (University of Michigan estimate); 34% of UK parents report car-sick children; 35% of passenger screens never used<sup class="cite"><a href="#r-um" title="University of Michigan">[12]</a></sup><sup class="cite"><a href="#r-ch" title="Churchill / Censuswide">[13]</a></sup><sup class="cite"><a href="#r-txi" title="J.D. Power TXI 2026">[8]</a></sup></td><td><b>Not measured.</b> This brief found no study that puts a cost on unserved passenger time; congestion&rsquo;s cost is measured at $269 billion a year</td><td>Unsolved for decades</td></tr>
-      <tr><td class="rh">Traffic congestion</td><td>63 hours lost per person, 2024</td><td>Urban travellers</td><td>$269 billion a year<sup class="cite"><a href="#r-tti" title="TTI — 2025 Urban Mobility Report">[5]</a></sup></td><td>Recognised; a public-policy target</td></tr>
-      <tr><td class="rh">Driver distraction</td><td>Every trip</td><td>3,208 deaths, 2024<sup class="cite"><a href="#r-nhtsa" title="NHTSA">[6]</a></sup></td><td>Regulated (EU distraction warning in all new cars from July 2026)<sup class="cite"><a href="#r-pac" title="Physical AI and the Rider’s Cabin">[38]</a></sup></td><td>Recognised; regulated</td></tr>
-      <tr><td class="rh">Phone&ndash;car integration</td><td>Most new cars</td><td>CarPlay and Android Auto connectivity is the largest single driver of change in infotainment problems, the only quality category that got worse in 2026<sup class="cite"><a href="#r-iqs" title="J.D. Power IQS 2026">[9]</a></sup></td><td>Warranty and satisfaction cost (not public)</td><td>Recognised; worked on</td></tr>
-      <tr><td class="rh">EV charging anxiety</td><td>EV shoppers</td><td>46% of EV rejecters cite charging availability; 44% cite charging time<sup class="cite"><a href="#r-evc" title="J.D. Power EV Consideration 2026">[10]</a></sup></td><td>Lost EV sales; public charging programmes</td><td>Recognised; funded</td></tr>
+      <tr><td class="rh">Traffic congestion</td><td>63 hours lost per person, 2024</td><td>Urban travelers</td><td>$269 billion a year<sup class="cite"><a href="#r-tti" title="TTI — 2025 Urban Mobility Report">[5]</a></sup></td><td>Recognized; a public-policy target</td></tr>
+      <tr><td class="rh">Driver distraction</td><td>Every trip</td><td>3,208 deaths, 2024<sup class="cite"><a href="#r-nhtsa" title="NHTSA">[6]</a></sup></td><td>Regulated (EU distraction warning in all new cars from July 2026)<sup class="cite"><a href="#r-pac" title="Physical AI and the Rider’s Cabin">[38]</a></sup></td><td>Recognized; regulated</td></tr>
+      <tr><td class="rh">Phone&ndash;car integration</td><td>Most new cars</td><td>CarPlay and Android Auto connectivity is the largest single driver of change in infotainment problems, the only quality category that got worse in 2026<sup class="cite"><a href="#r-iqs" title="J.D. Power IQS 2026">[9]</a></sup></td><td>Warranty and satisfaction cost (not public)</td><td>Recognized; worked on</td></tr>
+      <tr><td class="rh">EV charging anxiety</td><td>EV shoppers</td><td>46% of EV rejecters cite charging availability; 44% cite charging time<sup class="cite"><a href="#r-evc" title="J.D. Power EV Consideration 2026">[10]</a></sup></td><td>Lost EV sales; public charging programs</td><td>Recognized; funded</td></tr>
       <tr><td class="rh">In-flight entertainment (comparator)</td><td>1.14 trillion US airline passenger-miles; 2.3 to 2.9 billion passenger-hours; 7 to 9 hours per person (author&rsquo;s arithmetic)<sup class="cite"><a href="#r-rpm" title="BTS via FRED">[11]</a></sup></td><td>All flyers</td><td>Airlines treat it as a product category</td><td>Served</td></tr>
     </tbody>
   </table></div>
@@ -833,7 +868,7 @@ a.gl-name:hover{color:var(--g-accent)}
     <thead><tr><th>Company</th><th>What it does for the shared cabin</th><th>Stage and evidence</th><th>What it shows</th></tr></thead>
     <tbody>
       <tr><td class="rh">AirConsole (N-Dream, owned by KPIT)</td><td>Multiplayer games on the car&rsquo;s screens, with passengers&rsquo; phones as controllers</td><td>In models from several European brands, a US volume carmaker (six 2027 models) and Tata<sup class="cite"><a href="#r-vwac" title="AutoGuide">[14]</a></sup><sup class="cite"><a href="#r-kpit" title="Automotive World — AirConsole in India">[15]</a></sup><br><span class="kindpill kp-co">Company claim</span></td><td>Phone and cabin working together; exit to a supplier</td></tr>
-      <tr><td class="rh">Kardome</td><td>Identifies who is speaking and from which seat, on existing microphones</td><td>Seed led by Hyundai; $10M Series A, November 2024<sup class="cite"><a href="#r-kdh" title="Globes — Hyundai invests in Kardome">[17]</a></sup><sup class="cite"><a href="#r-kd" title="Kardome — 2024 review">[16]</a></sup></td><td>Seat awareness without cameras</td></tr>
+      <tr><td class="rh">Kardome</td><td>Identifies who is speaking and from which seat, on existing microphones</td><td>Seed led by Hyundai; $10m Series A, November 2024<sup class="cite"><a href="#r-kdh" title="Globes — Hyundai invests in Kardome">[17]</a></sup><sup class="cite"><a href="#r-kd" title="Kardome — 2024 review">[16]</a></sup></td><td>Seat awareness without cameras</td></tr>
       <tr><td class="rh">Analog Devices</td><td>Personal sound zones as software on existing audio hardware</td><td>Announced August 2026<sup class="cite"><a href="#r-adi" title="TheElec">[18]</a></sup></td><td>Suppliers can ship it as a feature</td></tr>
       <tr><td class="rh">Silentium</td><td>Active noise cancellation and a &ldquo;personal sound bubble&rdquo; per seat</td><td>Noise cancellation available on Cadence DSPs; sound-bubble production status not found<sup class="cite"><a href="#r-sil" title="audioXpress — Silentium">[19]</a></sup></td><td>Per-seat audio from a specialist</td></tr>
       <tr><td class="rh">Audioscenic</td><td>Head-tracked 3D audio for individual listeners</td><td>About &pound;1.5M raised (2020) with automotive as a target; no automotive customer found<sup class="cite"><a href="#r-aus" title="University of Southampton — Audioscenic">[20]</a></sup></td><td>Early and small</td></tr>
@@ -849,16 +884,16 @@ a.gl-name:hover{color:var(--g-accent)}
       <tr><td class="rh">Who is asking</td><td>Li Auto: four voice zones (driver, front passenger, rear left, rear right); a &ldquo;sound lock&rdquo; so the owner can ignore rear-seat commands; a passenger&rsquo;s &ldquo;me too&rdquo; copies the driver&rsquo;s setting<sup class="cite"><a href="#r-li" title="Gasgoo — Li Auto">[24]</a></sup></td><td>China; shipped by over-the-air update, September 2021<br><span class="kindpill kp-obs">Shipped</span></td><td>Seat-zoned voice has worked for five years</td></tr>
       <tr><td class="rh">Who is asking</td><td>Hyundai Gleo AI: knows which seat a command comes from<sup class="cite"><a href="#r-gleo" title="Driven — Hyundai">[25]</a></sup></td><td>Korea, May 2026, then global; Pleos Connect, which includes Gleo AI, targeted for about 20 million vehicles by 2030<br><span class="kindpill kp-fc">Target</span></td><td>Seat awareness reaching volume brands</td></tr>
       <tr><td class="rh">Per-seat entertainment</td><td>Huawei HarmonySpace 6 on the Yijing X9 six-seat SUV: rear-seat projection screens, karaoke without microphones from any seat, reminders for a forgotten child or pet<sup class="cite"><a href="#r-hw" title="News18a — Yijing X9">[26]</a></sup></td><td>China, August 2026<br><span class="kindpill kp-fc">Announced</span></td><td>The rear seat treated as a main customer</td></tr>
-      <tr><td class="rh">Per-seat entertainment</td><td>Sony Honda AFEELA 1 (cancelled 2026): displays for each seat, spatial sound, rear entertainment on the top trim<sup class="cite"><a href="#r-af" title="Sony Honda Mobility — AFEELA 1">[27]</a></sup></td><td>Planned for California; Sony Honda Mobility cancelled the car and a second model in March 2026, before any delivery.<sup class="cite"><a href="#r-afc" title="The EV Report — AFEELA cancelled">[43]</a></sup> On the prototype, how apps behave while moving was still being studied<sup class="cite"><a href="#r-afp" title="Electrek — AFEELA prototype">[28]</a></sup><br><span class="kindpill kp-obs">Cancelled</span></td><td>Screens per seat; separation from the driver unresolved</td></tr>
+      <tr><td class="rh">Per-seat entertainment</td><td>Sony Honda AFEELA 1 (canceled 2026): displays for each seat, spatial sound, rear entertainment on the top trim<sup class="cite"><a href="#r-af" title="Sony Honda Mobility — AFEELA 1">[27]</a></sup></td><td>Planned for California; Sony Honda Mobility canceled the car and a second model in March 2026, before any delivery.<sup class="cite"><a href="#r-afc" title="The EV Report — AFEELA canceled">[43]</a></sup> On the prototype, how apps behave while moving was still being studied<sup class="cite"><a href="#r-afp" title="Electrek — AFEELA prototype">[28]</a></sup><br><span class="kindpill kp-obs">Canceled</span></td><td>Screens per seat; separation from the driver unresolved</td></tr>
       <tr><td class="rh">Per-seat entertainment</td><td>BYD: karaoke in new premium models<sup class="cite"><a href="#r-byd" title="SCMP — karaoke cars">[29]</a></sup></td><td>China, 2026<br><span class="kindpill kp-obs">Reported</span></td><td>The cabin as a social space</td></tr>
       <tr><td class="rh">Per-seat entertainment</td><td>Chrysler Pacifica: available seatback touchscreens for second-row passengers with Amazon Fire TV built in<sup class="cite"><a href="#r-chr" title="Chrysler — Pacifica technology">[46]</a></sup></td><td>United States; 2026 model year, optional<br><span class="kindpill kp-obs">Shipped</span></td><td>Rear screens in a family vehicle; separation from the driver and from passengers&rsquo; own phones is not described</td></tr>
       <tr><td class="rh">Motion sickness</td><td>Xiaomi YU7 motion sickness relief mode: tunes power delivery, regenerative braking and suspension; company tests show nausea frequency down 51% and onset 16% later<sup class="cite"><a href="#r-xm" title="elektroauto-news — Xiaomi YU7">[30]</a></sup></td><td>China, July 2025<br><span class="kindpill kp-co">Company claim</span></td><td>Software on the drivetrain, no new hardware</td></tr>
       <tr><td class="rh">Motion sickness</td><td>Honda: acceleration mapping that smooths low-speed EV torque<sup class="cite"><a href="#r-hon" title="CAR — Honda motion sickness">[31]</a></sup></td><td>Japan; in the e:Ny1, 2023<br><span class="kindpill kp-obs">Reported</span></td><td>The same idea from a Japanese carmaker</td></tr>
       <tr><td class="rh">Motion sickness</td><td>Nissan Serena e-POWER sold as the &ldquo;anti-motion-sickness MPV&rdquo;: motor-only drive, suspension, large windows, supportive seats<sup class="cite"><a href="#r-nis" title="Nissan Malaysia — Serena e-POWER">[32]</a></sup></td><td>Japanese model sold in Malaysia, April 2026; no test data published<br><span class="kindpill kp-co">Company claim</span></td><td>Motion sickness as a family-car selling point</td></tr>
       <tr><td class="rh">Motion sickness</td><td>Huawei patent: on-screen images of the car&rsquo;s motion against the road for rear passengers<sup class="cite"><a href="#r-hwp" title="Gasgoo — Huawei anti-nausea patent">[33]</a></sup></td><td>China; published September 2023<br><span class="kindpill kp-fc">Patent</span></td><td>The phone&rsquo;s motion-cue idea on cabin screens</td></tr>
-      <tr><td class="rh">Motion sickness</td><td>Apple Vehicle Motion Cues: animated dots on the edges of an iPhone or iPad screen that follow the car&rsquo;s motion, switched on automatically when the phone senses it is in a car<sup class="cite"><a href="#r-apple" title="9to5Mac — iOS 18 Vehicle Motion Cues">[45]</a></sup></td><td>United States and worldwide; iOS 18, autumn 2024<br><span class="kindpill kp-obs">Shipped</span></td><td>A phone-side answer already ships; the cabin does not use it</td></tr>
+      <tr><td class="rh">Motion sickness</td><td>Apple Vehicle Motion Cues: animated dots on the edges of an iPhone or iPad screen that follow the car&rsquo;s motion, switched on automatically when the phone senses it is in a car<sup class="cite"><a href="#r-apple" title="9to5Mac — iOS 18 Vehicle Motion Cues">[45]</a></sup></td><td>United States and worldwide; iOS 18, fall 2024<br><span class="kindpill kp-obs">Shipped</span></td><td>A phone-side answer already ships; the cabin does not use it</td></tr>
       <tr><td class="rh">Motion sickness</td><td>GAC and the First Affiliated Hospital of Sun Yat-sen University: joint research and standards<sup class="cite"><a href="#r-gac" title="Gasgoo — GAC and hospital">[34]</a></sup></td><td>China; agreement signed July 2026<br><span class="kindpill kp-fc">Announced</span></td><td>Moving toward clinical evidence</td></tr>
-      <tr><td class="rh">Contrast</td><td>LG AI Cabin Platform: cabin cameras and context-aware voice aimed at the driver<sup class="cite"><a href="#r-lg" title="ChannelLife — LG AI Cabin Platform">[35]</a></sup></td><td>Korea; CES 2026 private demonstration<br><span class="kindpill kp-fc">Announced</span></td><td>New &ldquo;AI cabin&rdquo; platforms still centre on the driver</td></tr>
+      <tr><td class="rh">Contrast</td><td>LG AI Cabin Platform: cabin cameras and context-aware voice aimed at the driver<sup class="cite"><a href="#r-lg" title="ChannelLife — LG AI Cabin Platform">[35]</a></sup></td><td>Korea; CES 2026 private demonstration<br><span class="kindpill kp-fc">Announced</span></td><td>New &ldquo;AI cabin&rdquo; platforms still center on the driver</td></tr>
     </tbody>
   </table></div>
   <p class="map-note">Li Auto&rsquo;s own data, from 2021, supports the problem: it reported that more than 66.7% of trips carried several people, and that front passengers used the voice assistant more than 72% of the time and rear passengers more than 44%.<sup class="cite"><a href="#r-sina" title="Sina Auto — Li ONE OTA 2.2 (in Chinese)">[44]</a></sup> Passengers are not a side case in a car built for families, so the assistant has to know who is speaking. (The English trade report of the same release gave 65% passenger-seat occupancy and attributed the 72% to the driver&rsquo;s seat; the Chinese original reads as above.)<sup class="cite"><a href="#r-li" title="Gasgoo — Li Auto">[24]</a></sup> Most entries in this table are company claims or trade press. Labels: <b>Shipped</b> is on sale; <b>Reported</b> is a trade-press report of a product; <b>Company claim</b> is a result or claim by the maker; <b>Announced</b> is planned or demonstrated, not on sale; <b>Patent</b> is a filing, not a product.</p>
@@ -873,7 +908,7 @@ a.gl-name:hover{color:var(--g-accent)}
       <tr><td class="rh">Shared screens and a shared experience for several people</td><td>One person per device</td><td>Built in (AirConsole uses phones as controllers on the car&rsquo;s screens)<sup class="cite"><a href="#r-kpit" title="Automotive World — AirConsole">[15]</a></sup></td><td><span class="kindpill kp-obs">Car</span></td></tr>
       <tr><td class="rh">Separate sound per seat without headphones</td><td>Not possible</td><td>Personal sound zones on existing speakers<sup class="cite"><a href="#r-adi" title="TheElec — ADI">[18]</a></sup></td><td><span class="kindpill kp-obs">Car</span></td></tr>
       <tr><td class="rh">Knowing which seat is speaking</td><td>Not possible</td><td>Seat-zoned voice (Li Auto, Hyundai, Kardome)<sup class="cite"><a href="#r-li" title="Gasgoo — Li Auto">[24]</a></sup><sup class="cite"><a href="#r-gleo" title="Driven — Hyundai">[25]</a></sup></td><td><span class="kindpill kp-obs">Car</span></td></tr>
-      <tr><td class="rh">Knowing the car&rsquo;s next manoeuvre (for motion sickness)</td><td>Infers from its own sensors (Apple&rsquo;s motion cues)</td><td>Native vehicle state; can also change how the car drives (Xiaomi, Honda)<sup class="cite"><a href="#r-xm" title="elektroauto-news — Xiaomi">[30]</a></sup><sup class="cite"><a href="#r-hon" title="CAR — Honda">[31]</a></sup></td><td><span class="kindpill kp-obs">Car</span></td></tr>
+      <tr><td class="rh">Knowing the car&rsquo;s next maneuver (for motion sickness)</td><td>Infers from its own sensors (Apple&rsquo;s motion cues)</td><td>Native vehicle state; can also change how the car drives (Xiaomi, Honda)<sup class="cite"><a href="#r-xm" title="elektroauto-news — Xiaomi">[30]</a></sup><sup class="cite"><a href="#r-hon" title="CAR — Honda">[31]</a></sup></td><td><span class="kindpill kp-obs">Car</span></td></tr>
       <tr><td class="rh">Knowing what the driver&rsquo;s attention allows right now</td><td>Not possible</td><td>Driver monitoring and driving state are in the car</td><td><span class="kindpill kp-obs">Car</span></td></tr>
     </tbody>
   </table></div>
@@ -884,7 +919,7 @@ a.gl-name:hover{color:var(--g-accent)}
   <header class="co"><div class="co-bar"><span>Chapter 6 of 7</span><span class="co-seg" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">6</span><div class="co-body"><span class="co-eyebrow">Invitation</span><h2>Business model and entry wedges</h2><p class="co-thesis">Three routes to revenue exist today; four starting points look open to a solver.</p></div></div></header>
   <h3 class="sub-h">Ways to get paid</h3>
   <div class="cards3">
-    <div><h3>Through the carmaker</h3><ul><li>Licence or per-car software fee, usually through a tier-one supplier.</li><li>Long design cycles; suppliers can bundle the same feature.</li><li>An idea, with no example found: content or game platforms paying carmakers or software providers for built-in delivery to several passengers.</li></ul></div>
+    <div><h3>Through the carmaker</h3><ul><li>License or per-car software fee, usually through a tier-one supplier.</li><li>Long design cycles; suppliers can bundle the same feature.</li><li>An idea, with no example found: content or game platforms paying carmakers or software providers for built-in delivery to several passengers.</li></ul></div>
     <div><h3>As a paid tier or upgrade</h3><ul><li>Connected-services tier or a feature unlocked after purchase.</li><li>The only public price found is a volume carmaker&rsquo;s $149 a year tier<sup class="cite"><a href="#r-vwac" title="AutoGuide">[14]</a></sup>; take rates are not public.</li></ul></div>
     <div><h3>Aftermarket and retrofit</h3><ul><li>Products for the cars already on the road.</li><li>Motion Sync&rsquo;s route<sup class="cite"><a href="#r-ms" title="U-M CFE — Motion Sync">[21]</a></sup>; Holoride shows the risk<sup class="cite"><a href="#r-holo" title="Mixed">[22]</a></sup>.</li></ul></div>
   </div>
@@ -906,7 +941,7 @@ a.gl-name:hover{color:var(--g-accent)}
       <tr><td class="rh">Family long-trip mode</td><td>Motion-aware, seat-aware entertainment for children that never reaches the driver&rsquo;s view, possibly paired with gentler drive modes</td><td>34% of UK parents report car-sick children; 41% dread long trips with them<sup class="cite"><a href="#r-ch" title="Churchill / Censuswide">[13]</a></sup></td></tr>
       <tr><td class="rh">&ldquo;Who&rsquo;s asking&rdquo; layer</td><td>Seat identification plus driver-attention rules for any assistant</td><td>Li Auto reported front-passenger voice use above 72% and rear above 44%, with over 66.7% of trips carrying several people<sup class="cite"><a href="#r-sina" title="Sina Auto — Li ONE OTA 2.2 (in Chinese)">[44]</a></sup></td></tr>
       <tr><td class="rh">Sound per seat</td><td>Separate audio per seat as a software upgrade on existing speakers</td><td>Supplier says it can be sold after purchase<sup class="cite"><a href="#r-adi" title="TheElec — ADI">[18]</a></sup></td></tr>
-      <tr><td class="rh">Motion-sickness mitigation</td><td>Uses the car&rsquo;s knowledge of its next manoeuvre, in the drivetrain, seat or screens</td><td>Xiaomi reports 51% fewer nausea episodes in its own tests<sup class="cite"><a href="#r-xm" title="elektroauto-news — Xiaomi">[30]</a></sup></td></tr>
+      <tr><td class="rh">Motion-sickness mitigation</td><td>Uses the car&rsquo;s knowledge of its next maneuver, in the drivetrain, seat or screens</td><td>Xiaomi reports 51% fewer nausea episodes in its own tests<sup class="cite"><a href="#r-xm" title="elektroauto-news — Xiaomi">[30]</a></sup></td></tr>
     </tbody>
   </table></div>
   <h3 class="sub-h">Illustrations to spark your own ideas</h3>
@@ -941,7 +976,7 @@ a.gl-name:hover{color:var(--g-accent)}
 </section>
 
 <section id="risks">
-  <header class="co"><div class="co-bar"><span>Chapter 7 of 7</span><span class="co-seg" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">7</span><div class="co-body"><span class="co-eyebrow">Judgement</span><h2>Risks, potential and complexity</h2><p class="co-thesis">Exposure is large and solid; demand, payment and the supplier squeeze are the open questions.</p></div></div></header>
+  <header class="co"><div class="co-bar"><span>Chapter 7 of 7</span><span class="co-seg" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">7</span><div class="co-body"><span class="co-eyebrow">Judgment</span><h2>Risks, potential and complexity</h2><p class="co-thesis">Exposure is large and solid; demand, payment and the supplier squeeze are the open questions.</p></div></div></header>
   <div class="prose">
     <p><b>Demand is unproven.</b> Owners don&rsquo;t use passenger screens, and stated interest often doesn&rsquo;t become payment.<sup class="cite"><a href="#r-txi" title="J.D. Power TXI 2026">[8]</a></sup></p>
     <p><b>Suppliers move fast.</b> Audio, voice and cabin suppliers can add seat awareness as a feature, which squeezes startups; the best-known passenger startup so far, AirConsole, now belongs to a supplier.<sup class="cite"><a href="#r-kpit" title="Automotive World — AirConsole">[15]</a></sup></p>
@@ -956,7 +991,7 @@ a.gl-name:hover{color:var(--g-accent)}
   <div class="about">
     <p><b>Question.</b> Is the shared car cabin, where a driver and passengers ride together, a problem large enough to be worth solving, and where could a solution start?</p>
     <p><b>Scope.</b> Problem sizing is for the United States. Concepts are drawn from the US, Europe, China, Korea and Japan. Placed under Opportunities / Mobility on this site. This is an invitation to solve, not a recommendation to any company.</p>
-    <p><b>Evidence base.</b> Builds on this site&rsquo;s Mobility Product Outlook, Physical AI and the Rider&rsquo;s Cabin and In-Car AI Assistant Benchmark, with Agentic AI and the Consumer as supporting evidence.<sup class="cite"><a href="#r-mpo" title="Mobility Product Outlook">[39]</a></sup><sup class="cite"><a href="#r-pac" title="Physical AI and the Rider’s Cabin">[38]</a></sup><sup class="cite"><a href="#r-bm" title="In-Car AI Assistant Benchmark">[40]</a></sup><sup class="cite"><a href="#r-acc" title="Agentic AI and the Consumer">[41]</a></sup></p>
+    <p><b>Evidence base.</b> Builds on this site&rsquo;s Mobility Product Outlook, Physical AI and the Rider&rsquo;s Cabin and In-Car AI Assistant Benchmark, with Agentic AI and the Consumer as supporting evidence.<sup class="cite"><a href="#r-mpo" title="Mobility Product Outlook 2026–2031">[39]</a></sup><sup class="cite"><a href="#r-pac" title="Physical AI and the Rider’s Cabin">[38]</a></sup><sup class="cite"><a href="#r-bm" title="In-Car AI Assistant Benchmark">[40]</a></sup><sup class="cite"><a href="#r-acc" title="Agentic AI and the Consumer: 2027 Outlook">[41]</a></sup></p>
     <p><b>Sources.</b> Official statistics first (FHWA, BTS, NHTSA, USDOT), then benchmark studies (J.D. Power, TTI), then company releases and trade press. Each reference carries its type and date.</p>
     <p><b>Arithmetic (author&rsquo;s).</b> Household-vehicle person-miles = 23.69 daily miles per person &times; 305.561 million people &times; 365 = 2.64 trillion; minus 1.848 trillion household vehicle-miles = 0.794 trillion passenger-miles (NHTS 2022).<sup class="cite"><a href="#r-nhts" title="FHWA — Summary of Travel Trends">[1]</a></sup> Passenger-hours = passenger-miles &divide; an assumed 25 to 37 mph (the upper speed is what DOE&rsquo;s reported driving time and distance imply) = 21.5 to 31.8 billion hours, or 70 to 104 hours per person. Illustrative value of time (not a loss, a market size or willingness to pay) = hours &times; $21.80 per person-hour (USDOT all-purpose rate, 2024 dollars) = $0.47 to $0.69 trillion; at USDOT&rsquo;s $20.10 personal-travel rate, $0.43 to $0.64 trillion.<sup class="cite"><a href="#r-vtts" title="USDOT value of travel time, via Caltrans">[4]</a></sup> Flying = 1.14 trillion revenue passenger-miles (12 months to June 2026) &divide; an assumed 400 to 500 mph = 2.3 to 2.9 billion hours, or 7.5 to 9.3 hours per person.<sup class="cite"><a href="#r-rpm" title="BTS via FRED">[11]</a></sup></p>
     <p><b>What this brief is not.</b> The problem statement, the comparison reading, the phone table, the framing, the reasons no whole answer exists yet, the entry wedges, the illustrations, the tests and the potential-versus-complexity view are the author&rsquo;s analysis, not sourced figures.</p>
@@ -964,7 +999,7 @@ a.gl-name:hover{color:var(--g-accent)}
   <h3 class="sub-h" style="margin-top:0;">Flags and open questions</h3>
   <ol class="flags">
     <li><b>The hours figure depends on an assumed speed.</b> The speed range of 25 to 37 mph is the author&rsquo;s assumption. DOE reports household vehicles driven 64.6 minutes a day and 39.7 vehicle-miles a day; if both describe the same unit, that implies about 37 mph, which sets the top of the speed range and the bottom of the hours range. The units behind those two figures were not confirmed, and a different speed would move the hours.<sup class="cite"><a href="#r-park" title="US DOE — FOTW #1356">[3]</a></sup></li>
-    <li><b>Denominators differ.</b> TTI&rsquo;s 63 hours is reported per traveller; the passenger and flying figures are per resident. National congestion delay in hours was not found in the 2025 release.</li>
+    <li><b>Denominators differ.</b> TTI&rsquo;s 63 hours is reported per traveler; the passenger and flying figures are per resident. National congestion delay in hours was not found in the 2025 release.</li>
     <li><b>Motion sickness prevalence.</b> &ldquo;A third of adults and half of children&rdquo; is the University of Michigan&rsquo;s own estimate in an engineering news release, with no sampling method given, not a peer-reviewed prevalence study. The UK child figures are from an insurer&rsquo;s survey.</li>
     <li><b>Passengers as a distraction source.</b> NHTSA&rsquo;s 2024 summary gives no passenger figure; the IIHS evidence covers teen drivers with teen passengers only.</li>
     <li><b>Company claims not independently verified:</b> Xiaomi&rsquo;s 51% figure, Hyundai&rsquo;s 2030 target, Nissan&rsquo;s comfort claims. Li Auto&rsquo;s usage figures date from 2021.</li>
@@ -978,7 +1013,7 @@ a.gl-name:hover{color:var(--g-accent)}
   </ul>
   <h3 class="sub-h">Related reports on this site</h3>
   <div class="about">
-    <p><a href="../physical-ai-cabin/">Physical AI and the Rider&rsquo;s Cabin</a> (the cabin and the rider) &middot; <a href="../mobility-product-outlook/">Mobility Product Outlook 2026&ndash;2031</a> (passenger screens and customer expectations) &middot; <a href="../incar-ai-benchmark/">In-Car AI Assistant Benchmark</a> (seat awareness and vehicle control) &middot; <a href="../agentic-consumer-2027/">Agentic AI and the Consumer</a> (trust and control)</p>
+    <p><a href="../physical-ai-cabin/">Physical AI and the Rider&rsquo;s Cabin</a> (the cabin and the rider) &middot; <a href="../mobility-product-outlook/">Mobility Product Outlook 2026&ndash;2031</a> (passenger screens and customer expectations) &middot; <a href="../incar-ai-benchmark/">In-Car AI Assistant Benchmark</a> (seat awareness and vehicle control) &middot; <a href="../agentic-consumer-2027/">Agentic AI and the Consumer: 2027 Outlook</a> (trust and control)</p>
   </div>
   <h3 class="sub-h">About this brief</h3>
   <div class="about">
@@ -1026,7 +1061,7 @@ a.gl-name:hover{color:var(--g-accent)}
 <li id="r-pac"><b>[38]</b> <a href="https://blueplanet-ai.github.io/physical-ai-cabin/" target="_blank" rel="noopener">Chuhee Lee — Physical AI and the Rider&rsquo;s Cabin (this site)</a><span class="tag">own report &middot; Oct 2026</span></li>
 <li id="r-mpo"><b>[39]</b> <a href="https://blueplanet-ai.github.io/mobility-product-outlook/" target="_blank" rel="noopener">Chuhee Lee — Mobility Product Outlook 2026&ndash;2031 (this site)</a><span class="tag">own report &middot; Oct 2026</span></li>
 <li id="r-bm"><b>[40]</b> <a href="https://blueplanet-ai.github.io/incar-ai-benchmark/" target="_blank" rel="noopener">Chuhee Lee — In-Car AI Assistant Benchmark (this site)</a><span class="tag">own report &middot; Oct 2026</span></li>
-<li id="r-acc"><b>[41]</b> <a href="https://blueplanet-ai.github.io/agentic-consumer-2027/" target="_blank" rel="noopener">Chuhee Lee — Agentic AI and the Consumer (this site)</a><span class="tag">own report &middot; Oct 2026</span></li>
+<li id="r-acc"><b>[41]</b> <a href="https://blueplanet-ai.github.io/agentic-consumer-2027/" target="_blank" rel="noopener">Chuhee Lee — Agentic AI and the Consumer: 2027 Outlook (this site)</a><span class="tag">own report &middot; Oct 2026</span></li>
   <li id="r-fhwa"><b>[42]</b> <a href="https://www.fhwa.dot.gov/policyinformation/nhstable.cfm" target="_blank" rel="noopener">FHWA — 2022 NHTS vehicle occupancy factors (mileage-weighted)</a><span class="tag">primary (federal statistics) &middot; Dec 2023</span></li>
 <li id="r-afc"><b>[43]</b> <a href="https://theevreport.com/sony-honda-mobility-cancels-afeela-electric-vehicles" target="_blank" rel="noopener">The EV Report — Sony Honda Mobility cancels AFEELA electric vehicles</a><span class="tag">trade press &middot; 25 Mar 2026</span></li>
 <li id="r-sina"><b>[44]</b> <a href="https://auto.sina.cn/zz/xc/2021-09-10/detail-iktzscyx3415883.d.html" target="_blank" rel="noopener">Sina Auto — Li ONE OTA 2.2 multi-seat voice control (in Chinese)</a><span class="tag">trade press (company figures) &middot; 10 Sep 2021</span></li>
@@ -1035,6 +1070,8 @@ a.gl-name:hover{color:var(--g-accent)}
 </ul>
 </section>
 </div>
+
+</main>
 
 <section class="rn" aria-labelledby="rnH"><div class="ro-inner">
   <div class="rn-head"><h2 id="rnH">Continue <em>down the map</em></h2><span class="rn-chain" aria-label="The four layers of the map"><span class="f">Forces</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="">Shifts</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="">Signals</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="o here" aria-current="true">Opportunities</span></span></div>
@@ -1046,7 +1083,7 @@ a.gl-name:hover{color:var(--g-accent)}
 </div></section>
 <footer class="foot"><div class="foot-inner">
   <span>&copy; 2026 Chuhee Lee &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-  <span>Independent research &middot; not affiliated with or endorsed by any company named</span>
+  <span>Independent research &middot; not affiliated with or endorsed by any company or organization named</span>
   <span><a href="../method/">How this research is made</a> &middot; <a href="../">All publications</a></span>
 </div></footer>
 

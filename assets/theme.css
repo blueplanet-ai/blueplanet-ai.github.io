@@ -1,0 +1,5 @@
+/* Theme toggle button: sits at the end of the site nav, borrows each page's own tokens. */
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;margin:0;background:transparent;color:var(--ink-2,var(--ro-ink-2));border:1px solid var(--line-strong,var(--ro-line-strong));border-radius:0;cursor:pointer;font:inherit;}
+.theme-toggle:hover{color:var(--ink,var(--ro-ink));border-color:var(--ink-3,var(--ro-ink-3));}
+.theme-toggle:focus-visible{outline:2px solid var(--signal,var(--ro-signal));outline-offset:2px;}
+@media print{.theme-toggle{display:none}}
