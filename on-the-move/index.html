@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F4F7F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151D1F" media="(prefers-color-scheme: dark)">
+<title>What people do on the move — Chuhee Lee</title>
+<meta name="description" content="Independent benchmark of what people in the US do while traveling, by mode and by whether the vehicle is moving or stopped, with each cell of the map rated by how well it is measured. October 2026 edition by Chuhee Lee; data as of 21 October 2026.">
+<meta name="author" content="Chuhee Lee">
+<link rel="canonical" href="https://blueplanet-ai.github.io/on-the-move/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Chuhee Lee — Independent Research" href="/feed.xml">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What people do on the move">
+<meta property="og:description" content="Independent benchmark of what people in the US do while traveling, by mode and by whether the vehicle is moving or stopped, with each cell of the map rated by how well it is measured. October 2026 edition by Chuhee Lee; data as of 21 October 2026.">
+<meta property="og:url" content="https://blueplanet-ai.github.io/on-the-move/">
+<meta property="og:site_name" content="Chuhee Lee — Independent Research">
+<meta property="og:image" content="https://blueplanet-ai.github.io/on-the-move/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="What people do on the move. Independent research by Chuhee Lee.">
+<meta name="twitter:image" content="https://blueplanet-ai.github.io/on-the-move/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>img{max-width:100%}[hidden]{display:none!important}:root{--signal-text:var(--signal-deep);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--signal-text:var(--signal);}}
+:root[data-theme="dark"]{--signal-text:var(--signal);}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#EBF0E6;
+  --surface:#F4F7F0;
+  --surface-2:#E0E7DA;
+  --line:#CDD6C6;
+  --line-strong:#B3BFAB;
+  --ink:#0F1719;
+  --ink-2:#344145;
+  --ink-3:#4E5B5F;
+  --signal:#0892A5;
+  --signal-deep:#066A79;
+
+  --cat-1:#0892A5;
+  --cat-2:#C2622D;
+  --cat-3:#4B5BA8;
+  --cat-4:#8A8C36;
+
+  --s1:#E4EDEF; --s1-ink:#344145;
+  --s2:#BEDCE2; --s2-ink:#1B3438;
+  --s3:#8AC4CF; --s3-ink:#12292D;
+  --s4:#3E9FB0; --s4-ink:#0F1719;
+  --s5:#0A6F80; --s5-ink:#FBFCFC;
+
+  --warn:#9A4A1F;
+  --good:#2F7A52;
+
+  --font-ui:"Saira","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Newsreader",Georgia,"Times New Roman",serif;
+  --font-mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1213;
+    --surface:#151D1F;
+    --surface-2:#1D2729;
+    --line:#283436;
+    --line-strong:#3C4B4E;
+    --ink:#E7EDEE;
+    --ink-2:#AFBDBF;
+    --ink-3:#8C9A9D;
+    --signal:#2BB3C6;
+    --signal-deep:#5FCCDB;
+
+    --cat-1:#16A2B6;
+    --cat-2:#CB7439;
+    --cat-3:#7687D0;
+    --cat-4:#94993F;
+
+    --s1:#1B2527; --s1-ink:#8E9B9E;
+    --s2:#1F4249; --s2-ink:#BFD3D7;
+    --s3:#25616D; --s3-ink:#DCEAED;
+    --s4:#2B8C9D; --s4-ink:#0D1213;
+    --s5:#4FB8C8; --s5-ink:#0B1415;
+
+    --warn:#DB8A4F;
+    --good:#5FAE81;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1213;
+  --surface:#151D1F;
+  --surface-2:#1D2729;
+  --line:#283436;
+  --line-strong:#3C4B4E;
+  --ink:#E7EDEE;
+  --ink-2:#AFBDBF;
+  --ink-3:#8C9A9D;
+  --signal:#2BB3C6;
+  --signal-deep:#5FCCDB;
+  --cat-1:#16A2B6;
+  --cat-2:#CB7439;
+  --cat-3:#7687D0;
+  --cat-4:#94993F;
+  --s1:#1B2527; --s1-ink:#8E9B9E;
+  --s2:#1F4249; --s2-ink:#BFD3D7;
+  --s3:#25616D; --s3-ink:#DCEAED;
+  --s4:#2B8C9D; --s4-ink:#0D1213;
+  --s5:#4FB8C8; --s5-ink:#0B1415;
+  --warn:#DB8A4F;
+  --good:#5FAE81;
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{
+  max-width:1180px;
+  margin:0 auto;
+  padding-inline:20px;
+  padding-block:0 72px;
+}
+h1,h2,h3,h4{font-family:var(--font-ui);text-wrap:balance;margin:0;line-height:1.12;}
+p{margin:0;}
+a{color:var(--signal-deep);text-decoration-thickness:1px;text-underline-offset:2px;}
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  font-weight:500;
+}
+
+/* ---------- masthead ---------- */
+.mast{
+  border-bottom:1px solid var(--line);
+  background:var(--surface);
+}
+.mast-inner{
+  max-width:1180px;margin:0 auto;padding-inline:20px;
+  padding-block:34px 28px;
+  display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end;justify-content:space-between;
+}
+.telltale{
+  display:flex;align-items:center;gap:9px;margin-bottom:14px;
+}
+.telltale span.dot{width:7px;height:7px;border-radius:50%;background:var(--signal);flex:none;}
+.mast h1{
+  font-size:clamp(30px,5.2vw,50px);
+  font-weight:600;
+  letter-spacing:-.018em;
+  max-width:16ch;
+}
+.mast .sub{
+  font-size:18px;color:var(--ink-2);max-width:54ch;margin-top:14px;
+}
+.stamp{
+  font-family:var(--font-mono);font-size:12px;line-height:2;color:var(--ink-3);
+  border-left:2px solid var(--signal);padding-left:14px;flex:none;
+}
+.stamp b{color:var(--ink-2);font-weight:500;}
+
+/* ---------- sections ---------- */
+section{padding-top:56px;}
+.sec-head{
+  display:flex;align-items:baseline;gap:16px;
+  border-bottom:1px solid var(--line-strong);
+  padding-bottom:9px;margin-bottom:26px;
+}
+.sec-head h2{font-size:22px;font-weight:600;letter-spacing:-.01em;}
+.sec-head .eyebrow{margin-left:auto;}
+
+/* ---------- findings ---------- */
+.findings{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
+.finding{
+  background:var(--surface);
+  display:grid;grid-template-columns:52px 1fr;gap:0 22px;
+  padding:22px 24px;
+}
+.finding .num{
+  font-family:var(--font-mono);font-size:13px;font-weight:600;
+  color:var(--signal-text);padding-top:3px;
+}
+.finding h3{font-size:18px;font-weight:600;letter-spacing:-.005em;margin-bottom:8px;}
+.finding p{color:var(--ink-2);font-size:16px;max-width:68ch;}
+.finding p + p{margin-top:9px;}
+.finding .sowhat{
+  font-family:var(--font-ui);font-size:14px;font-weight:500;
+  color:var(--ink);margin-top:12px;padding-top:11px;
+  border-top:1px dashed var(--line-strong);
+}
+.finding .sowhat i{
+  font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--signal-text);
+  display:inline-block;margin-right:13px;
+}
+
+/* ---------- map ---------- */
+.mapbox{
+  background:var(--surface);border:1px solid var(--line);padding:22px 20px 16px;
+}
+.map-legend{
+  display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;
+  margin-bottom:16px;font-family:var(--font-ui);font-size:13px;color:var(--ink-2);
+}
+.map-legend .k{display:flex;align-items:center;gap:7px;}
+.map-legend .sw{width:11px;height:11px;border-radius:50%;flex:none;}
+.map-scroll{overflow-x:auto;}
+.map-scroll svg{display:block;min-width:640px;max-width:100%;height:auto;}
+.map-note{font-size:14px;color:var(--ink-3);margin-top:12px;max-width:74ch;}
+
+/* ---------- controls ---------- */
+.controls{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px;
+}
+.controls .lbl{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-right:2px;}
+button.chip{
+  font-family:var(--font-ui);font-size:13px;font-weight:500;
+  padding:5px 13px;border:1px solid var(--line-strong);background:transparent;
+  color:var(--ink-2);cursor:pointer;border-radius:2px;
+}
+button.chip:hover{border-color:var(--signal);color:var(--ink);}
+button.chip[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink);}
+button.chip:focus-visible,th.sortable:focus-visible,tr.row:focus-visible{outline:2px solid var(--signal);outline-offset:2px;}
+
+/* ---------- matrix ---------- */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface);}
+table{border-collapse:separate;border-spacing:0;width:100%;min-width:940px;font-family:var(--font-ui);}
+thead th{
+  position:sticky;top:0;z-index:3;background:var(--surface-2);
+  font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-2);text-align:center;padding:11px 6px;
+  border-bottom:1px solid var(--line-strong);vertical-align:bottom;
+}
+thead th.name{text-align:left;left:0;z-index:4;padding-left:16px;min-width:216px;}
+th.sortable{cursor:pointer;user-select:none;}
+th.sortable:hover{color:var(--signal-deep);}
+th .arrow{display:block;font-family:var(--font-mono);font-size:12px;color:var(--signal-text);height:10px;line-height:10px;}
+tbody td{
+  border-bottom:1px solid var(--line);padding:0;text-align:center;
+  font-variant-numeric:tabular-nums;
+}
+tbody td.name{
+  text-align:left;padding:11px 12px 11px 16px;position:sticky;left:0;z-index:2;
+  background:var(--surface);border-right:1px solid var(--line);
+}
+tr.row{cursor:pointer;}
+tr.row:hover td{background:var(--surface-2);}
+tr.row:hover td.name{background:var(--surface-2);}
+.nm{display:flex;align-items:center;gap:9px;}
+.nm .bar{width:3px;align-self:stretch;min-height:30px;flex:none;border-radius:1px;}
+.nm .t{min-width:0;}
+.nm .brand{font-size:15px;font-weight:600;letter-spacing:-.005em;display:block;line-height:1.25;}
+.nm .prod{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);display:block;line-height:1.5;margin-top:1px;}
+.cell{
+  display:block;margin:3px;padding:9px 0;
+  font-family:var(--font-mono);font-size:13px;font-weight:600;
+}
+.v1{background:var(--s1);color:var(--s1-ink);}
+.v2{background:var(--s2);color:var(--s2-ink);}
+.v3{background:var(--s3);color:var(--s3-ink);}
+.v4{background:var(--s4);color:var(--s4-ink);}
+.v5{background:var(--s5);color:var(--s5-ink);}
+td.idx .cell{background:transparent;color:var(--ink);font-size:14px;border:1px solid var(--line-strong);}
+td.status{padding:0 10px;}
+.pill{
+  display:inline-block;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;
+  text-transform:uppercase;padding:3px 8px;border:1px solid currentColor;white-space:nowrap;
+}
+.pill.ship{color:var(--good);}
+.pill.soon{color:var(--warn);}
+.pill.plan{color:var(--ink-3);}
+
+tr.detail td{padding:0;background:var(--surface-2);border-bottom:1px solid var(--line-strong);}
+.det{padding:20px 24px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px 30px;}
+.det .col h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);font-weight:500;margin-bottom:7px;}
+.det .col p{font-size:15px;color:var(--ink-2);line-height:1.55;}
+.det .col.full{grid-column:1/-1;}
+.det .col.full p{color:var(--ink);font-family:var(--font-ui);font-size:15px;}
+
+.scale{
+  display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;
+  margin-top:14px;font-family:var(--font-ui);font-size:13px;color:var(--ink-3);
+}
+.scale .steps{display:flex;gap:2px;}
+.scale .steps span{
+  width:30px;padding:4px 0;text-align:center;font-family:var(--font-mono);font-size:12px;font-weight:600;
+}
+.dims{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:9px 26px;}
+.dims div{font-size:14px;color:var(--ink-2);}
+.dims b{font-family:var(--font-ui);font-weight:600;color:var(--ink);font-size:14px;}
+
+/* ---------- archetypes ---------- */
+.arch{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
+.arch > div{background:var(--surface);padding:20px 20px 22px;}
+.arch h3{font-size:16px;font-weight:600;margin-bottom:3px;}
+.arch .who{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);letter-spacing:.04em;margin-bottom:11px;}
+.arch p{font-size:15px;color:var(--ink-2);}
+.arch .ledger{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-family:var(--font-ui);font-size:13px;}
+.arch .ledger div{display:flex;gap:8px;margin-top:5px;}
+.arch .ledger em{font-style:normal;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;flex:none;width:34px;padding-top:2px;}
+.arch .ledger .up em{color:var(--good);} .arch .ledger .dn em{color:var(--warn);}
+.arch .topbar{height:3px;margin:-20px -20px 17px;}
+
+/* ---------- watch ---------- */
+.watch{border-top:1px solid var(--line-strong);}
+.watch .item{
+  display:grid;grid-template-columns:132px 1fr;gap:0 22px;
+  padding:17px 0;border-bottom:1px solid var(--line);align-items:start;
+}
+.watch .when{font-family:var(--font-mono);font-size:12px;color:var(--signal-deep);font-weight:500;padding-top:2px;}
+.watch h3{font-family:var(--font-ui);font-size:16px;font-weight:600;margin-bottom:4px;}
+.watch p{font-size:15px;color:var(--ink-2);max-width:76ch;}
+
+/* ---------- sources ---------- */
+.srcs{columns:2;column-gap:34px;font-size:14px;}
+.srcs li{break-inside:avoid;margin-bottom:8px;color:var(--ink-3);list-style:none;}
+.srcs{padding:0;margin:0;}
+.caveat{
+  margin-top:26px;padding:16px 18px;border:1px solid var(--line-strong);
+  background:var(--surface);font-size:15px;color:var(--ink-2);max-width:82ch;
+}
+.caveat b{font-family:var(--font-ui);color:var(--ink);font-weight:600;}
+
+.tip{
+  position:fixed;pointer-events:none;z-index:40;opacity:0;transition:opacity .12s;
+  background:var(--ink);color:var(--ground);font-family:var(--font-ui);font-size:13px;
+  padding:7px 10px;border-radius:2px;line-height:1.4;max-width:220px;
+}
+.tip b{display:block;font-weight:600;font-size:13px;margin-bottom:2px;}
+
+/* ---------- summary ---------- */
+.lead{font-size:18px;line-height:1.55;color:var(--ink);max-width:66ch;margin-bottom:26px;}
+.sum-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:22px;align-items:start;}
+.sum-points{display:grid;gap:18px;}
+.sum-points .pt{display:grid;grid-template-columns:24px 1fr;gap:0 12px;}
+.sum-points .tick{width:10px;height:10px;margin-top:6px;border:2px solid var(--signal);border-radius:50%;}
+.sum-points h3{font-size:16px;font-weight:600;margin-bottom:5px;}
+.sum-points p{font-size:15px;color:var(--ink-2);max-width:62ch;}
+.vwchart{margin:0;background:var(--surface);border:1px solid var(--line);padding:18px 18px 14px;}
+.vwchart figcaption h3{font-size:15px;font-weight:600;}
+.vwchart figcaption p{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--ink-3);margin-top:3px;text-transform:uppercase;}
+.vb{margin-top:16px;display:grid;gap:9px;}
+.vb-row{display:grid;grid-template-columns:132px 1fr;gap:12px;align-items:center;}
+.vb-lab b{display:block;font-family:var(--font-ui);font-size:13px;font-weight:600;line-height:1.2;}
+.vb-lab span{display:block;font-family:var(--font-mono);font-size:12px;color:var(--ink-3);letter-spacing:.03em;line-height:1.4;}
+.vb-track{position:relative;height:22px;}
+.vb-bar{position:absolute;left:0;top:4px;height:14px;border-radius:0 4px 4px 0;}
+.vb-val{position:absolute;top:2px;font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;}
+.vb-med{position:absolute;top:-5px;bottom:-5px;width:0;border-left:1.5px dashed var(--ink-3);}
+.vb-hit{position:absolute;inset:0;cursor:default;}
+.vb-axis{position:relative;height:18px;border-top:1px solid var(--line-strong);}
+.vb-axis span{position:absolute;top:4px;transform:translateX(-50%);font-family:var(--font-mono);font-size:12px;color:var(--ink-3);}
+.vwchart .fignote{font-size:13px;color:var(--ink-3);margin-top:12px;line-height:1.45;}
+.sub-h{font-size:16px;font-weight:600;margin:34px 0 12px;}
+table.opts{min-width:780px;}
+table.opts th{position:static;text-align:left;padding:10px 14px;}
+table.opts td{text-align:left;vertical-align:top;padding:14px;font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--ink-2);}
+table.opts td.route{font-family:var(--font-ui);width:190px;}
+table.opts td.route b{display:block;font-size:15px;font-weight:600;color:var(--ink);}
+table.opts td.route span{display:flex;align-items:center;gap:6px;margin-top:4px;font-family:var(--font-mono);font-size:12px;color:var(--ink-3);}
+table.opts td.route i{width:8px;height:8px;border-radius:50%;flex:none;}
+table.opts tr:last-child td{border-bottom:0;}
+.sum-src{margin-top:16px;font-size:13px;color:var(--ink-3);line-height:1.7;}
+.sum-src b{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-right:6px;}
+@media (max-width:860px){ .sum-grid{grid-template-columns:1fr;} }
+
+@media (max-width:640px){
+  .vb-row{grid-template-columns:104px 1fr;}
+  .finding{grid-template-columns:1fr;gap:6px;}
+  .finding .num{padding-top:0;}
+  .watch .item{grid-template-columns:1fr;gap:4px;}
+  .srcs{columns:1;}
+  .mast-inner{padding-block:26px 22px;}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+
+/* ---------- refresh additions ---------- */
+:root{--cat-5:#7A8588;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--cat-5:#8C989B;}}
+:root[data-theme="dark"]{--cat-5:#8C989B;}
+.arch{grid-template-columns:repeat(auto-fit,minmax(205px,1fr));}
+.det{text-align:left;}
+.det .srcl{grid-column:1/-1;font-family:var(--font-mono);font-size:12px;line-height:1.8;color:var(--ink-3);border-top:1px dashed var(--line-strong);padding-top:10px;}
+.det .srcl b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal-text);}
+.det .srcl a{margin-right:4px;}
+.det .flag{grid-column:1/-1;font-family:var(--font-ui);font-size:13px;color:var(--warn);}
+.log{margin:0 0 26px;padding:0;list-style:none;display:grid;gap:9px;max-width:92ch;}
+.log li{display:grid;grid-template-columns:118px 1fr;gap:0 16px;font-size:15px;color:var(--ink-2);line-height:1.5;}
+.log li span{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding-top:3px;}
+.log li span.chg{color:var(--signal-deep);} .log li span.fix{color:var(--warn);} .log li span.new{color:var(--good);}
+.srcs li .tag{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-left:6px;color:var(--ink-3);}
+@media (max-width:640px){ .log li{grid-template-columns:1fr;gap:2px;} }
+
+/* ---------- use-case highlights ---------- */
+.q{font-family:var(--font-mono);font-size:12px;color:var(--ink);background:var(--surface);padding:1px 5px;border-radius:2px;}
+.conf{display:inline-block;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border:1px solid currentColor;white-space:nowrap;}
+.conf.off{color:var(--good);} .conf.mix{color:var(--signal-deep);} .conf.trd{color:var(--warn);} .conf.ann{color:var(--ink-3);}
+.ucx{grid-column:1/-1;border-top:1px solid var(--line-strong);padding-top:14px;}
+.ucx-h{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-bottom:10px;}
+.ucx-h h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);font-weight:500;margin:0;}
+.ucx-note{font-family:var(--font-ui);font-size:13px;color:var(--ink-3);}
+.ucx-g{display:grid;grid-template-columns:1fr 1.25fr .9fr;gap:14px 26px;}
+.ucx-g h5{font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);margin:0 0 6px;}
+.ucx-g ul{margin:0;padding-left:16px;}
+.ucx-g li{font-size:14px;line-height:1.5;color:var(--ink-2);margin-bottom:5px;}
+.ucx-g li.lim{color:var(--warn);}
+@media (max-width:860px){.ucx-g{grid-template-columns:1fr;}}
+table.ucgrid{min-width:920px;font-family:var(--font-ui);}
+table.ucgrid th{font-size:12px;padding:10px 4px;vertical-align:bottom;text-align:center;line-height:1.25;}
+table.ucgrid th.co{text-align:left;padding-left:14px;left:0;z-index:4;}
+table.ucgrid td{text-align:center;padding:7px 4px;border-bottom:1px solid var(--line);}
+table.ucgrid td.co{text-align:left;padding:8px 12px 8px 14px;font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;position:sticky;left:0;z-index:2;background:var(--surface);border-right:1px solid var(--line);}
+table.ucgrid td.n{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);}
+.gdot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:middle;}
+.dot.y{background:var(--signal);}
+.dot.a{border:2px solid var(--signal);}
+.dot.e{width:4px;height:4px;background:var(--line-strong);}
+.evlegend{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;margin-bottom:14px;font-family:var(--font-ui);font-size:13px;color:var(--ink-2);}
+.evlegend span{display:inline-flex;align-items:center;gap:7px;}
+.gcard{margin-top:22px;background:var(--surface);border:1px solid var(--line);padding:18px 20px;}
+.gcard > h3{font-size:16px;font-weight:600;margin-bottom:4px;}
+.gcard .q{background:var(--surface-2);}
+.gsrc{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);margin-top:12px;}
+.gsrc b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal-text);}
+.gcard > p{font-size:14px;color:var(--ink-2);margin-bottom:14px;max-width:80ch;}
+
+/* ---------- use-case highlights table ---------- */
+table.uc{min-width:1100px;}
+table.uc th{text-align:left;padding:10px 12px;}
+table.uc td{text-align:left;vertical-align:top;padding:14px 12px;font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--ink-2);border-bottom:1px solid var(--line);}
+table.uc td.who{font-family:var(--font-ui);width:170px;position:sticky;left:0;z-index:2;background:var(--surface);border-right:1px solid var(--line);}
+table.uc td.who b{display:block;font-size:15px;color:var(--ink);font-weight:600;}
+table.uc td.who span.prod{display:block;font-family:var(--font-mono);font-size:12px;color:var(--ink-3);margin:2px 0 8px;}
+table.uc td ul{margin:0;padding-left:16px;}
+table.uc td li{margin-bottom:5px;}
+table.uc td li:last-child{margin-bottom:0;}
+table.uc td li.lim{color:var(--warn);}
+table.uc tr.grp td{background:var(--surface-2);font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);padding:8px 12px;}
+table.uc tr.grp td i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;}
+table.uc .q{background:var(--surface-2);}
+table.uc td.srcs2{font-family:var(--font-mono);font-size:12px;line-height:1.7;width:150px;}
+table.uc td.srcs2 a{display:block;}
+.hl-legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:14px;font-family:var(--font-ui);font-size:13px;color:var(--ink-2);align-items:center;}
+
+/* ---------- public edition ---------- */
+body{margin:0;}
+.crumb{background:var(--ink);color:var(--ground);}
+.crumb-inner{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:8px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 18px;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;}
+.crumb a{color:var(--ground);text-decoration:none;}
+.crumb a:hover{text-decoration:underline;}
+.byline{font-family:var(--font-ui);font-size:14px;color:var(--ink-2);margin-top:14px;}
+.byline a{font-weight:600;}
+.vb-row.sm{grid-template-columns:150px 1fr;}
+.vb-row.sm .vb-lab b{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.vb-row.sm .vb-track{height:18px;}
+.vb-row.sm .vb-bar{top:3px;height:12px;}
+.vb-row.sm .vb-val{top:0;font-size:12px;}
+.vb .vb-row.sm{gap:10px;}
+.vb:has(.sm){gap:5px;}
+.prov{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:500;}
+table.opts td.route{width:230px;}
+table.opts td.route span{line-height:1.45;}
+.about{display:grid;gap:10px;max-width:86ch;margin-bottom:26px;}
+.about p{font-size:15px;color:var(--ink-2);line-height:1.6;}
+.about b{font-family:var(--font-ui);color:var(--ink);font-weight:600;}
+.vb-val{background:var(--surface);padding:0 3px;z-index:1;}
+.vb-med{z-index:0;}
+.foot{border-top:1px solid var(--line);background:var(--surface);}
+.foot-inner{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:20px 28px;display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-between;font-family:var(--font-mono);font-size:12px;color:var(--ink-3);}
+@media (max-width:640px){ .vb-row.sm{grid-template-columns:112px 1fr;} }
+.log li.loghead{display:block;font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--ink);margin-top:8px;padding-bottom:4px;border-bottom:1px solid var(--line);}
+.byline-2{font-family:var(--font-ui);font-size:13px;color:var(--ink-3);margin-top:4px;}
+
+/* ---------- agentic consumer report additions ---------- */
+.cite a{font-family:var(--font-mono);font-size:12px;text-decoration:none;color:var(--signal-deep);margin-left:1px;}
+.cite a:hover{text-decoration:underline;}
+.grp-l{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-deep);margin-top:12px;padding-bottom:3px;border-bottom:1px solid var(--line);}
+.grp-l:first-child{margin-top:0;}
+.vb-row.sm{grid-template-columns:230px 1fr;}
+.vb-val{white-space:nowrap;}
+.vb-row.sm .vb-lab b{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.25;font-size:13px;}
+@media (max-width:640px){.vb-row.sm{grid-template-columns:1fr;gap:3px;}}
+.figbox{margin:0 0 8px;background:var(--surface);border:1px solid var(--line);padding:18px 18px 14px;}
+.figbox h3{font-size:15px;font-weight:600;}
+.figbox .cap{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--ink-3);margin-top:3px;text-transform:uppercase;}
+.figbox .fignote{font-size:13px;color:var(--ink-3);margin-top:12px;line-height:1.45;}
+.twocol{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:22px;margin-top:6px;}
+.kindpill{display:inline-block;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border:1px solid currentColor;white-space:nowrap;}
+.kp-obs{color:var(--good);} .kp-co{color:var(--signal-deep);} .kp-fc{color:var(--warn);} .kp-sv{color:var(--cat-3);}
+.verdict{margin-top:22px;padding:16px 20px;border-left:3px solid var(--signal);background:var(--surface);font-size:16px;color:var(--ink);max-width:84ch;}
+.verdict b{font-family:var(--font-ui);}
+.verdict .tag{display:block;font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-deep);margin-bottom:6px;}
+.prose p{font-size:16px;color:var(--ink-2);max-width:80ch;margin-bottom:12px;}
+.prose p b{color:var(--ink);font-family:var(--font-ui);}
+.cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:10px;}
+.cards3 > div{background:var(--surface);padding:20px 20px 22px;}
+.cards3 h3{font-size:16px;font-weight:600;margin-bottom:8px;}
+.cards3 ul{margin:0;padding-left:17px;}
+.cards3 li{font-size:15px;color:var(--ink-2);margin-bottom:7px;line-height:1.5;}
+.cards3 .lean{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line-strong);font-family:var(--font-ui);font-size:14px;color:var(--ink);}
+.cards3 .lean i{font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);margin-right:8px;}
+table.cmp{min-width:860px;}
+table.cmp th{position:static;text-align:left;padding:10px 14px;}
+table.cmp td{text-align:left;vertical-align:top;padding:13px 14px;font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--ink-2);}
+table.cmp td.rh{font-family:var(--font-ui);font-weight:600;color:var(--ink);width:150px;font-size:14px;}
+table.cmp tr:last-child td{border-bottom:0;}
+table.cmp td b{font-family:var(--font-ui);color:var(--ink);}
+.flags{margin:0;padding-left:20px;max-width:92ch;}
+.flags li{font-size:15px;color:var(--ink-2);margin-bottom:8px;line-height:1.55;}
+.flags li b{font-family:var(--font-ui);color:var(--ink);}
+.srcs li .tag{display:block;margin:2px 0 0;}
+.srcs li a{word-break:break-word;}
+.srcs li{scroll-margin-top:12px;}
+.srcs li:target{background:var(--surface-2);}
+</style>
+<style media="print">
+/* Print: clean light copy. In the browser's print dialog choose Save as PDF. */
+@page{margin:14mm 12mm}
+:root,:root[data-theme="dark"]{color-scheme:light!important;--ground:#fff !important;--surface:#FBFCFC !important;--surface-2:#E9EEEF !important;--line:#D3DBDC !important;--line-strong:#B2BEC0 !important;--ink:#0F1719 !important;--ink-2:#344145 !important;--ink-3:#6B787C !important;--signal:#0892A5 !important;--signal-deep:#066A79 !important;--cat-1:#0892A5 !important;--cat-2:#C2622D !important;--cat-3:#4B5BA8 !important;--cat-4:#8A8C36 !important;--s1:#E4EDEF !important;--s1-ink:#344145 !important;--s2:#BEDCE2 !important;--s2-ink:#1B3438 !important;--s3:#8AC4CF !important;--s3-ink:#12292D !important;--s4:#3E9FB0 !important;--s4-ink:#FBFCFC !important;--s5:#0A6F80 !important;--s5-ink:#FBFCFC !important;--warn:#9A4A1F !important;--good:#2F7A52 !important;--cat-5:#7A8588 !important}
+html{background:#fff!important}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.crumb,.nav,.idx,.controls,.chips,.tabs,.tip,#tip,button,.noprint{display:none!important}
+.tablewrap,.tbl-wrap,.map-scroll,.mapwrap,.scroll{overflow:visible!important;max-height:none!important}
+.panel,.card,.caveat,figure,tr,.pub,.tile,.kpi{break-inside:avoid;page-break-inside:avoid}
+h2,h3,h4,.sec-head{break-after:avoid;page-break-after:avoid}
+table{font-size:9pt;min-width:0!important;width:100%!important}
+.fw table,.ex table,.rt table{min-width:0!important}
+#refs a[href^="http"]::after,.srcs a[href^="http"]::after,#srclist a[href^="http"]::after{content:" <" attr(href) ">";font-size:7.5pt;word-break:break-all;color:#555}
+</style>
+<style>
+/* At a glance: one-page infographic. Shared by all reports; each page sets the --g-* aliases below from its own tokens. */
+.glance{--g-s:var(--surface);--g-s2:var(--surface-2);--g-rule:var(--rule);--g-ink:var(--ink);--g-ink2:var(--ink-2);--g-muted:var(--muted);--g-accent:var(--accent);--g-soft:var(--accent-soft);--g-ui:var(--f-ui,var(--f-display));--g-mono:var(--f-mono);
+  padding:0;overflow:hidden;border-radius:2px;border:1px solid var(--g-rule);background:var(--g-s);color:var(--g-ink);font-family:var(--g-ui);line-height:1.4;box-shadow:none}
+.glance *{box-sizing:border-box}
+.glance a{color:inherit}
+.gl-mast{display:flex;justify-content:space-between;align-items:baseline;gap:6px 24px;flex-wrap:wrap;padding:18px 24px;background:var(--g-s2);border-bottom:1px solid var(--g-rule)}
+.gl-mast b{font-size:1.05rem;font-weight:600;letter-spacing:-.005em}
+.gl-mast span{font-family:var(--g-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--g-muted)}
+.gl-lede{padding:16px 24px;font-size:.95rem;color:var(--g-ink2);border-bottom:1px solid var(--g-rule);max-width:none}
+.gl-lede b{color:var(--g-ink)}
+.gl-grid,.gl-tiles,.gl-two,.gl-three,.gl-hz{display:grid;gap:1px;background:var(--g-rule)}
+.gl-grid>*,.gl-tiles>*,.gl-two>*,.gl-three>*,.gl-hz>*{background:var(--g-s);min-width:0}
+.gl-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.gl-grid>*{padding:16px 18px}
+.gl-tiles{grid-template-columns:repeat(4,minmax(0,1fr))}
+.gl-tiles>*{padding:16px 18px;border-top:4px solid var(--c,var(--g-accent))}
+.gl-two{grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--g-rule)}
+.gl-two>*{padding:18px 20px}
+.gl-three{grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--g-rule)}
+.gl-three>*{padding:18px 20px}
+.gl-hz{grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--g-rule)}
+.gl-hz.n2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gl-hz>*{padding:16px 20px}
+@media (max-width:1000px){.gl-grid,.gl-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.gl-two,.gl-three,.gl-hz,.gl-hz.n2{grid-template-columns:1fr}}
+@media (max-width:560px){.gl-grid,.gl-tiles{grid-template-columns:1fr}}
+.gl-card{border-top:4px solid var(--c);display:flex;flex-direction:column}
+.gl-top{display:flex;align-items:center;gap:8px}
+.gl-badge{background:var(--c);font-weight:600;font-size:.8rem;padding:2px 7px;border-radius:3px}
+.gl-name{font-weight:600;font-size:.95rem;color:var(--g-ink);text-decoration:none;line-height:1.2;flex:1;min-width:0}
+a.gl-name:hover{color:var(--g-accent)}
+.gl-tot{font-family:var(--g-mono);font-weight:500;font-size:1rem}
+.gl-tot small{font-size:.75rem;color:var(--g-muted)}
+.gl-big,.gl-tiles .gl-n{font-weight:600;font-size:2.15rem;letter-spacing:-.02em;line-height:1.05;margin-top:14px;color:var(--g-ink)}
+.gl-tiles .gl-n{margin-top:0;font-size:2rem}
+.gl-cap,.gl-tiles .gl-l{font-size:.82rem;line-height:1.4;color:var(--g-ink2);margin-top:6px;flex:1}
+.gl-tiles .gl-s{font-family:var(--g-mono);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--g-muted);margin-top:8px}
+.gl-tiles .gl-s a{color:var(--g-muted)}
+.gl-meter{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.gl-meter span{display:grid;gap:4px}
+.gl-meter i{display:block;height:6px;border-radius:2px;background:linear-gradient(to right,var(--c) calc(var(--v)*20%),var(--g-s2) 0)}
+.gl-meter b{display:flex;justify-content:space-between;font-family:var(--g-mono);font-weight:500;font-size:.75rem;letter-spacing:.04em;text-transform:uppercase;color:var(--g-muted)}
+.gl-meter em{font-style:normal;color:var(--g-ink)}
+.gl-src{font-size:.75rem;color:var(--g-muted);margin-top:10px}
+.gl-src a{color:var(--g-muted)}
+.gl-guide{display:flex;flex-direction:column;justify-content:center;gap:8px;background:var(--g-soft)!important}
+.gl-guide h4{font-weight:600;margin:0;font-size:.95rem}
+.gl-guide p{font-size:.8rem;line-height:1.45;color:var(--g-ink2);margin:0}
+.gl-h{font-weight:600;font-size:.95rem;margin:0}
+.gl-sub{font-size:.78rem;color:var(--g-ink2);margin:2px 0 12px;line-height:1.4}
+.gl-note{font-size:.75rem;color:var(--g-muted);margin-top:10px;line-height:1.4}
+.gl-choke{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.gl-choke span{font-size:.8rem;font-weight:600;padding:4px 10px;border:1px solid var(--g-rule);border-radius:2px;background:var(--g-s2)}
+.gl-where{display:flex;align-items:center;gap:6px;margin-bottom:14px;font-size:.78rem;color:var(--g-ink2)}
+.glance .gl-dot{display:inline-block;padding:1px 6px;border-radius:3px;font-weight:600;font-size:.75rem;margin:0 2px;line-height:1.4}
+.glance .gl-chip{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px;vertical-align:baseline}
+.gl-bar{display:grid;grid-template-columns:minmax(0,var(--lw,150px)) minmax(0,1fr) var(--vw,40px);align-items:center;gap:10px;padding:3px 0;font-size:.8rem}
+.gl-bar .gl-nm{line-height:1.25}
+.gl-bar .gl-nm small{display:block;font-family:var(--g-mono);font-size:.75rem;color:var(--g-muted);letter-spacing:.02em}
+.gl-bar .gl-tr{height:10px;background:var(--g-s2);border-radius:2px;overflow:hidden;position:relative}
+.gl-bar .gl-tr i{display:block;height:100%;border-radius:2px}
+.gl-bar .gl-tr u{position:absolute;top:-2px;bottom:-2px;width:0;border-left:2px dashed var(--g-ink);opacity:.55}
+.gl-bar .gl-v{text-align:right;font-family:var(--g-mono);font-size:.75rem;font-weight:500}
+.gl-bar .gl-v{text-align:right;font-family:var(--g-mono);font-size:.75rem;font-weight:500}
+.gl-bar.tall .gl-tr{height:12px}
+.gl-bar.sm{padding:2px 0;font-size:.75rem}
+.gl-bar.sm .gl-tr{height:8px}
+.gl-grp{font-family:var(--g-mono);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--g-muted);margin:8px 0 2px}
+.gl-legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.75rem;color:var(--g-ink2);margin-top:8px}
+.gl-legend span{display:inline-flex;align-items:center;gap:6px}
+.gl-legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.gl-scen{display:grid;grid-template-columns:22px repeat(2,minmax(0,1fr));gap:6px;position:relative}
+.gl-scen .ax{font-family:var(--g-mono);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--g-muted);text-align:center;align-self:end;line-height:1.3}
+.gl-scen .ay{writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;align-self:center;justify-self:center}
+.gl-q{border:1px solid var(--g-rule);border-radius:2px;padding:10px 12px;background:var(--g-s2);position:relative}
+.gl-q b{display:block;font-family:var(--g-mono);font-size:.75rem;color:var(--g-accent);margin-bottom:2px}
+.gl-q span{font-size:.82rem;font-weight:600;line-height:1.25;display:block}
+.gl-q.now{border-color:var(--g-accent);box-shadow:inset 0 0 0 1px var(--g-accent)}
+.gl-now{grid-column:2/-1;font-size:.75rem;color:var(--g-accent);font-weight:600;text-align:right}
+.gl-hz h4{font-family:var(--g-mono);font-weight:500;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--g-muted);display:flex;justify-content:space-between;gap:8px;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--g-ink)}
+.gl-hz h4 span{color:var(--g-ink)}
+.gl-hz ul,.gl-ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.gl-hz li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:8px;font-size:.8rem;line-height:1.4;color:var(--g-ink2)}
+.gl-hz li b{font-family:var(--g-mono);font-size:.75rem;font-weight:500;color:var(--g-ink);padding-top:1px}
+.gl-ft{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1.15fr);gap:8px;align-items:center;font-size:.8rem;line-height:1.3;padding:7px 0;border-bottom:1px solid var(--g-rule)}
+.gl-ft:last-child{border-bottom:0}
+.gl-ft .gl-f{color:var(--g-muted);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--g-muted) 50%,transparent)}
+.gl-ft .gl-a{color:var(--g-accent);font-weight:600;text-align:center}
+.gl-ft .gl-t{font-weight:600}
+.gl-pill{display:inline-block;font-family:var(--g-mono);font-size:.75rem;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border:1px solid var(--g-rule);border-radius:2px;color:var(--g-ink2);white-space:nowrap}
+.gl-pill.k1{background:var(--g-soft);border-color:transparent;color:var(--g-accent)}
+.gl-foot{padding:12px 24px;background:var(--g-s2);border-top:1px solid var(--g-rule);font-family:var(--g-mono);font-size:12px;letter-spacing:.03em;color:var(--g-muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;line-height:1.5}
+.gl-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;font-family:var(--g-ui);font-size:.85rem}
+.gl-actions a{border:1px solid var(--g-rule);padding:6px 12px;border-radius:2px;text-decoration:none;background:var(--g-s);color:var(--g-ink)}
+.gl-actions a:hover{border-color:var(--g-accent);color:var(--g-accent)}
+@media print{.gl-actions{display:none!important}.glance{break-inside:avoid;page-break-inside:avoid}}
+
+.glance{--g-s:var(--surface);--g-s2:var(--surface-2);--g-rule:var(--line);--g-ink:var(--ink);--g-ink2:var(--ink-2);--g-muted:var(--ink-3);--g-accent:var(--signal-deep);--g-soft:color-mix(in srgb,var(--signal) 12%,var(--surface));--g-ui:var(--font-ui);--g-mono:var(--font-mono)}
+
+/* On the move: matrix and infographic grid (page-specific figure rules, existing tokens only) */
+table.mxgrid{min-width:1080px;}
+table.mxgrid th{font-size:12px;padding:10px 4px;}
+table.mxgrid th.sep,table.mxgrid td.sep{border-left:2px solid var(--line-strong);}
+table.mxgrid td.mx{font-family:var(--font-mono);font-size:12px;font-weight:500;line-height:1.25;padding:9px 3px;}
+table.mxgrid td.gap{color:var(--ink-3);font-family:var(--font-mono);font-size:12px;}
+.hl-legend .sw{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:6px;vertical-align:-2px;}
+.hl-legend .sw.gp{background:var(--surface);border:1px dashed var(--line-strong);}
+.gl-mxg{display:grid;grid-template-columns:minmax(0,132px) repeat(13,minmax(0,1fr));gap:2px;align-items:center}
+.gl-mxg .rl{font-size:.75rem;line-height:1.2;color:var(--g-ink2);padding-right:6px}
+.gl-mxg .cl{font-family:var(--g-mono);font-size:10px;letter-spacing:-.04em;text-align:center;color:var(--g-muted);padding-bottom:4px}
+.gl-mxg i{display:block;height:15px;border-radius:2px;border:1px dashed var(--g-rule);background:transparent}
+.gl-mxg i.v3{background:var(--s3);border:0}.gl-mxg i.v4{background:var(--s4);border:0}.gl-mxg i.v5{background:var(--s5);border:0}
+.gl-mxg i.na{background:var(--g-s2);border:0}
+</style>
+<link rel="stylesheet" href="/assets/report-opener.css">
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Report",
+ "headline": "What people do on the move",
+ "name": "What people do on the move",
+ "description": "Independent benchmark of what people in the US do while traveling, by mode and by whether the vehicle is moving or stopped, with each cell of the map rated by how well it is measured. October 2026 edition by Chuhee Lee; data as of 21 October 2026.",
+ "url": "https://blueplanet-ai.github.io/on-the-move/",
+ "mainEntityOfPage": "https://blueplanet-ai.github.io/on-the-move/",
+ "inLanguage": "en",
+ "author": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "publisher": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "dateModified": "2026-10-21",
+ "image": "https://blueplanet-ai.github.io/on-the-move/og-image.png",
+ "datePublished": "2026-10-21"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="rp" aria-hidden="true"></div>
+<div class="ro-top"><div class="ro-inner">
+  <a class="ro-brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">Chuhee Lee<span>Independent research</span></a>
+  <nav class="ro-nav" aria-label="Site">
+    <a href="/#start">Start here</a>
+    <a href="/#map">The map</a>
+    <a href="/#publications">Publications</a>
+    <a href="/#opportunities">Opportunities</a>
+    <a href="/#about">About</a>
+    <a class="ro-follow" href="/#follow"><svg class="ro-ico" data-ro-ico="rss" viewBox="0 0 24 24" aria-hidden="true"></svg>Follow</a>
+  </nav>
+</div></div>
+
+
+<div class="ro-crumb"><div class="ro-inner"><a href="/#publications"><span aria-hidden="true">&larr;</span> All publications</a></div></div>
+<header class="ro" id="main" tabindex="-1"><div class="ro-inner">
+  <div class="ro-side">
+    <figure class="ro-cover"><img src="cover.svg" width="600" height="800" alt="Cover art: a square grid of 13 by 13 dots, one for each cell of the benchmark matrix; 11 are solid, for cells with a US measurement, and the rest are hollow, for gaps."></figure>
+    <dl class="ro-scope" aria-label="Scope"><div><dt>Horizon</dt><dd>Data 2016&ndash;2026</dd></div><div><dt>Scope</dt><dd>US &middot; cars, transit, planes</dd></div><div><dt>Lens</dt><dd>What people do while traveling</dd></div><div><dt>Basis</dt><dd>Observed first, then surveys</dd></div></dl>
+  </div>
+  <div class="ro-main">
+    <div class="ro-tags"><span class="ro-tag layer"><svg class="ro-ico" data-ro-ico="signals" viewBox="0 0 24 24" aria-hidden="true"></svg>Signals</span><span class="ro-tag">Travel</span><span class="ro-ed">October 2026 &middot; Research report</span></div>
+    <h1 class="ro-title">What people do <em>on the move</em></h1>
+    <p class="ro-dek">Drivers, riders and flyers spend hours a week in motion or waiting. This benchmark maps what Americans do with that time, by mode and by whether the vehicle is moving or stopped, using only data from the last ten years, and rates how well each cell is measured.</p>
+    <p class="ro-q"><b>Research question</b><span>What do people in the US do while traveling, in each mode and in motion versus stopped, and where is that behavior actually measured?</span></p>
+    <div class="ro-meta"><span class="ro-by"><svg class="ro-ico" data-ro-ico="person" viewBox="0 0 24 24" aria-hidden="true"></svg>By&nbsp;<a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener"><b>Chuhee Lee</b></a></span><span><svg class="ro-ico" data-ro-ico="time" viewBox="0 0 24 24" aria-hidden="true"></svg>&asymp;8 min read</span><span><svg class="ro-ico" data-ro-ico="doc" viewBox="0 0 24 24" aria-hidden="true"></svg>Data as of 21 Oct 2026</span><span><svg class="ro-ico" data-ro-ico="calendar" viewBox="0 0 24 24" aria-hidden="true"></svg>One-time edition</span><a href="#changelog"><svg class="ro-ico" data-ro-ico="history" viewBox="0 0 24 24" aria-hidden="true"></svg>Change log</a></div>
+    <p class="ro-credit">With research assistance from AI models (Claude, Gemini, ChatGPT) &middot; Views are the author&rsquo;s own</p>
+    <div class="ro-acts">
+      <button type="button" class="ro-primary" id="roCite"><svg class="ro-ico" data-ro-ico="quote" viewBox="0 0 24 24" aria-hidden="true"></svg>Cite</button>
+      <button type="button" id="roShare"><svg class="ro-ico" data-ro-ico="share" viewBox="0 0 24 24" aria-hidden="true"></svg>Share</button>
+      <a href="on-the-move-at-a-glance.png" download><svg class="ro-ico" data-ro-ico="download" viewBox="0 0 24 24" aria-hidden="true"></svg>Infographic (PNG)</a>
+      <a href="#refs"><svg class="ro-ico" data-ro-ico="doc" viewBox="0 0 24 24" aria-hidden="true"></svg>References</a>
+      <span class="ro-status" id="roStatus" role="status" aria-live="polite"></span>
+    </div>
+    <p class="ro-cite"><b>Cite as</b><span id="roCiteText">Chuhee Lee, <i>What people do on the move</i>, October 2026 edition (data as of 21 October 2026), https://blueplanet-ai.github.io/on-the-move/, CC BY-NC 4.0.</span></p>
+  </div>
+</div></header>
+<section class="ro-60" aria-labelledby="ro60H"><div class="ro-inner">
+  <div class="ro-60-head"><h2 id="ro60H">The report in <em>60 seconds</em></h2><span>Three takeaways &middot; each with its source</span></div>
+  <ol>
+    <li class="fact">
+      <span class="ro-fig">4.5% vs 37%</span>
+      <span class="ro-kind">Fact</span>
+      <h3>A moment is not a month</h3>
+      <p>NHTSA observers at stopped intersections saw 4.5% of drivers handling a phone in June 2024, up from 3.0% in 2023. In AAA&rsquo;s 2023 survey 37% of drivers said they had read a text or email while driving in the past 30 days. The two numbers measure different things.</p>
+      <span class="ro-src">Source: NHTSA <a href="#r-nopus24">[1]</a> <a href="#r-nopus23">[2]</a>; AAA Foundation <a href="#r-aaa23">[3]</a></span>
+    </li>
+    <li class="interp">
+      <span class="ro-fig">11 of 169</span>
+      <span class="ro-kind">Interpretation</span>
+      <h3>With data older than ten years set aside, most of the map is blank</h3>
+      <p>The only US observations of riders on trains, buses and planes date from 2010 to 2015, so they are left out. What remains is drivers, a few airport items, one study of walkers and one of front-seat passengers, whose video frames show a device in hand 26% of the time.</p>
+      <span class="ro-src">Source: UMTRI <a href="#r-umtri">[4]</a>; NYC DOT <a href="#r-nycdot">[5]</a>; National Academies <a href="#r-nasem">[6]</a></span>
+    </li>
+    <li class="hyp">
+      <span class="ro-fig">87.0%</span>
+      <span class="ro-kind">Hypothesis</span>
+      <h3>The largest unmeasured block is the passenger seat</h3>
+      <p>87.0% of US person trips are made in private vehicles, and household vehicles carried 1.5 people on average in 2022. The author expects much of that passenger time to go to phones and audio, but the only US measure found covers front-seat passengers in one city.</p>
+      <span class="ro-src">Source: FHWA NHTS 2022 <a href="#r-nhts">[7]</a>; occupancy as cited in the author&rsquo;s shared-cabin brief <a href="#r-cabin">[8]</a></span>
+    </li>
+  </ol>
+  <p class="ro-legend"><b>Fact</b>: stated by the cited source. <b>Interpretation</b>: the author&rsquo;s reading of the cited evidence. <b>Hypothesis</b>: expected from the evidence but not yet observed. Figures inside every takeaway are sourced.</p>
+</div></section>
+<nav class="ro-toc" aria-labelledby="roTocH"><div class="ro-inner">
+  <h2 id="roTocH">In this report</h2>
+  <ol><li><a href="#glance"><span>01</span>At a glance</a></li><li><a href="#summary"><span>02</span>Summary</a></li><li><a href="#matrix"><span>03</span>The matrix</a></li><li><a href="#driving"><span>04</span>Driving</a></li><li><a href="#riding"><span>05</span>Riding, waiting and the gaps</a></li><li><a href="#method"><span>06</span>Method, limits and flags</a></li><li><a href="#refs"><span>07</span>References</a></li></ol>
+</div></nav>
+
+<main>
+
+<div class="wrap">
+
+<section id="glance">
+  <div class="sec-head"><h2>At a glance</h2><span class="eyebrow">One-page summary</span></div>
+  <div class="glance" id="glanceBody" role="group" aria-label="Infographic: What people do on the move, at a glance"></div>
+  <p class="gl-cap"><b>Headline finding</b><span>The map of what people do on the move is dense for drivers and mostly blank for everyone else; with data older than ten years set aside, no US measure remains for buses, trains, subways or planes in flight.</span></p>
+  <div class="gl-actions"><a href="on-the-move-at-a-glance.png" download>Download PNG</a></div>
+</section>
+<section id="summary">
+  <div class="sec-head"><h2>Summary</h2><span class="eyebrow">The short version</span></div>
+  <p class="lead">The benchmark matrix has 169 cells (13 modes and states by 13 activity measures). Only 11 have a US measurement from the last ten years, 2 are rated strong, and nearly all of them are about drivers.</p>
+
+  <div class="sum-grid">
+    <div class="sum-points">
+      <div class="pt"><span class="tick"></span><div>
+        <h3>Driver phone use is rare at a moment and common over a month.</h3>
+        <p>4.5% of drivers handled a phone at a stop in 2024, up from 3.0%; 37% say they read a message while driving in a month. <i>Confidence: high on each number, medium on comparing them.</i><sup class="cite"><a href="#r-nopus24" title="NHTSA — Driver Electronic Device Use in 2024 (Traffic Safety Facts Research Note, DOT HS 8">[1]</a></sup><sup class="cite"><a href="#r-nopus23" title="NHTSA — Driver Electronic Device Use in 2023 (DOT HS 813 660; NOPUS: only stopped vehicles">[2]</a></sup><sup class="cite"><a href="#r-aaa23" title="AAA Foundation for Traffic Safety — 2023 Traffic Safety Culture Index, report summary (2,7">[3]</a></sup><sup class="cite"><a href="#r-aaa24" title="AAA Foundation for Traffic Safety — 2024 Traffic Safety Culture Index (2,704 licensed US d">[9]</a></sup></p>
+      </div></div>
+      <div class="pt"><span class="tick"></span><div>
+        <h3>In the car, listening beats looking.</h3>
+        <p>73% of adults who drive or ride use AM/FM; it is 54% of in-car audio time. <i>Confidence: medium.</i><sup class="cite"><a href="#r-infdial" title="Edison Research — The Infinite Dial 2026, presentation (online survey of 2,050 people aged">[10]</a></sup><sup class="cite"><a href="#r-radioink-id" title="Radio Ink — Infinite Dial 2026: radio’s biggest audience is going digital (cross-check of ">[11]</a></sup><sup class="cite"><a href="#r-soe" title="Radio Ink — The car remains radio’s castle in Edison’s Q4 Share of Ear (Edison Research Sh">[12]</a></sup></p>
+      </div></div>
+      <div class="pt"><span class="tick"></span><div>
+        <h3>Front-seat passengers hold devices more than drivers do.</h3>
+        <p>A device was in hand in 26% of video frames of front-seat passengers (one Michigan city). <i>Confidence: low; one study.</i><sup class="cite"><a href="#r-umtri" title="UMTRI (University of Michigan Transportation Research Institute) — Naturalistic Passenger ">[4]</a></sup></p>
+      </div></div>
+      <div class="pt"><span class="tick"></span><div>
+        <h3>Waiting is measured at airports only.</h3>
+        <p>63% of flyers do something in the terminal (author&rsquo;s sum) and 70% use airport Wi-Fi. <i>Confidence: medium; one survey.</i><sup class="cite"><a href="#r-nasem" title="National Academies — Framework and Tools for Incorporating Technologies into Airport In-Te">[6]</a></sup></p>
+      </div></div>
+      <div class="pt"><span class="tick"></span><div>
+        <h3>Most of the map is blank.</h3>
+        <p>Buses, trains, subways, platforms, planes in flight, chargers and parked cars have no US measure from the last ten years. Agency surveys checked do not ask what riders do. <i>Confidence: high that none was found; not proof none exists.</i><sup class="cite"><a href="#r-ferry22" title="NYC Ferry — 2022 Survey Results (about 1,600 riders, 29 Aug to 11 Sep 2022; checked for on">[13]</a></sup><sup class="cite"><a href="#r-gotri23" title="GoTriangle, GoDurham, GoRaleigh, GoCary — Regional Onboard Survey Report 2023 (4,098 rider">[14]</a></sup></p>
+      </div></div>
+    </div>
+
+    <figure class="vwchart" aria-label="Observed device use, last ten years">
+      <figcaption>
+        <h3>Who is on a device</h3>
+        <p>Observed in the last ten years &middot; not like for like</p>
+      </figcaption>
+      <div class="vb">
+<div class="grp-l">Observed &middot; device in hand or in view</div>
+<div class="vb-row sm"><div class="vb-lab"><b>Front-seat passengers</b><span>UMTRI, video frames</span></div><div class="vb-track"><div class="vb-bar" style="width:26.0%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(26.0% + 6px)">26%</div></div></div>
+<div class="vb-row sm"><div class="vb-lab"><b>Pedestrians crossing</b><span>NYC DOT, Queens 2017</span></div><div class="vb-track"><div class="vb-bar" style="width:13.0%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(13.0% + 6px)">13%</div></div></div>
+<div class="vb-row sm"><div class="vb-lab"><b>Drivers at a stop</b><span>NHTSA, Jun 2024</span></div><div class="vb-track"><div class="vb-bar" style="width:4.5%;background:var(--cat-2)"></div><div class="vb-val" style="left:calc(4.5% + 6px)">4.5%</div></div></div>
+<div class="grp-l">Stated &middot; past 30 days</div>
+<div class="vb-row sm"><div class="vb-lab"><b>Drivers who read a text</b><span>AAA, 2023</span></div><div class="vb-track"><div class="vb-bar" style="width:37.0%;background:var(--cat-2)"></div><div class="vb-val" style="left:calc(37.0% + 6px)">37%</div></div></div>
+</div>
+      <p class="fignote">The rows count different behaviors: a device in hand in a video frame (about four minutes each), a pedestrian looking at a device while crossing, a driver visibly handling a handheld device at a stopped vehicle, and a driver saying they did something once in a month. Read as the size of the contrast, not a ranking.<sup class="cite"><a href="#r-umtri" title="UMTRI (University of Michigan Transportation Research Institute) — Naturalistic Passenger ">[4]</a></sup><sup class="cite"><a href="#r-nycdot" title="NYC DOT — Distraction Shouldn&#x27;t Be Deadly (observation of 783 pedestrians at three Queens ">[5]</a></sup><sup class="cite"><a href="#r-nopus24" title="NHTSA — Driver Electronic Device Use in 2024 (Traffic Safety Facts Research Note, DOT HS 8">[1]</a></sup></p>
+    </figure>
+  </div>
+  <div class="caveat"><b>What cuts against the thesis.</b> The evidence does not show screens taking over the journey. (1) Even for front-seat passengers, about three in four video frames show no device in hand.<sup class="cite"><a href="#r-umtri" title="UMTRI (University of Michigan Transportation Research Institute) — Naturalistic Passenger ">[4]</a></sup> (2) Drivers&rsquo; main in-car activity is radio.<sup class="cite"><a href="#r-soe" title="Radio Ink — The car remains radio’s castle in Edison’s Q4 Share of Ear (Edison Research Sh">[12]</a></sup> (3) Flyers say they pass time by sleeping (60%) about as often as by Wi-Fi entertainment (62%), in a global vendor survey.<sup class="cite"><a href="#r-viasat" title="Viasat — Passenger Experience Survey 2024 (Censuswide, Aug 2024; 11,213 respondents in 11 ">[15]</a></sup> (4) Missing recent data is not missing behavior; device use on trains, buses and planes may well have risen since the last observations in 2015.</div>
+</section>
+<section id="matrix">
+  <header class="co"><div class="co-bar"><span>Chapter 1 of 3</span><span class="co-seg" aria-hidden="true"><i class="on"></i><i></i><i></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">1</span><div class="co-body"><span class="co-eyebrow">The matrix</span><h2>What is measured, and what is not</h2><p class="co-thesis">Of 169 cells, 11 have a measure from the last ten years and 2 are strong: the map is dense for drivers and blank for most other modes.</p></div></div></header>
+  <div class="prose">
+    <p><b>How it is built.</b> Rows are 13 combinations of mode and state: moving or stopped, driver or passenger, in a vehicle or waiting. Columns are an &ldquo;any device&rdquo; measure plus 12 activity categories (operating, audio, video, calls and messages, social and web, games, work, reading, rest, eating and drinking, companions, errands). Each cell holds the headline figure, shaded by how well it is measured.</p>
+    <p><b>Rating rules.</b> Only data collected in the last ten years is used. <i>Strong</i>: a US-wide observation or probability sample from the last three years. <i>Medium</i>: a US-wide survey or dataset with a stated sample or definition; self-selected samples are flagged. <i>Thin</i>: a regional or small sample, or one city. <i>Gap</i>: nothing found. Most figures are prevalence; the only time-based figures are for driver audio and passenger video frames.</p>
+  </div>
+  <div class="hl-legend"><span><i class="sw v5"></i>Strong</span><span><i class="sw v4"></i>Medium</span><span><i class="sw v3"></i>Thin</span><span><i class="sw gp"></i>Gap (none found)</span><span>hover a cell for what it shows</span></div>
+  <div class="tablewrap"><table class="ucgrid mxgrid" id="mxgrid"><thead><tr><th class="co">Mode · state</th><th>Any device, observed</th><th class="sep">1 Operate or monitor</th><th>2 Audio</th><th>3 Video</th><th>4 Calls, messages</th><th>5 Social, web</th><th>6 Games</th><th>7 Work</th><th>8 Reading, learning</th><th>9 Rest</th><th>10 Eat, drink</th><th>11 Companions</th><th>12 Errands, purchases</th></tr></thead><tbody><tr><td class="co">Car · driver · moving</td><td class="mx v4" title="52.7% of trips had phone screen interaction; 116 seconds per driving hour (CMT telematics, 2024; insurance-program drivers)">53%</td><td class="gap sep" title="The driving task itself">task</td><td class="mx v4" title="73% use AM/FM radio; audio base is drivers and riders together (Edison, 2026)">73%</td><td class="gap" title="No US measure found">·</td><td class="mx v4" title="36% held and talked on a phone; 37% read a text or email, past 30 days (AAA, 2023)">36–37%</td><td class="mx v4" title="11% scrolled social media while driving (AAA, 2024; past 30 days)">11%</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td></tr><tr><td class="co">Car · driver · stopped at intersections</td><td class="mx v5" title="4.5% visibly handling a handheld device at a stop (NHTSA, 2024)">4.5%</td><td class="gap sep" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="mx v5" title="1.9% holding a phone to the ear at a stop (NHTSA, 2024)">1.9%</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td></tr><tr><td class="co">Car · passenger · moving</td><td class="mx v3" title="A handheld device in hand in 26% of video frames of front-seat passengers (UMTRI; one Michigan city, volunteer drivers)">26%</td><td class="gap sep" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="mx v3" title="Front-seat passengers were conversing in about 46% of frames (UMTRI; one Michigan city)">46%</td><td class="gap" title="No US measure found">·</td></tr><tr><td class="co">Car · stopped to charge</td><td class="gap" title="No US measure found">·</td><td class="gap sep" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td></tr><tr><td class="co">Car · parked or waiting</td><td class="gap" title="No US measure found">·</td><td class="gap sep" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td></tr><tr><td class="co">City bus</td><td class="gap" title="No US measure found">·</td><td class="gap sep" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td></tr><tr><td class="co">Intercity bus</td><td class="gap" title="No US measure found">·</td><td class="gap sep" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td></tr><tr><td class="co">Rail (commuter, intercity)</td><td class="gap" title="No US measure found">·</td><td class="gap sep" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td></tr><tr><td class="co">Subway and tram</td><td class="gap" title="No US measure found">·</td><td class="gap sep" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td></tr><tr><td class="co">Stop, platform, station</td><td class="gap" title="No US measure found">·</td><td class="gap sep" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td></tr><tr><td class="co">Plane · in flight</td><td class="gap" title="No US measure found">·</td><td class="gap sep" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td></tr><tr><td class="co">Airport · gate, terminal</td><td class="gap" title="No US measure found">·</td><td class="gap sep" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="mx v4" title="70% use airport Wi-Fi (National Academies panel survey, 2023)">70%</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="mx v4" title="63% do things in the airport before boarding: 18% before and 45% after going to the gate (author’s sum; 2023)">63%</td></tr><tr><td class="co">Walk, bike, ferry</td><td class="mx v3" title="13% of pedestrians crossing were looking at a device (NYC DOT, three Queens intersections, 2017)">13%</td><td class="gap sep" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td><td class="gap" title="No US measure found">·</td></tr></tbody></table></div>
+  <p class="fignote">Cell values are percentages of the people, trips or video frames sampled; units differ by source, so read across a row, not down a column. Sources for every cell are in the table below.</p>
+  <h3 class="sub-h">What each row rests on</h3>
+  <div class="tablewrap">
+    <table class="cmp">
+      <thead><tr><th>Mode &middot; state</th><th>What the sources show</th><th>Source and sample</th><th>Rating</th></tr></thead>
+      <tbody>
+        <tr><td class="rh">Car &middot; driver &middot; moving</td><td>73% use AM/FM, 48% online audio, 37% podcasts; 36% held and talked on a phone and 37% read a text or email in 30 days; 11% scrolled social media; screen interaction on 52.7% of trips and 116 seconds per driving hour</td><td>Edison, 2026; AAA, 2023 and 2024; vendor telematics, 2024<sup class="cite"><a href="#r-infdial" title="Edison Research — The Infinite Dial 2026, presentation (online survey of 2,050 people aged">[10]</a></sup><sup class="cite"><a href="#r-aaa23" title="AAA Foundation for Traffic Safety — 2023 Traffic Safety Culture Index, report summary (2,7">[3]</a></sup><sup class="cite"><a href="#r-aaa24" title="AAA Foundation for Traffic Safety — 2024 Traffic Safety Culture Index (2,704 licensed US d">[9]</a></sup><sup class="cite"><a href="#r-cmt24" title="Cambridge Mobile Telematics — State of US Road Risk, 6th edition preview (telematics from ">[16]</a></sup></td><td><span class="kindpill kp-co">Medium</span></td></tr>
+        <tr><td class="rh">Car &middot; driver &middot; stopped</td><td>4.5% handling a handheld device, 1.9% phone to ear, 0.5% headset; 8.7% handling among ages 16&ndash;24</td><td>NHTSA roadside observation, June 2024, stopped vehicles only<sup class="cite"><a href="#r-nopus24" title="NHTSA — Driver Electronic Device Use in 2024 (Traffic Safety Facts Research Note, DOT HS 8">[1]</a></sup></td><td><span class="kindpill kp-obs">Strong</span></td></tr>
+        <tr><td class="rh">Car &middot; front-seat passenger</td><td>Device in hand in 26% of video frames; conversing in about 46%. No US measure of back-seat passengers</td><td>UMTRI, 306 passengers, 2,733 trips, one Michigan city<sup class="cite"><a href="#r-umtri" title="UMTRI (University of Michigan Transportation Research Institute) — Naturalistic Passenger ">[4]</a></sup></td><td><span class="kindpill kp-fc">Thin</span></td></tr>
+        <tr><td class="rh">Airport &middot; gate, terminal</td><td>37% go straight to the gate, 45% go to the gate and then backtrack, 18% explore first; 70% use airport Wi-Fi</td><td>Panel of 1,200 flyers, Sep&ndash;Oct 2023<sup class="cite"><a href="#r-nasem" title="National Academies — Framework and Tools for Incorporating Technologies into Airport In-Te">[6]</a></sup></td><td><span class="kindpill kp-co">Medium</span></td></tr>
+        <tr><td class="rh">Walking</td><td>13% looking at a device while crossing</td><td>NYC DOT, 783 pedestrians at three Queens intersections, Nov 2017<sup class="cite"><a href="#r-nycdot" title="NYC DOT — Distraction Shouldn&#x27;t Be Deadly (observation of 783 pedestrians at three Queens ">[5]</a></sup></td><td><span class="kindpill kp-fc">Thin</span></td></tr>
+        <tr><td class="rh">All other rows</td><td>No US measure from the last ten years: charging, parked or waiting, city and intercity bus, rail, subway and tram, platforms, planes in flight, bike, ferry</td><td>&mdash;</td><td><span class="kindpill kp-sv">Gap</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section id="driving">
+  <header class="co"><div class="co-bar"><span>Chapter 2 of 3</span><span class="co-seg" aria-hidden="true"><i></i><i class="on"></i><i></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">2</span><div class="co-body"><span class="co-eyebrow">Driving</span><h2>Rare at a moment, common over a month</h2><p class="co-thesis">At a stop 4.5% of drivers handle a phone; over a month 37% say they read a message while driving; the main thing drivers do is listen to the radio.</p></div></div></header>
+  <div class="prose">
+    <p><b>The observed rate is low and rising.</b> NHTSA&rsquo;s roadside survey counts drivers at randomly selected intersections in daylight in June. In 2024 it found 4.5% visibly handling a handheld device, up from 3.0% in 2023 (a significant rise), and 1.9% holding a phone to the ear.<sup class="cite"><a href="#r-nopus24" title="NHTSA — Driver Electronic Device Use in 2024 (Traffic Safety Facts Research Note, DOT HS 8">[1]</a></sup></p>
+    <p><b>The stated rate is high.</b> In AAA&rsquo;s 2023 survey 37% of drivers said they had read a text or email while driving in the past 30 days, 27% had typed one and 36% had held and talked on a phone.<sup class="cite"><a href="#r-aaa23" title="AAA Foundation for Traffic Safety — 2023 Traffic Safety Culture Index, report summary (2,7">[3]</a></sup> The 2024 edition reports 37% reading and 11% scrolling social media.<sup class="cite"><a href="#r-aaa24" title="AAA Foundation for Traffic Safety — 2024 Traffic Safety Culture Index (2,704 licensed US d">[9]</a></sup> Both can be true: they measure a moment and a month.</p>
+    <p><b>Moving traffic is seen only through telematics.</b> The roadside survey sees only stopped vehicles. A 2024 telematics report finds phone-screen interaction on 52.7% of trips and 116 seconds per driving hour, about 3.2% of drive time by the author&rsquo;s arithmetic, down from 134 seconds in 2022. Its drivers are enrolled in insurance programs and no driver count is given.<sup class="cite"><a href="#r-cmt24" title="Cambridge Mobile Telematics — State of US Road Risk, 6th edition preview (telematics from ">[16]</a></sup> So a few percent of the time, on most trips, can sit beside 37% in a month.</p>
+    <p><b>Listening is the main activity.</b> Edison&rsquo;s 2026 survey finds 73% of adults who drive or ride use AM/FM, 48% online audio and 37% podcasts.<sup class="cite"><a href="#r-infdial" title="Edison Research — The Infinite Dial 2026, presentation (online survey of 2,050 people aged">[10]</a></sup><sup class="cite"><a href="#r-radioink-id" title="Radio Ink — Infinite Dial 2026: radio’s biggest audience is going digital (cross-check of ">[11]</a></sup> In time, AM/FM took 83% of ad-supported in-car audio in the fourth quarter of 2025, and 54% once ad-free listening is counted.<sup class="cite"><a href="#r-soe" title="Radio Ink — The car remains radio’s castle in Edison’s Q4 Share of Ear (Edison Research Sh">[12]</a></sup> Phones carry 29% of in-car listeners.<sup class="cite"><a href="#r-edphone" title="Edison Research — In-car listening on mobile phones, Weekly Insights (US, age 13+)">[17]</a></sup></p>
+  </div>
+  <div class="twocol">
+    <figure class="figbox">
+      <h3>Audio sources used in the car</h3>
+      <p class="cap">% of US adults who drove or rode in a car in the past month &middot; Edison Infinite Dial &middot; Jan 2026</p>
+      <div class="vb">
+<div class="vb-row sm"><div class="vb-lab"><b>AM/FM radio</b><span></span></div><div class="vb-track"><div class="vb-bar" style="width:73.0%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(73.0% + 6px)">73%</div></div></div>
+<div class="vb-row sm"><div class="vb-lab"><b>Online audio</b><span></span></div><div class="vb-track"><div class="vb-bar" style="width:48.0%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(48.0% + 6px)">48%</div></div></div>
+<div class="vb-row sm"><div class="vb-lab"><b>Podcasts</b><span></span></div><div class="vb-track"><div class="vb-bar" style="width:37.0%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(37.0% + 6px)">37%</div></div></div>
+<div class="vb-row sm"><div class="vb-lab"><b>SiriusXM</b><span></span></div><div class="vb-track"><div class="vb-bar" style="width:24.0%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(24.0% + 6px)">24%</div></div></div>
+</div>
+      <p class="fignote">Sources are not mutually exclusive, so shares sum to more than 100%. The base is worded as drivers and riders in the slides and as drivers in the trade report, so the passenger share cannot be separated.<sup class="cite"><a href="#r-infdial" title="Edison Research — The Infinite Dial 2026, presentation (online survey of 2,050 people aged">[10]</a></sup><sup class="cite"><a href="#r-radioink-id" title="Radio Ink — Infinite Dial 2026: radio’s biggest audience is going digital (cross-check of ">[11]</a></sup></p>
+    </figure>
+    <div class="prose">
+      <p><b>Why it matters.</b> Audio needs neither hands nor eyes; the part of driver attention that does, handling a phone, is growing.<sup class="cite"><a href="#r-nopus24" title="NHTSA — Driver Electronic Device Use in 2024 (Traffic Safety Facts Research Note, DOT HS 8">[1]</a></sup></p>
+    </div>
+  </div>
+  <div class="verdict"><span class="tag">Reading the evidence</span>High confidence that phone handling at stops rose from 2023 to 2024; medium confidence on the stated rates; low confidence for moving traffic, where the only recent source is insurance-program telematics.</div>
+</section>
+<section id="riding">
+  <header class="co"><div class="co-bar"><span>Chapter 3 of 3</span><span class="co-seg" aria-hidden="true"><i></i><i></i><i class="on"></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">3</span><div class="co-body"><span class="co-eyebrow">Riding, waiting and the gaps</span><h2>Where the hands are free and the data are missing</h2><p class="co-thesis">Passengers, riders and people waiting are the least measured: one video study of front-seat passengers, one survey of airports, and nothing recent for buses, trains, subways or planes in flight.</p></div></div></header>
+  <div class="prose">
+    <p><b>Car passengers: one study.</b> University of Michigan researchers filmed front-seat passengers in 75 vehicles, coding 13,638 frames from 2,733 trips by 306 passengers, each about four minutes of travel. A device was in hand in 26% of frames and passengers were conversing in about 46%. The drivers were volunteers in one small city and the collection year is not stated (the report is dated February 2020).<sup class="cite"><a href="#r-umtri" title="UMTRI (University of Michigan Transportation Research Institute) — Naturalistic Passenger ">[4]</a></sup> Private vehicles carry 87.0% of US person trips, so this is the largest block of travel time.<sup class="cite"><a href="#r-nhts" title="FHWA — Summary of Travel Trends: 2022 National Household Travel Survey (FHWA-HPL-24-009)">[7]</a></sup></p>
+    <p><b>Buses, trains, subways: nothing from the last decade.</b> The last US observations of riders found, in Chicago from 2010 to 2015, are older than the ten-year limit and left out. Two recent agency surveys checked, NYC Ferry (2022) and four North Carolina bus systems (2022&ndash;23), ask about trip purpose and apps, not what riders do on board.<sup class="cite"><a href="#r-ferry22" title="NYC Ferry — 2022 Survey Results (about 1,600 riders, 29 Aug to 11 Sep 2022; checked for on">[13]</a></sup><sup class="cite"><a href="#r-gotri23" title="GoTriangle, GoDurham, GoRaleigh, GoCary — Regional Onboard Survey Report 2023 (4,098 rider">[14]</a></sup></p>
+    <p><b>Airports: most explore.</b> In a 2023 panel survey of 1,200 frequent flyers, 37% went straight to the gate and 63% did something in the terminal first (the author&rsquo;s sum), and 70% used airport Wi-Fi.<sup class="cite"><a href="#r-nasem" title="National Academies — Framework and Tools for Incorporating Technologies into Airport In-Te">[6]</a></sup> In the air, an 11-country Viasat survey has flyers saying they would use Wi-Fi for entertainment (62%) or sleep (60%); it has no US breakdown, so it is not in the matrix.<sup class="cite"><a href="#r-viasat" title="Viasat — Passenger Experience Survey 2024 (Censuswide, Aug 2024; 11,213 respondents in 11 ">[15]</a></sup></p>
+    <p><b>Walkers: one city.</b> A New York City DOT observer counted 13% of 783 pedestrians at three Queens intersections as looking at a device in 2017.<sup class="cite"><a href="#r-nycdot" title="NYC DOT — Distraction Shouldn&#x27;t Be Deadly (observation of 783 pedestrians at three Queens ">[5]</a></sup> National time-use statistics do not help: the American Time Use Survey folds travel into each purpose category.<sup class="cite"><a href="#r-atus" title="US Bureau of Labor Statistics — American Time Use Survey 2025 results (about 6,100 intervi">[18]</a></sup></p>
+    <p><b>What would close the gaps (the author&rsquo;s suggestion).</b> Add a &ldquo;what did you do during the trip&rdquo; question to travel diaries and transit on-board surveys, or repeat observation on buses, subways and platforms.</p>
+  </div>
+  <div class="tablewrap">
+    <table class="cmp">
+      <thead><tr><th>Gap</th><th>Why it matters</th><th>What would measure it</th></tr></thead>
+      <tbody>
+        <tr><td class="rh">Back-seat and other car passengers</td><td>Largest block of travel time; 87.0% of person trips are in private vehicles<sup class="cite"><a href="#r-nhts" title="FHWA — Summary of Travel Trends: 2022 National Household Travel Survey (FHWA-HPL-24-009)">[7]</a></sup></td><td>An activity question in NHTS-style diaries; in-car observation with consent</td></tr>
+        <tr><td class="rh">Bus, rail, subway, platform</td><td>Seated riders with free hands; the last observations are from 2015</td><td>Repeat observation; activity items in agency on-board surveys</td></tr>
+        <tr><td class="rh">Plane in flight, charging, parked</td><td>Long dwell times with no US-only activity figures</td><td>Airline and charger-network data with stated definitions</td></tr>
+        <tr><td class="rh">Time share, all modes</td><td>Only driver audio and passenger video frames have time-based figures</td><td>Time-use diaries with a travel-activity module</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="verdict"><span class="tag">Reading the evidence</span>Low confidence for car passengers (one study); medium for airports (one survey); high that the other rows have no recent US measure in the sources searched.</div>
+</section>
+<section id="method">
+  <div class="sec-head"><h2>Method, limits and flags</h2><span class="eyebrow">Read before citing</span></div>
+  <div class="about">
+    <p><b>Question.</b> What do people in the US do while traveling, in each mode and in motion versus stopped, and where is that behavior measured? The report builds a matrix, fills each cell from the best US source found, and rates the evidence rather than estimating the missing cells.</p>
+    <p><b>Scope.</b> United States only, by choice of the author, and only data collected in the last ten years (since October 2016). Modes: car (driver and passenger, including charging and waiting), bus, rail, subway and tram, plane and airport, with walking, biking and ferries as an edge tier. It covers people&rsquo;s activity, not crashes or safety outcomes.</p>
+    <p><b>Sources.</b> The source type follows the claim. For how people behave, government observation and statistics, then peer-reviewed studies and agency reports, then independent panels, with vendor data as support and trade press to trace the original. Each reference carries its type and date. Observed, stated and company-claimed figures are labeled and kept apart. Searches ran on 21 October 2026 across government reports, journals, transit agency surveys and trade press, and were not a systematic review; &ldquo;none found&rdquo; means not found, not absent.</p>
+    <p><b>What this report is not.</b> Confidence levels and the strength ratings are the author&rsquo;s assessment of the evidence, not statistical measures. The &ldquo;what would close the gaps&rdquo; suggestions are the author&rsquo;s judgment, not forecasts.</p>
+  </div>
+  <h3 class="sub-h" style="margin-top:0;">Flags and open questions</h3>
+  <ol class="flags">
+<li><b>Older data left out.</b> Observations of Chicago-area rail riders (2010&ndash;2015), intercity bus, Amtrak and airline passengers (2014), a Fargo campus bus survey (2010), a Northern California commuter survey (fielded 2011&ndash;12), the SHRP 2 driving video (2010&ndash;2013) and a Seattle pedestrian study (2012) were found and excluded by the ten-year rule. Including them would fill several rail, bus and plane cells; that is a choice for a later edition.</li>
+<li><b>Not like for like.</b> Observation studies count a device at a moment or in a frame; AAA counts people who ever did something in a month; Edison counts reach, and one source gives minutes. Cells are comparable along a row, not down a column.</li>
+<li><b>Roadside survey limits.</b> NOPUS sees only stopped vehicles at intersections in daylight in June, and counts what is visible. It is not a measure of moving traffic or of crash risk.</li>
+<li><b>Passenger video study.</b> UMTRI&rsquo;s drivers were volunteers who regularly carry passengers, in one small city; 72% of passengers were women against about 62% nationally; its text gives 26% in a table and 27% in the results; &ldquo;device in hand&rdquo; counts holding, not necessarily using. The collection year is not stated, so it may be near the ten-year edge; the author kept it, rated thin.</li>
+<li><b>Telematics.</b> Cambridge Mobile Telematics covers drivers enrolled in insurance programs, gives no driver or trip count in the preview read, and counts screen touches only. It is rated medium with that caveat; the 3.2% of drive time is the author&rsquo;s arithmetic.</li>
+<li><b>Edison in-car figures.</b> The slide and a trade report describe the base differently (adults who drove or rode in the past month; Americans who drive), so the audio figure sits in the driver row and cannot be split from passengers. The 83% and 54% radio time shares are ad-supported audio unless stated, relayed by trade press.</li>
+<li><b>Airport survey.</b> A non-probability panel weighted to the census; coverage is presumed to be the US. The source text says 45% go straight to the gate while its figure shows 45% for &ldquo;go to the gate, then backtrack&rdquo; and 37% for straight to the gate; the figure is used. The 63% is the author&rsquo;s sum.</li>
+<li><b>Viasat.</b> Commissioned and published by Viasat, 11 countries; the US sample is 1,515 but no US-only results are published, so it is quoted in the text only. The country table on page 28 sums to 10,712 against 11,213 stated, and the report does not explain the gap.</li>
+<li><b>Pedestrians and agency surveys.</b> The New York study covers three Queens intersections. Other pedestrian studies found were older than ten years, from a single college campus, or could not be opened. The two transit agency surveys are examples of what agencies ask, not a census of surveys.</li>
+<li><b>Scoring.</b> The strength thresholds (three years, ten years, sample type) are the author&rsquo;s choice. A different cut-off would move several cells.</li>
+  </ol>
+  <h3 class="sub-h" id="changelog">Change log</h3>
+  <ul class="log">
+    <li class="loghead">October 2026 edition</li>
+    <li><span class="new">Added</span><div>First edition, data as of 21 October 2026. Matrix of 13 modes and states by 13 activity measures, with US sources from the last ten years for 11 cells.</div></li>
+  </ul>
+  <h3 class="sub-h">Related reports on this site</h3>
+  <div class="about">
+    <p><a href="../shared-cabin/">One cabin, several people</a> sizes the passenger-hours gap that this report cannot fill with activity data. <a href="../incar-ai-benchmark/">In-Car AI Assistant Benchmark</a> covers the assistants that sit in the driver&rsquo;s seat of the activities counted here.<sup class="cite"><a href="#r-bench" title="Chuhee Lee — In-Car AI Assistant Benchmark, October 2026 edition (this site)">[19]</a></sup></p>
+  </div>
+  <h3 class="sub-h">About this report</h3>
+  <div class="about">
+    <p>Personal research by <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">Chuhee Lee</a>. Research, source verification and drafting were carried out with AI models used as a research team: Claude (Anthropic), Gemini (Google) and ChatGPT (OpenAI). Every factual claim is sourced to the references listed below; topic selection, framing, ratings and conclusions are the author&rsquo;s. These are personal research projects; the views are the author&rsquo;s own and do not represent any employer or organization. No company named sponsors, reviews or endorses this report, and product names and trademarks belong to their owners. Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>.</p>
+  </div>
+  <h3 class="sub-h" id="refs">References</h3>
+  <ul class="srcs">
+<li id="r-nopus24"><b>[1]</b> <a href="https://rosap.ntl.bts.gov/view/dot/90294/dot_90294_DS1.pdf" target="_blank" rel="noopener">NHTSA — Driver Electronic Device Use in 2024 (Traffic Safety Facts Research Note, DOT HS 813 788; NOPUS roadside observation, 64,151 vehicles at 1,420 sites, 3–20 June 2024)</a><span class="tag">primary (federal observation) · Apr 2026</span></li>
+<li id="r-nopus23"><b>[2]</b> <a href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813660" target="_blank" rel="noopener">NHTSA — Driver Electronic Device Use in 2023 (DOT HS 813 660; NOPUS: only stopped vehicles at intersections, about 7 a.m. to 6 p.m., 51,769 vehicles)</a><span class="tag">primary (federal observation) · Nov 2024</span></li>
+<li id="r-aaa23"><b>[3]</b> <a href="https://aaafoundation.org/wp-content/uploads/2024/11/202412-AAAFTS-2023-Traffic-Safety-Culture-Index-Report-Summary.pdf" target="_blank" rel="noopener">AAA Foundation for Traffic Safety — 2023 Traffic Safety Culture Index, report summary (2,739 licensed US drivers, online probability panel, 1–21 Aug 2023; behaviors in the past 30 days)</a><span class="tag">survey (non-profit, self-report) · Dec 2024</span></li>
+<li id="r-umtri"><b>[4]</b> <a href="https://deepblue.lib.umich.edu/handle/2027.42/154855" target="_blank" rel="noopener">UMTRI (University of Michigan Transportation Research Institute) — Naturalistic Passenger Behavior: Posture and Activities, technical report UMTRI-2020-2 (in-cabin video of front-seat passengers in 75 vehicles, 306 passengers, 2,733 trips, Ann Arbor, Michigan; collection year not stated)</a><span class="tag">primary (naturalistic video) · Feb 2020</span></li>
+<li id="r-nycdot"><b>[5]</b> <a href="https://www.nyc.gov/html/dot/downloads/pdf/distraction-shouldnt-be-deadly.pdf" target="_blank" rel="noopener">NYC DOT — Distraction Shouldn&rsquo;t Be Deadly (observation of 783 pedestrians at three Queens intersections, Nov 2017)</a><span class="tag">city observation · 2017</span></li>
+<li id="r-nasem"><b>[6]</b> <a href="https://www.nationalacademies.org/read/29145/chapter/12" target="_blank" rel="noopener">National Academies — Framework and Tools for Incorporating Technologies into Airport In-Terminal Concessions Programs, Appendix B air passenger survey (1,200 panel respondents who flew at least twice in a year, Sep–Oct 2023, weighted to census)</a><span class="tag">research report (non-probability panel) · 2025</span></li>
+<li id="r-nhts"><b>[7]</b> <a href="https://rosap.ntl.bts.gov/view/dot/73764/dot_73764_DS1.pdf" target="_blank" rel="noopener">FHWA — Summary of Travel Trends: 2022 National Household Travel Survey (FHWA-HPL-24-009)</a><span class="tag">primary (federal statistics) · 2024</span></li>
+<li id="r-cabin"><b>[8]</b> <a href="https://blueplanet-ai.github.io/shared-cabin/" target="_blank" rel="noopener">Chuhee Lee — One cabin, several people (opportunity brief; passenger-hour arithmetic, occupancy and J.D. Power passenger-screen figures as cited there; this site)</a><span class="tag">own report · Oct 2026</span></li>
+<li id="r-aaa24"><b>[9]</b> <a href="https://aaafoundation.org/research/2024-traffic-safety-culture-index/" target="_blank" rel="noopener">AAA Foundation for Traffic Safety — 2024 Traffic Safety Culture Index (2,704 licensed US drivers, online probability panel, 7–27 Aug 2024; behaviors in the past 30 days)</a><span class="tag">survey (non-profit, self-report) · 2024 edition</span></li>
+<li id="r-infdial"><b>[10]</b> <a href="https://www.edisonresearch.com/wp-content/uploads/2026/03/The-Infinite-Dial-2026-Presentation.pdf" target="_blank" rel="noopener">Edison Research — The Infinite Dial 2026, presentation (online survey of 2,050 people aged 12+, January 2026; in-car base: US adults 18+ who drove or rode in a car in the past month)</a><span class="tag">survey (research firm; half non-probability) · Mar 2026</span></li>
+<li id="r-radioink-id"><b>[11]</b> <a href="https://radioink.com/?p=101282" target="_blank" rel="noopener">Radio Ink — Infinite Dial 2026: radio’s biggest audience is going digital (cross-check of the in-car figures)</a><span class="tag">trade press · 2026</span></li>
+<li id="r-soe"><b>[12]</b> <a href="https://radioink.com/2026/03/10/the-car-remains-radios-castle-in-edisons-q4-share-of-ear/" target="_blank" rel="noopener">Radio Ink — The car remains radio’s castle in Edison’s Q4 Share of Ear (Edison Research Share of Ear, Q4 2025; Westwood One analysis)</a><span class="tag">trade press (research-firm data) · 10 Mar 2026</span></li>
+<li id="r-ferry22"><b>[13]</b> <a href="https://www.ferry.nyc/wp-content/uploads/2023/01/2022-Survey-Results.pdf" target="_blank" rel="noopener">NYC Ferry — 2022 Survey Results (about 1,600 riders, 29 Aug to 11 Sep 2022; checked for onboard activity questions, none found)</a><span class="tag">transit agency survey · Jan 2023</span></li>
+<li id="r-gotri23"><b>[14]</b> <a href="https://www.goforwardnc.org/wp-content/uploads/2024/01/Regional-Onboard-Survey-Report-2023-1.pdf" target="_blank" rel="noopener">GoTriangle, GoDurham, GoRaleigh, GoCary — Regional Onboard Survey Report 2023 (4,098 riders, Nov 2022 and Apr–May 2023; checked for onboard activity questions, none found)</a><span class="tag">transit agency survey · Oct 2023</span></li>
+<li id="r-viasat"><b>[15]</b> <a href="https://www.viasat.com/content/dam/us-site/aviation/perspectives/documents/Viasat-Passenger-Experience-Survey-2024.pdf" target="_blank" rel="noopener">Viasat — Passenger Experience Survey 2024 (Censuswide, Aug 2024; 11,213 respondents in 11 countries, Viasat-commissioned; no US breakdown published)</a><span class="tag">vendor-funded survey · 2024</span></li>
+<li id="r-cmt24"><b>[16]</b> <a href="https://m.cmtelematics.com/hubfs/CMT%20US%20Road%20Risk%20Report%206th%20Edition%20Preview.pdf" target="_blank" rel="noopener">Cambridge Mobile Telematics — State of US Road Risk, 6th edition preview (telematics from US drivers in usage-based insurance programs, 1 Jan 2020 to 31 Dec 2024; driver and trip counts not stated)</a><span class="tag">vendor telematics · data to Dec 2024</span></li>
+<li id="r-edphone"><b>[17]</b> <a href="https://ssrs.com/insights/in-car-listening-on-mobile-phones/" target="_blank" rel="noopener">Edison Research — In-car listening on mobile phones, Weekly Insights (US, age 13+)</a><span class="tag">research firm · 26 Nov 2024</span></li>
+<li id="r-atus"><b>[18]</b> <a href="https://www.bls.gov/news.release/archives/atus_06252026.htm" target="_blank" rel="noopener">US Bureau of Labor Statistics — American Time Use Survey 2025 results (about 6,100 interviews; USDL-26-1022)</a><span class="tag">primary (federal statistics) · 25 Jun 2026</span></li>
+<li id="r-bench"><b>[19]</b> <a href="https://blueplanet-ai.github.io/incar-ai-benchmark/" target="_blank" rel="noopener">Chuhee Lee — In-Car AI Assistant Benchmark, October 2026 edition (this site)</a><span class="tag">own report · 11 Oct 2026</span></li>
+
+  </ul>
+</section>
+</div>
+
+</main>
+<section class="rn" aria-labelledby="rnH"><div class="ro-inner">
+  <div class="rn-head"><h2 id="rnH">Continue <em>down the map</em></h2><span class="rn-chain" aria-label="The four layers of the map"><span class="f">Forces</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="">Shifts</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class=" here" aria-current="true">Signals</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="o">Opportunities</span></span></div>
+  <div class="rn-cards"><a class="rn-card" href="/shared-cabin/"><img src="/shared-cabin/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Opportunities</span><span class="rn-t">One cabin, several people</span><span class="rn-q">Is the shared car cabin, where a driver and passengers ride together, a problem large enough to be worth solving, and where could a solution start?</span></span></a><a class="rn-card" href="/incar-ai-benchmark/"><img src="/incar-ai-benchmark/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Signals</span><span class="rn-t">In-Car AI Assistant Benchmark</span><span class="rn-q">What can today’s in-car AI assistants actually do for the driver, and who owns the layer that does it?</span></span></a></div>
+</div></section>
+<section class="rn-follow" aria-labelledby="rnF"><div class="ro-inner">
+  <div><span class="rn-k">Follow new editions</span><h2 id="rnF">Each report is refreshed on a schedule. <em>Know when it changes.</em></h2><p>Next refresh dates are listed on the <a href="/#follow">home page</a>.</p></div>
+  <div class="rn-acts"><a href="/feed.xml"><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5a14 14 0 0 1 14 14M5 11a8 8 0 0 1 8 8"/><circle cx="6" cy="18" r="1"/></svg>RSS feed</a><a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener"><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Follow on LinkedIn</a></div>
+</div></section>
+<footer class="foot"><div class="foot-inner">
+  <span>&copy; 2026 Chuhee Lee &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+  <span>Independent research &middot; not affiliated with or endorsed by any company or organization named</span>
+  <span><a href="../method/">How this research is made</a> &middot; <a href="../">All publications</a></span>
+</div></footer>
+<script>
+/* ---------- AT A GLANCE (infographic): shared helpers ---------- */
+var GL={
+ esc:function(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");},
+ bar:function(o){return '<div class="gl-bar '+(o.cls||'')+'"'+(o.lw?' style="--lw:'+o.lw+'px"':'')+'><span class="gl-nm">'+o.nm+(o.sub?'<small>'+o.sub+'</small>':'')+'</span><span class="gl-tr"><i style="width:'+Math.max(1.5,o.v/o.max*100).toFixed(1)+'%;background:'+(o.c||'var(--g-accent)')+(o.o?';opacity:'+o.o:'')+(o.dash?';outline:1.5px dashed var(--g-ink);outline-offset:-1.5px':'')+'"></i>'+(o.mark!=null?'<u style="left:'+(o.mark/o.max*100).toFixed(1)+'%"></u>':'')+'</span><span class="gl-v">'+o.txt+'</span></div>';},
+ tile:function(n,l,s,c){return '<div'+(c?' style="--c:'+c+'"':'')+'><div class="gl-n">'+n+'</div><div class="gl-l">'+l+'</div><div class="gl-s">'+s+'</div></div>';},
+ mast:function(title,meta){return '<div class="gl-mast"><b>'+title+'</b><span>'+meta+'</span></div>';},
+ foot:function(url,txt){return '<div class="gl-foot"><span>'+url+'</span><span>'+txt+'</span></div>';},
+ /* read a bar figure already on the page: returns [{nm,sub,txt,w,color,tgt}] */
+ scrape:function(fig,grp){var g='';return Array.prototype.slice.call(fig.querySelectorAll('.grp-l,.vb-row')).map(function(r){
+   if(r.classList.contains('grp-l')){g=r.textContent.trim();return null;}
+   var b=r.querySelector('.vb-bar'),t=r.querySelector('.vb-tgt'),l=r.querySelector('.vb-lab b'),s=r.querySelector('.vb-lab span'),v=r.querySelector('.vb-val');
+   var el=b||t;if(!el||!l||!v)return null;
+   return {nm:GL.esc((grp&&g?g+' · ':'')+l.textContent),sub:s?GL.esc(s.textContent):'',txt:GL.esc(v.textContent),w:parseFloat(el.style.width)||0,color:b?b.style.background:'var(--g-accent)',tgt:!b};}).filter(Boolean);},
+ /* text of a node without citation superscripts */
+ plain:function(n){var c=n.cloneNode(true);Array.prototype.forEach.call(c.querySelectorAll('sup'),function(x){x.remove();});return GL.esc(c.textContent.replace(/\s+/g,' ').trim());}
+};
+
+/* ---------- AT A GLANCE: What people do on the move ---------- */
+(function(){
+ var root=document.getElementById("glanceBody");if(!root)return;
+ var ref=function(id,t){return '<a href="#'+id+'">'+t+'</a>';};
+ var tiles=
+  GL.tile('4.5%','of drivers handled a phone at a stop, June 2024, up from 3.0% in 2023',ref('r-nopus24','NHTSA')+' · observed')+
+  GL.tile('37%','of drivers say they read a text or email while driving, past 30 days (2023)',ref('r-aaa23','AAA Foundation')+' · stated','var(--cat-2)')+
+  GL.tile('26%','of video frames of front-seat passengers showed a device in hand (one Michigan city)',ref('r-umtri','UMTRI')+' · observed · thin')+
+  GL.tile('11 of 169','matrix cells have any US measure; 2 are strong',"Author's count · see chapter 1");
+ /* observed device use ladder, read from the summary figure */
+ var vw=document.querySelector("#summary .vwchart"),ladder='';
+ if(vw){Array.prototype.forEach.call(vw.querySelectorAll('.grp-l,.vb-row'),function(r){
+   if(r.classList.contains('grp-l')){ladder+='<div class="gl-grp">'+GL.esc(r.textContent.trim())+'</div>';return;}
+   var b=r.querySelector('.vb-bar'),l=r.querySelector('.vb-lab b'),s=r.querySelector('.vb-lab span'),v=r.querySelector('.vb-val');
+   ladder+=GL.bar({nm:GL.esc(l.textContent),sub:s?GL.esc(s.textContent):'',v:parseFloat(b.style.width)||0,max:100,txt:GL.esc(v.textContent.trim()),c:b.style.background,lw:170,vw:48,cls:'sm'});
+ });}
+ /* evidence map, read from the matrix table */
+ var tb=document.getElementById('mxgrid'),map='';
+ if(tb){
+  var hs=tb.querySelectorAll('thead th'),hdr='<span></span>';
+  for(var k=1;k<hs.length;k++){hdr+='<span class="cl">'+(k===1?'A':(k-1))+'</span>';}
+  var rows=tb.querySelectorAll('tbody tr'),cells='';
+  Array.prototype.forEach.call(rows,function(tr){
+   var tds=tr.querySelectorAll('td');cells+='<span class="rl">'+GL.esc(tds[0].textContent)+'</span>';
+   for(var j=1;j<tds.length;j++){var cl=tds[j].className,t=(cl.match(/v[345]/)||[''])[0]||(cl.indexOf('gap')>-1&&tds[j].textContent.trim()==='task'?'na':'');cells+='<i class="'+t+'" title="'+GL.esc(tds[j].getAttribute('title')||'')+'"></i>';}
+  });
+  map='<div class="gl-mxg">'+hdr+cells+'</div>'+
+   '<div class="gl-legend"><span><i class="gl-chip" style="background:var(--s5)"></i>Strong</span><span><i class="gl-chip" style="background:var(--s4)"></i>Medium</span><span><i class="gl-chip" style="background:var(--s3)"></i>Thin</span><span><i class="gl-chip" style="border:1px dashed var(--g-rule)"></i>Gap</span></div>'+
+   '<div class="gl-note">Columns: A any device observed; 2 audio; 3 video; 4 calls and messages; 5 social and web; 6 games; 7 work; 8 reading; 9 rest; 10 eat and drink; 11 companions; 12 errands. Column 1 (operate) is the driving task.</div>';
+ }
+ root.innerHTML=GL.mast('What people do on the move','Data as of 21 Oct 2026')+
+  '<div class="gl-lede"><b>The map is dense for drivers and mostly blank for everyone else.</b> With data older than ten years set aside, no US measure remains for buses, trains, subways or planes in flight.</div>'+
+  '<div class="gl-tiles">'+tiles+'</div>'+
+  '<div class="gl-two"><div><div class="gl-h">Who is on a device</div><div class="gl-sub">Observed in the past decade. Groups count different behaviors, so read the size of the contrast, not a ranking.</div>'+ladder+'</div>'+
+  '<div><div class="gl-h">Where the evidence is</div><div class="gl-sub">13 modes and states by 13 measures; shade shows strength of evidence (chapter 1).</div>'+map+'</div></div>'+
+  '<div class="gl-two"><div><div class="gl-h">The read</div><div class="gl-sub">Author&rsquo;s judgment, not a forecast.</div><ul class="gl-ul" style="font-size:.82rem;color:var(--g-ink2)">'+
+  '<li><b style="color:var(--g-ink)">Listening beats looking in the car.</b> 73% use AM/FM; 54% of in-car audio time is radio.</li>'+
+  '<li><b style="color:var(--g-ink)">Passengers hold devices more than drivers do.</b> 26% of front-seat passenger frames, against 4.5% of drivers at a stop (different methods).</li>'+
+  '<li><b style="color:var(--g-ink)">Waiting is not idle.</b> 63% of flyers do something in the terminal (author&rsquo;s sum); 70% use airport Wi-Fi.</li></ul></div>'+
+  '<div><div class="gl-h">What would close the gaps</div><div class="gl-sub">The cheapest ways to fill the empty rows.</div><ul class="gl-ul" style="font-size:.82rem;color:var(--g-ink2)">'+
+  '<li><b style="color:var(--g-ink)">Ask the question in existing surveys</b><br>An activity item in NHTS-style diaries and transit on-board surveys.</li>'+
+  '<li><b style="color:var(--g-ink)">Repeat the observation</b><br>Counts on buses, trains, subways and platforms; the last US observations date from 2015.</li></ul></div></div>'+
+  GL.foot('blueplanet-ai.github.io/on-the-move','&copy; 2026 Chuhee Lee · CC BY-NC 4.0 · Figures from the cited sources; the read is the author&rsquo;s judgment');
+})();
+</script>
+<script src="/assets/report-opener.js" defer></script>
+</body>
+</html>

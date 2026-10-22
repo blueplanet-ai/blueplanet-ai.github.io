@@ -6,7 +6,14 @@
   <description>Benchmarks, comparisons and research reports on AI, mobility and experience: time and attention on the move. New editions and refreshes.</description>
   <language>en</language>
   <atom:link href="https://blueplanet-ai.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 18 Oct 2026 07:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 21 Oct 2026 07:00:00 GMT</lastBuildDate>
+  <item>
+    <title>What people do on the move</title>
+    <link>https://blueplanet-ai.github.io/on-the-move/</link>
+    <guid isPermaLink="true">https://blueplanet-ai.github.io/on-the-move/</guid>
+    <pubDate>Wed, 21 Oct 2026 07:00:00 GMT</pubDate>
+    <description>Research report, October 2026 edition (data as of 21 Oct 2026). A US benchmark of what people do while traveling, by mode and by whether the vehicle is moving or stopped, using only data from the last ten years. Drivers are measured; buses, trains, subways and planes in flight are not.</description>
+  </item>
   <item>
     <title>One cabin, several people (opportunity brief)</title>
     <link>https://blueplanet-ai.github.io/shared-cabin/</link>
