@@ -112,5 +112,24 @@
         "passenger screens never used"
       ]
     ]
+  },
+  "on-the-move": {
+    "eyebrow": "INDEPENDENT RESEARCH · TRAVEL · SIGNALS",
+    "line1": "What people do",
+    "line2": "on the move",
+    "stats": [
+      [
+        "4.5%",
+        "drivers handling a phone at a stop, 2024"
+      ],
+      [
+        "26%",
+        "front-seat passengers with a device in hand"
+      ],
+      [
+        "11 of 169",
+        "matrix cells with a US measure"
+      ]
+    ]
   }
 }

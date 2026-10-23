@@ -2,6 +2,12 @@
 
 ## Site-wide
 
+### 21 October 2026 — new Signals report: What people do on the move
+- **New page** `on-the-move/`: a US benchmark of what people do while traveling, built on the report template (opener, 60-second takeaways, at-a-glance infographic, three chapters, method and references). A 13 by 13 matrix of modes and states by activity measures, filled only from US data collected in the last ten years and rated by how well each cell is measured; cells with no source are left as gaps. 11 of 169 cells have a measure, 2 are strong; buses, trains, subways and planes in flight have none.
+- **Home page:** added as the lead publication and "Latest"; added as 06 in Start here (the brief moves to 07); the Travel / Signals map cell now links to it; "What changed" entry added.
+- **Other files:** feed, sitemap, README and the 404 list updated; `tools/og-cards.json` gains the report's social-card figures. The report's cover is the matrix drawn as dots and is committed with the page; `tools/make-covers.py` is not changed.
+- **Research:** Claude, Gemini and ChatGPT were used as a research team and are credited on the page. Findings from older studies and from unsourced model output were excluded; the page lists what was left out and why.
+
 ### 18 October 2026 — content fixes from the site audit
 - **Physical AI and the Rider's Cabin:** all 24 headquarters shown on the map are now cited (references 78-101); Figure AI is shown in San Jose; Apollo Go Q2 rides are worded "at least about 0.9 million"; the edition is marked as updated 14 October.
 - **Agentic AI and the Consumer:** first-person wording replaced with "the author".
