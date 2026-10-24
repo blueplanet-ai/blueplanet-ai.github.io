@@ -2,6 +2,10 @@
 
 ## Site-wide
 
+### 23 October 2026 — The terminal benchmark: full names for codes
+- **Hover expansions:** airport codes, region tags (NAM, EUR, APAC, ME) and acronyms (ACI, IATA, CAA, PUP and others) on `terminal-benchmark/` are wrapped in `<abbr>` and show their full name on hover or tap, in a tooltip that reuses the In-Car AI Assistant Benchmark's `.tip` style; a dotted underline marks them. 144 codes in all; text inside links and citations is unchanged.
+- **Airport key:** the Method section gains a table of the 28 airports by region (code, airport, city), linked from the scope paragraph; the report's change log notes the update. No findings or figures changed.
+
 ### 23 October 2026 — new Signals report: The terminal benchmark
 - **New page** `terminal-benchmark/`: a global benchmark of what people do in airport terminals and what 28 leading airports offer for that time, built on the report template (opener, 60-second takeaways, at-a-glance infographic, four chapters, method and references). A 16 by 7 matrix of activity measures by region, filled only from data collected in the last ten years and rated by how well each cell is measured: 20 of 112 cells have a measure, 3 are strong, and Latin America and Africa have none. Chapter 3 lists 27 featured services, each checked on an operator or official page in October 2026.
 - **Home page:** added as the lead publication and "Latest"; added as 07 in Start here (the brief moves to 08); the Travel / Signals map cell now also links to it; "What changed" entry added and the oldest row dropped to keep the count unchanged. What people do on the move moves to a standard card with its portrait cover.
