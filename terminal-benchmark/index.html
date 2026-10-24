@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F4F7F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151D1F" media="(prefers-color-scheme: dark)">
+<title>The terminal benchmark — Chuhee Lee</title>
+<meta name="description" content="Independent benchmark of what people do in airport terminals around the world and what 28 leading airports offer for that time, with each measure rated by how well it is evidenced. October 2026 edition by Chuhee Lee; data as of 23 October 2026.">
+<meta name="author" content="Chuhee Lee">
+<link rel="canonical" href="https://blueplanet-ai.github.io/terminal-benchmark/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Chuhee Lee — Independent Research" href="/feed.xml">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The terminal benchmark">
+<meta property="og:description" content="Independent benchmark of what people do in airport terminals around the world and what 28 leading airports offer for that time, with each measure rated by how well it is evidenced. October 2026 edition by Chuhee Lee; data as of 23 October 2026.">
+<meta property="og:url" content="https://blueplanet-ai.github.io/terminal-benchmark/">
+<meta property="og:site_name" content="Chuhee Lee — Independent Research">
+<meta property="og:image" content="https://blueplanet-ai.github.io/terminal-benchmark/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The terminal benchmark. Independent research by Chuhee Lee.">
+<meta name="twitter:image" content="https://blueplanet-ai.github.io/terminal-benchmark/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>img{max-width:100%}[hidden]{display:none!important}:root{--signal-text:var(--signal-deep);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--signal-text:var(--signal);}}
+:root[data-theme="dark"]{--signal-text:var(--signal);}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#EBF0E6;
+  --surface:#F4F7F0;
+  --surface-2:#E0E7DA;
+  --line:#CDD6C6;
+  --line-strong:#B3BFAB;
+  --ink:#0F1719;
+  --ink-2:#344145;
+  --ink-3:#4E5B5F;
+  --signal:#0892A5;
+  --signal-deep:#066A79;
+
+  --cat-1:#0892A5;
+  --cat-2:#C2622D;
+  --cat-3:#4B5BA8;
+  --cat-4:#8A8C36;
+
+  --s1:#E4EDEF; --s1-ink:#344145;
+  --s2:#BEDCE2; --s2-ink:#1B3438;
+  --s3:#8AC4CF; --s3-ink:#12292D;
+  --s4:#3E9FB0; --s4-ink:#0F1719;
+  --s5:#0A6F80; --s5-ink:#FBFCFC;
+
+  --warn:#9A4A1F;
+  --good:#2F7A52;
+
+  --font-ui:"Saira","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Newsreader",Georgia,"Times New Roman",serif;
+  --font-mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1213;
+    --surface:#151D1F;
+    --surface-2:#1D2729;
+    --line:#283436;
+    --line-strong:#3C4B4E;
+    --ink:#E7EDEE;
+    --ink-2:#AFBDBF;
+    --ink-3:#8C9A9D;
+    --signal:#2BB3C6;
+    --signal-deep:#5FCCDB;
+
+    --cat-1:#16A2B6;
+    --cat-2:#CB7439;
+    --cat-3:#7687D0;
+    --cat-4:#94993F;
+
+    --s1:#1B2527; --s1-ink:#8E9B9E;
+    --s2:#1F4249; --s2-ink:#BFD3D7;
+    --s3:#25616D; --s3-ink:#DCEAED;
+    --s4:#2B8C9D; --s4-ink:#0D1213;
+    --s5:#4FB8C8; --s5-ink:#0B1415;
+
+    --warn:#DB8A4F;
+    --good:#5FAE81;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1213;
+  --surface:#151D1F;
+  --surface-2:#1D2729;
+  --line:#283436;
+  --line-strong:#3C4B4E;
+  --ink:#E7EDEE;
+  --ink-2:#AFBDBF;
+  --ink-3:#8C9A9D;
+  --signal:#2BB3C6;
+  --signal-deep:#5FCCDB;
+  --cat-1:#16A2B6;
+  --cat-2:#CB7439;
+  --cat-3:#7687D0;
+  --cat-4:#94993F;
+  --s1:#1B2527; --s1-ink:#8E9B9E;
+  --s2:#1F4249; --s2-ink:#BFD3D7;
+  --s3:#25616D; --s3-ink:#DCEAED;
+  --s4:#2B8C9D; --s4-ink:#0D1213;
+  --s5:#4FB8C8; --s5-ink:#0B1415;
+  --warn:#DB8A4F;
+  --good:#5FAE81;
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{
+  max-width:1180px;
+  margin:0 auto;
+  padding-inline:20px;
+  padding-block:0 72px;
+}
+h1,h2,h3,h4{font-family:var(--font-ui);text-wrap:balance;margin:0;line-height:1.12;}
+p{margin:0;}
+a{color:var(--signal-deep);text-decoration-thickness:1px;text-underline-offset:2px;}
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  font-weight:500;
+}
+
+/* ---------- masthead ---------- */
+.mast{
+  border-bottom:1px solid var(--line);
+  background:var(--surface);
+}
+.mast-inner{
+  max-width:1180px;margin:0 auto;padding-inline:20px;
+  padding-block:34px 28px;
+  display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end;justify-content:space-between;
+}
+.telltale{
+  display:flex;align-items:center;gap:9px;margin-bottom:14px;
+}
+.telltale span.dot{width:7px;height:7px;border-radius:50%;background:var(--signal);flex:none;}
+.mast h1{
+  font-size:clamp(30px,5.2vw,50px);
+  font-weight:600;
+  letter-spacing:-.018em;
+  max-width:16ch;
+}
+.mast .sub{
+  font-size:18px;color:var(--ink-2);max-width:54ch;margin-top:14px;
+}
+.stamp{
+  font-family:var(--font-mono);font-size:12px;line-height:2;color:var(--ink-3);
+  border-left:2px solid var(--signal);padding-left:14px;flex:none;
+}
+.stamp b{color:var(--ink-2);font-weight:500;}
+
+/* ---------- sections ---------- */
+section{padding-top:56px;}
+.sec-head{
+  display:flex;align-items:baseline;gap:16px;
+  border-bottom:1px solid var(--line-strong);
+  padding-bottom:9px;margin-bottom:26px;
+}
+.sec-head h2{font-size:22px;font-weight:600;letter-spacing:-.01em;}
+.sec-head .eyebrow{margin-left:auto;}
+
+/* ---------- findings ---------- */
+.findings{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
+.finding{
+  background:var(--surface);
+  display:grid;grid-template-columns:52px 1fr;gap:0 22px;
+  padding:22px 24px;
+}
+.finding .num{
+  font-family:var(--font-mono);font-size:13px;font-weight:600;
+  color:var(--signal-text);padding-top:3px;
+}
+.finding h3{font-size:18px;font-weight:600;letter-spacing:-.005em;margin-bottom:8px;}
+.finding p{color:var(--ink-2);font-size:16px;max-width:68ch;}
+.finding p + p{margin-top:9px;}
+.finding .sowhat{
+  font-family:var(--font-ui);font-size:14px;font-weight:500;
+  color:var(--ink);margin-top:12px;padding-top:11px;
+  border-top:1px dashed var(--line-strong);
+}
+.finding .sowhat i{
+  font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--signal-text);
+  display:inline-block;margin-right:13px;
+}
+
+/* ---------- map ---------- */
+.mapbox{
+  background:var(--surface);border:1px solid var(--line);padding:22px 20px 16px;
+}
+.map-legend{
+  display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;
+  margin-bottom:16px;font-family:var(--font-ui);font-size:13px;color:var(--ink-2);
+}
+.map-legend .k{display:flex;align-items:center;gap:7px;}
+.map-legend .sw{width:11px;height:11px;border-radius:50%;flex:none;}
+.map-scroll{overflow-x:auto;}
+.map-scroll svg{display:block;min-width:640px;max-width:100%;height:auto;}
+.map-note{font-size:14px;color:var(--ink-3);margin-top:12px;max-width:74ch;}
+
+/* ---------- controls ---------- */
+.controls{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px;
+}
+.controls .lbl{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-right:2px;}
+button.chip{
+  font-family:var(--font-ui);font-size:13px;font-weight:500;
+  padding:5px 13px;border:1px solid var(--line-strong);background:transparent;
+  color:var(--ink-2);cursor:pointer;border-radius:2px;
+}
+button.chip:hover{border-color:var(--signal);color:var(--ink);}
+button.chip[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink);}
+button.chip:focus-visible,th.sortable:focus-visible,tr.row:focus-visible{outline:2px solid var(--signal);outline-offset:2px;}
+
+/* ---------- matrix ---------- */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface);}
+table{border-collapse:separate;border-spacing:0;width:100%;min-width:940px;font-family:var(--font-ui);}
+thead th{
+  position:sticky;top:0;z-index:3;background:var(--surface-2);
+  font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-2);text-align:center;padding:11px 6px;
+  border-bottom:1px solid var(--line-strong);vertical-align:bottom;
+}
+thead th.name{text-align:left;left:0;z-index:4;padding-left:16px;min-width:216px;}
+th.sortable{cursor:pointer;user-select:none;}
+th.sortable:hover{color:var(--signal-deep);}
+th .arrow{display:block;font-family:var(--font-mono);font-size:12px;color:var(--signal-text);height:10px;line-height:10px;}
+tbody td{
+  border-bottom:1px solid var(--line);padding:0;text-align:center;
+  font-variant-numeric:tabular-nums;
+}
+tbody td.name{
+  text-align:left;padding:11px 12px 11px 16px;position:sticky;left:0;z-index:2;
+  background:var(--surface);border-right:1px solid var(--line);
+}
+tr.row{cursor:pointer;}
+tr.row:hover td{background:var(--surface-2);}
+tr.row:hover td.name{background:var(--surface-2);}
+.nm{display:flex;align-items:center;gap:9px;}
+.nm .bar{width:3px;align-self:stretch;min-height:30px;flex:none;border-radius:1px;}
+.nm .t{min-width:0;}
+.nm .brand{font-size:15px;font-weight:600;letter-spacing:-.005em;display:block;line-height:1.25;}
+.nm .prod{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);display:block;line-height:1.5;margin-top:1px;}
+.cell{
+  display:block;margin:3px;padding:9px 0;
+  font-family:var(--font-mono);font-size:13px;font-weight:600;
+}
+.v1{background:var(--s1);color:var(--s1-ink);}
+.v2{background:var(--s2);color:var(--s2-ink);}
+.v3{background:var(--s3);color:var(--s3-ink);}
+.v4{background:var(--s4);color:var(--s4-ink);}
+.v5{background:var(--s5);color:var(--s5-ink);}
+td.idx .cell{background:transparent;color:var(--ink);font-size:14px;border:1px solid var(--line-strong);}
+td.status{padding:0 10px;}
+.pill{
+  display:inline-block;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;
+  text-transform:uppercase;padding:3px 8px;border:1px solid currentColor;white-space:nowrap;
+}
+.pill.ship{color:var(--good);}
+.pill.soon{color:var(--warn);}
+.pill.plan{color:var(--ink-3);}
+
+tr.detail td{padding:0;background:var(--surface-2);border-bottom:1px solid var(--line-strong);}
+.det{padding:20px 24px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px 30px;}
+.det .col h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);font-weight:500;margin-bottom:7px;}
+.det .col p{font-size:15px;color:var(--ink-2);line-height:1.55;}
+.det .col.full{grid-column:1/-1;}
+.det .col.full p{color:var(--ink);font-family:var(--font-ui);font-size:15px;}
+
+.scale{
+  display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;
+  margin-top:14px;font-family:var(--font-ui);font-size:13px;color:var(--ink-3);
+}
+.scale .steps{display:flex;gap:2px;}
+.scale .steps span{
+  width:30px;padding:4px 0;text-align:center;font-family:var(--font-mono);font-size:12px;font-weight:600;
+}
+.dims{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:9px 26px;}
+.dims div{font-size:14px;color:var(--ink-2);}
+.dims b{font-family:var(--font-ui);font-weight:600;color:var(--ink);font-size:14px;}
+
+/* ---------- archetypes ---------- */
+.arch{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
+.arch > div{background:var(--surface);padding:20px 20px 22px;}
+.arch h3{font-size:16px;font-weight:600;margin-bottom:3px;}
+.arch .who{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);letter-spacing:.04em;margin-bottom:11px;}
+.arch p{font-size:15px;color:var(--ink-2);}
+.arch .ledger{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-family:var(--font-ui);font-size:13px;}
+.arch .ledger div{display:flex;gap:8px;margin-top:5px;}
+.arch .ledger em{font-style:normal;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;flex:none;width:34px;padding-top:2px;}
+.arch .ledger .up em{color:var(--good);} .arch .ledger .dn em{color:var(--warn);}
+.arch .topbar{height:3px;margin:-20px -20px 17px;}
+
+/* ---------- watch ---------- */
+.watch{border-top:1px solid var(--line-strong);}
+.watch .item{
+  display:grid;grid-template-columns:132px 1fr;gap:0 22px;
+  padding:17px 0;border-bottom:1px solid var(--line);align-items:start;
+}
+.watch .when{font-family:var(--font-mono);font-size:12px;color:var(--signal-deep);font-weight:500;padding-top:2px;}
+.watch h3{font-family:var(--font-ui);font-size:16px;font-weight:600;margin-bottom:4px;}
+.watch p{font-size:15px;color:var(--ink-2);max-width:76ch;}
+
+/* ---------- sources ---------- */
+.srcs{columns:2;column-gap:34px;font-size:14px;}
+.srcs li{break-inside:avoid;margin-bottom:8px;color:var(--ink-3);list-style:none;}
+.srcs{padding:0;margin:0;}
+.caveat{
+  margin-top:26px;padding:16px 18px;border:1px solid var(--line-strong);
+  background:var(--surface);font-size:15px;color:var(--ink-2);max-width:82ch;
+}
+.caveat b{font-family:var(--font-ui);color:var(--ink);font-weight:600;}
+
+.tip{
+  position:fixed;pointer-events:none;z-index:40;opacity:0;transition:opacity .12s;
+  background:var(--ink);color:var(--ground);font-family:var(--font-ui);font-size:13px;
+  padding:7px 10px;border-radius:2px;line-height:1.4;max-width:220px;
+}
+.tip b{display:block;font-weight:600;font-size:13px;margin-bottom:2px;}
+
+/* ---------- summary ---------- */
+.lead{font-size:18px;line-height:1.55;color:var(--ink);max-width:66ch;margin-bottom:26px;}
+.sum-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:22px;align-items:start;}
+.sum-points{display:grid;gap:18px;}
+.sum-points .pt{display:grid;grid-template-columns:24px 1fr;gap:0 12px;}
+.sum-points .tick{width:10px;height:10px;margin-top:6px;border:2px solid var(--signal);border-radius:50%;}
+.sum-points h3{font-size:16px;font-weight:600;margin-bottom:5px;}
+.sum-points p{font-size:15px;color:var(--ink-2);max-width:62ch;}
+.vwchart{margin:0;background:var(--surface);border:1px solid var(--line);padding:18px 18px 14px;}
+.vwchart figcaption h3{font-size:15px;font-weight:600;}
+.vwchart figcaption p{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--ink-3);margin-top:3px;text-transform:uppercase;}
+.vb{margin-top:16px;display:grid;gap:9px;}
+.vb-row{display:grid;grid-template-columns:132px 1fr;gap:12px;align-items:center;}
+.vb-lab b{display:block;font-family:var(--font-ui);font-size:13px;font-weight:600;line-height:1.2;}
+.vb-lab span{display:block;font-family:var(--font-mono);font-size:12px;color:var(--ink-3);letter-spacing:.03em;line-height:1.4;}
+.vb-track{position:relative;height:22px;}
+.vb-bar{position:absolute;left:0;top:4px;height:14px;border-radius:0 4px 4px 0;}
+.vb-val{position:absolute;top:2px;font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;}
+.vb-med{position:absolute;top:-5px;bottom:-5px;width:0;border-left:1.5px dashed var(--ink-3);}
+.vb-hit{position:absolute;inset:0;cursor:default;}
+.vb-axis{position:relative;height:18px;border-top:1px solid var(--line-strong);}
+.vb-axis span{position:absolute;top:4px;transform:translateX(-50%);font-family:var(--font-mono);font-size:12px;color:var(--ink-3);}
+.vwchart .fignote{font-size:13px;color:var(--ink-3);margin-top:12px;line-height:1.45;}
+.sub-h{font-size:16px;font-weight:600;margin:34px 0 12px;}
+table.opts{min-width:780px;}
+table.opts th{position:static;text-align:left;padding:10px 14px;}
+table.opts td{text-align:left;vertical-align:top;padding:14px;font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--ink-2);}
+table.opts td.route{font-family:var(--font-ui);width:190px;}
+table.opts td.route b{display:block;font-size:15px;font-weight:600;color:var(--ink);}
+table.opts td.route span{display:flex;align-items:center;gap:6px;margin-top:4px;font-family:var(--font-mono);font-size:12px;color:var(--ink-3);}
+table.opts td.route i{width:8px;height:8px;border-radius:50%;flex:none;}
+table.opts tr:last-child td{border-bottom:0;}
+.sum-src{margin-top:16px;font-size:13px;color:var(--ink-3);line-height:1.7;}
+.sum-src b{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-right:6px;}
+@media (max-width:860px){ .sum-grid{grid-template-columns:1fr;} }
+
+@media (max-width:640px){
+  .vb-row{grid-template-columns:104px 1fr;}
+  .finding{grid-template-columns:1fr;gap:6px;}
+  .finding .num{padding-top:0;}
+  .watch .item{grid-template-columns:1fr;gap:4px;}
+  .srcs{columns:1;}
+  .mast-inner{padding-block:26px 22px;}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+
+/* ---------- refresh additions ---------- */
+:root{--cat-5:#7A8588;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--cat-5:#8C989B;}}
+:root[data-theme="dark"]{--cat-5:#8C989B;}
+.arch{grid-template-columns:repeat(auto-fit,minmax(205px,1fr));}
+.det{text-align:left;}
+.det .srcl{grid-column:1/-1;font-family:var(--font-mono);font-size:12px;line-height:1.8;color:var(--ink-3);border-top:1px dashed var(--line-strong);padding-top:10px;}
+.det .srcl b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal-text);}
+.det .srcl a{margin-right:4px;}
+.det .flag{grid-column:1/-1;font-family:var(--font-ui);font-size:13px;color:var(--warn);}
+.log{margin:0 0 26px;padding:0;list-style:none;display:grid;gap:9px;max-width:92ch;}
+.log li{display:grid;grid-template-columns:118px 1fr;gap:0 16px;font-size:15px;color:var(--ink-2);line-height:1.5;}
+.log li span{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding-top:3px;}
+.log li span.chg{color:var(--signal-deep);} .log li span.fix{color:var(--warn);} .log li span.new{color:var(--good);}
+.srcs li .tag{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-left:6px;color:var(--ink-3);}
+@media (max-width:640px){ .log li{grid-template-columns:1fr;gap:2px;} }
+
+/* ---------- use-case highlights ---------- */
+.q{font-family:var(--font-mono);font-size:12px;color:var(--ink);background:var(--surface);padding:1px 5px;border-radius:2px;}
+.conf{display:inline-block;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border:1px solid currentColor;white-space:nowrap;}
+.conf.off{color:var(--good);} .conf.mix{color:var(--signal-deep);} .conf.trd{color:var(--warn);} .conf.ann{color:var(--ink-3);}
+.ucx{grid-column:1/-1;border-top:1px solid var(--line-strong);padding-top:14px;}
+.ucx-h{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-bottom:10px;}
+.ucx-h h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);font-weight:500;margin:0;}
+.ucx-note{font-family:var(--font-ui);font-size:13px;color:var(--ink-3);}
+.ucx-g{display:grid;grid-template-columns:1fr 1.25fr .9fr;gap:14px 26px;}
+.ucx-g h5{font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);margin:0 0 6px;}
+.ucx-g ul{margin:0;padding-left:16px;}
+.ucx-g li{font-size:14px;line-height:1.5;color:var(--ink-2);margin-bottom:5px;}
+.ucx-g li.lim{color:var(--warn);}
+@media (max-width:860px){.ucx-g{grid-template-columns:1fr;}}
+table.ucgrid{min-width:920px;font-family:var(--font-ui);}
+table.ucgrid th{font-size:12px;padding:10px 4px;vertical-align:bottom;text-align:center;line-height:1.25;}
+table.ucgrid th.co{text-align:left;padding-left:14px;left:0;z-index:4;}
+table.ucgrid td{text-align:center;padding:7px 4px;border-bottom:1px solid var(--line);}
+table.ucgrid td.co{text-align:left;padding:8px 12px 8px 14px;font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;position:sticky;left:0;z-index:2;background:var(--surface);border-right:1px solid var(--line);}
+table.ucgrid td.n{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);}
+.gdot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:middle;}
+.dot.y{background:var(--signal);}
+.dot.a{border:2px solid var(--signal);}
+.dot.e{width:4px;height:4px;background:var(--line-strong);}
+.evlegend{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;margin-bottom:14px;font-family:var(--font-ui);font-size:13px;color:var(--ink-2);}
+.evlegend span{display:inline-flex;align-items:center;gap:7px;}
+.gcard{margin-top:22px;background:var(--surface);border:1px solid var(--line);padding:18px 20px;}
+.gcard > h3{font-size:16px;font-weight:600;margin-bottom:4px;}
+.gcard .q{background:var(--surface-2);}
+.gsrc{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);margin-top:12px;}
+.gsrc b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px;margin-right:8px;color:var(--signal-text);}
+.gcard > p{font-size:14px;color:var(--ink-2);margin-bottom:14px;max-width:80ch;}
+
+/* ---------- use-case highlights table ---------- */
+table.uc{min-width:1100px;}
+table.uc th{text-align:left;padding:10px 12px;}
+table.uc td{text-align:left;vertical-align:top;padding:14px 12px;font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--ink-2);border-bottom:1px solid var(--line);}
+table.uc td.who{font-family:var(--font-ui);width:170px;position:sticky;left:0;z-index:2;background:var(--surface);border-right:1px solid var(--line);}
+table.uc td.who b{display:block;font-size:15px;color:var(--ink);font-weight:600;}
+table.uc td.who span.prod{display:block;font-family:var(--font-mono);font-size:12px;color:var(--ink-3);margin:2px 0 8px;}
+table.uc td ul{margin:0;padding-left:16px;}
+table.uc td li{margin-bottom:5px;}
+table.uc td li:last-child{margin-bottom:0;}
+table.uc td li.lim{color:var(--warn);}
+table.uc tr.grp td{background:var(--surface-2);font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);padding:8px 12px;}
+table.uc tr.grp td i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;}
+table.uc .q{background:var(--surface-2);}
+table.uc td.srcs2{font-family:var(--font-mono);font-size:12px;line-height:1.7;width:150px;}
+table.uc td.srcs2 a{display:block;}
+.hl-legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:14px;font-family:var(--font-ui);font-size:13px;color:var(--ink-2);align-items:center;}
+
+/* ---------- public edition ---------- */
+body{margin:0;}
+.crumb{background:var(--ink);color:var(--ground);}
+.crumb-inner{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:8px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 18px;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;}
+.crumb a{color:var(--ground);text-decoration:none;}
+.crumb a:hover{text-decoration:underline;}
+.byline{font-family:var(--font-ui);font-size:14px;color:var(--ink-2);margin-top:14px;}
+.byline a{font-weight:600;}
+.vb-row.sm{grid-template-columns:150px 1fr;}
+.vb-row.sm .vb-lab b{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.vb-row.sm .vb-track{height:18px;}
+.vb-row.sm .vb-bar{top:3px;height:12px;}
+.vb-row.sm .vb-val{top:0;font-size:12px;}
+.vb .vb-row.sm{gap:10px;}
+.vb:has(.sm){gap:5px;}
+.prov{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:500;}
+table.opts td.route{width:230px;}
+table.opts td.route span{line-height:1.45;}
+.about{display:grid;gap:10px;max-width:86ch;margin-bottom:26px;}
+.about p{font-size:15px;color:var(--ink-2);line-height:1.6;}
+.about b{font-family:var(--font-ui);color:var(--ink);font-weight:600;}
+.vb-val{background:var(--surface);padding:0 3px;z-index:1;}
+.vb-med{z-index:0;}
+.foot{border-top:1px solid var(--line);background:var(--surface);}
+.foot-inner{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:20px 28px;display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-between;font-family:var(--font-mono);font-size:12px;color:var(--ink-3);}
+@media (max-width:640px){ .vb-row.sm{grid-template-columns:112px 1fr;} }
+.log li.loghead{display:block;font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--ink);margin-top:8px;padding-bottom:4px;border-bottom:1px solid var(--line);}
+.byline-2{font-family:var(--font-ui);font-size:13px;color:var(--ink-3);margin-top:4px;}
+
+/* ---------- agentic consumer report additions ---------- */
+.cite a{font-family:var(--font-mono);font-size:12px;text-decoration:none;color:var(--signal-deep);margin-left:1px;}
+.cite a:hover{text-decoration:underline;}
+.grp-l{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-deep);margin-top:12px;padding-bottom:3px;border-bottom:1px solid var(--line);}
+.grp-l:first-child{margin-top:0;}
+.vb-row.sm{grid-template-columns:230px 1fr;}
+.vb-val{white-space:nowrap;}
+.vb-row.sm .vb-lab b{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.25;font-size:13px;}
+@media (max-width:640px){.vb-row.sm{grid-template-columns:1fr;gap:3px;}}
+.figbox{margin:0 0 8px;background:var(--surface);border:1px solid var(--line);padding:18px 18px 14px;}
+.figbox h3{font-size:15px;font-weight:600;}
+.figbox .cap{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--ink-3);margin-top:3px;text-transform:uppercase;}
+.figbox .fignote{font-size:13px;color:var(--ink-3);margin-top:12px;line-height:1.45;}
+.twocol{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:22px;margin-top:6px;}
+.kindpill{display:inline-block;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border:1px solid currentColor;white-space:nowrap;}
+.kp-obs{color:var(--good);} .kp-co{color:var(--signal-deep);} .kp-fc{color:var(--warn);} .kp-sv{color:var(--cat-3);}
+.verdict{margin-top:22px;padding:16px 20px;border-left:3px solid var(--signal);background:var(--surface);font-size:16px;color:var(--ink);max-width:84ch;}
+.verdict b{font-family:var(--font-ui);}
+.verdict .tag{display:block;font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-deep);margin-bottom:6px;}
+.prose p{font-size:16px;color:var(--ink-2);max-width:80ch;margin-bottom:12px;}
+.prose p b{color:var(--ink);font-family:var(--font-ui);}
+.cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:10px;}
+.cards3 > div{background:var(--surface);padding:20px 20px 22px;}
+.cards3 h3{font-size:16px;font-weight:600;margin-bottom:8px;}
+.cards3 ul{margin:0;padding-left:17px;}
+.cards3 li{font-size:15px;color:var(--ink-2);margin-bottom:7px;line-height:1.5;}
+.cards3 .lean{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line-strong);font-family:var(--font-ui);font-size:14px;color:var(--ink);}
+.cards3 .lean i{font-family:var(--font-mono);font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-text);margin-right:8px;}
+table.cmp{min-width:860px;}
+table.cmp th{position:static;text-align:left;padding:10px 14px;}
+table.cmp td{text-align:left;vertical-align:top;padding:13px 14px;font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--ink-2);}
+table.cmp td.rh{font-family:var(--font-ui);font-weight:600;color:var(--ink);width:150px;font-size:14px;}
+table.cmp tr:last-child td{border-bottom:0;}
+table.cmp td b{font-family:var(--font-ui);color:var(--ink);}
+.flags{margin:0;padding-left:20px;max-width:92ch;}
+.flags li{font-size:15px;color:var(--ink-2);margin-bottom:8px;line-height:1.55;}
+.flags li b{font-family:var(--font-ui);color:var(--ink);}
+.srcs li .tag{display:block;margin:2px 0 0;}
+.srcs li a{word-break:break-word;}
+.srcs li{scroll-margin-top:12px;}
+.srcs li:target{background:var(--surface-2);}
+</style>
+<style media="print">
+/* Print: clean light copy. In the browser's print dialog choose Save as PDF. */
+@page{margin:14mm 12mm}
+:root,:root[data-theme="dark"]{color-scheme:light!important;--ground:#fff !important;--surface:#FBFCFC !important;--surface-2:#E9EEEF !important;--line:#D3DBDC !important;--line-strong:#B2BEC0 !important;--ink:#0F1719 !important;--ink-2:#344145 !important;--ink-3:#6B787C !important;--signal:#0892A5 !important;--signal-deep:#066A79 !important;--cat-1:#0892A5 !important;--cat-2:#C2622D !important;--cat-3:#4B5BA8 !important;--cat-4:#8A8C36 !important;--s1:#E4EDEF !important;--s1-ink:#344145 !important;--s2:#BEDCE2 !important;--s2-ink:#1B3438 !important;--s3:#8AC4CF !important;--s3-ink:#12292D !important;--s4:#3E9FB0 !important;--s4-ink:#FBFCFC !important;--s5:#0A6F80 !important;--s5-ink:#FBFCFC !important;--warn:#9A4A1F !important;--good:#2F7A52 !important;--cat-5:#7A8588 !important}
+html{background:#fff!important}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.crumb,.nav,.idx,.controls,.chips,.tabs,.tip,#tip,button,.noprint{display:none!important}
+.tablewrap,.tbl-wrap,.map-scroll,.mapwrap,.scroll{overflow:visible!important;max-height:none!important}
+.panel,.card,.caveat,figure,tr,.pub,.tile,.kpi{break-inside:avoid;page-break-inside:avoid}
+h2,h3,h4,.sec-head{break-after:avoid;page-break-after:avoid}
+table{font-size:9pt;min-width:0!important;width:100%!important}
+.fw table,.ex table,.rt table{min-width:0!important}
+#refs a[href^="http"]::after,.srcs a[href^="http"]::after,#srclist a[href^="http"]::after{content:" <" attr(href) ">";font-size:7.5pt;word-break:break-all;color:#555}
+</style>
+<style>
+/* At a glance: one-page infographic. Shared by all reports; each page sets the --g-* aliases below from its own tokens. */
+.glance{--g-s:var(--surface);--g-s2:var(--surface-2);--g-rule:var(--rule);--g-ink:var(--ink);--g-ink2:var(--ink-2);--g-muted:var(--muted);--g-accent:var(--accent);--g-soft:var(--accent-soft);--g-ui:var(--f-ui,var(--f-display));--g-mono:var(--f-mono);
+  padding:0;overflow:hidden;border-radius:2px;border:1px solid var(--g-rule);background:var(--g-s);color:var(--g-ink);font-family:var(--g-ui);line-height:1.4;box-shadow:none}
+.glance *{box-sizing:border-box}
+.glance a{color:inherit}
+.gl-mast{display:flex;justify-content:space-between;align-items:baseline;gap:6px 24px;flex-wrap:wrap;padding:18px 24px;background:var(--g-s2);border-bottom:1px solid var(--g-rule)}
+.gl-mast b{font-size:1.05rem;font-weight:600;letter-spacing:-.005em}
+.gl-mast span{font-family:var(--g-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--g-muted)}
+.gl-lede{padding:16px 24px;font-size:.95rem;color:var(--g-ink2);border-bottom:1px solid var(--g-rule);max-width:none}
+.gl-lede b{color:var(--g-ink)}
+.gl-grid,.gl-tiles,.gl-two,.gl-three,.gl-hz{display:grid;gap:1px;background:var(--g-rule)}
+.gl-grid>*,.gl-tiles>*,.gl-two>*,.gl-three>*,.gl-hz>*{background:var(--g-s);min-width:0}
+.gl-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.gl-grid>*{padding:16px 18px}
+.gl-tiles{grid-template-columns:repeat(4,minmax(0,1fr))}
+.gl-tiles>*{padding:16px 18px;border-top:4px solid var(--c,var(--g-accent))}
+.gl-two{grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--g-rule)}
+.gl-two>*{padding:18px 20px}
+.gl-three{grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--g-rule)}
+.gl-three>*{padding:18px 20px}
+.gl-hz{grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--g-rule)}
+.gl-hz.n2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gl-hz>*{padding:16px 20px}
+@media (max-width:1000px){.gl-grid,.gl-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.gl-two,.gl-three,.gl-hz,.gl-hz.n2{grid-template-columns:1fr}}
+@media (max-width:560px){.gl-grid,.gl-tiles{grid-template-columns:1fr}}
+.gl-card{border-top:4px solid var(--c);display:flex;flex-direction:column}
+.gl-top{display:flex;align-items:center;gap:8px}
+.gl-badge{background:var(--c);font-weight:600;font-size:.8rem;padding:2px 7px;border-radius:3px}
+.gl-name{font-weight:600;font-size:.95rem;color:var(--g-ink);text-decoration:none;line-height:1.2;flex:1;min-width:0}
+a.gl-name:hover{color:var(--g-accent)}
+.gl-tot{font-family:var(--g-mono);font-weight:500;font-size:1rem}
+.gl-tot small{font-size:.75rem;color:var(--g-muted)}
+.gl-big,.gl-tiles .gl-n{font-weight:600;font-size:2.15rem;letter-spacing:-.02em;line-height:1.05;margin-top:14px;color:var(--g-ink)}
+.gl-tiles .gl-n{margin-top:0;font-size:2rem}
+.gl-cap,.gl-tiles .gl-l{font-size:.82rem;line-height:1.4;color:var(--g-ink2);margin-top:6px;flex:1}
+.gl-tiles .gl-s{font-family:var(--g-mono);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--g-muted);margin-top:8px}
+.gl-tiles .gl-s a{color:var(--g-muted)}
+.gl-meter{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.gl-meter span{display:grid;gap:4px}
+.gl-meter i{display:block;height:6px;border-radius:2px;background:linear-gradient(to right,var(--c) calc(var(--v)*20%),var(--g-s2) 0)}
+.gl-meter b{display:flex;justify-content:space-between;font-family:var(--g-mono);font-weight:500;font-size:.75rem;letter-spacing:.04em;text-transform:uppercase;color:var(--g-muted)}
+.gl-meter em{font-style:normal;color:var(--g-ink)}
+.gl-src{font-size:.75rem;color:var(--g-muted);margin-top:10px}
+.gl-src a{color:var(--g-muted)}
+.gl-guide{display:flex;flex-direction:column;justify-content:center;gap:8px;background:var(--g-soft)!important}
+.gl-guide h4{font-weight:600;margin:0;font-size:.95rem}
+.gl-guide p{font-size:.8rem;line-height:1.45;color:var(--g-ink2);margin:0}
+.gl-h{font-weight:600;font-size:.95rem;margin:0}
+.gl-sub{font-size:.78rem;color:var(--g-ink2);margin:2px 0 12px;line-height:1.4}
+.gl-note{font-size:.75rem;color:var(--g-muted);margin-top:10px;line-height:1.4}
+.gl-choke{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.gl-choke span{font-size:.8rem;font-weight:600;padding:4px 10px;border:1px solid var(--g-rule);border-radius:2px;background:var(--g-s2)}
+.gl-where{display:flex;align-items:center;gap:6px;margin-bottom:14px;font-size:.78rem;color:var(--g-ink2)}
+.glance .gl-dot{display:inline-block;padding:1px 6px;border-radius:3px;font-weight:600;font-size:.75rem;margin:0 2px;line-height:1.4}
+.glance .gl-chip{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px;vertical-align:baseline}
+.gl-bar{display:grid;grid-template-columns:minmax(0,var(--lw,150px)) minmax(0,1fr) var(--vw,40px);align-items:center;gap:10px;padding:3px 0;font-size:.8rem}
+.gl-bar .gl-nm{line-height:1.25}
+.gl-bar .gl-nm small{display:block;font-family:var(--g-mono);font-size:.75rem;color:var(--g-muted);letter-spacing:.02em}
+.gl-bar .gl-tr{height:10px;background:var(--g-s2);border-radius:2px;overflow:hidden;position:relative}
+.gl-bar .gl-tr i{display:block;height:100%;border-radius:2px}
+.gl-bar .gl-tr u{position:absolute;top:-2px;bottom:-2px;width:0;border-left:2px dashed var(--g-ink);opacity:.55}
+.gl-bar .gl-v{text-align:right;font-family:var(--g-mono);font-size:.75rem;font-weight:500}
+.gl-bar .gl-v{text-align:right;font-family:var(--g-mono);font-size:.75rem;font-weight:500}
+.gl-bar.tall .gl-tr{height:12px}
+.gl-bar.sm{padding:2px 0;font-size:.75rem}
+.gl-bar.sm .gl-tr{height:8px}
+.gl-grp{font-family:var(--g-mono);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--g-muted);margin:8px 0 2px}
+.gl-legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.75rem;color:var(--g-ink2);margin-top:8px}
+.gl-legend span{display:inline-flex;align-items:center;gap:6px}
+.gl-legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.gl-scen{display:grid;grid-template-columns:22px repeat(2,minmax(0,1fr));gap:6px;position:relative}
+.gl-scen .ax{font-family:var(--g-mono);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--g-muted);text-align:center;align-self:end;line-height:1.3}
+.gl-scen .ay{writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;align-self:center;justify-self:center}
+.gl-q{border:1px solid var(--g-rule);border-radius:2px;padding:10px 12px;background:var(--g-s2);position:relative}
+.gl-q b{display:block;font-family:var(--g-mono);font-size:.75rem;color:var(--g-accent);margin-bottom:2px}
+.gl-q span{font-size:.82rem;font-weight:600;line-height:1.25;display:block}
+.gl-q.now{border-color:var(--g-accent);box-shadow:inset 0 0 0 1px var(--g-accent)}
+.gl-now{grid-column:2/-1;font-size:.75rem;color:var(--g-accent);font-weight:600;text-align:right}
+.gl-hz h4{font-family:var(--g-mono);font-weight:500;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--g-muted);display:flex;justify-content:space-between;gap:8px;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--g-ink)}
+.gl-hz h4 span{color:var(--g-ink)}
+.gl-hz ul,.gl-ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.gl-hz li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:8px;font-size:.8rem;line-height:1.4;color:var(--g-ink2)}
+.gl-hz li b{font-family:var(--g-mono);font-size:.75rem;font-weight:500;color:var(--g-ink);padding-top:1px}
+.gl-ft{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1.15fr);gap:8px;align-items:center;font-size:.8rem;line-height:1.3;padding:7px 0;border-bottom:1px solid var(--g-rule)}
+.gl-ft:last-child{border-bottom:0}
+.gl-ft .gl-f{color:var(--g-muted);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--g-muted) 50%,transparent)}
+.gl-ft .gl-a{color:var(--g-accent);font-weight:600;text-align:center}
+.gl-ft .gl-t{font-weight:600}
+.gl-pill{display:inline-block;font-family:var(--g-mono);font-size:.75rem;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border:1px solid var(--g-rule);border-radius:2px;color:var(--g-ink2);white-space:nowrap}
+.gl-pill.k1{background:var(--g-soft);border-color:transparent;color:var(--g-accent)}
+.gl-foot{padding:12px 24px;background:var(--g-s2);border-top:1px solid var(--g-rule);font-family:var(--g-mono);font-size:12px;letter-spacing:.03em;color:var(--g-muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;line-height:1.5}
+.gl-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;font-family:var(--g-ui);font-size:.85rem}
+.gl-actions a{border:1px solid var(--g-rule);padding:6px 12px;border-radius:2px;text-decoration:none;background:var(--g-s);color:var(--g-ink)}
+.gl-actions a:hover{border-color:var(--g-accent);color:var(--g-accent)}
+@media print{.gl-actions{display:none!important}.glance{break-inside:avoid;page-break-inside:avoid}}
+
+.glance{--g-s:var(--surface);--g-s2:var(--surface-2);--g-rule:var(--line);--g-ink:var(--ink);--g-ink2:var(--ink-2);--g-muted:var(--ink-3);--g-accent:var(--signal-deep);--g-soft:color-mix(in srgb,var(--signal) 12%,var(--surface));--g-ui:var(--font-ui);--g-mono:var(--font-mono)}
+
+/* On the move: matrix and infographic grid (page-specific figure rules, existing tokens only) */
+table.mxgrid{min-width:1080px;}
+table.mxgrid th{font-size:12px;padding:10px 4px;}
+table.mxgrid th.sep,table.mxgrid td.sep{border-left:2px solid var(--line-strong);}
+table.mxgrid td.mx{font-family:var(--font-mono);font-size:12px;font-weight:500;line-height:1.25;padding:9px 3px;}
+table.mxgrid td.gap{color:var(--ink-3);font-family:var(--font-mono);font-size:12px;}
+.hl-legend .sw{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:6px;vertical-align:-2px;}
+.hl-legend .sw.gp{background:var(--surface);border:1px dashed var(--line-strong);}
+.gl-mxg{display:grid;grid-template-columns:minmax(0,132px) repeat(13,minmax(0,1fr));gap:2px;align-items:center}
+.gl-mxg .rl{font-size:.75rem;line-height:1.2;color:var(--g-ink2);padding-right:6px}
+.gl-mxg .cl{font-family:var(--g-mono);font-size:10px;letter-spacing:-.04em;text-align:center;color:var(--g-muted);padding-bottom:4px}
+.gl-mxg i{display:block;height:15px;border-radius:2px;border:1px dashed var(--g-rule);background:transparent}
+.gl-mxg i.v3{background:var(--s3);border:0}.gl-mxg i.v4{background:var(--s4);border:0}.gl-mxg i.v5{background:var(--s5);border:0}
+.gl-mxg i.na{background:var(--g-s2);border:0}
+</style>
+<link rel="stylesheet" href="/assets/report-opener.css">
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Report",
+ "headline": "The terminal benchmark",
+ "name": "The terminal benchmark",
+ "description": "Independent benchmark of what people do in airport terminals around the world and what 28 leading airports offer for that time, with each measure rated by how well it is evidenced. October 2026 edition by Chuhee Lee; data as of 23 October 2026.",
+ "url": "https://blueplanet-ai.github.io/terminal-benchmark/",
+ "mainEntityOfPage": "https://blueplanet-ai.github.io/terminal-benchmark/",
+ "inLanguage": "en",
+ "author": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "publisher": {
+  "@type": "Person",
+  "name": "Chuhee Lee",
+  "url": "https://blueplanet-ai.github.io/"
+ },
+ "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+ "dateModified": "2026-10-23",
+ "image": "https://blueplanet-ai.github.io/terminal-benchmark/og-image.png",
+ "datePublished": "2026-10-23"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="rp" aria-hidden="true"></div>
+<div class="ro-top"><div class="ro-inner">
+  <a class="ro-brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">Chuhee Lee<span>Independent research</span></a>
+  <nav class="ro-nav" aria-label="Site">
+    <a href="/#start">Start here</a>
+    <a href="/#map">The map</a>
+    <a href="/#publications">Publications</a>
+    <a href="/#opportunities">Opportunities</a>
+    <a href="/#about">About</a>
+    <a class="ro-follow" href="/#follow"><svg class="ro-ico" data-ro-ico="rss" viewBox="0 0 24 24" aria-hidden="true"></svg>Follow</a>
+  </nav>
+</div></div>
+
+
+<div class="ro-crumb"><div class="ro-inner"><a href="/#publications"><span aria-hidden="true">&larr;</span> All publications</a></div></div>
+<header class="ro" id="main" tabindex="-1"><div class="ro-inner">
+  <div class="ro-side">
+    <figure class="ro-cover"><img src="cover.svg" width="600" height="800" alt="Cover art: a grid of 16 rows by 7 columns, one dot for each cell of the benchmark matrix; 20 are solid, for cells with a measure, and the rest are hollow, for gaps. The Latin America and Africa columns are empty."></figure>
+    <dl class="ro-scope" aria-label="Scope"><div><dt>Horizon</dt><dd>Data 2016&ndash;2026</dd></div><div><dt>Scope</dt><dd>Global &middot; 28 airports</dd></div><div><dt>Lens</dt><dd>Time in the terminal</dd></div><div><dt>Basis</dt><dd>Observed first, then surveys</dd></div></dl>
+  </div>
+  <div class="ro-main">
+    <div class="ro-tags"><span class="ro-tag layer"><svg class="ro-ico" data-ro-ico="signals" viewBox="0 0 24 24" aria-hidden="true"></svg>Signals</span><span class="ro-tag">Travel</span><span class="ro-ed">October 2026 &middot; Research report</span></div>
+    <h1 class="ro-title">The terminal <em>benchmark</em></h1>
+    <p class="ro-dek">Airports present the wait as time to eat, shop, rest and explore. This benchmark checks what is actually measured about terminal time in six regions, and what 28 leading airports offer for it, using only data from the last ten years.</p>
+    <p class="ro-q"><b>Research question</b><span>What do people do in airport terminals around the world, what do airports offer for that time, and how much of it is measured?</span></p>
+    <div class="ro-meta"><span class="ro-by"><svg class="ro-ico" data-ro-ico="person" viewBox="0 0 24 24" aria-hidden="true"></svg>By&nbsp;<a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener"><b>Chuhee Lee</b></a></span><span><svg class="ro-ico" data-ro-ico="time" viewBox="0 0 24 24" aria-hidden="true"></svg>&asymp;11 min read</span><span><svg class="ro-ico" data-ro-ico="doc" viewBox="0 0 24 24" aria-hidden="true"></svg>Data as of 23 Oct 2026</span><span><svg class="ro-ico" data-ro-ico="calendar" viewBox="0 0 24 24" aria-hidden="true"></svg>One-time edition</span><a href="#changelog"><svg class="ro-ico" data-ro-ico="history" viewBox="0 0 24 24" aria-hidden="true"></svg>Change log</a></div>
+    <p class="ro-credit">With research assistance from AI models (Claude, Gemini, ChatGPT) &middot; Views are the author&rsquo;s own</p>
+    <div class="ro-acts">
+      <button type="button" class="ro-primary" id="roCite"><svg class="ro-ico" data-ro-ico="quote" viewBox="0 0 24 24" aria-hidden="true"></svg>Cite</button>
+      <button type="button" id="roShare"><svg class="ro-ico" data-ro-ico="share" viewBox="0 0 24 24" aria-hidden="true"></svg>Share</button>
+      <a href="terminal-benchmark-at-a-glance.png" download><svg class="ro-ico" data-ro-ico="download" viewBox="0 0 24 24" aria-hidden="true"></svg>Infographic (PNG)</a>
+      <a href="#refs"><svg class="ro-ico" data-ro-ico="doc" viewBox="0 0 24 24" aria-hidden="true"></svg>References</a>
+      <span class="ro-status" id="roStatus" role="status" aria-live="polite"></span>
+    </div>
+    <p class="ro-cite"><b>Cite as</b><span id="roCiteText">Chuhee Lee, <i>The terminal benchmark</i>, October 2026 edition (data as of 23 October 2026), https://blueplanet-ai.github.io/terminal-benchmark/, CC BY-NC 4.0.</span></p>
+  </div>
+</div></header>
+<section class="ro-60" aria-labelledby="ro60H"><div class="ro-inner">
+  <div class="ro-60-head"><h2 id="ro60H">The report in <em>60 seconds</em></h2><span>Three takeaways &middot; each with its source</span></div>
+  <ol>
+    <li class="fact">
+      <span class="ro-fig">37%</span>
+      <span class="ro-kind">Fact</span>
+      <h3>Most terminal time goes to the gate, and to food</h3>
+      <p>In a 2023 US panel, 37% of flyers went straight to the gate and waited, 45% went to the gate and then backtracked, and 18% looked around first. Across 89 US airports, longer dwell time raised food and drink revenue per passenger but not retail.</p>
+      <span class="ro-src">Source: National Academies <a href="#r-nasem">[1]</a>; Wu, Morlotti and Mantin <a href="#r-wu">[2]</a></span>
+    </li>
+    <li class="interp">
+      <span class="ro-fig">36%</span>
+      <span class="ro-kind">Interpretation</span>
+      <h3>Shopping is losing its share of the wait</h3>
+      <p>36% of international travelers entered a duty-free store in the first half of 2026, against about four in ten before Covid. Airport non-aeronautical revenue per passenger fell from US$8.61 in 2017 to US$7.57 in 2024, and Heathrow&rsquo;s retail revenue per passenger is 21% below 2019 while its food and drink income per passenger rose.</p>
+      <span class="ro-src">Source: m1nd-set via TRBusiness <a href="#r-m1nd">[13]</a>; ACI World <a href="#r-aciw">[14]</a>; Pragma for the UK CAA <a href="#r-pragma">[15]</a></span>
+    </li>
+    <li class="hyp">
+      <span class="ro-fig">3 of 28</span>
+      <span class="ro-kind">Hypothesis</span>
+      <h3>Airports are building for an activity nobody counts</h3>
+      <p>The 28 airports publish what they offer, from gardens and museums to sleep cabins, sensory rooms and free city tours, but only three published a visitor or participant count for a featured amenity: Jewel Changi, Madrid&rsquo;s play areas and Pudong&rsquo;s free tour. The author expects use of non-commercial amenities to be small relative to traffic; that is not yet observed.</p>
+      <span class="ro-src">Source: Jewel Changi <a href="#r-jewel">[23]</a>; Aena <a href="#r-aena19">[24]</a>; Trip.com via Meet in Shanghai <a href="#r-pvgtourn">[25]</a></span>
+    </li>
+  </ol>
+  <p class="ro-legend"><b>Fact</b>: stated by the cited source. <b>Interpretation</b>: the author&rsquo;s reading of the cited evidence. <b>Hypothesis</b>: expected from the evidence but not yet observed. Figures inside every takeaway are sourced.</p>
+</div></section>
+<nav class="ro-toc" aria-labelledby="roTocH"><div class="ro-inner">
+  <h2 id="roTocH">In this report</h2>
+  <ol><li><a href="#glance"><span>01</span>At a glance</a></li><li><a href="#summary"><span>02</span>Summary</a></li><li><a href="#matrix"><span>03</span>The matrix</a></li><li><a href="#time"><span>04</span>Where the time goes</a></li><li><a href="#offer"><span>05</span>What airports offer</a></li><li><a href="#tech"><span>06</span>Technology that gives time back</a></li><li><a href="#method"><span>07</span>Method, limits and flags</a></li><li><a href="#refs"><span>08</span>References</a></li></ol>
+</div></nav>
+
+<main>
+
+<div class="wrap">
+
+<section id="glance">
+  <div class="sec-head"><h2>At a glance</h2><span class="eyebrow">One-page summary</span></div>
+  <div class="glance" id="glanceBody" role="group" aria-label="Infographic: The terminal benchmark, at a glance"></div>
+  <p class="gl-cap"><b>Headline finding</b><span>Spending and processing in airport terminals are well counted; what people actually do while they wait is not, and none of it is measured in Latin America or Africa.</span></p>
+  <div class="gl-actions"><a href="terminal-benchmark-at-a-glance.png" download>Download PNG</a></div>
+</section>
+<section id="summary">
+  <div class="sec-head"><h2>Summary</h2><span class="eyebrow">The short version</span></div>
+  <p class="lead">The benchmark matrix has 112 cells (16 activity measures by 7 regions). 20 have a measure from the last ten years, 3 are rated strong, and none is in Latin America or Africa. Alongside it, 27 featured services at 20 of the 28 airports were checked on operator or official pages.</p>
+  <div class="sum-grid">
+    <div class="sum-points">
+      <div class="pt"><span class="tick"></span><div>
+        <h3>The wait is mostly gate time.</h3>
+        <p>37% go straight to the gate; 45% go to the gate first and then backtrack. 72% want to reach the gate in under 30 minutes with carry-on only. <i>Confidence: medium; one US panel and a global stated-preference survey.</i><sup class="cite"><a href="#r-nasem" title="National Academies — Framework and Tools for Incorporating Technologies into Airport In-Te">[1]</a></sup><sup class="cite"><a href="#r-iata24" title="IATA — Global Passenger Survey 2024, highlights (13,487 respondents)">[6]</a></sup></p>
+      </div></div>
+      <div class="pt"><span class="tick"></span><div>
+        <h3>Food wins the extra minutes.</h3>
+        <p>10% more dwell time goes with 8% more food and drink revenue and 6% more retail revenue, but only food rises per passenger. At Heathrow, food and drink income per passenger rose 56% from 2018 to 2025 while retail fell. <i>Confidence: medium to high; observed revenue, US and UK only.</i><sup class="cite"><a href="#r-wu" title="Wu, Y., Morlotti, C. and Mantin, B. — Shopping or dining? On passenger dwell time and non-">[2]</a></sup><sup class="cite"><a href="#r-pragma" title="Pragma for the UK Civil Aviation Authority — Heathrow commercial benchmarking, phase 3 rep">[15]</a></sup></p>
+      </div></div>
+      <div class="pt"><span class="tick"></span><div>
+        <h3>Duty free is structurally lower.</h3>
+        <p>Footfall 36% (about 4 in 10 before Covid), purchase rate 22% (29% in 2016), conversion 63% (74%). Spend per passenger also slipped at Frankfurt and Paris in 2025. <i>Confidence: medium; syndicated research via trade press, and operator results.</i><sup class="cite"><a href="#r-m1nd" title="TRBusiness — m1nd-set reveals decade-long shift in duty free shopping behaviour (m1nd-set ">[13]</a></sup><sup class="cite"><a href="#r-fraport" title="Moodie Davitt Report — Fraport retail and real estate revenue rises 3% in 2025 but passeng">[17]</a></sup><sup class="cite"><a href="#r-adp" title="Moodie Davitt Report — Groupe ADP posts double-digit rise in retail revenue but average sp">[18]</a></sup></p>
+      </div></div>
+      <div class="pt"><span class="tick"></span><div>
+        <h3>Lounges pull time away from the concourse.</h3>
+        <p>73% have visited a lounge or premium service at least once; 52% of regular travelers use lounges; 39% of US lounge visitors go there to avoid high-priced terminal food. <i>Confidence: medium; mostly vendor-commissioned.</i><sup class="cite"><a href="#r-pp25" title="Priority Pass — research release (commissioned by Priority Pass, fieldwork by Vitreous Wor">[8]</a></sup><sup class="cite"><a href="#r-ax26" title="Airport Dimensions (Collinson) — AX26 airport experience research (11,000+ regular travele">[10]</a></sup><sup class="cite"><a href="#r-jdplounge" title="J.D. Power — 2026 U.S. Airport Lounge Satisfaction Study, release (2,991 travelers who vis">[5]</a></sup></p>
+      </div></div>
+      <div class="pt"><span class="tick"></span><div>
+        <h3>Services cluster by region; use is rarely counted.</h3>
+        <p>In this scan, therapy-animal programs were found only in North America, and free layover tours and in-terminal transit hotels at Asian, Turkish and Ethiopian hubs. Of the services checked, only three published a visitor or participant count. <i>Confidence: medium on presence; gap on use.</i></p>
+      </div></div>
+    </div>
+    <figure class="vwchart" aria-label="Where the saved minutes go"><figcaption><h3>Where the saved minutes go</h3><p>Stated &middot; travelers who gain time from airport technology &middot; vendor-commissioned</p></figcaption><div class="vb"><div class="grp-l">Global &middot; 21 countries &middot; Apr&ndash;May 2025</div><div class="vb-row sm"><div class="vb-lab"><b>Eat or drink</b><span>Priority Pass</span></div><div class="vb-track"><div class="vb-bar" style="width:55.0%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(55.0% + 6px)">55%</div></div></div><div class="vb-row sm"><div class="vb-lab"><b>Explore shops</b><span>Priority Pass</span></div><div class="vb-track"><div class="vb-bar" style="width:46.0%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(46.0% + 6px)">46%</div></div></div><div class="vb-row sm"><div class="vb-lab"><b>Relax in a lounge</b><span>Priority Pass</span></div><div class="vb-track"><div class="vb-bar" style="width:37.0%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(37.0% + 6px)">37%</div></div></div><div class="grp-l">Asia-Pacific respondents</div><div class="vb-row sm"><div class="vb-lab"><b>Dine</b><span>via TTG Asia</span></div><div class="vb-track"><div class="vb-bar" style="width:58.0%;background:var(--cat-2)"></div><div class="vb-val" style="left:calc(58.0% + 6px)">58%</div></div></div><div class="vb-row sm"><div class="vb-lab"><b>Shop</b><span>via TTG Asia</span></div><div class="vb-track"><div class="vb-bar" style="width:51.0%;background:var(--cat-2)"></div><div class="vb-val" style="left:calc(51.0% + 6px)">51%</div></div></div><div class="vb-row sm"><div class="vb-lab"><b>Use a lounge</b><span>via TTG Asia</span></div><div class="vb-track"><div class="vb-bar" style="width:46.0%;background:var(--cat-2)"></div><div class="vb-val" style="left:calc(46.0% + 6px)">46%</div></div></div></div><p class="fignote">The base is travelers who say technology gave them extra time (45% gain 10&ndash;30 minutes); answers are not exclusive. The survey was commissioned by a lounge-access company, so read the order, not the level.<sup class="cite"><a href="#r-pp25" title="Priority Pass — research release (commissioned by Priority Pass, fieldwork by Vitreous Wor">[8]</a></sup><sup class="cite"><a href="#r-ttg" title="TTG Asia — Asia-Pacific results of the Priority Pass 2025 survey">[9]</a></sup></p></figure>
+  </div>
+  <div class="caveat"><b>What cuts against the thesis.</b> The evidence does not show terminal time filled with amenities. (1) 37% of US flyers go straight to the gate and stay there.<sup class="cite"><a href="#r-nasem" title="National Academies — Framework and Tools for Incorporating Technologies into Airport In-Te">[1]</a></sup> (2) Passengers say they want speed: 72% want to reach the gate within 30 minutes, not counting shopping.<sup class="cite"><a href="#r-iata24" title="IATA — Global Passenger Survey 2024, highlights (13,487 respondents)">[6]</a></sup> (3) Non-aeronautical spend per passenger is falling, not rising.<sup class="cite"><a href="#r-aciw" title="ACI World — Airport non-aeronautical revenues: from traffic recovery to value reinvention ">[14]</a></sup> (4) A widely shared 2020 story about airport amenities &ldquo;sitting unused&rdquo; was about the pandemic collapse (SFO concession sales down 96% in May 2020), not a lasting trend, so it is not used as evidence here.<sup class="cite"><a href="#r-nyt" title="New York Times — As amenities sit unused, airports reconsider their design (18 Aug 2020), ">[26]</a></sup></div>
+</section>
+<section id="matrix">
+  <header class="co"><div class="co-bar"><span>Chapter 1 of 4</span><span class="co-seg" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">1</span><div class="co-body"><span class="co-eyebrow">The matrix</span><h2>What is measured, and what is not</h2><p class="co-thesis">Of 112 cells, 20 have a measure from the last ten years and 3 are strong. Spending and processing are counted; what people actually do while they wait is not, and two regions are blank.</p></div></div></header>
+  <div class="prose">
+    <p><b>How it is built.</b> Rows are 16 measures: 14 activities passengers can do in a terminal, plus process technology and dwell time. Columns are a global column for multi-country surveys and six regions. Each cell holds the headline figure from the best source found, shaded by how well it is measured; the activity list extends the parent report&rsquo;s columns to airports.<sup class="cite"><a href="#r-move" title="Chuhee Lee — What people do on the move, October 2026 edition (this site)">[61]</a></sup></p>
+    <p><b>Rating rules.</b> Only data collected since October 2016 is used. <i>Strong</i>: observed data or a probability sample, covering many airports, from the last three years. <i>Medium</i>: a survey or dataset with a stated sample and definition; vendor-commissioned surveys are capped here. <i>Thin</i>: one airport or operator, or an unclear sample. <i>Gap</i>: nothing found. Spend and revenue figures stand in for eating and shopping because no source counts the activity directly.</p>
+  </div>
+  <div class="hl-legend"><span><i class="sw v5"></i>Strong</span><span><i class="sw v4"></i>Medium</span><span><i class="sw v3"></i>Thin</span><span><i class="sw gp"></i>Gap (none found)</span><span>hover a cell for what it shows</span></div>
+  <div class="tablewrap"><table class="ucgrid mxgrid" id="mxgrid" style="min-width:760px"><thead><tr><th class="co">Activity</th><th>Global</th><th>N. America</th><th>Latin Am.</th><th>Europe</th><th>Middle East</th><th>Africa</th><th>Asia-Pacific</th></tr></thead><tbody><tr><td class="co">A1 Straight to gate or explore</td><td class="gap" title="No measure found">·</td><td class="mx v4" title="37% go straight to the gate and wait; 45% go to the gate, then backtrack; 18% do things first (US panel, 2023)">37/45/18</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td></tr><tr><td class="co">A2 Devices, Wi-Fi</td><td class="gap" title="No measure found">·</td><td class="mx v4" title="70% use airport Wi-Fi (US panel, 2023)">70%</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td></tr><tr><td class="co">A3 Audio, video, games</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td></tr><tr><td class="co">A4 Calls, social, web</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td></tr><tr><td class="co">A5 Work</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td></tr><tr><td class="co">A6 Reading, learning</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td></tr><tr><td class="co">A7 Rest, sleep</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td></tr><tr><td class="co">A8 Eat, drink</td><td class="mx v4" title="55% of travelers who gain time from airport technology use it to eat (21 countries, Apr–May 2025; vendor-commissioned)">55%</td><td class="mx v5" title="Median F&amp;B gross sales per enplanement, CY2024 (79 US and Canadian airports); 10% more dwell time goes with 8% more F&amp;B revenue (89 US airports, 2017–19)">$7.82</td><td class="gap" title="No measure found">·</td><td class="mx v3" title="Heathrow F&amp;B income per passenger, 2018–2025 (one airport)">+56%</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="mx v4" title="58% of Asia-Pacific travelers who gain time use it to dine (vendor-commissioned, 2025)">58%</td></tr><tr><td class="co">A9 Shop</td><td class="mx v4" title="36% of international travelers entered duty free in H1 2026, vs about 4 in 10 before Covid; purchase rate 22% (29% in 2016)">36%</td><td class="mx v5" title="Median retail gross sales per enplanement, CY2024 (79 airports); retail revenue per passenger does not respond to dwell time (89 US airports)">$4.39</td><td class="gap" title="No measure found">·</td><td class="mx v3" title="Heathrow retail revenue per passenger vs 2019 (one airport)">−21%</td><td class="mx v3" title="Dubai Duty Free: over 21 million sales transactions in 2025 (one operator)">21m</td><td class="gap" title="No measure found">·</td><td class="mx v4" title="51% of Asia-Pacific travelers who gain time use it to shop (vendor-commissioned, 2025)">51%</td></tr><tr><td class="co">A10 Lounge</td><td class="mx v4" title="73% have visited a lounge or other premium service at least once (21 countries, 2025); 52% of regular travelers use lounges (17 markets, 2026); both vendor-commissioned">73%</td><td class="mx v4" title="39% of US lounge visitors use lounges as respite from high-priced terminal food and drink (2,991 lounge visitors, 2026)">39%</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="mx v4" title="80% of Asia-Pacific travelers have used a lounge at least once (vendor-commissioned, 2025)">80%</td></tr><tr><td class="co">A11 Wellness, exercise</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td></tr><tr><td class="co">A12 Culture, nature</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="mx v3" title="Jewel Changi: over 80 million visits in 2024, overseas travelers just over a third (one site; most visitors are not overseas travelers)">80m</td></tr><tr><td class="co">A13 Family, kids</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="mx v3" title="Children who used Madrid-Barajas&#x27; two free play areas in 2019 (one airport)">30,466</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td></tr><tr><td class="co">A14 Errands</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td></tr><tr><td class="co">A15 Process technology</td><td class="mx v4" title="50% have used biometrics in their airport journey (2025), up from 46% in 2024 (global survey)">50%</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="mx v3" title="9,024,736 Smart Gate clearances at Dubai airports, Jan–Jun 2026 (GDRFA count)">9.0m</td><td class="gap" title="No measure found">·</td><td class="mx v5" title="Over 100 million Digi Yatra journeys across 38 Indian airports to May 2026 (government count)">100m+</td></tr><tr><td class="co">T Dwell time</td><td class="gap" title="No measure found">·</td><td class="mx v4" title="Average of airport median dwell times ≈80 min, 39 (CLE) to 113 (ATL), 2017–19; airport-reported dwell 75–111 min by hub size, 2024">≈80 min</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td><td class="gap" title="No measure found">·</td></tr></tbody></table></div>
+  <p class="fignote">Units differ by source (shares of people, dollars per departing passenger, counts of clearances or visits, minutes), so read along a row, not down a column. Sources for every filled row are in the table below.</p>
+  <h3 class="sub-h">What each row rests on</h3>
+  <div class="tablewrap">
+    <table class="cmp">
+      <thead><tr><th>Measure</th><th>What the sources show</th><th>Source and sample</th><th>Rating</th></tr></thead>
+      <tbody><tr><td class="rh">A1 Straight to gate or explore</td><td>37 / 45 / 18 split after security; 35% arrive two hours before departure</td><td>National Academies panel, 1,200 US flyers, 2023<sup class="cite"><a href="#r-nasem" title="National Academies — Framework and Tools for Incorporating Technologies into Airport In-Te">[1]</a></sup></td><td>Medium (NAM)</td></tr><tr><td class="rh">A2 Devices, Wi-Fi</td><td>70% use airport Wi-Fi</td><td>Same panel<sup class="cite"><a href="#r-nasem" title="National Academies — Framework and Tools for Incorporating Technologies into Airport In-Te">[1]</a></sup></td><td>Medium (NAM)</td></tr><tr><td class="rh">A8 Eat, drink</td><td>F&amp;B $7.82 per enplanement; +8% F&amp;B revenue per 10% dwell; saved time used to eat (55% global, 58% Asia-Pacific); Heathrow F&amp;B +56% per passenger</td><td>ACI-NA 79 airports; Wu et al. 89 airports; Priority Pass; Pragma<sup class="cite"><a href="#r-acina" title="ACI-NA — Concessions Benchmarking Survey 2025 (79 US and Canadian airports, calendar year ">[3]</a></sup><sup class="cite"><a href="#r-wu" title="Wu, Y., Morlotti, C. and Mantin, B. — Shopping or dining? On passenger dwell time and non-">[2]</a></sup><sup class="cite"><a href="#r-pp25" title="Priority Pass — research release (commissioned by Priority Pass, fieldwork by Vitreous Wor">[8]</a></sup><sup class="cite"><a href="#r-ttg" title="TTG Asia — Asia-Pacific results of the Priority Pass 2025 survey">[9]</a></sup><sup class="cite"><a href="#r-pragma" title="Pragma for the UK Civil Aviation Authority — Heathrow commercial benchmarking, phase 3 rep">[15]</a></sup></td><td>Strong (NAM); Medium (Global, APAC); Thin (EUR)</td></tr><tr><td class="rh">A9 Shop</td><td>Retail $4.39 per enplanement; duty-free footfall 36%; Heathrow retail −21% per passenger vs 2019; Dubai Duty Free 21m transactions</td><td>ACI-NA; m1nd-set; Pragma; Dubai Media Office; Priority Pass APAC<sup class="cite"><a href="#r-acina" title="ACI-NA — Concessions Benchmarking Survey 2025 (79 US and Canadian airports, calendar year ">[3]</a></sup><sup class="cite"><a href="#r-m1nd" title="TRBusiness — m1nd-set reveals decade-long shift in duty free shopping behaviour (m1nd-set ">[13]</a></sup><sup class="cite"><a href="#r-pragma" title="Pragma for the UK Civil Aviation Authority — Heathrow commercial benchmarking, phase 3 rep">[15]</a></sup><sup class="cite"><a href="#r-ddf" title="Dubai Media Office — Dubai Duty Free annual sales 2025">[20]</a></sup><sup class="cite"><a href="#r-ttg" title="TTG Asia — Asia-Pacific results of the Priority Pass 2025 survey">[9]</a></sup></td><td>Strong (NAM); Medium (Global, APAC); Thin (EUR, ME)</td></tr><tr><td class="rh">A10 Lounge</td><td>73% have ever visited; 52% of regular travelers use; 39% of US lounge users avoid terminal prices; 80% in Asia-Pacific have visited</td><td>Priority Pass; AX26; J.D. Power lounge study<sup class="cite"><a href="#r-pp25" title="Priority Pass — research release (commissioned by Priority Pass, fieldwork by Vitreous Wor">[8]</a></sup><sup class="cite"><a href="#r-ax26" title="Airport Dimensions (Collinson) — AX26 airport experience research (11,000+ regular travele">[10]</a></sup><sup class="cite"><a href="#r-jdplounge" title="J.D. Power — 2026 U.S. Airport Lounge Satisfaction Study, release (2,991 travelers who vis">[5]</a></sup><sup class="cite"><a href="#r-ttg" title="TTG Asia — Asia-Pacific results of the Priority Pass 2025 survey">[9]</a></sup></td><td>Medium (Global, NAM, APAC)</td></tr><tr><td class="rh">A12, A13 Culture, family</td><td>Jewel Changi 80m+ visits (2024); Madrid play areas 30,466 children (2019)</td><td>Operator releases<sup class="cite"><a href="#r-jewel" title="Jewel Changi Airport — Jewel reports record high footfall and sales (calendar year 2024)">[23]</a></sup><sup class="cite"><a href="#r-aena19" title="Aena — More than 30,400 children used the play areas at Madrid-Barajas in 2019">[24]</a></sup></td><td>Thin (APAC, EUR)</td></tr><tr><td class="rh">A15 Process technology</td><td>50% have used biometrics (2025); 9.0m Smart Gate clearances in Dubai (H1 2026); 100m+ Digi Yatra journeys</td><td>IATA; GDRFA; Government of India<sup class="cite"><a href="#r-iata25" title="IATA — 2025 Global Passenger Survey release (over 10,000 responses from more than 200 coun">[7]</a></sup><sup class="cite"><a href="#r-gdrfa" title="Gulf News — Dubai smart gates process 9.4 million travellers in 6 months (GDRFA Dubai figu">[21]</a></sup><sup class="cite"><a href="#r-pib" title="Press Information Bureau, Government of India — Digi Yatra crosses 10 crore usage across 3">[22]</a></sup></td><td>Medium (Global); Thin (ME); Strong (APAC)</td></tr><tr><td class="rh">T Dwell time</td><td>Average of median dwell ≈80 min (2017–19); airport-reported 75–111 min by hub size (2024)</td><td>Wu et al.; ACI-NA<sup class="cite"><a href="#r-wu" title="Wu, Y., Morlotti, C. and Mantin, B. — Shopping or dining? On passenger dwell time and non-">[2]</a></sup><sup class="cite"><a href="#r-acina" title="ACI-NA — Concessions Benchmarking Survey 2025 (79 US and Canadian airports, calendar year ">[3]</a></sup></td><td>Medium (NAM)</td></tr><tr><td class="rh">A3&ndash;A7, A11, A14</td><td>No share of passengers found for media, calls, work, reading, sleep, wellness or errands in any region</td><td>Searched journals, government and operator surveys, industry and vendor research</td><td>Gap</td></tr></tbody>
+    </table>
+  </div>
+</section>
+<section id="time">
+  <header class="co"><div class="co-bar"><span>Chapter 2 of 4</span><span class="co-seg" aria-hidden="true"><i></i><i class="on"></i><i></i><i></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">2</span><div class="co-body"><span class="co-eyebrow">Where the time goes</span><h2>The gate, the food court and the lounge</h2><p class="co-thesis">Passengers spend roughly one to two hours at the airport and say they want less; the extra minutes go to food, while shopping and duty free slip and lounges absorb the premium end.</p></div></div></header>
+  <div class="prose">
+    <p><b>Arrival and dwell.</b> In the US panel, 35% typically arrive two hours before departure; flyers aged 18 to 54 prefer up to 45 minutes in the terminal and older flyers an hour or more.<sup class="cite"><a href="#r-nasem" title="National Academies — Framework and Tools for Incorporating Technologies into Airport In-Te">[1]</a></sup> Location data for 89 US airports put the average of median dwell times at about 80 minutes, from 39 at Cleveland to 113 at Atlanta, before the pandemic.<sup class="cite"><a href="#r-wu" title="Wu, Y., Morlotti, C. and Mantin, B. — Shopping or dining? On passenger dwell time and non-">[2]</a></sup> Globally, 72% of passengers want to reach the gate in under 30 minutes with carry-on only, and 76% within 45 minutes with a checked bag, not counting shopping and dining.<sup class="cite"><a href="#r-iata24" title="IATA — Global Passenger Survey 2024, highlights (13,487 respondents)">[6]</a></sup></p>
+    <p><b>Food, not shops.</b> A 10% rise in dwell time goes with 8% more food and drink revenue and 6% more retail revenue, but per passenger &ldquo;dwell time has a significant influence solely on food and beverage&rdquo;, and at airports with several concourses it has no effect at all.<sup class="cite"><a href="#r-wu" title="Wu, Y., Morlotti, C. and Mantin, B. — Shopping or dining? On passenger dwell time and non-">[2]</a></sup> Median sales per departing passenger in 2024 were $7.82 for food and drink and $4.39 for retail across 79 US and Canadian airports.<sup class="cite"><a href="#r-acina" title="ACI-NA — Concessions Benchmarking Survey 2025 (79 US and Canadian airports, calendar year ">[3]</a></sup> In Europe, Heathrow&rsquo;s food and drink income per passenger rose 56% from 2018 to 2025 while retail per passenger fell 21% against 2019; in 2025 alone Heathrow retail per passenger rose 1.7% to &pound;9.36.<sup class="cite"><a href="#r-pragma" title="Pragma for the UK Civil Aviation Authority — Heathrow commercial benchmarking, phase 3 rep">[15]</a></sup><sup class="cite"><a href="#r-lhr25" title="Moodie Davitt Report — Heathrow retail revenue and spend growth outpace passenger traffic ">[16]</a></sup> Frankfurt&rsquo;s retail revenue per passenger fell from &euro;3.35 to &euro;3.29, blamed on weaker shopping, and Paris spend per passenger slipped 1.2% to &euro;31.70.<sup class="cite"><a href="#r-fraport" title="Moodie Davitt Report — Fraport retail and real estate revenue rises 3% in 2025 but passeng">[17]</a></sup><sup class="cite"><a href="#r-adp" title="Moodie Davitt Report — Groupe ADP posts double-digit rise in retail revenue but average sp">[18]</a></sup></p>
+    <p><b>Duty free is visited less.</b> m1nd-set&rsquo;s tracking finds 36% of international travelers entered duty free in the first half of 2026, against about four in ten before Covid; the purchase rate fell from 29% in 2016 to 22%, and conversion from 74% to 63%.<sup class="cite"><a href="#r-m1nd" title="TRBusiness — m1nd-set reveals decade-long shift in duty free shopping behaviour (m1nd-set ">[13]</a></sup> Globally, non-aeronautical revenue per passenger fell from US$8.61 in 2017 to US$7.57 in 2024, about 12% below 2019.<sup class="cite"><a href="#r-aciw" title="ACI World — Airport non-aeronautical revenues: from traffic recovery to value reinvention ">[14]</a></sup> In Asia-Pacific and the Middle East, an ACI study finds dwell time has risen since Covid but &ldquo;is not always translating into commercial engagement&rdquo;.<sup class="cite"><a href="#r-acipac" title="ACI Asia-Pacific &amp; Middle East — Travel Retail in the Post-Pandemic Era (c.4,000 passenger">[19]</a></sup></p>
+    <p><b>The lounge as a second terminal.</b> 73% of travelers say they have visited a lounge or premium service at least once, and 52% of regular travelers use lounges when they travel.<sup class="cite"><a href="#r-pp25" title="Priority Pass — research release (commissioned by Priority Pass, fieldwork by Vitreous Wor">[8]</a></sup><sup class="cite"><a href="#r-ax26" title="Airport Dimensions (Collinson) — AX26 airport experience research (11,000+ regular travele">[10]</a></sup> In the US, 39% of lounge visitors use lounges as respite from high-priced terminal food and 45% to escape terminal crowds; 46% say their lounge is usually moderately or severely crowded.<sup class="cite"><a href="#r-jdplounge" title="J.D. Power — 2026 U.S. Airport Lounge Satisfaction Study, release (2,991 travelers who vis">[5]</a></sup></p>
+    <p><b>Satisfaction and spend.</b> North American passengers who rate their airport experience &ldquo;perfect&rdquo; spend an average of $47.60 in the terminal, $20.22 more than those who rate it &ldquo;just OK&rdquo; (about $27, the author&rsquo;s arithmetic); perfect journeys are 12% of the total.<sup class="cite"><a href="#r-jdp26" title="J.D. Power — 2026 North America Airport Satisfaction Study, release (24,710 surveys of US ">[4]</a></sup> The direction of cause is not shown.</p>
+  </div>
+  <div class="twocol">
+    <figure class="figbox"><h3>Dwell time by airport size</h3><p class="cap">Median minutes, US and Canadian airports &middot; ACI-NA 2025 survey (calendar year 2024) &middot; airport-reported</p><div class="vb"><div class="vb-row sm"><div class="vb-lab"><b>Large hubs</b><span>2024 survey: 124</span></div><div class="vb-track"><div class="vb-bar" style="width:85.4%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(85.4% + 6px)">111 min</div></div></div><div class="vb-row sm"><div class="vb-lab"><b>Canadian airports</b><span>2024 survey: 101</span></div><div class="vb-track"><div class="vb-bar" style="width:75.4%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(75.4% + 6px)">98 min</div></div></div><div class="vb-row sm"><div class="vb-lab"><b>Medium hubs</b><span>2024 survey: 89</span></div><div class="vb-track"><div class="vb-bar" style="width:71.5%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(71.5% + 6px)">93 min</div></div></div><div class="vb-row sm"><div class="vb-lab"><b>Small hubs</b><span>2024 survey: 69</span></div><div class="vb-track"><div class="vb-bar" style="width:57.7%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(57.7% + 6px)">75 min</div></div></div></div><p class="fignote">All respondents in each survey year, so the airports differ between years; the survey does not define where dwell time starts and ends. For comparison, phone-location data put the average of airport median dwell times at about 80 minutes for 89 US airports in 2017&ndash;2019.<sup class="cite"><a href="#r-acina" title="ACI-NA — Concessions Benchmarking Survey 2025 (79 US and Canadian airports, calendar year ">[3]</a></sup><sup class="cite"><a href="#r-wu" title="Wu, Y., Morlotti, C. and Mantin, B. — Shopping or dining? On passenger dwell time and non-">[2]</a></sup></p></figure>
+    <div class="prose">
+      <p><b>Why it matters.</b> If extra minutes buy coffee rather than goods, the commercial case for longer dwell rests on food and lounges, and design that moves people quickly to the gate may cost little.<sup class="cite"><a href="#r-wu" title="Wu, Y., Morlotti, C. and Mantin, B. — Shopping or dining? On passenger dwell time and non-">[2]</a></sup></p>
+    </div>
+  </div>
+  <div class="verdict"><span class="tag">Reading the evidence</span>Medium to high confidence that extra dwell time goes to food rather than retail in the US and UK; medium that duty-free engagement is lower than before Covid; low for other regions, where the evidence is vendor surveys and single operators.</div>
+</section>
+<section id="offer">
+  <header class="co"><div class="co-bar"><span>Chapter 3 of 4</span><span class="co-seg" aria-hidden="true"><i></i><i></i><i class="on"></i><i></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">3</span><div class="co-body"><span class="co-eyebrow">What airports offer</span><h2>Built for dwell, rarely counted</h2><p class="co-thesis">Leading airports compete on gardens, culture, rest and care, and the offers cluster by region; almost none say how many people use them.</p></div></div></header>
+  <div class="prose">
+    <p><b>What was checked.</b> Three research inputs listed services at 28 airports chosen from the world&rsquo;s busiest and best-rated, with two each added for Latin America and Africa. The services below were then checked on an operator or official page in October 2026; anything that could not be confirmed as operating, such as Rijksmuseum Schiphol and the Istanbul Airport Museum, is left out.</p>
+    <p><b>Regional patterns.</b> In this scan, therapy-animal programs were found only at North American airports. Free city tours and free transit hotels sit at transfer hubs in Asia, Istanbul and Addis Ababa, where they double as airline marketing. Paid sleep cabins and in-terminal hotels were verified at six airports outside North America: Bogotá, Istanbul, Madrid, Paris, Addis Ababa and Shanghai. Sensory and quiet rooms are spreading fast: Hong Kong opened its Sensory Corner in April 2026 and Helsinki its quiet room in November 2025.<sup class="cite"><a href="#r-hkgs" title="Hong Kong International Airport — Sensory Corner (opened 1 April 2026)">[44]</a></sup><sup class="cite"><a href="#r-helq" title="Finavia — New quiet room opened at Helsinki Airport">[50]</a></sup></p>
+  </div>
+  <h3 class="sub-h">Where verified examples sit</h3>
+  <div class="tablewrap"><table class="cmp"><thead><tr><th>Service type</th><th>N. America</th><th>Latin Am.</th><th>Europe</th><th>Middle East</th><th>Africa</th><th>Asia-Pacific</th></tr></thead><tbody><tr><td class="rh">Therapy animals</td><td>DEN, LAX, SFO</td><td><span aria-label=&quot;none verified&quot;>·</span></td><td><span aria-label=&quot;none verified&quot;>·</span></td><td><span aria-label=&quot;none verified&quot;>·</span></td><td><span aria-label=&quot;none verified&quot;>·</span></td><td><span aria-label=&quot;none verified&quot;>·</span></td></tr><tr><td class="rh">Free layover tours or transit hotels</td><td><span aria-label=&quot;none verified&quot;>·</span></td><td><span aria-label=&quot;none verified&quot;>·</span></td><td>IST</td><td><span aria-label=&quot;none verified&quot;>·</span></td><td>ADD</td><td>SIN, ICN, PVG, HKG</td></tr><tr><td class="rh">Paid sleep cabins or in-terminal hotels</td><td><span aria-label=&quot;none verified&quot;>·</span></td><td>BOG</td><td>IST, MAD, CDG</td><td><span aria-label=&quot;none verified&quot;>·</span></td><td>ADD</td><td>PVG</td></tr><tr><td class="rh">Sensory or quiet rooms</td><td>SFO, YVR</td><td><span aria-label=&quot;none verified&quot;>·</span></td><td>HEL, LHR (sensory packs)</td><td><span aria-label=&quot;none verified&quot;>·</span></td><td><span aria-label=&quot;none verified&quot;>·</span></td><td>HKG</td></tr><tr><td class="rh">Nature, culture and play showpieces</td><td>YVR, DEN</td><td><span aria-label=&quot;none verified&quot;>·</span></td><td>AMS, CDG, MUC</td><td>DOH, DXB</td><td><span aria-label=&quot;none verified&quot;>·</span></td><td>SIN, ICN, KUL</td></tr></tbody></table></div>
+  <p class="fignote">Only services checked on an operator or official page in October 2026 are shown, so an empty cell means none was verified, not that none exists. No featured service was verified at Atlanta, Dallas/Fort Worth, Chicago O&rsquo;Hare, Mexico City, Riyadh, Cape Town, Tokyo Haneda or Delhi.</p>
+  <h3 class="sub-h">Featured services</h3>
+  <div class="tablewrap">
+    <table class="cmp">
+      <thead><tr><th>Airport</th><th>Service</th><th>What it is</th><th>Access</th></tr></thead>
+      <tbody><tr><td class="rh">SIN</td><td><b>Butterfly Garden</b></td><td>Over 1,000 tropical butterflies of up to 40 species, with a 6 m waterfall, in the Terminal 3 transit area, open 24 hours<sup class="cite"><a href="#r-sinbf" title="Changi Airport — Butterfly Garden">[27]</a></sup></td><td>Airside; free</td></tr><tr><td class="rh">SIN</td><td><b>Free Singapore Tour</b></td><td>2.5-hour guided city tours for transit passengers with a 5.5 to 24 hour layover; booths in the T2 and T3 transit halls<sup class="cite"><a href="#r-sinfst" title="Changi Airport — Free Singapore Tour">[28]</a></sup></td><td>Free</td></tr><tr><td class="rh">DOH</td><td><b>ORCHARD</b></td><td>6,000 m&sup2; indoor tropical garden with more than 300 trees in Concourse C; a free wellness studio ran there as a pilot from 6 September to 25 October 2026<sup class="cite"><a href="#r-doh" title="Qatar News Agency — HIA launches Vitality and Wellness Studio in The Orchard (with ORCHARD">[29]</a></sup></td><td>Airside; free</td></tr><tr><td class="rh">AMS</td><td><b>Airport Park</b></td><td>Indoor park above the D-pier with a 130-year-old tree, birdsong and exercise bikes that charge phones<sup class="cite"><a href="#r-ams" title="Amsterdam Airport Schiphol — Special places at Schiphol">[30]</a></sup></td><td>Airside</td></tr><tr><td class="rh">YVR</td><td><b>International Creek and Aquarium</b></td><td>114,000-litre aquarium with more than 5,000 creatures native to British Columbia, in International Departures<sup class="cite"><a href="#r-yvr" title="Vancouver International Airport — The best spots to relax at YVR">[32]</a></sup></td><td>Airside</td></tr><tr><td class="rh">KUL</td><td><b>RIMBA</b></td><td>970 m&sup2; nature-themed transit zone in the Terminal 1 Satellite Building, launched 13 January 2026 on the former Jungle Boardwalk<sup class="cite"><a href="#r-kul" title="Malaysia Airports — launch of RIMBA at KLIA Terminal 1">[34]</a></sup></td><td>Airside</td></tr><tr><td class="rh">CDG</td><td><b>Espace Musées</b></td><td>Free museum in Terminal 2E Hall M; the 2026 show, Paris-Rome with Paris Musées, runs to 5 January 2027<sup class="cite"><a href="#r-cdgem" title="Unidivers — Paris-Rome at Espace Musées, Paris-Charles de Gaulle (18 Jun 2026 to 5 Jan 202">[35]</a></sup></td><td>Airside; free</td></tr><tr><td class="rh">ICN</td><td><b>Korea Traditional Culture Experience Center</b></td><td>Free traditional music performances four times a day near Gate 29 in Terminal 1<sup class="cite"><a href="#r-icnc" title="Incheon International Airport — Traditional Korean Culture Experience Center">[37]</a></sup></td><td>Free</td></tr><tr><td class="rh">ICN</td><td><b>Transit tours</b></td><td>City tours for transit passengers with a layover of 24 hours or less; registration desks after immigration in T1 and T2, seats first come, first served<sup class="cite"><a href="#r-icnt" title="Incheon International Airport — Transit tour">[38]</a></sup></td><td>Free tours</td></tr><tr><td class="rh">IST</td><td><b>iGA Sleepod</b></td><td>44 sleeping cabins near the international D gates, from &euro;12 to &euro;24 an hour depending on time of day<sup class="cite"><a href="#r-istpod" title="iGA Istanbul Airport — iGA Sleepod">[39]</a></sup></td><td>Airside; paid</td></tr><tr><td class="rh">IST</td><td><b>Touristanbul</b></td><td>Free city tours for international transit passengers with a 6 to 24 hour layover; a free hotel for 20 hours or more on round trips<sup class="cite"><a href="#r-tk" title="Turkish Airlines — Stopover and Touristanbul">[40]</a></sup></td><td>Free (Turkish Airlines)</td></tr><tr><td class="rh">PVG</td><td><b>Rest cabins and free showers</b></td><td>30 rest cabins built in 2025 (13 open in July), &yen;35 per half hour to &yen;299 for eight hours; 11 free shower rooms for transit passengers<sup class="cite"><a href="#r-pvgcab" title="Shanghai Municipal Government (China Daily) — Pudong airport rest cabins and free showers">[41]</a></sup></td><td>Airside; cabins paid</td></tr><tr><td class="rh">PVG</td><td><b>Free layover tour</b></td><td>Trip.com tour for passengers with an 8-hour-plus layover, up to 10 people per tour; about 3,000 international passengers in its first five months<sup class="cite"><a href="#r-pvgtour" title="Trip.com — Shanghai free layover tour">[42]</a></sup><sup class="cite"><a href="#r-pvgtourn" title="Meet in Shanghai — New stops added to free layover tours (Trip.com participant figure sinc">[25]</a></sup></td><td>Free</td></tr><tr><td class="rh">HKG</td><td><b>Free layover tours</b></td><td>Three free four-hour city tours for transit passengers with a layover of more than 7 hours<sup class="cite"><a href="#r-hkgt" title="Hong Kong International Airport — Free layover tour">[43]</a></sup></td><td>Free</td></tr><tr><td class="rh">HKG</td><td><b>Sensory Corner</b></td><td>Calming space on the Terminal 1 departures level, restricted area, opened 1 April 2026; 05:00 to midnight<sup class="cite"><a href="#r-hkgs" title="Hong Kong International Airport — Sensory Corner (opened 1 April 2026)">[44]</a></sup></td><td>Airside; free</td></tr><tr><td class="rh">MAD</td><td><b>Gettsleep Lounge and Air Rooms</b></td><td>Gettsleep: 32 rest modules in the T4S boarding area (December 2025). Air Rooms: 22 cabins with showers in T4, open 24 hours<sup class="cite"><a href="#r-madgs" title="Aena — Madrid-Barajas starts its Christmas operation with new passenger services">[45]</a></sup><sup class="cite"><a href="#r-madar" title="Aena — Air Rooms, Madrid-Barajas">[46]</a></sup></td><td>Paid</td></tr><tr><td class="rh">ADD</td><td><b>Skylight In-Terminal Hotel</b></td><td>97-room hotel in Terminal 2; Ethiopian passengers with an 8 to 24 hour connection get a free room, meals and transfers<sup class="cite"><a href="#r-add" title="Ethiopian Airlines — Addis Ababa stopovers (free transit hotel; Skylight In-Terminal Hotel">[47]</a></sup></td><td>Paid, or free on eligible connections</td></tr><tr><td class="rh">CDG</td><td><b>YOTELAIR</b></td><td>Cabin hotel in the secure transit area of Terminal 2E, above Gate L<sup class="cite"><a href="#r-cdgyo" title="YOTEL — YOTELAIR Paris Charles de Gaulle Airport">[36]</a></sup></td><td>Airside; paid</td></tr><tr><td class="rh">BOG</td><td><b>Wait n&rsquo; Rest and Sleep Oasis</b></td><td>Self-check-in rest rooms on international Pier A and pods in the public hall, both open 24 hours, charged by the hour<sup class="cite"><a href="#r-bog" title="El Dorado International Airport — Rest rooms (Wait n&#x27; Rest, Sleep Oasis)">[48]</a></sup></td><td>Paid</td></tr><tr><td class="rh">HEL</td><td><b>Quiet room and Maja Living Room</b></td><td>Quiet room near Gate 32, open to all (November 2025); Maja near Gate 52 with a silent room, yoga room and wall bars<sup class="cite"><a href="#r-hel" title="Finavia — Relax and enjoy at Helsinki Airport (updated 24 Sep 2026)">[49]</a></sup><sup class="cite"><a href="#r-helq" title="Finavia — New quiet room opened at Helsinki Airport">[50]</a></sup></td><td>Airside</td></tr><tr><td class="rh">LHR</td><td><b>Sunflower lanyards and Flight Ready</b></td><td>Free lanyards and sensory packs at assistance desks; four-hour Terminal 5 familiarization tours for autistic and neurodivergent people, by ballot<sup class="cite"><a href="#r-lhrn" title="Heathrow — Non-visible disabilities support">[51]</a></sup></td><td>Free</td></tr><tr><td class="rh">SFO</td><td><b>Yoga rooms, Sensory Room, Wag Brigade</b></td><td>Three free yoga rooms, a post-security sensory room in Terminal 1 and therapy animals since 2013<sup class="cite"><a href="#r-sfo" title="Axios San Francisco — Finding SFO&#x27;s hidden gems (yoga rooms, sensory room, Wag Brigade, Sk">[53]</a></sup></td><td>Airside; free</td></tr><tr><td class="rh">DEN</td><td><b>CATS and outdoor decks</b></td><td>More than 140 registered therapy animals; three post-security decks with fire pits near A15, B7 and C67, open 06:00 to 22:00<sup class="cite"><a href="#r-dencats" title="Denver International Airport — Canine Airport Therapy Squad (CATS)">[54]</a></sup><sup class="cite"><a href="#r-dendeck" title="Denver International Airport — DEN&#x27;s outdoor decks">[55]</a></sup></td><td>Airside; free</td></tr><tr><td class="rh">LAX</td><td><b>PUP therapy dogs</b></td><td>Volunteer dogs and handlers in gate areas; over 80 dogs in May 2025<sup class="cite"><a href="#r-laxpup" title="Los Angeles World Airports — Pets Unstressing Passengers (PUP) program">[56]</a></sup><sup class="cite"><a href="#r-laxnews" title="Spectrum News 1 — LAX PUP program">[57]</a></sup></td><td>Airside; free</td></tr><tr><td class="rh">YVR</td><td><b>Quiet spaces</b></td><td>Low-stimulation rooms after security near Gates B28/C40, D67, D71 and E85<sup class="cite"><a href="#r-yvrq" title="Vancouver International Airport — Quiet spaces">[33]</a></sup></td><td>Airside; free</td></tr><tr><td class="rh">MUC</td><td><b>Airbräu and winter market</b></td><td>On-site brewery since 1999, open daily; Christmas and winter market with an ice rink, 13 November to 27 December 2026<sup class="cite"><a href="#r-mucab" title="Munich Airport — Airbräu">[58]</a></sup><sup class="cite"><a href="#r-mucwm" title="Munich Airport — Christmas and Winter Market 2026">[59]</a></sup></td><td>Landside; paid</td></tr><tr><td class="rh">DXB</td><td><b>Game Space</b></td><td>&ldquo;The region&rsquo;s first airport gaming lounge&rdquo;, Terminal 3 B gates, open 24/7<sup class="cite"><a href="#r-dxbgs" title="Dubai Airports — Game Space gaming lounge">[60]</a></sup></td><td>Airside</td></tr></tbody>
+    </table>
+  </div>
+  <h3 class="sub-h">The usage gap</h3>
+  <div class="prose"><p>Every usage-type figure found for a service at the 28 airports is below. Most are counts of what is provided, not of who uses it.</p></div>
+  <div class="tablewrap">
+    <table class="cmp">
+      <thead><tr><th>Service</th><th>Figure</th><th>What it counts</th></tr></thead>
+      <tbody><tr><td class="rh">Jewel Changi (SIN)</td><td>Over 80 million visits in 2024, overseas travelers just over a third<sup class="cite"><a href="#r-jewel" title="Jewel Changi Airport — Jewel reports record high footfall and sales (calendar year 2024)">[23]</a></sup></td><td>Visits (most not overseas travelers)</td></tr><tr><td class="rh">Free layover tour (PVG)</td><td>About 3,000 international passengers from April to September 2024<sup class="cite"><a href="#r-pvgtourn" title="Meet in Shanghai — New stops added to free layover tours (Trip.com participant figure sinc">[25]</a></sup></td><td>Participants</td></tr><tr><td class="rh">Children&rsquo;s play areas (MAD)</td><td>30,466 children in 2019<sup class="cite"><a href="#r-aena19" title="Aena — More than 30,400 children used the play areas at Madrid-Barajas in 2019">[24]</a></sup></td><td>Users (pre-pandemic)</td></tr><tr><td class="rh">CATS (DEN)</td><td>More than 140 registered animals<sup class="cite"><a href="#r-dencats" title="Denver International Airport — Canine Airport Therapy Squad (CATS)">[54]</a></sup></td><td>Capacity, not use</td></tr><tr><td class="rh">PUP (LAX)</td><td>Over 80 dogs, May 2025<sup class="cite"><a href="#r-laxnews" title="Spectrum News 1 — LAX PUP program">[57]</a></sup></td><td>Capacity, not use</td></tr><tr><td class="rh">Duty-free online orders (DXB)</td><td>2.65% of 2025 Dubai Duty Free sales<sup class="cite"><a href="#r-ddf" title="Dubai Media Office — Dubai Duty Free annual sales 2025">[20]</a></sup></td><td>Share of sales</td></tr></tbody>
+    </table>
+  </div>
+  <div class="verdict"><span class="tag">Reading the evidence</span>High confidence that each featured service operates, as of its source date; medium confidence on the regional patterns, which rest on the services checked; a gap on how much any non-commercial amenity is used.</div>
+</section>
+<section id="tech">
+  <header class="co"><div class="co-bar"><span>Chapter 4 of 4</span><span class="co-seg" aria-hidden="true"><i></i><i></i><i></i><i class="on"></i></span></div><div class="co-grid"><span class="co-num" aria-hidden="true">4</span><div class="co-body"><span class="co-eyebrow">Technology that gives time back</span><h2>Faster processing is mainstream; what the saved time buys is not shown</h2><p class="co-thesis">Half of passengers have used biometrics and government counts run into the millions, but the claim that saved minutes turn into spending rests on what passengers say.</p></div></div></header>
+  <div class="prose">
+    <p><b>Adoption.</b> 50% of passengers have used biometrics somewhere in their airport journey, up from 46% in 2024, most often at security (44%); 85% of users are happy with it.<sup class="cite"><a href="#r-iata25" title="IATA — 2025 Global Passenger Survey release (over 10,000 responses from more than 200 coun">[7]</a></sup><sup class="cite"><a href="#r-iata24" title="IATA — Global Passenger Survey 2024, highlights (13,487 respondents)">[6]</a></sup> SITA finds that &ldquo;nearly 7 in 10&rdquo; travelers are comfortable with biometric scanning.<sup class="cite"><a href="#r-sita" title="SITA — Passenger IT Insights 2025 (7,500 travelers in 25 countries; field dates not stated">[12]</a></sup></p>
+    <p><b>Counts.</b> Dubai airports cleared 9,024,736 passengers through Smart Gates and 439,321 through the Red Carpet corridor in the first half of 2026.<sup class="cite"><a href="#r-gdrfa" title="Gulf News — Dubai smart gates process 9.4 million travellers in 6 months (GDRFA Dubai figu">[21]</a></sup> India&rsquo;s Digi Yatra has handled over 100 million journeys across 38 airports; the government says entry checks fell from 15 to 5 seconds, a claim not independently measured.<sup class="cite"><a href="#r-pib" title="Press Information Bureau, Government of India — Digi Yatra crosses 10 crore usage across 3">[22]</a></sup></p>
+    <p><b>Booking ahead.</b> Schiphol lets departing passengers book a free security time slot up to three days ahead.<sup class="cite"><a href="#r-amsslot" title="KLM — Security time slot at Schiphol (free booking up to three days ahead)">[31]</a></sup> Heathrow&rsquo;s free Reserve &amp; Collect lets passengers reserve goods in most shops and pay on collection.<sup class="cite"><a href="#r-lhrrc" title="Heathrow — Reserve &amp; Collect">[52]</a></sup> Denver ran a reservable security lane as a pilot in 2023; its current status was not confirmed.</p>
+    <p><b>Does saved time become spend?</b> 45% of travelers say technology saves them 10&ndash;30 minutes and 60% say it makes them spend more at the airport.<sup class="cite"><a href="#r-pp25" title="Priority Pass — research release (commissioned by Priority Pass, fieldwork by Vitreous Wor">[8]</a></sup> No observed study linking faster processing to higher spend was found.</p>
+  </div>
+  <div class="twocol">
+    <figure class="figbox"><h3>Biometrics at the airport</h3><p class="cap">% of passengers &middot; global surveys</p><div class="vb"><div class="vb-row sm"><div class="vb-lab"><b>Have used biometrics, 2024</b><span>IATA Global Passenger Survey</span></div><div class="vb-track"><div class="vb-bar" style="width:46.0%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(46.0% + 6px)">46%</div></div></div><div class="vb-row sm"><div class="vb-lab"><b>Have used biometrics, 2025</b><span>IATA Global Passenger Survey</span></div><div class="vb-track"><div class="vb-bar" style="width:50.0%;background:var(--cat-1)"></div><div class="vb-val" style="left:calc(50.0% + 6px)">50%</div></div></div><div class="vb-row sm"><div class="vb-lab"><b>Willing to use biometrics, 2025</b><span>ACI ASQ survey · sponsored</span></div><div class="vb-track"><div class="vb-bar" style="width:72.0%;background:var(--cat-2)"></div><div class="vb-val" style="left:calc(72.0% + 6px)">72%</div></div></div></div><p class="fignote">Use and willingness are different questions in different samples. The ACI survey was supported by a biometrics supplier, among others.<sup class="cite"><a href="#r-iata24" title="IATA — Global Passenger Survey 2024, highlights (13,487 respondents)">[6]</a></sup><sup class="cite"><a href="#r-iata25" title="IATA — 2025 Global Passenger Survey release (over 10,000 responses from more than 200 coun">[7]</a></sup><sup class="cite"><a href="#r-acigts" title="ACI World — ASQ Global Traveller Survey, sixth edition, release (4,125 travelers in 30 cou">[11]</a></sup></p></figure>
+    <div class="prose"><p><b>Why it matters.</b> If processing keeps getting faster while spend per passenger falls, the freed minutes are going somewhere other than shops: the gate, the lounge or the phone.<sup class="cite"><a href="#r-aciw" title="ACI World — Airport non-aeronautical revenues: from traffic recovery to value reinvention ">[14]</a></sup></p></div>
+  </div>
+  <div class="verdict"><span class="tag">Reading the evidence</span>High confidence on adoption counts; medium on survey shares; low on whether time saved turns into spending.</div>
+</section>
+<section id="method">
+  <div class="sec-head"><h2>Method, limits and flags</h2><span class="eyebrow">Read before citing</span></div>
+  <div class="about">
+    <p><b>Question.</b> What do people do in airport terminals around the world, what do airports offer for that time, and how much of it is measured? The report builds a matrix of activities by region, fills each cell from the best source found, rates the evidence rather than estimating missing cells, and benchmarks services at 28 airports.</p>
+    <p><b>Scope.</b> Global, tagged by region (North America, Latin America, Europe, Middle East, Africa, Asia-Pacific), with a global column for multi-country surveys. Statistics use data collected since October 2016; services had to be operating, confirmed in 2025 or 2026. The 28 airports: ATL, DFW, ORD, DEN, LAX, SFO, YVR; MEX, BOG; LHR, IST, CDG, AMS, MAD, MUC, HEL; DXB, DOH, RUH; CPT, ADD; SIN, ICN, HND, HKG, PVG, DEL, KUL, drawn from ACI World&rsquo;s 2025 busiest airports and the Skytrax 2026 top 20, plus two each for Latin America and Africa.</p>
+    <p><b>Three research inputs.</b> Claude, Gemini and ChatGPT answered the same research prompts independently, and their answers were compared item by item. Conflicts, single-source statistics and every figure or service used here were then checked at the original source. Inputs returned: Claude 29 statistics and 71 services; ChatGPT 16 and 140; Gemini 37 and 168. Checks found problems in each: a summary tool led Claude to drop a real figure (caught by ChatGPT); ChatGPT ran without the shared brief, so its categories were mapped by hand; Gemini missed the US panel survey, gave a 2017 figure as 2019, cited four Bogotá services to a page that does not mention them, and listed a garden at O&rsquo;Hare that the cited page does not show. Rows not used in the report were not all checked and remain leads.</p>
+    <p><b>Sources.</b> Government and operator counts first, then peer-reviewed studies, industry-body surveys and research firms, with vendor-commissioned surveys labeled and capped at medium, and trade press used to trace results. Searches ran from 22 to 24 October 2026 and were not a systematic review; &ldquo;none found&rdquo; means not found, not absent.</p>
+  </div>
+  <h3 class="sub-h" style="margin-top:0;">Flags and open questions</h3>
+  <ol class="flags">
+<li><b>US panel survey.</b> A non-probability panel weighted to the census. Its text says 45% go straight to the gate while its figure shows 37% for that answer and 45% for going to the gate and then backtracking; the figure is used, as in the parent report.</li>
+<li><b>Dwell-time study.</b> Uses phone-location data that cannot separate time before and after security, and data from 2017&ndash;2019, before the pandemic. Its revenue figures are totals per airport; the per-passenger result is the one quoted for shopping.</li>
+<li><b>Airport-reported dwell.</b> ACI-NA does not define dwell time and the responding airports change between survey years.</li>
+<li><b>Spend as a proxy.</b> No source counts how many passengers eat or shop; spend per passenger and revenue stand in for both, which mixes price and volume.</li>
+<li><b>Vendor surveys.</b> Priority Pass, Airport Dimensions and SITA sell lounge access or airport technology; the ACI traveler survey was supported by IDEMIA, NACO and Plaza Premium Group. All are rated no higher than medium. The Asia-Pacific Priority Pass figures come via trade press.</li>
+<li><b>m1nd-set.</b> The decade figures are reported by trade press; the underlying sample is not published.</li>
+<li><b>Heathrow.</b> The &minus;21% (against 2019) and +1.7% (2025 on 2024) retail figures use different bases and are both correct.</li>
+<li><b>Dubai counts.</b> GDRFA reports for &ldquo;Dubai airports&rdquo;, not DXB alone.</li>
+<li><b>Services.</b> Checked on operator or official pages, except SFO, whose site blocked the author&rsquo;s tools (confirmed by two research inputs and a September 2025 news report), and LAX&rsquo;s PUP program, whose operator page is undated (confirmed by a May 2025 news report). Pudong&rsquo;s cabin count is from July 2025.</li>
+<li><b>Gaps.</b> No observed behavior outside the US, no split of dwell time before and after security, no activity data for Latin America or Africa, and no share of passengers for media, work, reading, sleep or wellness anywhere.</li>
+<li><b>Scoring.</b> The strength thresholds are the author&rsquo;s choice; a different cut-off would move several cells.</li>
+  </ol>
+  <h3 class="sub-h" id="changelog">Change log</h3>
+  <ul class="log">
+    <li class="loghead">October 2026 edition</li>
+    <li><span class="new">Added</span><div>First edition, data as of 23 October 2026. Matrix of 16 activity measures by 7 regions (20 of 112 cells measured), and a benchmark of services at 28 airports.</div></li>
+  </ul>
+  <h3 class="sub-h">Related reports on this site</h3>
+  <div class="about">
+    <p><a href="../on-the-move/">What people do on the move</a> found airports to be the one waiting place with a US activity survey; this report widens that row to the world.<sup class="cite"><a href="#r-move" title="Chuhee Lee — What people do on the move, October 2026 edition (this site)">[61]</a></sup> <a href="../shared-cabin/">One cabin, several people</a> looks at another block of travel time with free hands.</p>
+  </div>
+  <h3 class="sub-h">About this report</h3>
+  <div class="about">
+    <p>Personal research by <a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener">Chuhee Lee</a>. Research, source verification and drafting were carried out with AI models used as a research team: Claude (Anthropic), Gemini (Google) and ChatGPT (OpenAI). Every factual claim is sourced to the references listed below; topic selection, framing, ratings and conclusions are the author&rsquo;s. These are personal research projects; the views are the author&rsquo;s own and do not represent any employer or organization. No company named sponsors, reviews or endorses this report, and product names and trademarks belong to their owners. Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>.</p>
+  </div>
+  <h3 class="sub-h" id="refs">References</h3>
+  <ul class="srcs">
+<li id="r-nasem"><b>[1]</b> <a href="https://www.nationalacademies.org/read/29145/chapter/12" target="_blank" rel="noopener">National Academies — Framework and Tools for Incorporating Technologies into Airport In-Terminal Concessions Programs, Appendix B air passenger survey (1,200 panel respondents who flew at least twice in a year, Sep–Oct 2023, weighted to census)</a><span class="tag">research report (non-probability panel) · 2025</span></li>
+<li id="r-wu"><b>[2]</b> <a href="https://orbilu.uni.lu/handle/10993/63566" target="_blank" rel="noopener">Wu, Y., Morlotti, C. and Mantin, B. — Shopping or dining? On passenger dwell time and non-aeronautical revenues, Journal of Air Transport Management 118, 102620 (89 US airports, Placer.ai location data and FAA revenue reports, 2017–2019)</a><span class="tag">peer-reviewed study (observed data) · 2024</span></li>
+<li id="r-acina"><b>[3]</b> <a href="https://airportscouncil.org/wp-content/uploads/2025/07/20250619-ACI-NA-Concession-Survey_BM-Success.pdf" target="_blank" rel="noopener">ACI-NA — Concessions Benchmarking Survey 2025 (79 US and Canadian airports, calendar year 2024, collected Feb–May 2025)</a><span class="tag">industry body (airport-reported data) · Jul 2025</span></li>
+<li id="r-jdp26"><b>[4]</b> <a href="https://www.businesswire.com/news/home/20260916731758/en/Massive-Airport-Construction-Projects-Finally-Pay-Dividends-but-Not-All-Improvements-Yield-Equal-Results" target="_blank" rel="noopener">J.D. Power — 2026 North America Airport Satisfaction Study, release (24,710 surveys of US and Canadian residents, Jul 2025–Jul 2026)</a><span class="tag">survey (research firm) · 16 Sep 2026</span></li>
+<li id="r-jdplounge"><b>[5]</b> <a href="https://secure.businesswire.com/news/home/20260819669589/en/Complimentary-Food-and-Beverage-Staff-Interactions-Drive-Guest-Satisfaction-with-Airport-Lounges" target="_blank" rel="noopener">J.D. Power — 2026 U.S. Airport Lounge Satisfaction Study, release (2,991 travelers who visited a US airport lounge in the past year, Apr–Jun 2026)</a><span class="tag">survey (research firm) · 19 Aug 2026</span></li>
+<li id="r-iata24"><b>[6]</b> <a href="https://www.iata.org/contentassets/43e93463336d4fadae5c474d2874aa46/gps-2024-highlights.pdf" target="_blank" rel="noopener">IATA — Global Passenger Survey 2024, highlights (13,487 respondents)</a><span class="tag">industry body survey · 2024</span></li>
+<li id="r-iata25"><b>[7]</b> <a href="https://www.iata.org/en/pressroom/2025-releases/2025-11-05-02/" target="_blank" rel="noopener">IATA — 2025 Global Passenger Survey release (over 10,000 responses from more than 200 countries)</a><span class="tag">industry body survey · 5 Nov 2025</span></li>
+<li id="r-pp25"><b>[8]</b> <a href="https://www.prioritypass.com/en-GB/newsroom/priority-pass-research-reveals-airport-technology-boosts" target="_blank" rel="noopener">Priority Pass — research release (commissioned by Priority Pass, fieldwork by Vitreous World; 12,067 travelers in 21 countries and territories, Apr–May 2025)</a><span class="tag">vendor-commissioned survey · 2 Jul 2025</span></li>
+<li id="r-ttg"><b>[9]</b> <a href="https://www.ttgasia.com/2025/07/08/digital-technologies-drive-changes-in-airport-traveller-behaviour-and-spending/" target="_blank" rel="noopener">TTG Asia — Asia-Pacific results of the Priority Pass 2025 survey</a><span class="tag">trade press (vendor survey) · 8 Jul 2025</span></li>
+<li id="r-ax26"><b>[10]</b> <a href="https://www.airportdimensions.com/ax26" target="_blank" rel="noopener">Airport Dimensions (Collinson) — AX26 airport experience research (11,000+ regular travelers in 17 markets; field dates not stated)</a><span class="tag">vendor-commissioned survey · 2026</span></li>
+<li id="r-acigts"><b>[11]</b> <a href="https://aci.aero/2025/11/19/aci-world-reveals-key-trends-shaping-air-travel-in-2026/" target="_blank" rel="noopener">ACI World — ASQ Global Traveller Survey, sixth edition, release (4,125 travelers in 30 countries; supported by IDEMIA, NACO and Plaza Premium Group)</a><span class="tag">industry body, sponsored survey · 19 Nov 2025</span></li>
+<li id="r-sita"><b>[12]</b> <a href="https://www.sita.aero/resources/surveys-reports/passenger-it-insights-2025/" target="_blank" rel="noopener">SITA — Passenger IT Insights 2025 (7,500 travelers in 25 countries; field dates not stated)</a><span class="tag">vendor survey · 2025</span></li>
+<li id="r-m1nd"><b>[13]</b> <a href="https://www.trbusiness.com/regional-news/international/m1nd-set-reveals-decade-long-shift-in-duty-free-shopping-behaviour/282698" target="_blank" rel="noopener">TRBusiness — m1nd-set reveals decade-long shift in duty free shopping behaviour (m1nd-set B1S tracking, 2016 to H1 2026; sample not stated)</a><span class="tag">trade press (research-firm data) · 24 Aug 2026</span></li>
+<li id="r-aciw"><b>[14]</b> <a href="https://blog.aci.aero/airport-economics/airport-non-aeronautical-revenues-commercial-strategy/" target="_blank" rel="noopener">ACI World — Airport non-aeronautical revenues: from traffic recovery to value reinvention (Airport Economics Database, 1,000+ airports, financial year 2024)</a><span class="tag">industry body (financial data) · 17 Mar 2026</span></li>
+<li id="r-pragma"><b>[15]</b> <a href="https://www.caa.co.uk/media/m1wb0pza/appendix-fvi-pragma-hal-commercial-benchmarking-phase-3-report-16th-may-2026-redacted.pdf" target="_blank" rel="noopener">Pragma for the UK Civil Aviation Authority — Heathrow commercial benchmarking, phase 3 report (redacted)</a><span class="tag">regulator-commissioned analysis · 16 May 2026</span></li>
+<li id="r-lhr25"><b>[16]</b> <a href="https://moodiedavittreport.com/heathrow-airport-retail-revenue-and-spend-growth-outpace-passenger-traffic-rise-in-2025/" target="_blank" rel="noopener">Moodie Davitt Report — Heathrow retail revenue and spend growth outpace passenger traffic rise in 2025 (full-year results)</a><span class="tag">trade press (operator results) · 25 Feb 2026</span></li>
+<li id="r-fraport"><b>[17]</b> <a href="https://moodiedavittreport.com/fraport-retail-real-estate-revenue-posts-3-rise-in-2025-but-passenger-spend-weakens/" target="_blank" rel="noopener">Moodie Davitt Report — Fraport retail and real estate revenue rises 3% in 2025 but passenger spend weakens</a><span class="tag">trade press (operator results) · 17 Mar 2026</span></li>
+<li id="r-adp"><b>[18]</b> <a href="https://moodiedavittreport.com/groupe-adp-posts-double-digit-rise-in-retail-revenue-but-average-spend-slips-in-2025/" target="_blank" rel="noopener">Moodie Davitt Report — Groupe ADP posts double-digit rise in retail revenue but average spend slips in 2025</a><span class="tag">trade press (operator results) · 19 Feb 2026</span></li>
+<li id="r-acipac"><b>[19]</b> <a href="https://www.aci-asiapac.aero/f/library/9778/Travel%20Retail%20Study%20Publication.pdf" target="_blank" rel="noopener">ACI Asia-Pacific &amp; Middle East — Travel Retail in the Post-Pandemic Era (c.4,000 passenger responses, 21 countries, mid-Oct 2025 to mid-Jan 2026)</a><span class="tag">industry body study · Feb 2026</span></li>
+<li id="r-ddf"><b>[20]</b> <a href="https://mediaoffice.ae/en/news/2026/january/01-01/dubai-duty-free-annual-sales" target="_blank" rel="noopener">Dubai Media Office — Dubai Duty Free annual sales 2025</a><span class="tag">government media office (operator results) · 1 Jan 2026</span></li>
+<li id="r-gdrfa"><b>[21]</b> <a href="https://gulfnews.com/business/aviation/dubai-smart-gates-process-94-million-travellers-in-6-months-1.500598379" target="_blank" rel="noopener">Gulf News — Dubai smart gates process 9.4 million travellers in 6 months (GDRFA Dubai figures, Jan–Jun 2026)</a><span class="tag">news (government data) · 6 Jul 2026</span></li>
+<li id="r-pib"><b>[22]</b> <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2267024" target="_blank" rel="noopener">Press Information Bureau, Government of India — Digi Yatra crosses 10 crore usage across 38 airports</a><span class="tag">government release · 30 May 2026</span></li>
+<li id="r-jewel"><b>[23]</b> <a href="https://www.jewelchangiairport.com/content/dam/jca-project/media/Media%20Release%20-%20Jewel%20reports%20record%20high%20footfall%20and%20sales%20amid%20steady%20growth%20in%20air%20travel%20(final).pdf" target="_blank" rel="noopener">Jewel Changi Airport — Jewel reports record high footfall and sales (calendar year 2024)</a><span class="tag">operator release · 27 Jan 2025</span></li>
+<li id="r-aena19"><b>[24]</b> <a href="https://www.aena.es/es/prensa/mas-de-30.400-ninos-utilizaron-en-2019-las-ludotecas-infantiles-del---aeropuerto-adolfo-suarez-madrid-barajas.html" target="_blank" rel="noopener">Aena — More than 30,400 children used the play areas at Madrid-Barajas in 2019</a><span class="tag">operator release · 22 Jan 2020</span></li>
+<li id="r-pvgtourn"><b>[25]</b> <a href="https://www.meet-in-shanghai.net/en/news/new-stops-added-to-free-layover-tours-for-inbound-travelers-087059/" target="_blank" rel="noopener">Meet in Shanghai — New stops added to free layover tours (Trip.com participant figure since 15 Apr 2024)</a><span class="tag">city tourism portal · 18 Sep 2024</span></li>
+<li id="r-nyt"><b>[26]</b> <a href="https://portal.staralliance.com/cms/news/hot-topics/2020-08-19/general/as-amenities-sit-unused-airports-reconsider-their-design" target="_blank" rel="noopener">New York Times — As amenities sit unused, airports reconsider their design (18 Aug 2020), as syndicated on the Star Alliance portal</a><span class="tag">news · Aug 2020</span></li>
+<li id="r-sinbf"><b>[27]</b> <a href="https://www.changiairport.com/au/en/experience/attractions-directory/butterfly-garden.html" target="_blank" rel="noopener">Changi Airport — Butterfly Garden</a><span class="tag">operator page · checked 23 Oct 2026</span></li>
+<li id="r-sinfst"><b>[28]</b> <a href="https://www.changiairport.com/en/airport-guide/facilities-and-services/free-singapore-tour.html" target="_blank" rel="noopener">Changi Airport — Free Singapore Tour</a><span class="tag">operator page · checked 23 Oct 2026</span></li>
+<li id="r-doh"><b>[29]</b> <a href="https://qna.org.qa/en/News-Area/News/2026-9/9/hia-launches-vitality-and-wellness-studio-in-the-orchard" target="_blank" rel="noopener">Qatar News Agency — HIA launches Vitality and Wellness Studio in The Orchard (with ORCHARD size); listings confirmed on dohahamadairport.com/relax</a><span class="tag">state news agency · 9 Sep 2026</span></li>
+<li id="r-ams"><b>[30]</b> <a href="https://schiphol.nl/en/you-and-schiphol/special-places-schiphol" target="_blank" rel="noopener">Amsterdam Airport Schiphol — Special places at Schiphol</a><span class="tag">operator page · checked 23 Oct 2026</span></li>
+<li id="r-amsslot"><b>[31]</b> <a href="https://www.klm.nl/information/airport/security-timeslot" target="_blank" rel="noopener">KLM — Security time slot at Schiphol (free booking up to three days ahead)</a><span class="tag">airline page · checked 24 Oct 2026</span></li>
+<li id="r-yvr"><b>[32]</b> <a href="https://news.yvr.ca/the-best-spots-to-relax-at-yvr-airport/" target="_blank" rel="noopener">Vancouver International Airport — The best spots to relax at YVR</a><span class="tag">operator news · 30 Apr 2026</span></li>
+<li id="r-yvrq"><b>[33]</b> <a href="https://www.yvr.ca/en/passengers/accessibility/quiet-spaces" target="_blank" rel="noopener">Vancouver International Airport — Quiet spaces</a><span class="tag">operator page · checked 24 Oct 2026</span></li>
+<li id="r-kul"><b>[34]</b> <a href="https://corporate.malaysiaairports.com.my/en/media-centre/news/1677" target="_blank" rel="noopener">Malaysia Airports — launch of RIMBA at KLIA Terminal 1</a><span class="tag">operator release · 13 Jan 2026</span></li>
+<li id="r-cdgem"><b>[35]</b> <a href="https://unidivers.fr/paris-rome-espace-musees-aeroport-cdg/" target="_blank" rel="noopener">Unidivers — Paris-Rome at Espace Musées, Paris-Charles de Gaulle (18 Jun 2026 to 5 Jan 2027)</a><span class="tag">arts press · 3 Jun 2026</span></li>
+<li id="r-cdgyo"><b>[36]</b> <a href="https://yotel.com/node/241" target="_blank" rel="noopener">YOTEL — YOTELAIR Paris Charles de Gaulle Airport</a><span class="tag">operator page · checked 23 Oct 2026</span></li>
+<li id="r-icnc"><b>[37]</b> <a href="https://airport.kr/ap/en/svc/attractionDetail.do?SN=1976" target="_blank" rel="noopener">Incheon International Airport — Traditional Korean Culture Experience Center</a><span class="tag">operator page · checked 23 Oct 2026</span></li>
+<li id="r-icnt"><b>[38]</b> <a href="https://www.airport.kr/ap_en/1470/subview.do" target="_blank" rel="noopener">Incheon International Airport — Transit tour</a><span class="tag">operator page · checked 24 Oct 2026</span></li>
+<li id="r-istpod"><b>[39]</b> <a href="https://www.istairport.com/en/services/discover/entertainment/iga-sleepod?locale=en" target="_blank" rel="noopener">iGA Istanbul Airport — iGA Sleepod</a><span class="tag">operator page · checked 24 Oct 2026</span></li>
+<li id="r-tk"><b>[40]</b> <a href="https://www.turkishairlines.com/de-at/stopover-and-touristanbul/" target="_blank" rel="noopener">Turkish Airlines — Stopover and Touristanbul</a><span class="tag">airline page · checked 23 Oct 2026</span></li>
+<li id="r-pvgcab"><b>[41]</b> <a href="https://english.shanghai.gov.cn/en-Latest-WhatsNew/20250710/6664b9b3330046a2af5acb3a21151463.html" target="_blank" rel="noopener">Shanghai Municipal Government (China Daily) — Pudong airport rest cabins and free showers</a><span class="tag">government portal · 10 Jul 2025</span></li>
+<li id="r-pvgtour"><b>[42]</b> <a href="https://www.trip.com/guide/info/shanghai-layover.html" target="_blank" rel="noopener">Trip.com — Shanghai free layover tour</a><span class="tag">operator page · 3 Aug 2026</span></li>
+<li id="r-hkgt"><b>[43]</b> <a href="https://www.hongkongairport.com/en/free-layover-tour.page" target="_blank" rel="noopener">Hong Kong International Airport — Free layover tour</a><span class="tag">operator page · checked 24 Oct 2026</span></li>
+<li id="r-hkgs"><b>[44]</b> <a href="https://www.hongkongairport.com/en/media-centre/news-stories-updates/sensory_corner" target="_blank" rel="noopener">Hong Kong International Airport — Sensory Corner (opened 1 April 2026)</a><span class="tag">operator page · checked 23 Oct 2026</span></li>
+<li id="r-madgs"><b>[45]</b> <a href="https://www.aena.es/es/prensa/el-aeropuerto-adolfo-suarez-madrid-barajas-inicia-la-operativa-de-navidad---con-nuevos-servicios-adaptados-a-las-necesidades-del-pasajero.html" target="_blank" rel="noopener">Aena — Madrid-Barajas starts its Christmas operation with new passenger services</a><span class="tag">operator release · 19 Dec 2025</span></li>
+<li id="r-madar"><b>[46]</b> <a href="https://www.aena.es/es/adolfo-suarez-madrid-barajas/servicios-del-aeropuerto/categorias-y-terminales/air-rooms.html" target="_blank" rel="noopener">Aena — Air Rooms, Madrid-Barajas</a><span class="tag">operator page · checked 24 Oct 2026</span></li>
+<li id="r-add"><b>[47]</b> <a href="https://www.ethiopianairlines.com/services/services-at-the-airport/addis-ababa-stopovers" target="_blank" rel="noopener">Ethiopian Airlines — Addis Ababa stopovers (free transit hotel; Skylight In-Terminal Hotel)</a><span class="tag">airline page · checked 23 Oct 2026</span></li>
+<li id="r-bog"><b>[48]</b> <a href="https://eldorado.aero/servicios/habitaciones-de-descanso" target="_blank" rel="noopener">El Dorado International Airport — Rest rooms (Wait n' Rest, Sleep Oasis)</a><span class="tag">operator page · checked 23 Oct 2026</span></li>
+<li id="r-hel"><b>[49]</b> <a href="https://customerservice.finavia.fi/en/support/solutions/articles/79000120315-relax-and-enjoy" target="_blank" rel="noopener">Finavia — Relax and enjoy at Helsinki Airport (updated 24 Sep 2026)</a><span class="tag">operator page · checked 24 Oct 2026</span></li>
+<li id="r-helq"><b>[50]</b> <a href="https://www.finavia.fi/en/newsroom/2025/peace-and-relaxation-before-flight-new-quiet-room-has-been-opened-helsinki-airports" target="_blank" rel="noopener">Finavia — New quiet room opened at Helsinki Airport</a><span class="tag">operator release · Nov 2025</span></li>
+<li id="r-lhrn"><b>[51]</b> <a href="https://www.heathrow.com/at-the-airport/assistance-and-accessibility/non-visible-disabilities" target="_blank" rel="noopener">Heathrow — Non-visible disabilities support</a><span class="tag">operator page · checked 23 Oct 2026</span></li>
+<li id="r-lhrrc"><b>[52]</b> <a href="https://www.heathrow.com/fr/at-the-airport/shopping/reserve-and-collect" target="_blank" rel="noopener">Heathrow — Reserve &amp; Collect</a><span class="tag">operator page · checked 23 Oct 2026</span></li>
+<li id="r-sfo"><b>[53]</b> <a href="https://www.axios.com/local/san-francisco/2025/09/26/sfo-airport-hidden-gems-travel-amenities" target="_blank" rel="noopener">Axios San Francisco — Finding SFO's hidden gems (yoga rooms, sensory room, Wag Brigade, SkyTerrace)</a><span class="tag">news · 26 Sep 2025</span></li>
+<li id="r-dencats"><b>[54]</b> <a href="https://www.flydenver.com/about-den/volunteer/canine-airport-therapy-squad-cats/" target="_blank" rel="noopener">Denver International Airport — Canine Airport Therapy Squad (CATS)</a><span class="tag">operator page · modified 13 Oct 2026</span></li>
+<li id="r-dendeck"><b>[55]</b> <a href="https://www.flydenver.com/dens-outdoor-decks-mountain-views-plane-spotting-fire-pits/" target="_blank" rel="noopener">Denver International Airport — DEN's outdoor decks</a><span class="tag">operator page · Oct 2026</span></li>
+<li id="r-laxpup"><b>[56]</b> <a href="https://lawa.org/groups-and-divisions/operations-and-emergency-management/guest-services/pups" target="_blank" rel="noopener">Los Angeles World Airports — Pets Unstressing Passengers (PUP) program</a><span class="tag">operator page · undated</span></li>
+<li id="r-laxnews"><b>[57]</b> <a href="https://spectrumnews1.com/ca/la/health/2025/05/22/lax-pup-program" target="_blank" rel="noopener">Spectrum News 1 — LAX PUP program</a><span class="tag">news · 22 May 2025</span></li>
+<li id="r-mucab"><b>[58]</b> <a href="https://www.munich-airport.de/airbraeu/en" target="_blank" rel="noopener">Munich Airport — Airbräu</a><span class="tag">operator page · checked 24 Oct 2026</span></li>
+<li id="r-mucwm"><b>[59]</b> <a href="https://www.munich-airport.com/christmas-and-winter-market-2026-14686056" target="_blank" rel="noopener">Munich Airport — Christmas and Winter Market 2026</a><span class="tag">operator page · checked 23 Oct 2026</span></li>
+<li id="r-dxbgs"><b>[60]</b> <a href="https://dubaiairports.ae/experiences/shops/details/game-space-gaming-lounge" target="_blank" rel="noopener">Dubai Airports — Game Space gaming lounge</a><span class="tag">operator page · checked 24 Oct 2026</span></li>
+<li id="r-move"><b>[61]</b> <a href="https://blueplanet-ai.github.io/on-the-move/" target="_blank" rel="noopener">Chuhee Lee — What people do on the move, October 2026 edition (this site)</a><span class="tag">own report · 21 Oct 2026</span></li>
+  </ul>
+</section>
+</div>
+
+</main>
+<section class="rn" aria-labelledby="rnH"><div class="ro-inner">
+  <div class="rn-head"><h2 id="rnH">Continue <em>down the map</em></h2><span class="rn-chain" aria-label="The four layers of the map"><span class="f">Forces</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="">Shifts</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class=" here" aria-current="true">Signals</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="o">Opportunities</span></span></div>
+  <div class="rn-cards"><a class="rn-card" href="/on-the-move/"><img src="/on-the-move/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Signals</span><span class="rn-t">What people do on the move</span><span class="rn-q">What do people in the US do while traveling, in each mode and in motion versus stopped, and where is that behavior actually measured?</span></span></a><a class="rn-card" href="/shared-cabin/"><img src="/shared-cabin/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Opportunities</span><span class="rn-t">One cabin, several people</span><span class="rn-q">Is the shared car cabin, where a driver and passengers ride together, a problem large enough to be worth solving, and where could a solution start?</span></span></a></div>
+</div></section>
+<section class="rn-follow" aria-labelledby="rnF"><div class="ro-inner">
+  <div><span class="rn-k">Follow new editions</span><h2 id="rnF">Each report is refreshed on a schedule. <em>Know when it changes.</em></h2><p>Next refresh dates are listed on the <a href="/#follow">home page</a>.</p></div>
+  <div class="rn-acts"><a href="/feed.xml"><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5a14 14 0 0 1 14 14M5 11a8 8 0 0 1 8 8"/><circle cx="6" cy="18" r="1"/></svg>RSS feed</a><a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener"><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Follow on LinkedIn</a></div>
+</div></section>
+<footer class="foot"><div class="foot-inner">
+  <span>&copy; 2026 Chuhee Lee &middot; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+  <span>Independent research &middot; not affiliated with or endorsed by any company or organization named</span>
+  <span><a href="../method/">How this research is made</a> &middot; <a href="../">All publications</a></span>
+</div></footer>
+<script>
+/* ---------- AT A GLANCE (infographic): shared helpers ---------- */
+var GL={
+ esc:function(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");},
+ bar:function(o){return '<div class="gl-bar '+(o.cls||'')+'"'+(o.lw?' style="--lw:'+o.lw+'px"':'')+'><span class="gl-nm">'+o.nm+(o.sub?'<small>'+o.sub+'</small>':'')+'</span><span class="gl-tr"><i style="width:'+Math.max(1.5,o.v/o.max*100).toFixed(1)+'%;background:'+(o.c||'var(--g-accent)')+(o.o?';opacity:'+o.o:'')+(o.dash?';outline:1.5px dashed var(--g-ink);outline-offset:-1.5px':'')+'"></i>'+(o.mark!=null?'<u style="left:'+(o.mark/o.max*100).toFixed(1)+'%"></u>':'')+'</span><span class="gl-v">'+o.txt+'</span></div>';},
+ tile:function(n,l,s,c){return '<div'+(c?' style="--c:'+c+'"':'')+'><div class="gl-n">'+n+'</div><div class="gl-l">'+l+'</div><div class="gl-s">'+s+'</div></div>';},
+ mast:function(title,meta){return '<div class="gl-mast"><b>'+title+'</b><span>'+meta+'</span></div>';},
+ foot:function(url,txt){return '<div class="gl-foot"><span>'+url+'</span><span>'+txt+'</span></div>';},
+ /* read a bar figure already on the page: returns [{nm,sub,txt,w,color,tgt}] */
+ scrape:function(fig,grp){var g='';return Array.prototype.slice.call(fig.querySelectorAll('.grp-l,.vb-row')).map(function(r){
+   if(r.classList.contains('grp-l')){g=r.textContent.trim();return null;}
+   var b=r.querySelector('.vb-bar'),t=r.querySelector('.vb-tgt'),l=r.querySelector('.vb-lab b'),s=r.querySelector('.vb-lab span'),v=r.querySelector('.vb-val');
+   var el=b||t;if(!el||!l||!v)return null;
+   return {nm:GL.esc((grp&&g?g+' · ':'')+l.textContent),sub:s?GL.esc(s.textContent):'',txt:GL.esc(v.textContent),w:parseFloat(el.style.width)||0,color:b?b.style.background:'var(--g-accent)',tgt:!b};}).filter(Boolean);},
+ /* text of a node without citation superscripts */
+ plain:function(n){var c=n.cloneNode(true);Array.prototype.forEach.call(c.querySelectorAll('sup'),function(x){x.remove();});return GL.esc(c.textContent.replace(/\s+/g,' ').trim());}
+};
+
+/* ---------- AT A GLANCE: The terminal benchmark ---------- */
+(function(){
+ var root=document.getElementById("glanceBody");if(!root)return;
+ var ref=function(id,t){return '<a href="#'+id+'">'+t+'</a>';};
+ var tiles=
+  GL.tile('37%','of US flyers go straight to the gate and wait; 45% go to the gate, then backtrack (2023)',ref('r-nasem','National Academies')+' · stated')+
+  GL.tile('&asymp;80 min','average median time at 89 US airports, 39 to 113 minutes (2017&ndash;19)',ref('r-wu','Wu et al.')+' · observed')+
+  GL.tile('36%','of international travelers entered duty free in H1 2026, about 4 in 10 before Covid',ref('r-m1nd','m1nd-set')+' · stated','var(--cat-2)')+
+  GL.tile('50%','of passengers have used biometrics at the airport (2025), up from 46%',ref('r-iata25','IATA')+' · stated');
+ var vw=document.querySelector("#summary .vwchart"),ladder='';
+ if(vw){Array.prototype.forEach.call(vw.querySelectorAll('.grp-l,.vb-row'),function(r){
+   if(r.classList.contains('grp-l')){ladder+='<div class="gl-grp">'+GL.esc(r.textContent.trim())+'</div>';return;}
+   var b=r.querySelector('.vb-bar'),l=r.querySelector('.vb-lab b'),s=r.querySelector('.vb-lab span'),v=r.querySelector('.vb-val');
+   ladder+=GL.bar({nm:GL.esc(l.textContent),sub:s?GL.esc(s.textContent):'',v:parseFloat(b.style.width)||0,max:100,txt:GL.esc(v.textContent.trim()),c:b.style.background,lw:150,cls:'sm'});
+ });}
+ var tb=document.getElementById('mxgrid'),map='';
+ if(tb){
+  var ab=['GL','NA','LA','EU','ME','AF','AP'],hdr='<span></span>';
+  for(var k=0;k<ab.length;k++){hdr+='<span class="cl">'+ab[k]+'</span>';}
+  var cells='';
+  Array.prototype.forEach.call(tb.querySelectorAll('tbody tr'),function(tr){
+   var tds=tr.querySelectorAll('td');cells+='<span class="rl">'+GL.esc(tds[0].textContent)+'</span>';
+   for(var j=1;j<tds.length;j++){var t=(tds[j].className.match(/v[345]/)||[''])[0];cells+='<i class="'+t+'" title="'+GL.esc(tds[j].getAttribute('title')||'')+'"></i>';}
+  });
+  map='<div class="gl-mxg" style="grid-template-columns:minmax(0,170px) repeat(7,minmax(0,1fr))">'+hdr+cells+'</div>'+
+   '<div class="gl-legend"><span><i class="gl-chip" style="background:var(--s5)"></i>Strong</span><span><i class="gl-chip" style="background:var(--s4)"></i>Medium</span><span><i class="gl-chip" style="background:var(--s3)"></i>Thin</span><span><i class="gl-chip" style="border:1px dashed var(--g-rule)"></i>Gap</span></div>'+
+   '<div class="gl-note">GL global; NA North America; LA Latin America; EU Europe; ME Middle East; AF Africa; AP Asia-Pacific.</div>';
+ }
+ root.innerHTML=GL.mast('The terminal benchmark','Data as of 23 Oct 2026')+
+  '<div class="gl-lede"><b>Terminal time is counted in minutes and dollars, not in what people do.</b> Of 112 cells, 20 have a measure and 3 are strong; none is in Latin America or Africa.</div>'+
+  '<div class="gl-tiles">'+tiles+'</div>'+
+  '<div class="gl-two"><div><div class="gl-h">Where the saved minutes go</div><div class="gl-sub">Travelers who say airport technology saved them time. Stated; vendor-commissioned; answers not exclusive.</div>'+ladder+'</div>'+
+  '<div><div class="gl-h">Where the evidence is</div><div class="gl-sub">16 measures by 7 regions; shade shows strength of evidence (chapter 1).</div>'+map+'</div></div>'+
+  '<div class="gl-two"><div><div class="gl-h">The read</div><div class="gl-sub">Author&rsquo;s reading of the cited evidence.</div><ul class="gl-ul" style="font-size:.82rem;color:var(--g-ink2)">'+
+  '<li><b style="color:var(--g-ink)">Food wins the extra minutes.</b> Per passenger, longer dwell raises food and drink revenue, not retail (89 US airports).</li>'+
+  '<li><b style="color:var(--g-ink)">Shopping&rsquo;s share is falling.</b> Non-aeronautical revenue per passenger fell from US$8.61 (2017) to US$7.57 (2024).</li>'+
+  '<li><b style="color:var(--g-ink)">Lounges are a second terminal.</b> 39% of US lounge users go to avoid high terminal food prices.</li></ul></div>'+
+  '<div><div class="gl-h">What airports offer, and count</div><div class="gl-sub">Services checked on operator pages, October 2026.</div><ul class="gl-ul" style="font-size:.82rem;color:var(--g-ink2)">'+
+  '<li><b style="color:var(--g-ink)">Offers cluster by region</b><br>Therapy animals in North America; free layover tours and transit hotels at Asian, Istanbul and Addis hubs.</li>'+
+  '<li><b style="color:var(--g-ink)">Use is rarely published</b><br>Only Jewel Changi, Madrid&rsquo;s play areas and Pudong&rsquo;s free tour gave a visitor or participant count.</li></ul></div></div>'+
+  GL.foot('blueplanet-ai.github.io/terminal-benchmark','&copy; 2026 Chuhee Lee · CC BY-NC 4.0 · Figures from the cited sources; the read is the author&rsquo;s judgment');
+})();
+</script>
+<script src="/assets/report-opener.js" defer></script>
+</body>
+</html>
