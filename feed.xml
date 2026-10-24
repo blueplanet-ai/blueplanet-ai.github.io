@@ -6,7 +6,14 @@
   <description>Benchmarks, comparisons and research reports on AI, mobility and experience: time and attention on the move. New editions and refreshes.</description>
   <language>en</language>
   <atom:link href="https://blueplanet-ai.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 21 Oct 2026 07:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 23 Oct 2026 07:00:00 GMT</lastBuildDate>
+  <item>
+    <title>The terminal benchmark</title>
+    <link>https://blueplanet-ai.github.io/terminal-benchmark/</link>
+    <guid isPermaLink="true">https://blueplanet-ai.github.io/terminal-benchmark/</guid>
+    <pubDate>Fri, 23 Oct 2026 07:00:00 GMT</pubDate>
+    <description>Research report, October 2026 edition (data as of 23 Oct 2026). A global benchmark of what people do in airport terminals and what 28 leading airports offer for that time, using only data from the last ten years. Spending and processing are counted; what people do while they wait is not, and Latin America and Africa are blank.</description>
+  </item>
   <item>
     <title>What people do on the move</title>
     <link>https://blueplanet-ai.github.io/on-the-move/</link>

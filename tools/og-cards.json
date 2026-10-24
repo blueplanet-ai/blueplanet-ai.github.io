@@ -131,5 +131,24 @@
         "matrix cells with a US measure"
       ]
     ]
+  },
+  "terminal-benchmark": {
+    "eyebrow": "INDEPENDENT RESEARCH · SIGNALS · 28 AIRPORTS",
+    "line1": "The terminal",
+    "line2": "benchmark",
+    "stats": [
+      [
+        "37%",
+        "of US flyers go straight to the gate"
+      ],
+      [
+        "36%",
+        "enter duty free, H1 2026"
+      ],
+      [
+        "20 of 112",
+        "matrix cells measured"
+      ]
+    ]
   }
 }
