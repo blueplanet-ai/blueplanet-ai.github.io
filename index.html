@@ -222,6 +222,10 @@ button.chip[aria-pressed="true"]{background:var(--ink);color:var(--ground);borde
 .cell-link + .cell-link{margin-top:6px;}
 .cell-link small{display:block;font-family:var(--font-mono);font-size:12px;font-weight:400;color:var(--ink-2);margin-top:3px;}
 .cell-link:hover,.cell-link.on{border-left-color:var(--signal-deep);box-shadow:inset 0 0 0 1px var(--signal);}
+/* Side project link (Gate Games): quieter than a report */
+.cell-link.side{background:transparent;border-left:3px dashed var(--line-strong);}
+.cell-link.side small{color:var(--ink-3);}
+.cell-link.side:hover,.cell-link.side.on{border-left-color:var(--signal-deep);box-shadow:inset 0 0 0 1px var(--signal);}
 .coming{display:block;border:1px dashed var(--line-strong);color:var(--ink-3);padding:9px 10px;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;}
 .coming.opp{border-color:var(--opp);color:var(--opp-ink);}
 .na{color:var(--line-strong);font-family:var(--font-mono);font-size:12px;}
@@ -236,6 +240,20 @@ button.chip[aria-pressed="true"]{background:var(--ink);color:var(--ground);borde
 .preview .m{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);line-height:1.5;}
 .preview a{font-family:var(--font-ui);font-size:14px;font-weight:600;text-decoration:none;}
 @media (max-width:1100px){.preview{display:none;}}
+/* Screenshot strip ends in the gap below the game's tabs (229 of 520 px), so no label is cut */
+.preview img.shot-light,.preview img.shot-dark{height:auto;aspect-ratio:390/229;object-position:top;}
+/* Light and dark screenshots: follow the theme toggle as well as the system setting */
+:root .shot-dark{display:none;}
+:root[data-theme="dark"] .shot-light{display:none;}
+:root[data-theme="dark"] .shot-dark{display:block;}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .shot-light{display:none;}
+  :root:not([data-theme="light"]) .shot-dark{display:block;}
+}
+/* Side project card under the Opportunities brief */
+.play-mini{display:grid;grid-template-columns:96px minmax(0,1fr);gap:18px;align-items:start;padding:18px 0;border-top:1px solid var(--line);margin-top:26px;}
+.play-shot{display:block;width:96px;border:1px solid var(--line-strong);background:var(--surface);}
+.play-shot img{display:block;width:100%;height:auto;}
 .map-stack{display:none;gap:10px;}
 .stack-row{background:var(--surface);border:1px solid var(--line);padding:14px;display:grid;gap:8px;}
 .stack-row.opp{background:var(--opp-soft);border:1px dashed var(--opp);}
@@ -458,7 +476,7 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
             <div class="rh" data-layer="signals"><b><svg class="ico" data-ico="signals" viewBox="0 0 24 24" aria-hidden="true"></svg>Signals</b><span>Benchmarks</span></div>
             <div data-col="shared"><span class="na">—</span></div>
             <div data-col="mobility"><a class="cell-link" href="incar-ai-benchmark/">In-Car AI Assistant Benchmark<small>Next refresh mid-Jan 2027</small></a></div>
-            <div data-col="travel"><a class="cell-link" href="on-the-move/">What people do on the move<small>Oct 2026 · one-time edition</small></a><a class="cell-link" href="terminal-benchmark/">The terminal benchmark<small>Oct 2026 · one-time edition</small></a></div>
+            <div data-col="travel"><a class="cell-link" href="on-the-move/">What people do on the move<small>Oct 2026 · one-time edition</small></a><a class="cell-link" href="terminal-benchmark/">The terminal benchmark<small>Oct 2026 · one-time edition</small></a><a class="cell-link side" href="/gate-games/">Gate Games<small>Side project · play it</small></a></div>
             <div data-col="edu"><span class="coming">Planned</span></div>
 
             <div class="rh opp last" data-layer="opportunities"><b><svg class="ico" data-ico="opp" viewBox="0 0 24 24" aria-hidden="true"></svg>Opportunities</b><span>Product lens</span></div>
@@ -627,15 +645,28 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
       </div>
     </article>
     <p class="map-note">Every brief answers these eight questions, so an idea can be traced back to its evidence. With three or more briefs, they will be plotted on a potential-versus-complexity chart.</p>
+    <article class="play-mini">
+      <span class="play-shot">
+        <img class="shot-light" src="media/gate-games-shot-light.webp" width="390" height="520" alt="Screenshot of Gate Games: a boarding pass for SFO to LAX above an empty carry-on bag grid." loading="lazy">
+        <img class="shot-dark" src="media/gate-games-shot-dark.webp" width="390" height="520" alt="Screenshot of Gate Games: a boarding pass for SFO to LAX above an empty carry-on bag grid." loading="lazy">
+      </span>
+      <span class="pub-body">
+        <span class="tags"><span class="tag new">Side project</span><span class="tag">Travel</span></span>
+        <span class="pub-title">Gate Games</span>
+        <span class="pub-q">A side project, made for the wait at the gate that the terminal benchmark describes. A working example to play, not a proposed solution.</span>
+        <span class="pub-desc">Three short games: pack a carry-on, guess where the flight is headed, sort the boarding line. One thumb, stop any time, works offline.</span>
+        <span class="pub-go"><a href="/gate-games/">Play Gate Games →</a></span>
+      </span>
+    </article>
   </section>
 
   <section id="updates">
     <div class="sec-head"><h2>What changed</h2><span class="eyebrow">Latest updates</span></div>
     <ol class="upd">
+      <li><time datetime="2026-10-24">24 Oct 2026</time><span class="t"><span class="k">Side project</span> <a href="/gate-games/">Gate Games</a>, three short games made for the wait at the gate that the terminal benchmark describes.</span></li>
       <li><time datetime="2026-10-23">23 Oct 2026</time><span class="t"><span class="k">New</span> <a href="/terminal-benchmark/">The terminal benchmark</a>, what people do in airport terminals worldwide and what 28 airports offer.</span></li>
       <li><time datetime="2026-10-21">21 Oct 2026</time><span class="t"><span class="k">New</span> <a href="/on-the-move/">What people do on the move</a>, a US benchmark of what people do while traveling.</span></li>
       <li><time datetime="2026-10-18">18 Oct 2026</time><span class="t"><span class="k">Site</span> American spelling, higher text contrast, a light/dark toggle, a back link on every report, and a headline-finding line under each at-a-glance summary.</span></li>
-      <li><time datetime="2026-10-18">18 Oct 2026</time><span class="t"><span class="k">Updated</span> Sources added for every headquarters on the <a href="/physical-ai-cabin/">Physical AI</a> map, plus wording fixes across four reports.</span></li>
     </ol>
     <p class="upd-more"><a href="https://github.com/blueplanet-ai/blueplanet-ai.github.io/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Full change log</a> &middot; <a href="/feed.xml">RSS feed</a></p>
   </section>
@@ -750,6 +781,14 @@ document.querySelectorAll('svg[data-ico]').forEach(function(s){s.innerHTML=ICONS
       alt:cover.getAttribute('alt')
     };
   });
+  pubs['/gate-games/']={
+    href:'/gate-games/', title:'Gate Games',
+    desc:'A side project, made for the wait at the gate that the terminal benchmark describes. A working example to play, not a proposed solution.',
+    meta:'Web app · free · works offline',
+    tags:'Side project · Travel',
+    shot:true, alt:'Screenshot of Gate Games: a boarding pass for SFO to LAX above an empty carry-on bag grid.',
+    cta:'Play Gate Games'
+  };
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
   var first=document.querySelector('.pub');
@@ -765,7 +804,8 @@ document.querySelectorAll('svg[data-ico]').forEach(function(s){s.innerHTML=ICONS
   var pv=document.getElementById('mapPreview');
   function show(href,link){
     var P=pubs[href]; if(!P||!pv) return;
-    pv.innerHTML='<img src="'+esc(P.cover)+'" alt="'+esc(P.alt)+'"><div class="body"><span class="k">'+esc(P.tags)+'</span><span class="t">'+esc(P.title)+'</span><span class="d">'+esc(P.desc)+'</span><span class="m">'+esc(P.meta)+'</span><a href="'+esc(P.href)+'">Read the report<span class="vh">: '+esc(P.title)+'</span> →</a></div>';
+    var img=P.shot?'<img class="shot-light" src="media/gate-games-shot-light.webp" alt="'+esc(P.alt)+'"><img class="shot-dark" src="media/gate-games-shot-dark.webp" alt="'+esc(P.alt)+'">':'<img src="'+esc(P.cover)+'" alt="'+esc(P.alt)+'">';
+    pv.innerHTML=img+'<div class="body"><span class="k">'+esc(P.tags)+'</span><span class="t">'+esc(P.title)+'</span><span class="d">'+esc(P.desc)+'</span><span class="m">'+esc(P.meta)+'</span><a href="'+esc(P.href)+'">'+esc(P.cta||'Read the report')+'<span class="vh">: '+esc(P.title)+'</span> →</a></div>';
     pv.hidden=false;
     document.querySelectorAll('.map .cell-link').forEach(function(a){a.classList.toggle('on',a===link);});
   }
@@ -787,7 +827,7 @@ document.querySelectorAll('svg[data-ico]').forEach(function(s){s.innerHTML=ICONS
       for(var j=1;j<5;j++){
         var cell=k[i+j],col=cell.dataset.col;
         cell.querySelectorAll('.cell-link').forEach(function(a){
-          body+='<a class="cell-link" data-col="'+col+'" href="'+a.getAttribute('href')+'">'+esc(a.firstChild.textContent)+'<small>'+esc(heads[j-1])+' · '+esc(a.querySelector('small').textContent)+'</small></a>';
+          body+='<a class="cell-link'+(a.classList.contains('side')?' side':'')+'" data-col="'+col+'" href="'+a.getAttribute('href')+'">'+esc(a.firstChild.textContent)+'<small>'+esc(heads[j-1])+' · '+esc(a.querySelector('small').textContent)+'</small></a>';
         });
         var soon=cell.querySelector('.coming');
         if(soon) body+='<span class="coming'+(opp?' opp':'')+'" data-col="'+col+'">'+esc(heads[j-1])+': '+esc(soon.textContent.toLowerCase())+'</span>';

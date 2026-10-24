@@ -2,6 +2,12 @@
 
 ## Site-wide
 
+### 24 October 2026 — Gate Games linked from the site
+- **Home page:** Gate Games, a side project, is linked from the Travel / Signals map cell (quieter dashed style, own hover preview with a Play link, passed through to the phone list) and from a small card under the Opportunities brief; "What changed" entry added and the oldest row dropped.
+- **The terminal benchmark:** a third "Continue down the map" card links to the game.
+- **Media:** light and dark screenshots of the game in `media/`, switched with the theme toggle as well as the system setting. The game lives in its own repo (`blueplanet-ai/gate-games`) at `/gate-games/`. No findings or figures changed.
+- **DESIGN.md:** "What changed" holds four rows, matching the page. Sitemap `lastmod` and the report's `dateModified` updated; no feed entry for the game.
+
 ### 23 October 2026 — The terminal benchmark: full names for codes
 - **Hover expansions:** airport codes, region tags (NAM, EUR, APAC, ME) and acronyms (ACI, IATA, CAA, PUP and others) on `terminal-benchmark/` are wrapped in `<abbr>` and show their full name on hover or tap, in a tooltip that reuses the In-Car AI Assistant Benchmark's `.tip` style; a dotted underline marks them. 144 codes in all; text inside links and citations is unchanged.
 - **Airport key:** the Method section gains a table of the 28 airports by region (code, airport, city), linked from the scope paragraph; the report's change log notes the update. No findings or figures changed.

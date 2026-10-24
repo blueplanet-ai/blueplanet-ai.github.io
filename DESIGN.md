@@ -57,7 +57,7 @@ Sizes in page CSS snap to 12, 13, 14, 15, 16, 18, 20, 22 and 24 px. Use px, not 
 - **JSON-LD:** each page has one `application/ld+json` block (home: `WebSite` and `Person`; reports: `Report`; Method: `Article`). Update `dateModified` with the sitemap `lastmod` when a page changes.
 - **Headline finding:** `.gl-cap` under the at-a-glance infographic restates the report's own summary line. Do not write a new claim there.
 - **Back link:** `.ro-crumb` ("← All publications") sits between the top bar and the header on every report and Method; it links to `/#publications`.
-- **What changed (home):** `#updates` lists the three latest entries from `CHANGELOG.md` with dates. Update it when you add a changelog entry; keep it to three rows.
+- **What changed (home):** `#updates` lists the three latest entries from `CHANGELOG.md` with dates. Update it when you add a changelog entry; keep it to four rows (add the new entry at the top, drop the oldest).
 - **Text on trend colors (Mega Trends):** `--tc1`..`--tc7` set the text color on each trend fill per theme; do not hard-code white or black.
 - **`<main>`** wraps the content between the contents bar and the "read next" block on every report.
 - **Paper grain:** a faint SVG feTurbulence data-URI behind the light ground. Off in dark mode and print.

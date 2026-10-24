@@ -526,6 +526,15 @@ table.cmp td b{font-family:var(--font-ui);color:var(--ink);}
 .srcs li a{word-break:break-word;}
 .srcs li{scroll-margin-top:12px;}
 .srcs li:target{background:var(--surface-2);}
+/* Gate Games card in "Continue down the map": screenshot follows the theme toggle and the system setting */
+.rn-card img.shot{object-position:top;}
+:root .shot-dark{display:none;}
+:root[data-theme="dark"] .shot-light{display:none;}
+:root[data-theme="dark"] .shot-dark{display:block;}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .shot-light{display:none;}
+  :root:not([data-theme="light"]) .shot-dark{display:block;}
+}
 </style>
 <style media="print">
 /* Print: clean light copy. In the browser's print dialog choose Save as PDF. */
@@ -680,7 +689,7 @@ table.mxgrid td.gap{color:var(--ink-3);font-family:var(--font-mono);font-size:12
   "url": "https://blueplanet-ai.github.io/"
  },
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
- "dateModified": "2026-10-23",
+ "dateModified": "2026-10-24",
  "image": "https://blueplanet-ai.github.io/terminal-benchmark/og-image.png",
  "datePublished": "2026-10-23"
 }
@@ -909,6 +918,7 @@ abbr[title],abbr[data-t]{text-decoration:underline dotted;text-decoration-color:
     <li class="loghead">October 2026 edition</li>
     <li><span class="new">Added</span><div>First edition, data as of 23 October 2026. Matrix of 16 activity measures by 7 regions (20 of 112 cells measured), and a benchmark of services at 28 airports.</div></li>
     <li><span class="chg">Changed</span><div>23 October 2026: airport codes, region tags and acronyms show their full names on hover or tap, and an airport key is added to this section. No findings or figures changed.</div></li>
+    <li><span class="chg">Changed</span><div>24 October 2026: a third &ldquo;Continue down the map&rdquo; card links to Gate Games, a side project made for the wait at the gate. No findings or figures changed.</div></li>
   </ul>
   <h3 class="sub-h">Related reports on this site</h3>
   <div class="about">
@@ -988,7 +998,7 @@ abbr[title],abbr[data-t]{text-decoration:underline dotted;text-decoration-color:
 </main>
 <section class="rn" aria-labelledby="rnH"><div class="ro-inner">
   <div class="rn-head"><h2 id="rnH">Continue <em>down the map</em></h2><span class="rn-chain" aria-label="The four layers of the map"><span class="f">Forces</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="">Shifts</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class=" here" aria-current="true">Signals</span><svg class="ro-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg><span class="o">Opportunities</span></span></div>
-  <div class="rn-cards"><a class="rn-card" href="/on-the-move/"><img src="/on-the-move/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Signals</span><span class="rn-t">What people do on the move</span><span class="rn-q">What do people in the US do while traveling, in each mode and in motion versus stopped, and where is that behavior actually measured?</span></span></a><a class="rn-card" href="/shared-cabin/"><img src="/shared-cabin/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Opportunities</span><span class="rn-t">One cabin, several people</span><span class="rn-q">Is the shared car cabin, where a driver and passengers ride together, a problem large enough to be worth solving, and where could a solution start?</span></span></a></div>
+  <div class="rn-cards"><a class="rn-card" href="/on-the-move/"><img src="/on-the-move/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Signals</span><span class="rn-t">What people do on the move</span><span class="rn-q">What do people in the US do while traveling, in each mode and in motion versus stopped, and where is that behavior actually measured?</span></span></a><a class="rn-card" href="/shared-cabin/"><img src="/shared-cabin/cover.svg" width="84" height="112" alt=""><span><span class="rn-tag">Opportunities</span><span class="rn-t">One cabin, several people</span><span class="rn-q">Is the shared car cabin, where a driver and passengers ride together, a problem large enough to be worth solving, and where could a solution start?</span></span></a><a class="rn-card" href="/gate-games/"><img class="shot shot-light" src="/media/gate-games-shot-light.webp" width="84" height="112" alt=""><img class="shot shot-dark" src="/media/gate-games-shot-dark.webp" width="84" height="112" alt=""><span><span class="rn-tag">Side project</span><span class="rn-t">Gate Games</span><span class="rn-q">Made for the wait at the gate that this benchmark describes. A working example to play, not a proposed solution.</span></span></a></div>
 </div></section>
 <section class="rn-follow" aria-labelledby="rnF"><div class="ro-inner">
   <div><span class="rn-k">Follow new editions</span><h2 id="rnF">Each report is refreshed on a schedule. <em>Know when it changes.</em></h2><p>Next refresh dates are listed on the <a href="/#follow">home page</a>.</p></div>
