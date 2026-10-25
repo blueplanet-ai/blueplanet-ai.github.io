@@ -697,7 +697,7 @@ a.gl-name:hover{color:var(--g-accent)}
     <h1 class="ro-title">Agentic AI and the Consumer: <em>2027 Outlook</em></h1>
     <p class="ro-dek">What changes when software starts acting for shoppers: what consumers trust, delegate, buy and feel, across retail, travel, finance and mobility.</p>
     <p class="ro-q"><b>Research question</b><span>How does agentic AI change what consumers trust, delegate, buy and feel through 2027?</span></p>
-    <div class="ro-meta"><span class="ro-by"><svg class="ro-ico" data-ro-ico="person" viewBox="0 0 24 24" aria-hidden="true"></svg>By&nbsp;<a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener"><b>Chuhee Lee</b></a></span><span><svg class="ro-ico" data-ro-ico="time" viewBox="0 0 24 24" aria-hidden="true"></svg>≈20 min read</span><span><svg class="ro-ico" data-ro-ico="doc" viewBox="0 0 24 24" aria-hidden="true"></svg>Data as of 11 Oct 2026</span><span><svg class="ro-ico" data-ro-ico="calendar" viewBox="0 0 24 24" aria-hidden="true"></svg>Next refresh: to be confirmed</span><a href="#changelog"><svg class="ro-ico" data-ro-ico="history" viewBox="0 0 24 24" aria-hidden="true"></svg>Change log</a></div>
+    <div class="ro-meta"><span class="ro-by"><svg class="ro-ico" data-ro-ico="person" viewBox="0 0 24 24" aria-hidden="true"></svg>By&nbsp;<a href="https://www.linkedin.com/in/chuheel" target="_blank" rel="noopener"><b>Chuhee Lee</b></a></span><span><svg class="ro-ico" data-ro-ico="time" viewBox="0 0 24 24" aria-hidden="true"></svg>≈20 min read</span><span><svg class="ro-ico" data-ro-ico="doc" viewBox="0 0 24 24" aria-hidden="true"></svg>Data as of 11 Oct 2026</span><span><svg class="ro-ico" data-ro-ico="calendar" viewBox="0 0 24 24" aria-hidden="true"></svg>Next refresh: October 2027</span><a href="#changelog"><svg class="ro-ico" data-ro-ico="history" viewBox="0 0 24 24" aria-hidden="true"></svg>Change log</a></div>
     <p class="ro-credit">With research assistance from several AI models (Claude, Gemini) · Views are the author’s own</p>
     <div class="ro-acts">
       <button type="button" class="ro-primary" id="roCite"><svg class="ro-ico" data-ro-ico="quote" viewBox="0 0 24 24" aria-hidden="true"></svg>Cite</button>
@@ -1171,7 +1171,7 @@ var GL={
  var coxH=coxRows.map(function(r,i){var g=(i%2===0?'<div class="gl-grp">'+['Credit application','Choosing F&amp;I products','Finalizing the price'][i/2]+'</div>':'');return g+GL.bar({nm:r.nm,v:r.w,max:100,txt:r.txt,c:colr(r),lw:130,cls:"sm"});}).join("");
  var ov=document.querySelector("#outlook .verdict"),pts=ov?Array.prototype.slice.call(ov.querySelectorAll("b")).map(function(b){return GL.esc(b.textContent);}):[];
  var read=pts.map(function(p){return '<li><span class="gl-pill k1">'+p.split(".")[0]+'</span> '+p.replace(/^\d\.\s*/,'')+'</li>';}).join("");
- root.innerHTML=GL.mast('Agentic AI and the Consumer: 2027 Outlook','October 2026 edition · Data as of 11 Oct 2026')+
+ root.innerHTML=GL.mast('Agentic AI and the Consumer: 2027 Outlook','October 2026 edition · Data as of 11 Oct 2026 · Next refresh Oct 2027')+
   '<div class="gl-lede"><b>Advisor first, buyer later.</b> Consumers will let an agent research, monitor and negotiate for them; most still keep the final purchase decision. Discovery has moved to AI quickly; checkout has not.</div>'+
   '<div class="gl-tiles">'+tiles+'</div>'+
   '<div class="gl-two"><div><div class="gl-h">The autonomy cliff</div><div class="gl-sub">Share willing, by degree of autonomy. Different surveys, so not like-for-like: the pattern is the finding.</div>'+cliffH+'</div>'+
