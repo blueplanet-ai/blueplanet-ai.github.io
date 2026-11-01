@@ -2,6 +2,12 @@
 
 ## Site-wide
 
+### 31 October 2026 — Daily brief on the site
+- **New page** `brief/`: the daily brief's public digest (one to three news stories each weekday, selected and summarized automatically by the `daily-brief` job). Shows the latest edition with its date, each story's section, headline, one-line summary, a "Why it matters" line set apart as interpretation, and an outbound link to the publisher's article; below it, the last 60 days, each expandable in place and linkable as `/brief/#YYYY-MM-DD`. The credit line comes from the digest. Labeled "Automated news · not research" and kept apart from the reports. If the latest digest cannot be loaded the page says "No digest today"; past days hide if the list cannot be loaded.
+- **Home page:** a compact "Daily brief" strip above "What changed" (dashed side-project style) with up to three headlines, the edition date, the credit line and a "More →" link; it stays hidden if the fetch fails or the digest is empty. "What changed" entry added and the oldest row dropped; footer link added.
+- **Data:** fetched in the browser from the public Cloud Storage bucket (`digest/latest.json`, `digest/index.json`, `digest/YYYY-MM-DD.json`); nothing is committed daily. The name "Daily brief" and the "Why it matters" label avoid the site's "Signals" research layer.
+- **Other files:** sitemap gains `/brief/`; footer link from Method and the eight reports. No feed entry. No findings or figures changed.
+
 ### 24 October 2026 — Gate Games linked from the site
 - **Home page:** Gate Games, a side project, is linked from the Travel / Signals map cell (quieter dashed style, own hover preview with a Play link, passed through to the phone list) and from a small card under the Opportunities brief; "What changed" entry added and the oldest row dropped.
 - **The terminal benchmark:** a third "Continue down the map" card links to the game.

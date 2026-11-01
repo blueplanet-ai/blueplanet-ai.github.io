@@ -176,6 +176,23 @@ body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 .upd .k{font-family:var(--font-ui);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--opp-ink);margin-right:10px;}
 .upd-more{margin:14px 0 0;font-family:var(--font-ui);font-size:15px;font-weight:500;}
 @media (max-width:600px){.upd li{grid-template-columns:1fr;}}
+/* Daily brief strip: automated news, kept apart from the research (dashed, like the side project) */
+.bstrip{padding-top:56px;}
+.bstrip[hidden]{display:none;}
+.bs{background:var(--surface);border:1px solid var(--line);border-left:3px dashed var(--line-strong);padding:16px 20px 14px;display:grid;gap:10px;}
+.bs-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;}
+.bs-head h2{font-family:var(--font-ui);font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;line-height:1.3;color:var(--ink);}
+.bs-head .auto{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--ink-2);border:1px dashed var(--line-strong);padding:1px 7px;}
+.bs-head time{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);}
+.bs-head .more{margin-left:auto;font-family:var(--font-ui);font-size:15px;font-weight:600;text-decoration:none;}
+.bs-head .more:hover{text-decoration:underline;}
+.bs ol{list-style:none;margin:0;padding:0;}
+.bs li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;align-items:baseline;padding:8px 0;border-top:1px solid var(--line);}
+.bs li a{font-family:var(--font-body);font-size:18px;line-height:1.35;color:var(--ink);text-decoration:none;}
+.bs li a:hover{color:var(--signal-deep);text-decoration:underline;}
+.bs li .s{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);text-align:right;}
+.bs .credit{font-family:var(--font-mono);font-size:12px;line-height:1.5;color:var(--ink-3);}
+@media (max-width:600px){.bs{padding:14px 14px 12px;}.bs-head .more{margin-left:0;}.bs li{grid-template-columns:1fr;}.bs li .s{text-align:left;}}
 
 main{padding-block:0 72px;}
 section{padding-top:64px;}
@@ -660,13 +677,21 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
     </article>
   </section>
 
+  <section id="daily" class="bstrip" aria-labelledby="daily-h" hidden>
+    <div class="bs">
+      <div class="bs-head"><h2 id="daily-h">Daily brief</h2><span class="auto">Automated news · not research</span><time id="bs-date"></time><a class="more" href="/brief/">More<span class="vh"> from the daily brief</span> →</a></div>
+      <ol id="bs-items"></ol>
+      <p class="credit" id="bs-credit"></p>
+    </div>
+  </section>
+
   <section id="updates">
     <div class="sec-head"><h2>What changed</h2><span class="eyebrow">Latest updates</span></div>
     <ol class="upd">
+      <li><time datetime="2026-10-31">31 Oct 2026</time><span class="t"><span class="k">Automated news</span> <a href="/brief/">Daily brief</a>, up to three news stories each weekday morning, selected and summarized automatically. Kept apart from the research.</span></li>
       <li><time datetime="2026-10-24">24 Oct 2026</time><span class="t"><span class="k">Side project</span> <a href="/gate-games/">Gate Games</a>, three short games made for the wait at the gate that the terminal benchmark describes.</span></li>
       <li><time datetime="2026-10-23">23 Oct 2026</time><span class="t"><span class="k">New</span> <a href="/terminal-benchmark/">The terminal benchmark</a>, what people do in airport terminals worldwide and what 28 airports offer.</span></li>
       <li><time datetime="2026-10-21">21 Oct 2026</time><span class="t"><span class="k">New</span> <a href="/on-the-move/">What people do on the move</a>, a US benchmark of what people do while traveling.</span></li>
-      <li><time datetime="2026-10-18">18 Oct 2026</time><span class="t"><span class="k">Site</span> American spelling, higher text contrast, a light/dark toggle, a back link on every report, and a headline-finding line under each at-a-glance summary.</span></li>
     </ol>
     <p class="upd-more"><a href="https://github.com/blueplanet-ai/blueplanet-ai.github.io/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Full change log</a> &middot; <a href="/feed.xml">RSS feed</a></p>
   </section>
@@ -708,7 +733,7 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
   </div>
   <div class="col">
     <span class="eyebrow">Site</span>
-    <a href="#start">Start here</a><a href="#map">The map</a><a href="#publications">Publications</a><a href="#opportunities">Opportunities</a><a href="#about">About and method</a><a href="/method/">How this research is made</a>
+    <a href="#start">Start here</a><a href="#map">The map</a><a href="#publications">Publications</a><a href="#opportunities">Opportunities</a><a href="#about">About and method</a><a href="/method/">How this research is made</a><a href="/brief/">Daily brief (automated news)</a>
   </div>
   <div class="col">
     <span class="eyebrow">License</span>
@@ -717,6 +742,33 @@ table{font-size:9pt;min-width:0!important;width:100%!important}
   </div>
 </div></footer>
 
+<script>
+/* Daily brief strip: fetched in the browser from the public digest; hidden if the fetch fails or there are no items */
+(function(){
+  var sec=document.getElementById('daily');if(!sec||!window.fetch)return;
+  fetch('https://storage.googleapis.com/project-e854f569-1098-4f6c-848-brief-public/digest/latest.json',{mode:'cors',credentials:'omit'})
+  .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+  .then(function(d){
+    var items=(d&&Array.isArray(d.items))?d.items.filter(function(it){return it&&it.headline;}).slice(0,3):[];
+    if(!items.length)return;
+    var ol=document.getElementById('bs-items');
+    items.forEach(function(it){
+      var li=document.createElement('li'),a=document.createElement('a'),src=it.source||{},url=null;
+      try{var x=new URL(src.url);if(x.protocol==='https:'||x.protocol==='http:')url=x.href;}catch(e){}
+      a.textContent=it.headline;
+      if(url){a.href=url;a.target='_blank';a.rel='noopener';}else{a.href='/brief/';}
+      li.appendChild(a);
+      var s=document.createElement('span');s.className='s';s.textContent=src.name||it.interest||'';li.appendChild(s);
+      ol.appendChild(li);
+    });
+    var t=document.getElementById('bs-date');
+    if(/^\d{4}-\d{2}-\d{2}$/.test(d.date||''))t.dateTime=d.date;
+    t.textContent=d.formatted_date||d.date||'';
+    document.getElementById('bs-credit').textContent=d.credit||'Selected and summarized automatically; not edited by hand.';
+    sec.hidden=false;
+  }).catch(function(){});
+})();
+</script>
 <script>
 /* Icon set: 24 x 24 grid, 1.6 stroke, drawn in currentColor. Shared by the map, tags, lenses and buttons. */
 var ICONS={

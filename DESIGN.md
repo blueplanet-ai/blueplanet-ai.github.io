@@ -64,6 +64,7 @@ Sizes in page CSS snap to 12, 13, 14, 15, 16, 18, 20, 22 and 24 px. Use px, not 
 - **Page transitions:** CSS cross-document `@view-transition`, only under `prefers-reduced-motion: no-preference`.
 - **Reading progress bar:** `.rp` element on the five reports, driven by `animation-timeline: scroll()`.
 - **Journey figure (home):** draws once on scroll with IntersectionObserver. Static without script and with reduced motion.
+- **Daily brief (`/brief/`, home `#daily`):** automated news, not research. Loaded in the browser from the public digest bucket (base URL in both scripts); CORS allows the site origin and `http://localhost:8000`. Keep the "Automated news · not research" label, the dashed side-project styling, the digest's own credit line, and outbound source links. Item text is inserted with `textContent` only. The home strip hides itself on any failure. Don't call it "Signals": that is a research layer.
 - **Reduced motion:** every animation must be off or static under `prefers-reduced-motion: reduce`.
 
 ## Maps and figures
