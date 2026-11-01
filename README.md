@@ -13,7 +13,7 @@ Source for **https://blueplanet-ai.github.io/**: benchmarks, comparisons and res
 | [Agentic AI and the Consumer: 2027 Outlook](https://blueplanet-ai.github.io/agentic-consumer-2027/) | October 2026 (data as of 11 Oct 2026; next refresh Oct 2027) | `agentic-consumer-2027/` |
 | [Mobility Product Outlook 2026–2031](https://blueplanet-ai.github.io/mobility-product-outlook/) | October 2026 (data as of 11 Oct 2026; next refresh Oct 2027) | `mobility-product-outlook/` |
 | [Mega Trends Outlook 2040](https://blueplanet-ai.github.io/mega-trends-2040/) | October 2026 (data as of 1 Oct 2026; next refresh Oct 2027) | `mega-trends-2040/` |
-| [In-Car AI Assistant Benchmark](https://blueplanet-ai.github.io/incar-ai-benchmark/) | October 2026 (data as of 11 Oct 2026; next refresh mid-Jan 2027) | `incar-ai-benchmark/` |
+| [In-Car AI Assistant Benchmark](https://blueplanet-ai.github.io/incar-ai-benchmark/) | October 2026 (data as of 1 Nov 2026; next refresh mid-Jan 2027) | `incar-ai-benchmark/` |
 
 Each report is a single self-contained `index.html` in its own folder, with an **At a glance** infographic at the top (built in the page from the report's own data), a downloadable `<report>-at-a-glance.png` and a 1200×630 `og-image.png` used as its social preview and as its card image on the home page. To add a report, create a new folder, add a card on the home page (`index.html`) tagged with its layer and domain, and link it from the matching cell in the map.
 

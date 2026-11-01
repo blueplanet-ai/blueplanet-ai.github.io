@@ -213,6 +213,11 @@
 
 ## In-Car AI Assistant Benchmark
 
+### 1 November 2026 — watch-list check (data as of 1 November 2026)
+- GM: announced its own assistant, the OnStar AI Assistant ("Hey OnStar"), on 21 October 2026. It reaches the 2027 Cadillac LYRIQ first by over-the-air update, then the Chevrolet Silverado 1500 and GMC Sierra 1500; a unified OnStar app follows in 2027. The GM entry, its use-case row and the watch-list item are updated. Sources: TechCrunch and The Letter Two (21 Oct 2026), both trade press.
+- Other watch-list items rechecked with no material change: VW Group China CEA agents, BMW beyond the iX3, SoundHound OASYS Edge, Alexa Custom Assistant on NVIDIA DRIVE AGX, Huawei Active Suggestion 2.0 (still Q1 2027), Mercedes C-Class, Ford and Volkswagen in 2027, and Rivian licensing. Other entries remain as checked to 11 October 2026.
+- "Data as of" moved to 1 November 2026 on the page, the home card, the README and the citation. Home "What changed" gains an entry and drops its oldest row. No scores changed.
+
 ### 15 October 2026 — at-a-glance infographic
 - New At a glance section at the top: headline tiles, the capability index for all entries with the median, average capability by architecture and mean score per dimension, all computed from the benchmark data. PNG download and a per-report social preview added. No scores changed.
 
