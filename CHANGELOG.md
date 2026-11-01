@@ -2,6 +2,9 @@
 
 ## Site-wide
 
+### 1 November 2026 — infographic export tool
+- **`tools/export-infographics.py`:** hides the reading-progress bar (`.rp`) before each screenshot, so re-exports no longer show it across the masthead. Pages now load from a local web server on 127.0.0.1 instead of from disk, so root paths such as `/assets/...` resolve as on the live site. If Google Fonts can't be reached, the tool uses locally installed Newsreader, Saira and IBM Plex Mono and prints a warning for any family that is missing. No PNGs re-exported; no findings or figures changed.
+
 ### 31 October 2026 — Daily brief on the site
 - **New page** `brief/`: the daily brief's public digest (one to three news stories each weekday, selected and summarized automatically by the `daily-brief` job). Shows the latest edition with its date, each story's section, headline, one-line summary, a "Why it matters" line set apart as interpretation, and an outbound link to the publisher's article; below it, the last 60 days, each expandable in place and linkable as `/brief/#YYYY-MM-DD`. The credit line comes from the digest. Labeled "Automated news · not research" and kept apart from the reports. If the latest digest cannot be loaded the page says "No digest today"; past days hide if the list cannot be loaded.
 - **Home page:** a compact "Daily brief" strip above "What changed" (dashed side-project style) with up to three headlines, the edition date, the credit line and a "More →" link; it stays hidden if the fetch fails or the digest is empty. "What changed" entry added and the oldest row dropped; footer link added.
