@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F4F7F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151D1F" media="(prefers-color-scheme: dark)">
+<title>Daily brief — Chuhee Lee</title>
+<meta name="description" content="Daily brief: up to three news stories each weekday morning, selected and summarized automatically, with a link to every source. Automated news, kept apart from the research reports.">
+<meta name="author" content="Chuhee Lee">
+<link rel="canonical" href="https://blueplanet-ai.github.io/brief/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Chuhee Lee — Independent Research" href="/feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daily brief">
+<meta property="og:description" content="Up to three news stories each weekday morning, selected and summarized automatically, with a link to every source. Automated news, kept apart from the research reports.">
+<meta property="og:url" content="https://blueplanet-ai.github.io/brief/">
+<meta property="og:site_name" content="Chuhee Lee — Independent Research">
+<meta property="og:image" content="https://blueplanet-ai.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blueplanet-ai.github.io/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://storage.googleapis.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Daily brief: automated news feed, kept apart from the research reports. Tokens match the rest of the site. */
+:root{
+  --ground:#EBF0E6; --surface:#F4F7F0; --surface-2:#E0E7DA; --line:#CDD6C6; --line-strong:#B3BFAB;
+  --ink:#0F1719; --ink-2:#344145; --ink-3:#4E5B5F;
+  --signal:#0892A5; --signal-deep:#066A79;
+  --opp:#C2622D; --opp-soft:#F5E6DC; --opp-ink:#9A4A1F;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --ui:"Saira","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0D1213; --surface:#151D1F; --surface-2:#1D2729; --line:#283436; --line-strong:#3C4B4E;
+  --ink:#E7EDEE; --ink-2:#AFBDBF; --ink-3:#8C9A9D; --signal:#2BB3C6; --signal-deep:#5FCCDB;
+  --opp:#DB8A4F; --opp-soft:#2A1E16; --opp-ink:#DB8A4F; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --ground:#0D1213; --surface:#151D1F; --surface-2:#1D2729; --line:#283436; --line-strong:#3C4B4E;
+  --ink:#E7EDEE; --ink-2:#AFBDBF; --ink-3:#8C9A9D; --signal:#2BB3C6; --signal-deep:#5FCCDB;
+  --opp:#DB8A4F; --opp-soft:#2A1E16; --opp-ink:#DB8A4F; color-scheme:dark;}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--serif);font-size:16px;line-height:1.6;margin:0;}
+.band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));}
+.col{max-width:760px;margin:0 auto;}
+a{color:var(--signal-deep);text-underline-offset:2px;text-decoration-thickness:1px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--signal);outline-offset:2px;}
+header.band{background:var(--surface);border-bottom:1px solid var(--line);}
+header .col{padding-block:44px 30px;display:grid;gap:14px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.auto{justify-self:start;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);border:1px dashed var(--line-strong);padding:3px 8px;}
+h1{margin:0;font-weight:400;font-size:clamp(38px,6vw,60px);line-height:1.04;letter-spacing:-.02em;text-wrap:balance}
+.dek{margin:0;font-size:20px;line-height:1.5;color:var(--ink-2);max-width:62ch}
+.note{margin:0;font-size:16px;color:var(--ink-2);max-width:66ch}
+main .col{padding-block:8px 64px}
+section{padding-top:40px;display:grid;gap:14px}
+h2{margin:0;font-weight:400;font-size:clamp(26px,3.4vw,32px);line-height:1.15;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:8px;text-wrap:balance}
+h2 .eyebrow{flex:none}
+p{margin:0}
+/* items */
+.items{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-strong)}
+.item{display:grid;gap:8px;padding:20px 0;border-bottom:1px solid var(--line)}
+.item .sec{font-family:var(--ui);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--signal-deep)}
+.item h3{margin:0;font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.25;text-wrap:balance}
+.item h3 a{color:var(--ink);text-decoration:none}
+.item h3 a:hover{color:var(--signal-deep);text-decoration:underline}
+.item .one{font-size:18px;line-height:1.5;color:var(--ink);max-width:66ch}
+.item .why{font-size:16px;line-height:1.5;font-style:italic;color:var(--ink-2);max-width:66ch;border-left:2px solid var(--line-strong);padding-left:12px}
+.item .why b{font-family:var(--ui);font-style:normal;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-right:8px}
+.item .src{font-family:var(--mono);font-size:12px;color:var(--ink-3);overflow-wrap:anywhere}
+.item .src a{color:var(--signal-deep)}
+.credit{font-family:var(--mono);font-size:12px;line-height:1.6;color:var(--ink-3);max-width:80ch}
+.empty{font-size:18px;color:var(--ink-2)}
+/* archive */
+.days{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-strong)}
+.days>li{border-bottom:1px solid var(--line)}
+.days details{scroll-margin-top:16px}
+.days summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:236px minmax(0,1fr) 20px;gap:4px 18px;padding:14px 0;align-items:baseline}
+.days summary::-webkit-details-marker{display:none}
+.days summary time{font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+.days summary .hl{font-size:16px;line-height:1.45;color:var(--ink)}
+.days summary .hl span{display:block}
+.days summary .hl span+span{color:var(--ink-2)}
+.days summary::after{content:"+";font-family:var(--mono);font-size:16px;color:var(--signal-deep);text-align:right}
+.days details[open] summary::after{content:"\2212"}
+.days summary:hover .hl span:first-child{color:var(--signal-deep)}
+.days .day{margin:0 0 18px;padding-left:16px;border-left:2px solid var(--line-strong)}
+.days .day .items{border-top:0}
+.days .day .item:first-child{padding-top:4px}
+.days .day .item{padding:16px 0}
+.days .day .item h3{font-size:20px}
+.days .day .item .one{font-size:16px}
+.days .day .credit{margin-top:10px}
+@media (max-width:560px){.days summary{grid-template-columns:minmax(0,1fr) 20px}.days summary time{grid-column:1}.days summary .hl{grid-column:1}.days summary::after{grid-column:2;grid-row:1}}
+footer.band{border-top:1px solid var(--line);background:var(--surface)}
+footer .col{padding-block:22px;font-family:var(--mono);font-size:12px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-between}
+footer a{color:var(--signal-deep)}
+@media print{.ro-top{display:none!important}body{background:#fff}}
+</style>
+<link rel="stylesheet" href="/assets/report-opener.css">
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Daily brief",
+ "description": "Up to three news stories each weekday morning, selected and summarized automatically, with a link to every source. Automated news, kept apart from the research reports.",
+ "url": "https://blueplanet-ai.github.io/brief/",
+ "inLanguage": "en",
+ "isPartOf": {"@type": "WebSite", "name": "Chuhee Lee — Independent Research", "url": "https://blueplanet-ai.github.io/"},
+ "publisher": {"@type": "Person", "name": "Chuhee Lee", "url": "https://blueplanet-ai.github.io/"},
+ "datePublished": "2026-10-31",
+ "dateModified": "2026-10-31"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="ro-top"><div class="ro-inner">
+  <a class="ro-brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">Chuhee Lee<span>Independent research</span></a>
+  <nav class="ro-nav" aria-label="Site">
+    <a href="/#start">Start here</a>
+    <a href="/#map">The map</a>
+    <a href="/#publications">Publications</a>
+    <a href="/#opportunities">Opportunities</a>
+    <a href="/#about">About</a>
+    <a class="ro-follow" href="/#follow"><svg class="ro-ico" data-ro-ico="rss" viewBox="0 0 24 24" aria-hidden="true"></svg>Follow</a>
+  </nav>
+</div></div>
+
+<div class="ro-crumb"><div class="ro-inner"><a href="/"><span aria-hidden="true">&larr;</span> Home</a></div></div>
+<header class="band" id="main" tabindex="-1"><div class="col">
+  <span class="auto">Automated news · not research</span>
+  <h1>Daily brief</h1>
+  <p class="dek">Up to three news stories each weekday morning, selected and summarized automatically, with a link to every source.</p>
+  <p class="note">This is a daily news feed, kept apart from the <a href="/#publications">research reports</a>. Summaries are machine-written and not edited by hand, so they can contain errors: check the linked source before you rely on one. New editions appear on weekdays at about 6:10 am Pacific time.</p>
+</div></header>
+
+<main class="band"><div class="col">
+
+<section id="today" aria-labelledby="today-h">
+  <h2 id="today-h"><span class="eyebrow">Latest edition</span><span id="today-date">Loading…</span></h2>
+  <div id="today-body" aria-live="polite"><noscript><p class="empty">The daily brief needs JavaScript to load.</p></noscript></div>
+</section>
+
+<section id="past" aria-labelledby="past-h" hidden>
+  <h2 id="past-h">Past days <span class="eyebrow">Last 60 days</span></h2>
+  <ol class="days" id="days"></ol>
+</section>
+
+</div></main>
+
+<footer class="band"><div class="col">
+  <span>&copy; 2026 Chuhee Lee</span>
+  <span>Automated news &middot; summaries link to each publisher&rsquo;s article; not affiliated with or endorsed by any company or organization named</span>
+  <span><a href="/method/">How this research is made</a> &middot; <a href="/">All publications</a></span>
+</div></footer>
+
+<script>
+(function(){
+  var BASE='https://storage.googleapis.com/project-e854f569-1098-4f6c-848-brief-public/digest/';
+  var FALLBACK_CREDIT='Selected and summarized automatically; not edited by hand.';
+  var cache={};
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+  function safeUrl(u){try{var x=new URL(u);return (x.protocol==='https:'||x.protocol==='http:')?x.href:null;}catch(e){return null;}}
+  function isDate(s){return typeof s==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(s);}
+  function longDate(d){try{return new Date(d+'T12:00:00Z').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric',timeZone:'UTC'});}catch(e){return d;}}
+  function get(name){
+    if(!cache[name]){cache[name]=fetch(BASE+name,{mode:'cors',credentials:'omit'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();});}
+    return cache[name];
+  }
+  function renderItems(d){
+    var frag=document.createDocumentFragment();
+    var items=(d&&Array.isArray(d.items))?d.items.filter(function(it){return it&&it.headline;}):[];
+    if(!items.length){frag.appendChild(el('p','empty','No digest for this day.'));return frag;}
+    var ol=el('ol','items');
+    items.forEach(function(it){
+      var li=el('li','item');
+      if(it.interest)li.appendChild(el('span','sec',it.interest));
+      var h=el('h3');var src=it.source||{};var url=safeUrl(src.url);
+      if(url){var a=el('a',null,it.headline);a.href=url;a.target='_blank';a.rel='noopener';h.appendChild(a);}else{h.textContent=it.headline;}
+      li.appendChild(h);
+      if(it.one_liner)li.appendChild(el('p','one',it.one_liner));
+      if(it.signal){var w=el('p','why');w.appendChild(el('b',null,'Why it matters'));w.appendChild(document.createTextNode(it.signal));li.appendChild(w);}
+      if(src.name||url){
+        var s=el('p','src','Source: ');
+        if(url){var sa=el('a',null,(src.name||new URL(url).hostname)+' ↗');sa.href=url;sa.target='_blank';sa.rel='noopener';sa.setAttribute('aria-label',(src.name||'source')+' (opens the publisher’s article in a new tab)');s.appendChild(sa);}
+        else s.appendChild(document.createTextNode(src.name));
+        li.appendChild(s);
+      }
+      ol.appendChild(li);
+    });
+    frag.appendChild(ol);
+    frag.appendChild(el('p','credit',(d.credit&&String(d.credit))||FALLBACK_CREDIT));
+    return frag;
+  }
+
+  var todayDate=document.getElementById('today-date'),todayBody=document.getElementById('today-body');
+  var latestDate=null;
+  var latestP=get('latest.json').then(function(d){
+    latestDate=isDate(d&&d.date)?d.date:null;
+    todayDate.textContent=(d&&d.formatted_date)||(latestDate?longDate(latestDate):'Latest edition');
+    if(latestDate){var t=el('time');t.dateTime=latestDate;todayDate.textContent='';t.textContent=(d.formatted_date||longDate(latestDate));todayDate.appendChild(t);}
+    todayBody.textContent='';todayBody.appendChild(renderItems(d));
+  }).catch(function(){
+    todayDate.textContent='No digest today';
+    todayBody.textContent='';todayBody.appendChild(el('p','empty','No digest today. Please check back on the next weekday morning.'));
+  });
+
+  function openDay(details,date){
+    var body=details.querySelector('.day');
+    if(body.dataset.loaded)return;
+    body.dataset.loaded='1';
+    body.appendChild(el('p','credit','Loading…'));
+    get(date+'.json').then(function(d){body.textContent='';body.appendChild(renderItems(d));})
+      .catch(function(){body.textContent='';body.appendChild(el('p','empty','This day could not be loaded.'));delete body.dataset.loaded;});
+  }
+
+  Promise.all([get('index.json'),latestP.catch(function(){})]).then(function(r){
+    var idx=r[0];var list=(idx&&Array.isArray(idx.digests))?idx.digests:[];
+    var ol=document.getElementById('days');
+    list.forEach(function(e){
+      if(!e||!isDate(e.date)||e.date===latestDate)return;
+      var li=el('li');var det=el('details');det.id=e.date;
+      var sum=el('summary');var t=el('time',null,longDate(e.date));t.dateTime=e.date;sum.appendChild(t);
+      var hl=el('span','hl');(Array.isArray(e.headlines)?e.headlines:[]).forEach(function(h){hl.appendChild(el('span',null,String(h)));});
+      sum.appendChild(hl);det.appendChild(sum);det.appendChild(el('div','day'));
+      det.addEventListener('toggle',function(){
+        if(det.open){openDay(det,e.date);if(location.hash!=='#'+e.date)history.replaceState(null,'','#'+e.date);}
+        else if(location.hash==='#'+e.date){history.replaceState(null,'',location.pathname+location.search);}
+      });
+      li.appendChild(det);ol.appendChild(li);
+    });
+    if(ol.children.length)document.getElementById('past').hidden=false;
+    jump();
+  }).catch(function(){});
+
+  function jump(){
+    var h=decodeURIComponent(location.hash.slice(1));
+    if(!isDate(h))return;
+    if(h===latestDate){document.getElementById('today').scrollIntoView();return;}
+    var det=document.getElementById(h);
+    if(det&&det.tagName==='DETAILS'){det.open=true;det.scrollIntoView();}
+  }
+  window.addEventListener('hashchange',jump);
+})();
+</script>
+<script src="/assets/report-opener.js" defer></script>
+</body>
+</html>
