@@ -6,6 +6,7 @@ Source for **https://blueplanet-ai.github.io/**: benchmarks, comparisons and res
 
 | Report | Edition | Path |
 |---|---|---|
+| [Media and Learning Outlook 2026–2031](https://blueplanet-ai.github.io/media-learning-outlook/) | November 2026 (data as of 1 Nov 2026; next refresh Nov 2027) | `media-learning-outlook/` |
 | [The terminal benchmark](https://blueplanet-ai.github.io/terminal-benchmark/) | October 2026 (data as of 23 Oct 2026; one-time edition) | `terminal-benchmark/` |
 | [What people do on the move](https://blueplanet-ai.github.io/on-the-move/) | October 2026 (data as of 21 Oct 2026; one-time edition) | `on-the-move/` |
 | [One cabin, several people](https://blueplanet-ai.github.io/shared-cabin/) (opportunity brief) | October 2026 (data as of 17 Oct 2026; one-time brief, not refreshed) | `shared-cabin/` |
