@@ -150,5 +150,24 @@
         "matrix cells measured"
       ]
     ]
+  },
+  "media-learning-outlook": {
+    "eyebrow": "INDEPENDENT RESEARCH · SHIFTS · ENTERTAINMENT",
+    "line1": "Media and Learning",
+    "line2": "Outlook 2026–2031",
+    "stats": [
+      [
+        "29%",
+        "see an AI search summary daily, 2026 (forecast)"
+      ],
+      [
+        "54%",
+        "of US teens use chatbots for schoolwork"
+      ],
+      [
+        ">50%",
+        "of Deezer’s daily uploads are AI-made"
+      ]
+    ]
   }
 }
