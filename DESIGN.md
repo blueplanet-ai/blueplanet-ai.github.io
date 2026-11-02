@@ -52,7 +52,7 @@ Sizes in page CSS snap to 12, 13, 14, 15, 16, 18, 20, 22 and 24 px. Use px, not 
 
 - **Skip link and `id="main"`** on the first header of every page (`tabindex="-1"` on reports). Keep the skip link first in `<body>`.
 - **`theme-color` metas** for light and dark.
-- **Theme toggle:** `assets/theme.js` and `assets/theme.css`, linked in the `<head>` of every page. Saves `bp-theme` (light or dark) in localStorage and sets `data-theme`; with no saved choice the system setting applies. The button is added to `nav.topnav` or `nav.ro-nav`.
+- **Theme control (System / Light / Dark):** `assets/theme.js` and `assets/theme.css`, linked in the `<head>` of every page. Three icon buttons (monitor, sun, moon) in a `.theme-seg` group, added to `nav.topnav` or `nav.ro-nav`; the selected one is filled and carries `aria-pressed`. Light and Dark save `bp-theme` in localStorage and set `data-theme`. System removes the saved value and the attribute, so the page follows the device setting and keeps following it when that changes. Other open tabs stay in step (storage event). Hidden in print.
 - **`404.html`:** branded not-found page that lists the publications. It uses root-relative asset paths so it works at any depth.
 - **JSON-LD:** each page has one `application/ld+json` block (home: `WebSite` and `Person`; reports: `Report`; Method: `Article`). Update `dateModified` with the sitemap `lastmod` when a page changes.
 - **Headline finding:** `.gl-cap` under the at-a-glance infographic restates the report's own summary line. Do not write a new claim there.

@@ -2,6 +2,11 @@
 
 ## Site-wide
 
+### 1 November 2026 — theme control: System / Light / Dark
+- **Fix:** once a reader clicked the old light/dark button, the saved choice overrode the device setting for good, with no way back to "follow the system" (seen in Safari: the site stayed in one theme after the Mac or iPhone changed). The button is replaced by a three-way control: System (monitor), Light (sun), Dark (moon). System clears the saved choice, so the site follows the device again, live.
+- **Behavior:** the selected mode is filled and exposed with `aria-pressed`; a previously saved "light" or "dark" keeps working; an invalid saved value is treated as System; other open tabs update when the choice changes. Icon-only, 32 × 34 px buttons, right-aligned at the end of the nav on every page (on report pages at phone width it wraps to its own row). It borrows each page's tokens, so no color tokens changed; dark mode is unchanged.
+- **Files:** `assets/theme.js`, `assets/theme.css`, `DESIGN.md` (Page furniture). No page markup, report content, findings or figures changed.
+
 ### 1 November 2026 — new Shifts report: Media and Learning Outlook 2026–2031
 - **New page** `media-learning-outlook/`: a forecast of how AI, wireless communication and consumer devices change how people in the US use media for entertainment and self-directed learning through 2031, built on the report template (opener, 60-second takeaways, at-a-glance infographic, nine chapters, method and references). Central case "Ask to know, scroll to watch": AI answers become the first stop for information and learning, while entertainment stays in feeds and apps with AI built in. Six shifts, the forces that slow them, four scenarios with signposts, and a short check of how past forecasts fared. 58 references.
 - **Home page:** added as the lead publication and "Latest"; added as 03 in Start here (later rows renumbered); the Entertainment / Shifts map cell now links to it, the first report in that column; added to the refresh list (Nov 2027); "What changed" entry added and the oldest row dropped. The terminal benchmark moves to a standard card with its portrait cover.
