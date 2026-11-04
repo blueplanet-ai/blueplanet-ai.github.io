@@ -6,6 +6,7 @@ Source for **https://blueplanet-ai.github.io/**: benchmarks, comparisons and res
 
 | Report | Edition | Path |
 |---|---|---|
+| [Trip Discovery Outlook 2026–2031](https://blueplanet-ai.github.io/trip-discovery/) | November 2026 (data as of 3 Nov 2026; next refresh Nov 2027) | `trip-discovery/` |
 | [Media and Learning Outlook 2026–2031](https://blueplanet-ai.github.io/media-learning-outlook/) | November 2026 (data as of 1 Nov 2026; next refresh Nov 2027) | `media-learning-outlook/` |
 | [The terminal benchmark](https://blueplanet-ai.github.io/terminal-benchmark/) | October 2026 (data as of 23 Oct 2026; one-time edition) | `terminal-benchmark/` |
 | [What people do on the move](https://blueplanet-ai.github.io/on-the-move/) | October 2026 (data as of 21 Oct 2026; one-time edition) | `on-the-move/` |

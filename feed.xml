@@ -6,7 +6,14 @@
   <description>Benchmarks, comparisons and research reports on AI, mobility and experience: time and attention on the move. New editions and refreshes.</description>
   <language>en</language>
   <atom:link href="https://blueplanet-ai.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 01 Nov 2026 08:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 04 Nov 2026 04:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Trip Discovery Outlook 2026–2031</title>
+    <link>https://blueplanet-ai.github.io/trip-discovery/</link>
+    <guid isPermaLink="true">https://blueplanet-ai.github.io/trip-discovery/</guid>
+    <pubDate>Wed, 04 Nov 2026 04:00:00 GMT</pubDate>
+    <description>Research report, November 2026 edition (data as of 3 Nov 2026). A forecast of how AI answers, agents, social video and new devices change the way people discover, plan and book trips through 2031. Trip discovery leaves the click: travelers increasingly get ideas and plans as AI answers, mostly Google's, while travel brands and platforms keep the booking, the payment and the service.</description>
+  </item>
   <item>
     <title>Media and Learning Outlook 2026–2031</title>
     <link>https://blueplanet-ai.github.io/media-learning-outlook/</link>

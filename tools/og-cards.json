@@ -169,5 +169,24 @@
         "used Amazon’s Alexa for Shopping in a year"
       ]
     ]
+  },
+  "trip-discovery": {
+    "eyebrow": "INDEPENDENT RESEARCH · SHIFTS · TRAVEL",
+    "line1": "Trip Discovery",
+    "line2": "Outlook 2026–2031",
+    "stats": [
+      [
+        "56% vs <1%",
+        "say they use AI for trips vs Booking.com room nights from AI chat"
+      ],
+      [
+        "−18.8 pts",
+        "clicks when Google switches to AI Mode"
+      ],
+      [
+        "30% vs 8%",
+        "agent bookings forecast for 2030 vs comfort today"
+      ]
+    ]
   }
 }
