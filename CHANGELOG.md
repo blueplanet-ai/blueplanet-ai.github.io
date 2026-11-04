@@ -2,6 +2,13 @@
 
 ## Site-wide
 
+### 3 November 2026 — Physical AI and the Rider's Cabin rewritten as a 2026–2031 outlook
+- **Replaced** `physical-ai-cabin/` with `physical-ai-outlook/` (no year in the address; the old address is not redirected). New title: "Physical AI Outlook 2026–2031". The October edition covered what physical AI is and how it reaches the car's cabin; this edition is a five-year forecast of physical AI across factories and warehouses, homes and care, and farms, construction, energy and defense, with work, value capture and daily life as the impact lenses.
+- **Cabin and driving material** is no longer in the report; it is covered by the Mobility Product Outlook, the In-Car AI Assistant Benchmark and One cabin, several people. Driving appears only as a proof point.
+- **Corrections to October figures:** Unitree listed on 19 August, not in July; the IFR 2025 figures are "more than 600,000" installs and China 59%; Gartner's humanoid prediction is "fewer than 20 companies going live in production" by 2028.
+- **Other files:** home page (publication card, Start here, map cell, refresh list, What changed), feed, sitemap, README and the 404 list updated; related-report cards on three reports and the cross-links in One cabin, several people now use the new title; `tools/og-cards.json` and `tools/make-covers.py` carry the new social card and cover (columns of squares stepping down).
+- **Research:** three-model round (Claude, Gemini, ChatGPT) on one written brief; Gemini's figures that no source supported were dropped. The annual refresh moves from October to November 2027.
+
 ### 3 November 2026 — new Shifts report: Trip Discovery Outlook 2026–2031
 - **New page** `trip-discovery/`: a forecast of how AI answers and agents, social video and new devices change how people discover, plan and book trips, and decide during them, through 2031, built on the report template (opener, 60-second takeaways, at-a-glance infographic, nine chapters, method and references). Central case "Answers up front, brands at checkout": AI answers, mostly Google's, lead discovery and planning, while travel brands and platforms keep the booking, the payment and the service. Six shifts, the forces that slow them, four scenarios with signposts, the US, Europe and East Asia as three setups, and a short check of how past forecasts fared. 63 references. Includes Alphabet and Booking Holdings third-quarter 2026 results; Expedia, Airbnb, Tripadvisor and Trip.com follow in an update.
 - **Home page:** added as the lead publication and "Latest"; added as 04 in Start here (later rows renumbered); the Travel / Shifts map cell now links to it; added to the refresh list (Nov 2027); "What changed" entry added and the oldest row dropped. Media and Learning moves to a standard card with its portrait cover.
@@ -176,7 +183,10 @@
 - "How topics are found": six lenses (time, attention, state of mind, social context, space, transitions), placed after the reports and opportunities.
 - Short author bio added to About.
 
-## Physical AI and the Rider’s Cabin
+## Physical AI Outlook 2026–2031 (previously Physical AI and the Rider’s Cabin)
+
+### 3 November 2026 — rewritten as a 2026–2031 outlook
+- Replaced the cabin edition with a five-year forecast at a new address; see the site-wide entry for details. Entries below describe the October edition.
 
 ### 15 October 2026 — at-a-glance infographic
 - New At a glance section at the top (Tesla, Waymo, Baidu and humanoid anchors, the Waymo growth bars, the adoption ranking, Apollo Go, humanoid and venture charts and the three cabin stages, all read from the sections below), with a PNG download and a per-report social preview. No figures changed.

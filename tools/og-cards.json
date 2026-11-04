@@ -56,22 +56,22 @@
       ]
     ]
   },
-  "physical-ai-cabin": {
-    "eyebrow": "INDEPENDENT RESEARCH · PHYSICAL AI",
-    "line1": "Physical AI and",
-    "line2": "the Rider’s Cabin",
+  "physical-ai-outlook": {
+    "eyebrow": "INDEPENDENT RESEARCH · SHIFTS · PHYSICAL AI",
+    "line1": "Physical AI",
+    "line2": "Outlook 2026–2031",
     "stats": [
       [
-        "1.48M",
-        "Tesla FSD (Supervised) subscriptions"
+        "5M",
+        "industrial robots in operation worldwide"
       ],
       [
-        "~500k",
-        "Waymo paid rides a week"
+        "~7,000",
+        "full-size humanoids sold in 2025"
       ],
       [
-        "~13,000",
-        "humanoids shipped worldwide in 2025"
+        "0.3%",
+        "of job tasks where robots are cost-competitive"
       ]
     ]
   },
