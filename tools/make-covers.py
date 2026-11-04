@@ -13,6 +13,9 @@ The motifs are drawn from each report's own structure, not decoration:
 - One cabin, several people (opportunity brief): three bars to scale, hours a
   year per person riding as a car passenger (solid to the low estimate, dashed to
   the high one), lost to congestion, and flying (the brief's comparison).
+- Trip Discovery Outlook: four stations on one path, one per role in a booking
+  (answer screen, inventory, merchant of record, service); the first, which AI
+  moves fastest, is filled.
 - Agentic AI and the Consumer, Physical AI and the Rider's Cabin: abstract
   (a hand-off from one point to many; a cabin seen from above). No data.
 Covers are always dark plates, so they read the same in light and dark themes.
@@ -98,12 +101,33 @@ def shared(cx, cy, s):
     return "".join(out)
 
 
+TRIP_ROLES = 4  # roles in a booking (report chapter 7)
+
+
+def trip(cx, cy, s):
+    gap = 92 * s
+    xs = [cx - gap * 1.5 + i * gap for i in range(TRIP_ROLES)]
+    ys = [cy + 70 * s * math.sin(i * 1.05 - 1.6) for i in range(TRIP_ROLES)]
+    tx, ty = xs[0] - 110 * s, ys[0] + 90 * s
+    pts = [(tx, ty)] + list(zip(xs, ys))
+    d = "M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in pts)
+    out = [f'<path d="{d}" fill="none" stroke="{LINE}" stroke-width="{4 * s:.1f}" stroke-linejoin="round"/>']
+    for i, (x, y) in enumerate(zip(xs, ys)):
+        if i == 0:
+            out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{30 * s:.1f}" fill="{TEAL}"/>')
+        else:
+            out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{22 * s:.1f}" fill="{INK}" stroke="{TEAL}" stroke-width="{4 * s:.1f}"/>')
+    out.append(f'<circle cx="{tx:.1f}" cy="{ty:.1f}" r="{16 * s:.1f}" fill="{ORANGE}"/>')
+    return "".join(out)
+
+
 REPORTS = {
     "mega-trends-2040": (mega, "Seven arcs, one per force in Mega Trends Outlook 2040; each arc's length is the trend's score out of 20."),
     "agentic-consumer-outlook": (agentic, "Abstract cover: one point handing tasks to many."),
     "mobility-product-outlook": (mobility, "Twelve spokes, one per dimension of the product-definition framework."),
     "physical-ai-cabin": (cabin, "Abstract cover: a four-seat cabin seen from above, one rider marked."),
     "incar-ai-benchmark": (benchmark, "21 dots in 7 columns: 21 assistants scored on 7 capability dimensions."),
+    "trip-discovery": (trip, "Four stations on one path, one per role in a booking: the answer screen (filled), the inventory, the merchant of record and service; a traveler point starts the path."),
     "shared-cabin": (shared, "Three bars to scale: hours a year per person riding as a car passenger, lost to congestion, and flying."),
 }
 
