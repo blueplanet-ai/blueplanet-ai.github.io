@@ -100,7 +100,7 @@ def shared(cx, cy, s):
 
 REPORTS = {
     "mega-trends-2040": (mega, "Seven arcs, one per force in Mega Trends Outlook 2040; each arc's length is the trend's score out of 20."),
-    "agentic-consumer-2027": (agentic, "Abstract cover: one point handing tasks to many."),
+    "agentic-consumer-outlook": (agentic, "Abstract cover: one point handing tasks to many."),
     "mobility-product-outlook": (mobility, "Twelve spokes, one per dimension of the product-definition framework."),
     "physical-ai-cabin": (cabin, "Abstract cover: a four-seat cabin seen from above, one rider marked."),
     "incar-ai-benchmark": (benchmark, "21 dots in 7 columns: 21 assistants scored on 7 capability dimensions."),

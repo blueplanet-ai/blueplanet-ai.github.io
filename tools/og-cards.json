@@ -56,25 +56,6 @@
       ]
     ]
   },
-  "agentic-consumer-2027": {
-    "eyebrow": "INDEPENDENT RESEARCH · CONSUMER BEHAVIOR · 2027 OUTLOOK",
-    "line1": "Agentic AI and",
-    "line2": "the Consumer",
-    "stats": [
-      [
-        "+693%",
-        "AI-referred US retail traffic, holiday 2025"
-      ],
-      [
-        "5–39%",
-        "would let an agent complete a purchase"
-      ],
-      [
-        "9%",
-        "open to fully autonomous purchasing"
-      ]
-    ]
-  },
   "physical-ai-cabin": {
     "eyebrow": "INDEPENDENT RESEARCH · PHYSICAL AI",
     "line1": "Physical AI and",
@@ -167,6 +148,25 @@
       [
         ">50%",
         "of Deezer’s daily uploads are AI-made"
+      ]
+    ]
+  },
+  "agentic-consumer-outlook": {
+    "eyebrow": "INDEPENDENT RESEARCH · SHIFTS · SHARED · MOBILITY",
+    "line1": "Agentic AI Consumer",
+    "line2": "Outlook 2026–2031",
+    "stats": [
+      [
+        "$0.2–1T",
+        "US agentic commerce in 2030: forecasts differ 5×"
+      ],
+      [
+        "11%",
+        "would let AI make the purchase decision"
+      ],
+      [
+        "400M+",
+        "used Amazon’s Alexa for Shopping in a year"
       ]
     ]
   }

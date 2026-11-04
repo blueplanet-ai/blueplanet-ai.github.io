@@ -2,6 +2,11 @@
 
 ## Site-wide
 
+### 2 November 2026 — Agentic AI and the Consumer rewritten as a 2026–2031 outlook
+- **Replaced** `agentic-consumer-2027/` with `agentic-consumer-outlook/` (no year in the address, so later editions keep the link). Title: "Agentic AI and the Consumer Outlook 2026–2031". The October 2026 edition (a 2027 outlook built on current statistics) is condensed into one baseline chapter; the new report is a five-year forecast with a delegation ladder, five shifts, a mobility chapter, three scenarios and signposts. The cover is unchanged.
+- **Research:** Claude, Gemini and ChatGPT answered the same written brief; Claude compared the three files, opened the primary pages behind new figures and ran a second pass on automotive, track record, UK regulators and expert views. Unverified items are listed on the page and left out of the text.
+- **Link updates only (no restyling):** home page (cards, map cell, refresh list, "What changed"), feed, sitemap, README, 404 list, `tools/og-cards.json`, `tools/make-covers.py` key, and the "Continue down the map" cards and reference entries in the Mega Trends, Trip discovery, Media and Learning, Shared cabin, Mobility, Physical AI and In-Car benchmark pages. The old address is not redirected.
+
 ### 1 November 2026 — theme control: System / Light / Dark
 - **Fix:** once a reader clicked the old light/dark button, the saved choice overrode the device setting for good, with no way back to "follow the system" (seen in Safari: the site stayed in one theme after the Mac or iPhone changed). The button is replaced by a three-way control: System (monitor), Light (sun), Dark (moon). System clears the saved choice, so the site follows the device again, live.
 - **Behavior:** the selected mode is filled and exposed with `aria-pressed`; a previously saved "light" or "dark" keeps working; an invalid saved value is treated as System; other open tabs update when the choice changes. Icon-only, 32 × 34 px buttons, right-aligned at the end of the nav on every page (on report pages at phone width it wraps to its own row). It borrows each page's tokens, so no color tokens changed; dark mode is unchanged.
