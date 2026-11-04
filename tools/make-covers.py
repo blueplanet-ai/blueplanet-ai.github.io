@@ -16,8 +16,8 @@ The motifs are drawn from each report's own structure, not decoration:
 - Trip Discovery Outlook: four stations on one path, one per role in a booking
   (answer screen, inventory, merchant of record, service); the first, which AI
   moves fastest, is filled.
-- Agentic AI and the Consumer, Physical AI and the Rider's Cabin: abstract
-  (a hand-off from one point to many; a cabin seen from above). No data.
+- Agentic AI and the Consumer, Physical AI Outlook: abstract
+  (a hand-off from one point to many; columns stepping down from structured work to the home). No data.
 Covers are always dark plates, so they read the same in light and dark themes.
 They carry no text; titles are set in the page.
 If a report's structure changes (a rescore, a new assistant), update the numbers
@@ -70,14 +70,23 @@ def mobility(cx, cy, s):
     return "".join(out)
 
 
-def cabin(cx, cy, s):
-    w, h = 220 * s, 300 * s
-    x0, y0 = cx - w / 2, cy - h / 2
-    seat = lambda x, y, c: f'<rect x="{x:.1f}" y="{y:.1f}" width="{70 * s:.1f}" height="{90 * s:.1f}" rx="{6 * s:.1f}" fill="none" stroke="{c}" stroke-width="{6 * s:.1f}"/>'
-    return (f'<rect x="{x0:.1f}" y="{y0:.1f}" width="{w:.1f}" height="{h:.1f}" rx="{40 * s:.1f}" fill="none" stroke="{LINE}" stroke-width="{5 * s:.1f}"/>'
-            + seat(x0 + 25 * s, y0 + 40 * s, TEAL) + seat(x0 + 125 * s, y0 + 40 * s, TEAL)
-            + seat(x0 + 25 * s, y0 + 165 * s, ORANGE) + seat(x0 + 125 * s, y0 + 165 * s, TEAL)
-            + f'<path d="M{x0 - 16 * s:.1f} {y0 + 70 * s:.1f} V{y0 + h - 70 * s:.1f}" stroke="{PALE}" stroke-width="{8 * s:.1f}" stroke-linecap="round"/>')
+def physical(cx, cy, s):
+    # six columns of squares stepping down from left to right: where machines pay first, to where they pay last
+    heights = [7, 6, 4, 3, 2, 1]
+    q, g = 30 * s, 12 * s
+    w = len(heights) * q + (len(heights) - 1) * g
+    x0, yb = cx - w / 2, cy + 3.5 * (q + g)
+    out = []
+    for i, n in enumerate(heights):
+        for k in range(n):
+            x, y = x0 + i * (q + g), yb - (k + 1) * (q + g) + g
+            if i == 0 and k == n - 1:
+                out.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{q:.1f}" height="{q:.1f}" rx="{4 * s:.1f}" fill="{ORANGE}"/>')
+            elif i == len(heights) - 1:
+                out.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{q:.1f}" height="{q:.1f}" rx="{4 * s:.1f}" fill="none" stroke="{LINE}" stroke-width="{3 * s:.1f}"/>')
+            else:
+                out.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{q:.1f}" height="{q:.1f}" rx="{4 * s:.1f}" fill="{TEAL if i < 3 else LINE}"/>')
+    return "".join(out)
 
 
 def benchmark(cx, cy, s):
@@ -125,7 +134,7 @@ REPORTS = {
     "mega-trends-2040": (mega, "Seven arcs, one per force in Mega Trends Outlook 2040; each arc's length is the trend's score out of 20."),
     "agentic-consumer-outlook": (agentic, "Abstract cover: one point handing tasks to many."),
     "mobility-product-outlook": (mobility, "Twelve spokes, one per dimension of the product-definition framework."),
-    "physical-ai-cabin": (cabin, "Abstract cover: a four-seat cabin seen from above, one rider marked."),
+    "physical-ai-outlook": (physical, "Abstract cover: six columns of squares stepping down from left to right, one orange square at the top of the first."),
     "incar-ai-benchmark": (benchmark, "21 dots in 7 columns: 21 assistants scored on 7 capability dimensions."),
     "trip-discovery": (trip, "Four stations on one path, one per role in a booking: the answer screen (filled), the inventory, the merchant of record and service; a traveler point starts the path."),
     "shared-cabin": (shared, "Three bars to scale: hours a year per person riding as a car passenger, lost to congestion, and flying."),
