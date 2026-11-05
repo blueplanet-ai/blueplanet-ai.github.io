@@ -78,10 +78,6 @@ p{margin:0}
 .tag.derived{border-style:dashed}
 
 /* nav */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
-.nav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-block:8px}
-.nav a{font-size:13px;text-decoration:none;color:var(--ink-2);padding:5px 10px;border-radius:6px;white-space:nowrap}
-.nav a:hover{background:var(--surface-2);color:var(--ink)}
 
 /* header */
 header.hero{padding-block:56px 40px}
@@ -161,7 +157,7 @@ td.c,th.c{text-align:center}
 [data-tip]{cursor:default}
 
 /* trend dossier */
-.trend{padding-block:56px;border-top:1px solid var(--rule);scroll-margin-top:56px}
+.trend{padding-block:56px;border-top:1px solid var(--rule)}
 .trend-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:start}
 .trend-badge{width:64px;height:64px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-size:1.7rem;color:#fff;background:var(--c)}
 .trend-head .thesis{font-family:var(--f-display);font-size:20px;color:var(--ink-2);margin-top:8px;max-width:62ch;line-height:1.4}
@@ -282,7 +278,7 @@ h1{font-size:clamp(30px,5.2vw,50px)}
 .trend-head .thesis{font-family:var(--f-body)}
 .kpi .v{font-family:var(--f-ui);font-weight:600;letter-spacing:-.01em}
 .wc .big,.horizon-key span{font-family:var(--f-ui)}
-table,.nav a,.legend,.net-controls button,.small,.kpi .l,.src,.score-pill,.mobility,.ledger,.tl-row .nm,.so-what ul,.horizons p,.moves ul,.insight p,.loop p,.quad p,.wc p{font-family:var(--f-ui)}
+table,.legend,.net-controls button,.small,.kpi .l,.src,.score-pill,.mobility,.ledger,.tl-row .nm,.so-what ul,.horizons p,.moves ul,.insight p,.loop p,.quad p,.wc p{font-family:var(--f-ui)}
 h4,.rank-name,.kpi .s,.meter-legend,.constants,.ledger b{font-family:var(--f-ui)}
 .chart text{font-family:var(--f-ui)}
 .chart text.mono{font-family:var(--f-mono)}
@@ -540,10 +536,9 @@ a.gl-name:hover{color:var(--g-accent)}
       <div><b>Far</b><span>2036–2040</span></div>
     </div>
 </div>
-<nav class="nav" aria-label="Sections"><div class="wrap">
-  <a href="#glance">At a glance</a><a href="#summary">Summary</a><a href="#method">Selection</a>
-  <a href="#t1">T1 AI</a><a href="#t2">T2 Climate</a><a href="#t3">T3 Geopolitics</a><a href="#t4">T4 Electrification</a><a href="#t5">T5 Demographics</a><a href="#t6">T6 Growth &amp; debt</a><a href="#t7">T7 Social contract</a>
-  <a href="#interactions">Interactions</a><a href="#roadmap">Roadmap</a><a href="#scenarios">Scenarios</a><a href="#wildcards">Wildcards</a><a href="#moves">Implications</a><a href="#caveats">Caveats</a><a href="#flags">Verification</a><a href="#about">About</a><a href="#refs">Sources</a>
+<nav class="ro-toc" aria-labelledby="roTocH"><div class="ro-inner">
+  <h2 id="roTocH">In this report</h2>
+  <ol><li><a href="#glance"><span>01</span>At a glance</a></li><li><a href="#summary"><span>02</span>Summary</a></li><li><a href="#method" data-short="Selection"><span>03</span>How the trends were selected</a></li><li><a href="#t1" data-short="T1 AI"><span>04</span>Trend 1: AI infrastructure</a></li><li><a href="#t2" data-short="T2 Climate"><span>05</span>Trend 2: Climate overshoot</a></li><li><a href="#t3" data-short="T3 Geopolitics"><span>06</span>Trend 3: Contested multipolarity</a></li><li><a href="#t4" data-short="T4 Electrification"><span>07</span>Trend 4: Electrification and minerals</a></li><li><a href="#t5" data-short="T5 Demographics"><span>08</span>Trend 5: Demographic divergence</a></li><li><a href="#t6" data-short="T6 Growth &amp; debt"><span>09</span>Trend 6: Growth and debt</a></li><li><a href="#t7" data-short="T7 Social contract"><span>10</span>Trend 7: The social contract</a></li><li><a href="#interactions" data-short="Interactions"><span>11</span>How the trends collide</a></li><li><a href="#roadmap" data-short="Roadmap"><span>12</span>Dated milestones, 2026 to 2040</a></li><li><a href="#scenarios" data-short="Scenarios"><span>13</span>Four scenarios to 2040</a></li><li><a href="#wildcards"><span>14</span>Wildcards</a></li><li><a href="#moves" data-short="Implications"><span>15</span>Implications for strategy</a></li><li><a href="#caveats"><span>16</span>Caveats</a></li><li><a href="#flags"><span>17</span>Verification</a></li><li><a href="#about" data-short="About"><span>18</span>About this report</a></li><li><a href="#refs" data-short="Sources"><span>19</span>References</a></li></ol>
 </div></nav>
 
 

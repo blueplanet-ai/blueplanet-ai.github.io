@@ -2,6 +2,12 @@
 
 ## Site-wide
 
+### 4 November 2026 — section bar on every report
+- **Section bar:** all ten reports now share one pinned bar of section shortcuts. It is built by `assets/report-opener.js` from each page's "In this report" list, appears once that list scrolls away, marks the section being read and hides again near the top. Short bar labels come from `data-short` on the contents links. Added to Agentic AI and the Consumer, Media and Learning, Physical AI, Trip Discovery, One cabin several people, the In-Car AI Assistant Benchmark, the terminal benchmark and What people do on the move.
+- **Mega Trends and the Mobility Product Outlook:** their own sticky bars are replaced by an "In this report" list and the shared bar, so all reports match.
+- **Mobility Product Outlook:** the region lens is removed (it only dimmed two columns in the comparison tables). "Where the new products are" now shows interactive OpenStreetMap maps (Leaflet 1.9.4) instead of flat latitude–longitude plots; in dark mode the map tiles are darkened with a CSS filter.
+- **Other files:** `.gitignore` now ignores Python caches.
+
 ### 3 November 2026 — Physical AI and the Rider's Cabin rewritten as a 2026–2031 outlook
 - **Replaced** `physical-ai-cabin/` with `physical-ai-outlook/` (no year in the address; the old address is not redirected). New title: "Physical AI Outlook 2026–2031". The October edition covered what physical AI is and how it reaches the car's cabin; this edition is a five-year forecast of physical AI across factories and warehouses, homes and care, and farms, construction, energy and defense, with work, value capture and daily life as the impact lenses.
 - **Cabin and driving material** is no longer in the report; it is covered by the Mobility Product Outlook, the In-Car AI Assistant Benchmark and One cabin, several people. Driving appears only as a proof point.

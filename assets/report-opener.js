@@ -56,4 +56,61 @@
       }
     });
   }
+
+  /* Section bar: a pinned copy of the "In this report" list that appears once the list has
+     scrolled above the viewport and marks the section in view. Label: the link's data-short, or its title. */
+  var toc = document.querySelector('.ro-toc');
+  if(toc){
+    var src = [].slice.call(toc.querySelectorAll('a[href^="#"]')).filter(function(a){
+      return document.getElementById(a.getAttribute('href').slice(1));
+    });
+    if(src.length){
+      var bar = document.createElement('nav');
+      bar.className = 'ro-bar';
+      bar.setAttribute('aria-label', 'Sections');
+      var ol = document.createElement('ol');
+      var links = src.map(function(a){
+        var li = document.createElement('li'), b = document.createElement('a');
+        var full = a.cloneNode(true), n = full.querySelector('span'); if(n) n.remove();
+        b.href = a.getAttribute('href');
+        b.textContent = a.getAttribute('data-short') || full.textContent.trim();
+        li.appendChild(b); ol.appendChild(li);
+        return b;
+      });
+      var inner = document.createElement('div'); inner.className = 'ro-inner';
+      inner.appendChild(ol); bar.appendChild(inner);
+      toc.parentNode.insertBefore(bar, toc.nextSibling);
+      document.documentElement.classList.add('ro-has-bar');
+
+      var current = null;
+      function mark(id){
+        if(id === current) return; current = id;
+        links.forEach(function(b){
+          var on = b.getAttribute('href') === '#' + id;
+          if(on){
+            b.setAttribute('aria-current', 'true');
+            var l = b.parentNode.offsetLeft, r = l + b.parentNode.offsetWidth;
+            if(l < ol.scrollLeft) ol.scrollLeft = l - 16;
+            else if(r > ol.scrollLeft + ol.clientWidth) ol.scrollLeft = r - ol.clientWidth + 16;
+          } else { b.removeAttribute('aria-current'); }
+        });
+      }
+      /* Current section: the last one whose top has passed 30% of the viewport; at the very
+         bottom of the page, the last one (short closing sections never reach that line). */
+      var targets = links.map(function(b){ return document.getElementById(b.getAttribute('href').slice(1)); });
+      var ticking = false;
+      function spy(){
+        ticking = false;
+        var id = null, line = innerHeight * 0.3, root = document.documentElement;
+        bar.classList.toggle('on', toc.getBoundingClientRect().bottom < 0);
+        if(innerHeight + scrollY >= root.scrollHeight - 2) id = targets[targets.length - 1].id;
+        else targets.forEach(function(t){ if(t.getBoundingClientRect().top <= line) id = t.id; });
+        if(id) mark(id);
+        else { current = null; links.forEach(function(b){ b.removeAttribute('aria-current'); }); }
+      }
+      addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(spy); } }, { passive: true });
+      addEventListener('resize', spy);
+      spy();
+    }
+  }
 })();
