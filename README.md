@@ -44,7 +44,7 @@ A new report needs a motif function and an entry in `REPORTS` in that script.
 
 ## Report opener
 
-Every report opens with the same block: top bar, cover, layer and domain tags, Newsreader title, dek, research question, scope, byline, reading time, data-as-of date, next refresh, change-log link, Cite / Share / Infographic / References buttons, a "Cite as" line, and **The report in 60 seconds** (three takeaways). The three shorter reports also get an "In this report" contents list; Mega Trends and the Mobility Product Outlook keep their own sticky section bars.
+Every report opens with the same block: top bar, cover, layer and domain tags, Newsreader title, dek, research question, scope, byline, reading time, data-as-of date, next refresh, change-log link, Cite / Share / Infographic / References buttons, a "Cite as" line, and **The report in 60 seconds** (three takeaways). Every report with chapters then has an **In this report** contents list (`.ro-toc`). `assets/report-opener.js` copies that list into a section bar that slides in once the list has scrolled away, stays pinned to the top and marks the section being read. A contents link's `data-short` attribute sets its shorter bar label; without one, the bar uses the full title. Pages without a contents list (Method, the daily brief) get no bar.
 
 The markup lives in each `index.html`; the styles and the Cite and Share behavior are shared in `assets/report-opener.css` and `assets/report-opener.js`. The light/dark toggle is `assets/theme.js` and `assets/theme.css`, linked on every page. `404.html` is the not-found page.
 

@@ -23,6 +23,7 @@
 <meta property="og:image:alt" content="Mobility Product Outlook 2026–2031: how consumer electronics are redefining the car. Independent research by Chuhee Lee.">
 <meta name="twitter:image" content="https://blueplanet-ai.github.io/mobility-product-outlook/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>img{max-width:100%}[hidden]{display:none!important}:root{--signal-text:var(--signal-deep);}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--signal-text:var(--signal);}}
 :root[data-theme="dark"]{--signal-text:var(--signal);}
@@ -88,23 +89,8 @@ button{font:inherit;color:inherit;cursor:pointer;}
 .stamp{font-family:var(--font-mono);font-size:12px;line-height:2;color:var(--ink-3);border-left:2px solid var(--signal);padding-left:14px;flex:none;}
 .stamp b{color:var(--ink-2);font-weight:500;}
 
-.idx{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line);}
-.idx-inner{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:7px;display:flex;gap:14px;align-items:center;justify-content:space-between;}
-.nav{display:flex;gap:2px;overflow-x:auto;min-width:0;scrollbar-width:thin;}
-.nav a{white-space:nowrap;text-decoration:none;color:var(--ink-3);padding:5px 9px;font-family:var(--font-ui);font-size:13px;font-weight:500;border-bottom:2px solid transparent;}
-.nav a:hover{color:var(--ink);}
-.nav a.on{color:var(--ink);border-bottom-color:var(--signal);}
-.lens{display:flex;align-items:center;gap:8px;flex:none;}
-.lens .lbl{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);}
-.seg{display:inline-flex;border:1px solid var(--line-strong);}
-.seg button{border:0;border-right:1px solid var(--line-strong);background:transparent;padding:4px 10px;font-family:var(--font-ui);font-size:13px;font-weight:500;color:var(--ink-2);}
-.seg button:last-child{border-right:0;}
-.seg button[aria-pressed="true"]{background:var(--ink);color:var(--ground);}
-.seg button[data-r="us"][aria-pressed="true"]{background:var(--us);color:#fff;}
-.seg button[data-r="eu"][aria-pressed="true"]{background:var(--eu);color:#fff;}
-.seg button[data-r="cn"][aria-pressed="true"]{background:var(--cn);color:#fff;}
 
-section{padding-top:56px;scroll-margin-top:52px;}
+section{padding-top:56px;}
 .part{margin-top:64px;padding:14px 0 0;border-top:3px solid var(--ink);}
 .part .eyebrow{color:var(--ink-2);}
 .part h2{font-size:clamp(24px,3.4vw,32px);font-weight:600;letter-spacing:-.015em;margin-top:6px;}
@@ -281,10 +267,6 @@ tr.det .go{margin-top:8px;}
 .rt thead th.c-eu{color:var(--eu-t);box-shadow:inset 0 3px 0 var(--eu);}
 .rt thead th.c-cn{color:var(--cn-t);box-shadow:inset 0 3px 0 var(--cn);}
 .rt td.c-us,.rt td.c-eu,.rt td.c-cn{font-family:var(--font-body);font-size:15px;color:var(--ink-2);transition:opacity .15s;}
-[data-lens="us"] .rt .c-eu,[data-lens="us"] .rt .c-cn,[data-lens="eu"] .rt .c-us,[data-lens="eu"] .rt .c-cn,[data-lens="cn"] .rt .c-us,[data-lens="cn"] .rt .c-eu{opacity:.3;}
-[data-lens="us"] .rt td.c-us{background:color-mix(in srgb,var(--us) 12%,var(--surface));}
-[data-lens="eu"] .rt td.c-eu{background:color-mix(in srgb,var(--eu) 14%,var(--surface));}
-[data-lens="cn"] .rt td.c-cn{background:color-mix(in srgb,var(--cn) 12%,var(--surface));}
 .leadc{font-size:13px;font-weight:600;}
 .leadc.us{color:var(--us);} .leadc.eu{color:var(--eu-t);} .leadc.cn{color:var(--cn-t);} .leadc.none{color:var(--ink-3);}
 
@@ -317,7 +299,16 @@ tr.det .go{margin-top:8px;}
 .maps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;}
 .map{background:var(--surface);border:1px solid var(--line);padding:16px 16px 12px;min-width:0;}
 .map h3{font-size:15px;font-weight:600;margin-bottom:8px;}
-.map svg{width:100%;height:auto;display:block;background:var(--surface-2);}
+.mapbox{height:380px;background:var(--surface-2);z-index:0;}
+.map .leaflet-tooltip{font-family:var(--font-ui);font-size:11px;color:var(--ink);background:var(--surface);border:1px solid var(--line-strong);box-shadow:none;padding:1px 5px;}
+.map .mk svg{width:auto;height:auto;overflow:visible;}
+.map .leaflet-container{font-family:var(--font-ui);}
+.map .leaflet-tile-pane{transition:filter .2s;}
+.map .leaflet-control-attribution,.map .leaflet-bar a{background:var(--surface);color:var(--ink-2);border-color:var(--line-strong);}
+.map .leaflet-control-attribution a{color:var(--ink);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .map .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6);}}
+:root[data-theme="dark"] .map .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6);}
+@media print{.map .leaflet-tile-pane{filter:none!important;}}
 .map text{fill:var(--ink);font-family:var(--font-ui);}
 .legend{display:flex;flex-wrap:wrap;gap:6px;}
 .legend button.chip{display:inline-flex;align-items:center;gap:7px;}
@@ -365,11 +356,8 @@ details .body{padding:0 16px 14px 40px;font-size:15px;color:var(--ink-2);max-wid
 @media (max-width:860px){
   .sum-grid,.two,.charts,.maps,.dv-grid,.qs,.seatfig{grid-template-columns:minmax(0,1fr);}
   .dv-col + .dv-col{border-left:0;border-top:1px solid var(--line);}
-  .lens .lbl{display:none;}
 }
 @media (max-width:640px){
-  .idx-inner{flex-direction:column;align-items:stretch;gap:4px;}
-  .lens{justify-content:space-between;}
   .finding{grid-template-columns:minmax(0,1fr);gap:6px;}
   .watch .item{grid-template-columns:minmax(0,1fr);gap:4px;}
   .watch .item .pill{justify-self:start;}
@@ -603,24 +591,12 @@ a.gl-name:hover{color:var(--g-accent)}
   <p class="ro-legend"><b>Fact</b>: stated by the cited source. <b>Interpretation</b>: the author&rsquo;s reading of the cited evidence. <b>Hypothesis</b>: expected from the evidence but not yet observed. Figures inside every takeaway are sourced.</p>
 </div></section>
 
-<div class="idx">
-  <div class="idx-inner">
-    <nav class="nav" id="nav" aria-label="Sections">
-      <a href="#glance">At a glance</a><a href="#summary">Summary</a><a href="#shifts">What changed</a><a href="#expect">Expectations</a><a href="#context">Context</a><a href="#framework">Framework</a><a href="#future">Future cars</a><a href="#shared">Robotaxis</a><a href="#ranking">Tech ranking</a><a href="#dives">Deep dives</a><a href="#regions">Regions</a><a href="#map">Map</a><a href="#watch">Milestones</a><a href="#industry">Observations</a><a href="#method">Method</a>
-    </nav>
-    <div class="lens" role="group" aria-label="Region lens">
-      <span class="lbl">Region lens</span>
-      <div class="seg" id="lens">
-        <button type="button" data-r="all" aria-pressed="true">All</button>
-        <button type="button" data-r="us" aria-pressed="false">US</button>
-        <button type="button" data-r="eu" aria-pressed="false">Europe</button>
-        <button type="button" data-r="cn" aria-pressed="false">China</button>
-      </div>
-    </div>
-  </div>
-</div>
+<nav class="ro-toc" aria-labelledby="roTocH"><div class="ro-inner">
+  <h2 id="roTocH">In this report</h2>
+  <ol><li><a href="#glance"><span>01</span>At a glance</a></li><li><a href="#summary"><span>02</span>Summary</a></li><li><a href="#shifts" data-short="What changed"><span>03</span>Seven lessons from consumer electronics</a></li><li><a href="#expect" data-short="Expectations"><span>04</span>Expectations by market</a></li><li><a href="#context" data-short="Context"><span>05</span>The wider context</a></li><li><a href="#framework" data-short="Framework"><span>06</span>The product-definition framework</a></li><li><a href="#future" data-short="Future cars"><span>07</span>Cars of the future</a></li><li><a href="#shared" data-short="Robotaxis"><span>08</span>Robotaxi and shared-vehicle interiors</a></li><li><a href="#ranking" data-short="Tech ranking"><span>09</span>The technology ranking</a></li><li><a href="#dives"><span>10</span>Deep dives</a></li><li><a href="#regions" data-short="Regions"><span>11</span>US, Europe and China side by side</a></li><li><a href="#map" data-short="Map"><span>12</span>Where the new products are</a></li><li><a href="#watch" data-short="Milestones"><span>13</span>What moves next</a></li><li><a href="#industry" data-short="Observations"><span>14</span>Observations for the mobility industry</a></li><li><a href="#risks" data-short="Wildcards"><span>15</span>Wildcards and forecasting humility</a></li><li><a href="#method" data-short="Method"><span>16</span>Method and sources</a></li><li><a href="#refs"><span>17</span>References</a></li></ol>
+</div></nav>
 
-<main class="wrap" id="app" data-lens="all">
+<main class="wrap" id="app">
 
 <section id="glance">
   <div class="sec-head"><h2>At a glance</h2><span class="eyebrow">One-page summary</span></div>
@@ -855,7 +831,7 @@ a.gl-name:hover{color:var(--g-accent)}
 
 <section id="dives">
   <div class="sec-head"><h2>Deep dives</h2><span class="eyebrow">The top eight</span></div>
-  <p class="intro">Each technology&rsquo;s thesis, what it changes for you, the evidence, the outlook, the open questions and what it means for product definition. The region lens in the bar above dims the other two regions in each comparison table.</p>
+  <p class="intro">Each technology&rsquo;s thesis, what it changes for you, the evidence, the outlook, the open questions and what it means for product definition.</p>
   <div class="tabs" id="tabs" role="tablist" aria-label="Technologies"></div>
   <div class="dive" id="dive" role="tabpanel"></div>
 </section>
@@ -898,8 +874,8 @@ a.gl-name:hover{color:var(--g-accent)}
 </section>
 
 <section id="map">
-  <div class="sec-head"><h2>Where the new products are</h2><span class="eyebrow">Schematic map</span></div>
-  <p class="intro">Robotaxi services, Level 3 permits, car-to-grid programs and the first showrooms of electronics-style carmakers named in the research. Each panel is a flat latitude&ndash;longitude plot without a basemap, so positions are approximate. Switch layers with the chips.</p>
+  <div class="sec-head"><h2>Where the new products are</h2><span class="eyebrow">Map</span></div>
+  <p class="intro">Robotaxi services, Level 3 permits, car-to-grid programs and the first showrooms of electronics-style carmakers named in the research. Each panel is an interactive street map (&copy; OpenStreetMap contributors); drag or use +/&minus; to zoom. Positions are approximate. Switch layers with the chips.</p>
   <div class="controls"><div class="legend" id="legend"></div></div>
   <div class="maps" id="maps"></div>
   <p class="note">Country-wide programs (France, Germany, Switzerland) sit at an approximate country center. City lists are not exhaustive: Waymo served 15 US cities by 24 September 2026 (TechCrunch) and Apollo Go 28 cities as of August 2026 (Baidu).</p>
@@ -944,6 +920,9 @@ a.gl-name:hover{color:var(--g-accent)}
   <div class="sec-head"><h2>Method and sources</h2><span class="eyebrow">Read before citing</span></div>
   <h3 class="sub-h" id="changelog" style="margin-top:0">Change log</h3>
   <ul class="log">
+    <li class="loghead">4 November 2026</li>
+    <li><span>Changed</span><div>&ldquo;Where the new products are&rdquo; now uses interactive street maps (OpenStreetMap) instead of flat latitude&ndash;longitude plots. The sites and layers are unchanged.</div></li>
+    <li><span>Changed</span><div>An &ldquo;In this report&rdquo; contents list follows the 60-second summary, and the section bar now uses the same design as the site&rsquo;s other reports. The region lens, which dimmed two of the three regions in the comparison tables, was removed; the tables are unchanged.</div></li>
     <li class="loghead">18 October 2026</li>
     <li><span>Added</span><div>A note under the title says that some outlook statements look past 2031 and will be revisited at the October 2027 refresh. The report text is unchanged.</div></li>
     <li class="loghead">17 October 2026</li>
@@ -991,6 +970,7 @@ a.gl-name:hover{color:var(--g-accent)}
   <span><a href="../method/">How this research is made</a> &middot; <a href="../brief/">Daily brief</a> &middot; <a href="../">All publications</a></span>
 </div></footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 (function () {
   "use strict";
@@ -1522,16 +1502,6 @@ a.gl-name:hover{color:var(--g-accent)}
     $("#zooxFig").innerHTML = s;
   })();
 
-  /* ================= region lens ================= */
-  var lensBtns = $$("#lens button");
-  function setLens(r) {
-    app.setAttribute("data-lens", r);
-    lensBtns.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-r") === r ? "true" : "false"); });
-    try { sessionStorage.setItem("lens", r); } catch (e) {}
-  }
-  lensBtns.forEach(function (b) { b.addEventListener("click", function () { setLens(b.getAttribute("data-r")); }); });
-  try { var sv = sessionStorage.getItem("lens"); if (sv) setLens(sv); } catch (e) {}
-
   /* ================= ranking ================= */
   var state = { sort: "rank", time: "all", wt: 50, open: null };
   function pips(n) { var s = ""; for (var i = 1; i <= 5; i++) s += "<i" + (i <= n ? " class=\"f\"" : "") + "></i>"; return "<span class=\"pips\" role=\"img\" aria-label=\"" + n + " of 5\">" + s + "</span>"; }
@@ -1719,31 +1689,31 @@ a.gl-name:hover{color:var(--g-accent)}
     if (kind === "star") { var p = ""; for (var i = 0; i < 10; i++) { var r = i % 2 ? s * 0.55 : s * 1.4, a = Math.PI / 5 * i - Math.PI / 2; p += (i ? "L" : "M") + (x + r * Math.cos(a)).toFixed(1) + " " + (y + r * Math.sin(a)).toFixed(1); } return "<path d=\"" + p + "Z\" fill=\"" + c + "\"" + stroke + "/>"; }
     return "<circle cx=\"" + x + "\" cy=\"" + y + "\" r=\"" + (s + 3) + "\" fill=\"none\" stroke=\"" + c + "\" stroke-width=\"2\"/>";
   }
+  var MAPS = {};
   function renderMaps() {
-    var out = "";
+    if (typeof L === "undefined") { $("#maps").innerHTML = "<p class=\"note\">The map could not be loaded. Check your connection and reload.</p>"; return; }
     Object.keys(BOX).forEach(function (k) {
-      var b = BOX[k], W = 560, kx = Math.cos((b.lat[0] + b.lat[1]) / 2 * Math.PI / 180);
-      var pad = 34, plotW = W - pad * 2, sc = plotW / ((b.lon[1] - b.lon[0]) * kx), plotH = (b.lat[1] - b.lat[0]) * sc, H = plotH + pad * 2;
-      var X = function (lon) { return pad + (lon - b.lon[0]) * kx * sc; };
-      var Y = function (lat) { return pad + (b.lat[1] - lat) * sc; };
-      var g = "";
-      for (var la = Math.ceil(b.lat[0] / b.ls) * b.ls; la <= b.lat[1]; la += b.ls) g += "<line x1=\"" + pad + "\" x2=\"" + (W - pad) + "\" y1=\"" + Y(la) + "\" y2=\"" + Y(la) + "\" stroke=\"var(--line)\"/><text x=\"" + (pad - 6) + "\" y=\"" + (Y(la) + 4) + "\" font-size=\"10\" text-anchor=\"end\" style=\"fill:var(--ink-3)\">" + la + "°N</text>";
-      for (var lo = Math.ceil(b.lon[0] / b.ns) * b.ns; lo <= b.lon[1]; lo += b.ns) g += "<line y1=\"" + pad + "\" y2=\"" + (H - pad) + "\" x1=\"" + X(lo) + "\" x2=\"" + X(lo) + "\" stroke=\"var(--line)\"/><text x=\"" + X(lo) + "\" y=\"" + (H - pad + 14) + "\" font-size=\"10\" text-anchor=\"middle\" style=\"fill:var(--ink-3)\">" + Math.abs(lo) + "°" + (lo < 0 ? "W" : "E") + "</text>";
-      var marks = "", labs = "";
+      var b = BOX[k], m = MAPS[k];
+      if (!m) {
+        var wrap = document.createElement("div"); wrap.className = "map";
+        wrap.innerHTML = "<h3>" + b.t + "</h3><div class=\"mapbox\" role=\"region\" aria-label=\"" + b.t + " map\"></div>";
+        $("#maps").appendChild(wrap);
+        var map = L.map(wrap.querySelector(".mapbox"), { scrollWheelZoom: false, worldCopyJump: false });
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, attribution: "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors" }).addTo(map);
+        map.fitBounds([[b.lat[0], b.lon[0]], [b.lat[1], b.lon[1]]]);
+        m = MAPS[k] = { map: map, layer: L.layerGroup().addTo(map) };
+      }
+      m.layer.clearLayers();
       PTS[k].forEach(function (p) {
         if (!layerOn[p[0]]) return;
-        var L = LAYERS.filter(function (l) { return l.id === p[0]; })[0];
-        var x = X(p[3]), y = Y(p[2]);
-        marks += shape(L.shape, x, y, L.color);
-        var side = p[4] || "r", tx = x + 10, anchor = "start", ty = y + 4;
-        if (side === "l") { tx = x - 10; anchor = "end"; }
-        if (side === "lt") { tx = x - 10; anchor = "end"; ty = y - 8; }
-        if (side === "b") { tx = x; anchor = "middle"; ty = y + 20; }
-        labs += "<text x=\"" + tx + "\" y=\"" + ty + "\" font-size=\"11\" text-anchor=\"" + anchor + "\" stroke=\"var(--surface-2)\" stroke-width=\"3\" paint-order=\"stroke\">" + esc(p[1]) + "</text>";
+        var LY = LAYERS.filter(function (l) { return l.id === p[0]; })[0];
+        var icon = L.divIcon({ className: "mk", iconSize: [20, 20], iconAnchor: [10, 10], html: "<svg viewBox=\"-10 -10 20 20\" width=\"20\" height=\"20\" aria-hidden=\"true\">" + shape(LY.shape, 0, 0, LY.color) + "</svg>" });
+        var side = p[4] || "r", dir = side === "l" || side === "lt" ? "left" : side === "b" ? "bottom" : "right";
+        L.marker([p[2], p[3]], { icon: icon, title: p[1], keyboard: false })
+          .bindTooltip(esc(p[1]), { permanent: true, direction: dir, offset: dir === "left" ? [-8, 0] : dir === "right" ? [8, 0] : [0, 8] })
+          .addTo(m.layer);
       });
-      out += "<div class=\"map\"><h3>" + b.t + "</h3><svg viewBox=\"0 0 " + W + " " + H + "\" role=\"img\" aria-label=\"" + b.t + " sites\"><rect x=\"" + pad + "\" y=\"" + pad + "\" width=\"" + plotW + "\" height=\"" + plotH + "\" fill=\"none\" stroke=\"var(--line-strong)\"/>" + g + marks + labs + "</svg></div>";
     });
-    $("#maps").innerHTML = out;
   }
   $("#legend").innerHTML = LAYERS.map(function (l) {
     return "<button type=\"button\" class=\"chip\" data-l=\"" + l.id + "\" aria-pressed=\"true\"><svg viewBox=\"-8 -8 16 16\" aria-hidden=\"true\">" + shape(l.shape, 0, 0, l.color, 4.5) + "</svg>" + esc(l.name) + "</button>";
@@ -1787,13 +1757,6 @@ a.gl-name:hover{color:var(--g-accent)}
   }).join("");
 
   renderRank(); renderTabs(); renderDive(); renderMaps();
-  var links = $$("#nav a");
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (ents) {
-      ents.forEach(function (en) { if (en.isIntersecting) links.forEach(function (a) { a.classList.toggle("on", a.getAttribute("href") === "#" + en.target.id); }); });
-    }, { rootMargin: "-20% 0px -70% 0px" });
-    $$("section[id]").forEach(function (s) { io.observe(s); });
-  }
 /* ---------- AT A GLANCE (infographic): shared helpers ---------- */
 var GL={
  esc:function(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");},

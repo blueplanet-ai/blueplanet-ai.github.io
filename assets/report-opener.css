@@ -128,6 +128,23 @@ section.ro-60{background:var(--ro-plate);color:var(--ro-plate-ink);padding:0;mar
 .ro-toc a:hover{color:var(--ro-signal-deep);}
 .ro-toc a span{font-family:var(--ro-mono);font-size:12px;color:var(--ro-ink-3);flex:none;min-width:2ch;}
 
+/* Section bar: built by report-opener.js from the contents list above. It slides in once the
+   contents list has scrolled away, stays pinned to the top and marks the section being read.
+   A link's data-short gives its bar label; otherwise the bar uses the contents title. */
+.ro-bar{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--ro-surface);border-bottom:1px solid var(--ro-line);transform:translateY(-101%);visibility:hidden;transition:transform .2s ease,visibility 0s linear .2s;}
+.ro-bar.on{transform:none;visibility:visible;transition:transform .2s ease;}
+.ro-bar .ro-inner{padding-block:5px;}
+.ro-bar ol{position:relative;list-style:none;margin:0;padding:0;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.ro-bar ol::-webkit-scrollbar{display:none;}
+.ro-bar li{flex:none;}
+.ro-bar a{display:block;white-space:nowrap;text-decoration:none;color:var(--ro-ink-3);padding:6px 9px;font-family:var(--ro-ui);font-size:13px;font-weight:500;line-height:1.3;border-bottom:2px solid transparent;}
+.ro-bar a:hover{color:var(--ro-ink);}
+.ro-bar a[aria-current="true"]{color:var(--ro-ink);border-bottom-color:var(--ro-signal);}
+.ro-bar a:focus-visible{outline:2px solid var(--ro-signal);outline-offset:-2px;}
+html.ro-has-bar{scroll-padding-top:52px;}
+@media (prefers-reduced-motion:reduce){.ro-bar,.ro-bar.on{transition:none;}}
+@media print{.ro-bar{display:none!important;}}
+
 /* Mega Trends: the ranking panel that used to sit in the hero, kept just below the opener */
 .ro-rank{display:grid;gap:14px;padding-top:36px;padding-bottom:8px;}
 .ro-rank .horizon-key{margin-top:0;}
